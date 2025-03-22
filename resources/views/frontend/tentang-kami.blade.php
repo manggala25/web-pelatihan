@@ -1,0 +1,9 @@
+@extends('frontend.layouts.app') <!-- Memanggil layout utama -->
+
+@section('content')
+  <section id="1">
+    <div class="thm-container">
+      <h1>Ini Tentang Kami</h1>
+    </div>
+  </section>
+@endsection
