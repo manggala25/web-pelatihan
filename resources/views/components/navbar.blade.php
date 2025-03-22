@@ -40,15 +40,6 @@
                             class="topbar__info-text topbar__info-text--email">noile@envato.com</a>
                     </li>
                 </ul><!-- /.topbar__date -->
-                <div class="topbar__language topbar__right-item">
-                    <img src="{{ asset('template/frontend/assets/images/resources/flag-1-1.png') }}" alt="flag">
-                    <label class="sr-only" for="language-select">select language</label>
-                    <!-- /#language-select.sr-only -->
-                    <select class="selectpicker" id="language-select-header">
-                        <option value="english">English</option>
-                        <option value="arabic">Arabic</option>
-                    </select>
-                </div><!-- /.topbar__language -->
             </div><!-- /.topbar__left -->
 
         </div><!-- /.container -->
