@@ -24,9 +24,6 @@
                         <a href="#" class="main-menu__social-link social-link">
                             <i class="icofont-instagram"></i>
                         </a>
-                        <a href="#" class="main-menu__social-link social-link">
-                            <i class="icofont-pinterest"></i>
-                        </a>
                     </div>
                 </div><!-- /.footer-one__about -->
             </div>

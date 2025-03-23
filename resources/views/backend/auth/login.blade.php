@@ -1,36 +1,66 @@
 <!DOCTYPE html>
-<html lang="id">
+<html dir="ltr">
+  <x-admin.head />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Admin</title>
-  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-</head>
-
-<body>
-  <div class="container">
-    <h2>Login Admin</h2>
-
-    @if ($errors->any())
-    <div style="color: red;">
-      @foreach ($errors->all() as $error)
-      <p>{{ $error }}</p>
-    @endforeach
+  <body>
+    <div class="main-wrapper">
+      <!-- ============================================================= -->
+      <!-- Preloader - style you can find in spinners.css -->
+      <!-- ============================================================= -->
+      <x-admin.preloader />
+      <!-- ============================================================= -->
+      <!-- Preloader - style you can find in spinners.css -->
+      <!-- ============================================================= -->
+      <!-- ============================================================= -->
+      <!-- Login box.scss -->
+      <!-- ============================================================= -->
+      <div class="
+          auth-wrapper
+          d-flex
+          justify-content-center
+          align-items-center
+          vh-100
+          bg-light
+      ">
+        <div class="auth-box p-4 bg-white rounded shadow">
+          <div id="loginform">
+            <div class="logo text-center">
+              <h3 class="box-title mb-3">Login Admin</h3>
+            </div>
+      
+            @if ($errors->any())
+        <div class="alert alert-danger">
+          @foreach ($errors->all() as $error)
+        <p>{{ $error }}</p>
+      @endforeach
+        </div>
+      @endif
+      
+            <!-- Form -->
+            <form class="form-horizontal mt-3" action="{{ url(config('admin.prefix') . '/login') }}" method="POST">
+              @csrf
+              <div class="form-group mb-3">
+                <label>Email:</label>
+                <input class="form-control" type="email" name="email" required placeholder="Masukkan Email" />
+              </div>
+              <div class="form-group mb-4">
+                <label>Password:</label>
+                <input class="form-control" type="password" name="password" required placeholder="Masukkan Password" />
+              </div>
+              <div class="form-group text-center">
+                <button class="btn btn-primary w-100" type="submit">Login</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- ============================================================= -->
+      <!-- Login box.scss -->
+      <!-- ============================================================= -->
     </div>
-  @endif
-
-    <form action="{{ url(config('admin.prefix') . '/login') }}" method="POST">
-      @csrf
-      <label>Email:</label>
-      <input type="email" name="email" required><br><br>
-
-      <label>Password:</label>
-      <input type="password" name="password" required><br><br>
-
-      <button type="submit">Login</button>
-    </form>
-  </div>
-</body>
-
+    <!-- ============================================================= -->
+    <!-- All Required js -->
+    <!-- ============================================================= -->
+    <x-admin.script />
+  </body>
 </html>

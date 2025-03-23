@@ -18,7 +18,7 @@
   </div><!-- /.page-wrapper -->
 
   {{-- sidebar --}}
-  <x-sidebar />
+  {{-- <x-sidebar /> --}}
 
   <x-script />
 </body>

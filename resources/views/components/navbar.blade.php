@@ -137,8 +137,12 @@
                     <li class="{{ request()->routeIs('kontak') ? 'current' : '' }}">
                         <a href="{{ route('kontak') }}">Kontak</a>
                     </li>
-                    <li><a href="#">Tema Pelatihan</a></li>
-                    <li><a href="#">Jadwal Pelatihan</a></li>
+                    <li class="{{ request()->routeIs('tema-pelatihan') ? 'current' : '' }}">
+                        <a href="{{ route('tema-pelatihan') }}">Tema Pelatihan</a>
+                    </li>
+                    <li class="{{ request()->routeIs('jadwal-pelatihan') ? 'current' : '' }}">
+                        <a href="{{ route('jadwal-pelatihan') }}">Jadwal Pelatihan</a>
+                    </li>
                     <li class="dropdown {{ request()->is('galeri*') ? 'current' : '' }}">
                         <a href="#">Galeri<i class="fas fa-angle-down"></i></a>
                         <ul>
@@ -155,7 +159,7 @@
                     <span class="mobile-nav__toggler-bars"></span>
                     <span class="mobile-nav__toggler-bars"></span>
                 </button><!-- /.mobile-nav__toggler -->
-                <button type="button" class="sidebar-btn__toggler">
+                {{-- <button type="button" class="sidebar-btn__toggler">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -165,7 +169,7 @@
                     <span></span>
                     <span></span>
                     <span></span>
-                </button><!-- /.main-menu-one__sidebar-btn -->
+                </button><!-- /.main-menu-one__sidebar-btn --> --}}
             </div><!-- /.main-menu-one__right -->
         </div><!-- /.container -->
     </nav><!-- /.main-menu-one -->

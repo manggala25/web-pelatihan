@@ -40,6 +40,14 @@ Route::get('/tentang-kami', function () {
     return view('frontend.tentang-kami');
 })->name('tentang-kami');
 
+Route::get('/tema-pelatihan', function () {
+    return view('frontend.tema-pelatihan');
+})->name('tema-pelatihan');
+
+Route::get('/jadwal-pelatihan', function () {
+    return view('frontend.jadwal-pelatihan');
+})->name('jadwal-pelatihan');
+
 
 
 
