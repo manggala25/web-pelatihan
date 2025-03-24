@@ -40,22 +40,18 @@
 <script src="{{  asset('template/backend/package/html/main/../../dist/js/pages/tables/footable-init.js') }}"></script>
 
 <!-- This Page JS -->
-<script src="{{ asset('template/backend/package/html/main/../../assets/libs/tinymce/tinymce.min.js') }}"></script>
+<!-- codemirror -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.41.0/codemirror.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.41.0/mode/xml/xml.min.js"></script>
+<script src="{{ asset('template/backend/package/html/main/../../assets/extra-libs/summernote/summernote-lite.min.js') }}"></script>
 <script>
-    $(function () {
-        if ($("#mymce").length > 0) {
-            tinymce.init({
-                selector: "textarea#mymce",
-                theme: "modern",
-                height: 300,
-                plugins: [
-                    "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
-                    "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
-                    "save table contextmenu directionality emoticons template paste textcolor",
-                ],
-                toolbar:
-                    "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | print preview media fullpage | forecolor backcolor emoticons",
-            });
-        }
+    /************************************/
+    //default editor
+    /************************************/
+    $(".summernote").summernote({
+        height: 350, // set editor height
+        minHeight: null, // set minimum height of editor
+        maxHeight: null, // set maximum height of editor
+        focus: false, // set focus to editable area after initializing summernote
     });
 </script>

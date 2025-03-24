@@ -4249,48 +4249,36 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.41.0/mode/xml/xml.min.js"></script>
     <script src="../../assets/extra-libs/summernote/summernote-lite.min.js"></script>
     <script>
-      /************************************/
-      //default editor
-      /************************************/
-      $(".summernote").summernote({
-        height: 350, // set editor height
-        minHeight: null, // set minimum height of editor
-        maxHeight: null, // set maximum height of editor
-        focus: false, // set focus to editable area after initializing summernote
-      });
-
-      /************************************/
-      //inline-editor
-      /************************************/
-      $(".inline-editor").summernote({
-        airMode: true,
-      });
-
-      /************************************/
-      //edit and save mode
-      /************************************/
-      (window.edit = function () {
-        $(".click2edit").summernote();
-      }),
-        (window.save = function () {
-          $(".click2edit").summernote("destroy");
+    $(document).ready(function () {
+        $(".summernote").summernote({
+            height: 350,
+            focus: false,
+            callbacks: {
+                onImageUpload: function (files) {
+                    uploadImage(files[0]);
+                },
+            },
         });
 
-      var edit = function () {
-        $(".click2edit").summernote({ focus: true });
-      };
+        function uploadImage(file) {
+            let data = new FormData();
+            data.append("image", file);
+            $.ajax({
+                url: "{{ route('upload.image') }}", // Gantilah dengan route upload gambar di Laravel
+                method: "POST",
+                data: data,
+                processData: false,
+                contentType: false,
+                success: function (url) {
+                    $(".summernote").summernote("insertImage", url);
+                },
+                error: function (data) {
+                    console.log("Error:", data);
+                },
+            });
+        }
+    });
+</script>
 
-      var save = function () {
-        var markup = $(".click2edit").summernote("code");
-        $(".click2edit").summernote("destroy");
-      };
-
-      /************************************/
-      //airmode editor
-      /************************************/
-      $(".airmode-summer").summernote({
-        airMode: true,
-      });
-    </script>
   </body>
 </html>

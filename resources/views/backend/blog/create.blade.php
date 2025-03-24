@@ -1,69 +1,85 @@
-@extends('backend.layouts.app') <!-- Memanggil layout utama -->
+@extends('backend.layouts.app')
 
 @section('content')
     <div class="row">
     <div class="col-12">
     <div class="card">
+    <div class="card-header bg-info">
+      <h4 class="card-title text-white">
+      Form Buat Blog
+      </h4>
+    </div>
     <div class="card-body">
-    <h4 class="card-title mb-3 pb-3 border-bottom">Form Tambah Data Blog</h4>
-    <form>
-    <div class="row">
+    <!-- Tampilkan Error Validasi -->
+    @if ($errors->any())
+    <div class="alert alert-danger">
+    <ul>
+    @foreach ($errors->all() as $error)
+    <li>{{ $error }}</li>
+    @endforeach
+    </ul>
+    </div>
+    @endif
+
+    <form action="{{ route('admin.blog.store') }}" method="POST" enctype="multipart/form-data">
+    @csrf
     <div class="mb-3">
-    <label for="Judul Blog">Judul Blog</label>
-    <input type="text" class="form-control" placeholder="Masukan Judul Blog" />
+    <label for="judul">Judul Blog</label>
+    <input type="text" name="judul" class="form-control" required value="{{ old('judul') }}" />
     </div>
 
     <div class="mb-3">
-    <label for="Slug">Slug</label>
-    <input type="text" class="form-control" placeholder="Masukan Slug" />
+    <label for="slug">Slug</label>
+    <input type="text" name="slug" class="form-control" required value="{{ old('slug') }}" />
     </div>
 
     <div class="mb-3">
-    <label for="Kategori">Kategori</label>
-    <input type="text" class="form-control" placeholder="Masukan Kategori" />
+    <label for="kategori">Kategori</label>
+    <input type="text" name="kategori" class="form-control" required value="{{ old('kategori') }}" />
     </div>
 
-    <div class="form-group mb-4">
-    <label class="mr-sm-2" for="inlineFormCustomSelect">Status</label>
-    <select class="form-select mr-sm-2" id="inlineFormCustomSelect">
-    <option selected>Pilih Status...</option>
-    <option value="1">Draft</option>
-    <option value="2">Publish</option>
-    <option value="3">Archive</option>
+    <div class="mb-3">
+    <label for="status">Status</label>
+    <select name="status" class="form-select" required>
+    <option value="draft">Draft</option>
+    <option value="publish">Publish</option>
+    <option value="archive">Archive</option>
     </select>
     </div>
 
-    <form class="mb-3">
-      <label for="Thumbnail">Upload Thumbnail</label>
-    <input class="form-control" type="file" id="formFile">
-    </form>
+    <div class="mb-3 mt-1">
+    <label for="thumbnail">Upload Thumbnail</label>
+    <input type="file" name="thumbnail" class="form-control">
+    </div>
 
-    <form class="mt-3" method="post">
-      <label for="Isi Konten"></label>
-      <textarea id="mymce" name="area"></textarea>
-    </form>
-
-    <div class="col-12">
-    <div class="d-md-flex align-items-center mt-3">
-    <div class="ms-auto mt-3 mt-md-0">
+    <div class="mb-3">
+    <label for="content">Isi Konten</label>
+    <textarea class="summernote" name="content">{{ old('content') }}</textarea>
+    </div>
+    <div class="col-12 d-flex justify-content-md-end">
     <button type="submit" class="
-    btn btn-info
-    font-weight-medium
-    rounded-pill
-    px-4
-    ">
+          btn btn-info
+          font-weight-medium
+          rounded-pill
+          px-4
+          ">
     <div class="d-flex align-items-center">
-    <i data-feather="send" class="feather-sm fill-white me-2"></i>
-    Submit
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-send feather-sm fill-white me-2">
+      <line x1="22" y1="2" x2="11" y2="13"></line>
+      <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+      </svg>
+      Submit
     </div>
     </button>
     </div>
-    </div>
-    </div>
-    </div>
     </form>
+
     </div>
     </div>
     </div>
     </div>
+
+
 @endsection

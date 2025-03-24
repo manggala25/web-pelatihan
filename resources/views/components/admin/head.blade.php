@@ -23,4 +23,12 @@
 
     <!-- Custom CSS -->
     <link href="{{ asset('template/backend/package/html/main/../../dist/css/style.min.css') }}" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.41.0/codemirror.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.41.0/theme/blackboard.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.41.0/theme/monokai.min.css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('template/backend/package/html/main/../../assets/extra-libs/summernote/summernote-lite.min.css') }}" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 </head>

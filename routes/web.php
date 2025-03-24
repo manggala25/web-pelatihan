@@ -9,22 +9,21 @@ use App\Http\Controllers\Auth\AdminLoginController;
 $adminPrefix = env('ADMIN_PREFIX', '/admin');
 
 Route::prefix($adminPrefix)->group(function () {
-    // Login Admin
     Route::get('/login', [AdminLoginController::class, 'showLoginForm'])->name('admin.login');
     Route::post('/login', [AdminLoginController::class, 'login']);
     Route::post('/logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
 
-    // Halaman Dashboard (Hanya untuk Admin)
     Route::middleware(['auth'])->group(function () {
         Route::get('/dashboard', function () {
             return view('backend.dashboard.index');
         })->name('admin.dashboard');
 
-        // Blog/ Artikel
-        Route::get('/blog', [blogController::class, 'index'])->name('admin.blog'); 
-        Route::get('/blog/create', [blogController::class, 'create'])->name('admin.blog.create');
-        Route::get('/blog/{id}/edit', [BlogController::class, 'edit'])->name('admin.edit');
-        Route::delete('/blog/{id}', [BlogController::class, 'destroy'])->name('admin.destroy');
+        // Blog Routes
+        Route::get('/blog', [BlogController::class, 'index'])->name('admin.blog');
+        Route::get('/blog/create', [BlogController::class, 'create'])->name('admin.blog.create');
+        Route::post('/blog/store', [BlogController::class, 'store'])->name('admin.blog.store');
+        Route::get('/admin/blog/{slug}', [BlogController::class, 'show'])->name('admin.blog.show');
+        Route::post('/upload-image', [BlogController::class, 'uploadImage'])->name('upload.image');
     });
 });
 
