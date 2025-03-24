@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\blogController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AdminLoginController;
 
@@ -19,6 +19,12 @@ Route::prefix($adminPrefix)->group(function () {
         Route::get('/dashboard', function () {
             return view('backend.dashboard.index');
         })->name('admin.dashboard');
+
+        // Blog/ Artikel
+        Route::get('/blog', [blogController::class, 'index'])->name('admin.blog'); 
+        Route::get('/blog/create', [blogController::class, 'create'])->name('admin.blog.create');
+        Route::get('/blog/{id}/edit', [BlogController::class, 'edit'])->name('admin.edit');
+        Route::delete('/blog/{id}', [BlogController::class, 'destroy'])->name('admin.destroy');
     });
 });
 
@@ -31,6 +37,14 @@ Route::get('/', function () {
 Route::get('/blog', function () {
     return view('frontend.blog');
 })->name('blog');
+
+// Route::get('/blog/{slug}', function ($slug) {
+//     return view('frontend.detail-blog', compact('slug'));
+// })->name('detail-blog');
+
+Route::get('/blog/detail-blog', function () {
+    return view('frontend.detail-blog',);
+})->name('detail-blog');
 
 Route::get('/kontak', function () {
     return view('frontend.kontak');

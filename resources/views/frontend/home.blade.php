@@ -463,20 +463,6 @@
                                     <p class="solution-one__service-desc">Mauris ut enim sit amet lacus ornare ullamcorper.
                                         Praesent placerat neque eu purus rhoncus, vel tincidunt odio ultrices. Sedodau
                                         feugiat feugiat felis. Curabitur posuere tristique mauris non blandit.</p>
-                                    <div class="solution-one__service-wrap">
-                                        <div class="solution-one__service">
-                                            <div class="solution-one__service-icon solution-one__service-icon--one">
-                                                <i class="icofont-ui-check"></i>
-                                            </div>
-                                            <p class="solution-one__service-title">Advertising and marketing</p>
-                                        </div>
-                                        <div class="solution-one__service">
-                                            <div class="solution-one__service-icon solution-one__service-icon--two">
-                                                <i class="icofont-ui-check"></i>
-                                            </div>
-                                            <p class="solution-one__service-title">IT Ideation & Evaluation</p>
-                                        </div>
-                                    </div><!-- /.solution-one__service-wrap -->
                                 </div>
                                 <!--Marketing Solution-tab-end-->
                                 <!--Business Solution-tab-start-->
@@ -485,20 +471,6 @@
                                     <p class="solution-one__service-desc">Mauris ut enim sit amet lacus ornare ullamcorper.
                                         Praesent placerat neque eu purus rhoncus, vel tincidunt odio ultrices. Sedodau
                                         feugiat feugiat felis. Curabitur posuere tristique mauris non blandit.</p>
-                                    <div class="solution-one__service-wrap">
-                                        <div class="solution-one__service">
-                                            <div class="solution-one__service-icon solution-one__service-icon--one">
-                                                <i class="icofont-ui-check"></i>
-                                            </div>
-                                            <p class="solution-one__service-title">Advertising and marketing</p>
-                                        </div>
-                                        <div class="solution-one__service">
-                                            <div class="solution-one__service-icon solution-one__service-icon--two">
-                                                <i class="icofont-ui-check"></i>
-                                            </div>
-                                            <p class="solution-one__service-title">IT Ideation & Evaluation</p>
-                                        </div>
-                                    </div><!-- /.solution-one__service-wrap -->
                                 </div>
                                 <!--Business Solution-tab-end-->
                                 <!--Business Growth-tab-start-->
@@ -507,24 +479,11 @@
                                     <p class="solution-one__service-desc">Mauris ut enim sit amet lacus ornare ullamcorper.
                                         Praesent placerat neque eu purus rhoncus, vel tincidunt odio ultrices. Sedodau
                                         feugiat feugiat felis. Curabitur posuere tristique mauris non blandit.</p>
-                                    <div class="solution-one__service-wrap">
-                                        <div class="solution-one__service">
-                                            <div class="solution-one__service-icon solution-one__service-icon--one">
-                                                <i class="icofont-ui-check"></i>
-                                            </div>
-                                            <p class="solution-one__service-title">Advertising and marketing</p>
-                                        </div>
-                                        <div class="solution-one__service">
-                                            <div class="solution-one__service-icon solution-one__service-icon--two">
-                                                <i class="icofont-ui-check"></i>
-                                            </div>
-                                            <p class="solution-one__service-title">IT Ideation & Evaluation</p>
-                                        </div>
-                                    </div><!-- /.solution-one__service-wrap -->
                                 </div>
                                 <!--Business Growth-tab-end-->
                             </div>
                         </div>
+                        <a href="#" class="service-one__btn noile-btn">Baca Selengkapnya +</a>
                         <!-- /.olution-one__main-tab-box -->
                     </div><!-- /.solution-one__content -->
                 </div>
