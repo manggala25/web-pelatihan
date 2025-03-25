@@ -126,12 +126,24 @@
                             <li class="{{ request()->routeIs('tentang-kami') ? 'current' : '' }}">
                                 <a href="{{ route('tentang-kami') }}">Profil</a>
                             </li>
-                            <li><a href="#">Visi Misi</a></li>
-                            <li><a href="#">Tujuan Lembaga</a></li>
-                            <li><a href="#">Legalitas</a></li>
-                            <li><a href="#">Agenda Rutin</a></li>
-                            <li><a href="#">Pengurus</a></li>
-                            <li><a href="#">Program Pengalaman Kerja</a></li>
+                            <li class="{{ request()->routeIs('visi-misi') ? 'current' : '' }}">
+                                <a href="{{ route('visi-misi') }}">Visi Misi</a>
+                            </li>
+                            <li class="{{ request()->routeIs('tujuan-lembaga') ? 'current' : '' }}">
+                                <a href="{{ route('tujuan-lembaga') }}">Tujuan Lembaga</a>
+                            </li>
+                            <li class="{{ request()->routeIs('legalitas') ? 'current' : '' }}">
+                                <a href="{{ route('legalitas') }}">Legalitas Badan Hukum</a>
+                            </li>
+                            <li class="{{ request()->routeIs('agenda-rutin') ? 'current' : '' }}">
+                                <a href="{{ route('agenda-rutin') }}">Agenda Rutin</a>
+                            </li>
+                            <li class="{{ request()->routeIs('pengurus') ? 'current' : '' }}">
+                                <a href="{{ route('pengurus') }}">Pengurus</a>
+                            </li>
+                            <li class="{{ request()->routeIs('program-pengalaman-kerja') ? 'current' : '' }}">
+                                <a href="{{ route('program-pengalaman-kerja') }}">Program Pengalaman Kerja</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="{{ request()->routeIs('kontak') ? 'current' : '' }}">

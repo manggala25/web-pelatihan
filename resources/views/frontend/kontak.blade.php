@@ -4,8 +4,6 @@
 
   <!-- Page Header Start -->
   <section class="page-header" style="background-image: url('{{ asset('template/frontend/assets/images/backgrounds/contact-page-bg.jpg') }}');">
-  <span class="page-header__vartical-text">Web Development &
-  Consulting</span>
   <div class="page-header__vartical-line-wrap">
   <div class="page-header__vartical-line page-header__vartical-line--one"></div>
   <div class="page-header__vartical-line page-header__vartical-line--two"></div>
@@ -18,7 +16,7 @@
   <div class="page-header__breadcrumb-wrap">
   <span class="page-header__arrow icon-arrow-right-2"></span>
   <ul class="noile-breadcrumb">
-  <li class="noile-breadcrumb__item"><a href="{{ route('home') }}" class="noile-breadcrumb__link">Home</a></li>
+  <li class="noile-breadcrumb__item"><a href="{{ route('home') }}" class="noile-breadcrumb__link">Beranda</a></li>
   <li class="noile-breadcrumb__item noile-breadcrumb__item-divider">/</li>
   <li class="noile-breadcrumb__item">Kontak</li>
   </ul>

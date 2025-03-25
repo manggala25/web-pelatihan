@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\Admin\blogController;
+use App\Http\Controllers\Admin\dashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AdminLoginController;
+use App\Http\Controllers\Frontend\FrontBlogController;
 
 //////// Administrator /////////
 // Ambil prefix dari .env, default ke '/admin' jika tidak diset
@@ -14,16 +16,19 @@ Route::prefix($adminPrefix)->group(function () {
     Route::post('/logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
 
     Route::middleware(['auth'])->group(function () {
-        Route::get('/dashboard', function () {
-            return view('backend.dashboard.index');
-        })->name('admin.dashboard');
+        // Dashboard Route
+        Route::get('/dashboard', [dashboardController::class, 'index'])->name('admin.dashboard');
+
 
         // Blog Routes
-        Route::get('/blog', [BlogController::class, 'index'])->name('admin.blog');
-        Route::get('/blog/create', [BlogController::class, 'create'])->name('admin.blog.create');
-        Route::post('/blog/store', [BlogController::class, 'store'])->name('admin.blog.store');
-        Route::get('/admin/blog/{slug}', [BlogController::class, 'show'])->name('admin.blog.show');
-        Route::post('/upload-image', [BlogController::class, 'uploadImage'])->name('upload.image');
+        Route::get('/blog', [blogController::class, 'index'])->name('admin.blog');
+        Route::get('/blog/create', [blogController::class, 'create'])->name('admin.blog.create');
+        Route::post('/blog/store', [blogController::class, 'store'])->name('admin.blog.store');
+        Route::get('/admin/blog/{slug}', [blogController::class, 'show'])->name('admin.blog.show');
+        Route::post('/upload-image', [blogController::class, 'uploadImage'])->name('upload.image');
+        Route::get('/admin/blog/{slug}/edit', [blogController::class, 'edit'])->name('admin.blog.edit');
+        Route::patch('/admin/blog/{id}/update', [blogController::class, 'update'])->name('admin.blog.update');
+        Route::delete('/admin/blog/{id}', [blogController::class, 'destroy'])->name('admin.blog.destroy');    
     });
 });
 
@@ -33,17 +38,9 @@ Route::get('/', function () {
     return view('frontend.home');
 })->name('home');
 
-Route::get('/blog', function () {
-    return view('frontend.blog');
-})->name('blog');
+Route::get('/blog', [FrontBlogController::class, 'index'])->name('blog');
+Route::get('/blog/{slug}', [FrontBlogController::class, 'show'])->name('detail-blog');
 
-// Route::get('/blog/{slug}', function ($slug) {
-//     return view('frontend.detail-blog', compact('slug'));
-// })->name('detail-blog');
-
-Route::get('/blog/detail-blog', function () {
-    return view('frontend.detail-blog',);
-})->name('detail-blog');
 
 Route::get('/kontak', function () {
     return view('frontend.kontak');
@@ -53,6 +50,30 @@ Route::get('/tentang-kami', function () {
     return view('frontend.tentang-kami');
 })->name('tentang-kami');
 
+Route::get('/visi-misi', function () {
+    return view('frontend.visi-misi');
+})->name('visi-misi');
+
+Route::get('/legalitas', function () {
+    return view('frontend.legalitas');
+})->name('legalitas');
+
+Route::get('/tujuan-lembaga', function () {
+    return view('frontend.tujuan-lembaga');
+})->name('tujuan-lembaga');
+
+Route::get('/agenda-rutin', function () {
+    return view('frontend.agenda-rutin');
+})->name('agenda-rutin');
+
+Route::get('/pengurus', function () {
+    return view('frontend.pengurus');
+})->name('pengurus');
+
+Route::get('/program-pengalaman-kerja', function () {
+    return view('frontend.program-pengalaman-kerja');
+})->name('program-pengalaman-kerja');
+
 Route::get('/tema-pelatihan', function () {
     return view('frontend.tema-pelatihan');
 })->name('tema-pelatihan');
@@ -60,8 +81,6 @@ Route::get('/tema-pelatihan', function () {
 Route::get('/jadwal-pelatihan', function () {
     return view('frontend.jadwal-pelatihan');
 })->name('jadwal-pelatihan');
-
-
 
 
 

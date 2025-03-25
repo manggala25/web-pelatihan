@@ -1,10 +1,9 @@
-@extends('frontend.layouts.app')
+@extends('frontend.layouts.app') <!-- Memanggil layout utama -->
 
 @section('content')
-
     <!-- Page Header Start -->
     <section class="page-header"
-    style="background-image: url('{{ asset('template/backend/package/html/main/assets/images/backgrounds/blog-page-bg.jpg') }}');">
+    style="background-image: url('{{ asset('template/frontend/assets/images/backgrounds/blog-page-bg.jpg') }}');">
     <div class="page-header__vartical-line-wrap">
     <div class="page-header__vartical-line page-header__vartical-line--one"></div>
     <div class="page-header__vartical-line page-header__vartical-line--two"></div>
@@ -13,17 +12,14 @@
     <div class="container">
     <div class="page-header__circle"></div><!-- /.page-header__circle -->
     <div class="page-header__inner slide-title">
-    <h1 class="page-header__heading slide-title__heading">Detail Blog</h1>
+    <h1 class="page-header__heading slide-title__heading">Tujuan Lembaga</h1>
     <div class="page-header__breadcrumb-wrap">
     <span class="page-header__arrow icon-arrow-right-2"></span>
     <ul class="noile-breadcrumb">
     <li class="noile-breadcrumb__item"><a href="{{ route('home') }}" class="noile-breadcrumb__link">Beranda</a>
     </li>
     <li class="noile-breadcrumb__item noile-breadcrumb__item-divider">/</li>
-    <li class="noile-breadcrumb__item"><a href="{{ route('blog') }}" class="noile-breadcrumb__link">Blog</a>
-    </li>
-    <li class="noile-breadcrumb__item noile-breadcrumb__item-divider">/</li>
-    <li class="noile-breadcrumb__item">Detail Blog</li>
+    <li class="noile-breadcrumb__item">Tujuan Lembaga</li>
     </ul>
     </div>
     </div><!-- /.page-header__inner -->
@@ -51,38 +47,33 @@
     </section>
     <!-- Page Header End -->
 
-    <!-- Blog Details Start -->
-    <section class="blog-details blog">
-    <div class="container">
-    <div class="row g-0">
-    <div class="blog-details__col col-xl-8 col-lg-7">
-    <div class="blog-details__left">
-    <div class="blog-details__blog-card">
-    <div class="blog-details__card-img-box wow animated fadeInUp" data-wow-duration="1500ms">
-    <img src="{{ asset($blog->thumbnail) }}" alt="{{ $blog->judul }}" class="blog-details__card-img">
-    <p class="blog-details__card-category">{{ $blog->kategori }}</p><!-- /.blog-one__item-category -->
-    </div><!-- /.blog-one__img-box -->
-    <ul class="blog-details__card-comment-box">
-    <li class="blog-details__card-comment-item">
-    <p class="blog-details__card-comment">Diupload Pada</p>
-    </li>
-    <li class="blog-details__card-comment-item blog-details__card-comment-item-divider">
-    <p class="blog-details__card-comment">/</p>
-    </li>
-    <li class="blog-details__card-comment-item">
-    <p class="blog-details__card-comment">{{ \Carbon\Carbon::parse($blog->published_at)->format('d F Y') }}</p>
-    </li>
-    </ul><!-- /.blog-one__comment -->
-    <h3 class="blog-details__card-title blog-details__md-title">{{ $blog->judul }}</h3>
-    <div class="blog-details__card-desc-one-box">
-    <p class="blog-details__card-desc-one">{!! $blog->content !!}</p>
-    </div><!-- /.blog-details__desc-one-box -->
-    </div><!-- /.blog-details__blog-card -->
-    </div><!-- /.blog-details__left -->
+    <!-- Tujuan Lembaga Start -->
+    <section class="tujuan-lembaga">
+    <div class="container my-5">
+    <div class="row">
+    <div class="col-12">
+    <div class="solution-one__content sec-title">
+    <div class="sec-title__top-wrap">
+    <img src="{{ asset('template/frontend/assets/images/resources/top-title-logo.png') }}" alt="top-title-logo">
+    <p class="sec-title__top">Tujuan Lembaga</p>
     </div>
-    </div><!-- /.row -->
-    </div><!-- /.container -->
+    <h2 class="solution-one__heading sec-title__heading">Tujuan Lembaga
+    </h2>
+    <!-- /.olution-one__main-tab-box -->
+    </div><!-- /.solution-one__content -->
+    </div>
+    <div class="col-md-12 mb-3">
+    <div class="blog-details__card-desc-three-box">
+    <p class="blog-details__card-desc-three">Menyelenggarakan Bimtek, Diklat, Workshop dan Study Banding Bagi Aparatur Pemerintah Daerah;
+    Menyelenggarakan pelatihan, pendidikan dan peningkatan SDM dalam skala nasional berbasis kompetensi;
+    Meningkatkan kompetensi bagi para aparatur daerah legislatif maupun eksekutif untuk perbaikan pelayanan publik dasar;
+    Peningkatan Kapasitas fungsi aparatur daerah untuk perbaikan pelayanan publik dasar;
+    Untuk memberikan pengetahuan baru kepada aparatur daerah untuk perbaikan pelayanan publik dasar.</p>
+    </div><!-- /.blog-details__card-bottom -->
+    </div>
+    </div>
+    </div>
     </section>
-    <!-- Blog Details End -->
+    <!-- Tujuan Lembaga End -->
 
 @endsection

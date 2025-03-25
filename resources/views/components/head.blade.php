@@ -43,4 +43,5 @@
 
     <!-- Template Styles -->
     <link rel="stylesheet" href="{{ asset('template/frontend/assets/css/noile.css') }}">
+
 </head>
