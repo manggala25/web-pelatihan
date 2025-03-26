@@ -44,4 +44,7 @@
     <!-- Template Styles -->
     <link rel="stylesheet" href="{{ asset('template/frontend/assets/css/noile.css') }}">
 
+    <!-- DataTables Bootstrap 5 -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+
 </head>

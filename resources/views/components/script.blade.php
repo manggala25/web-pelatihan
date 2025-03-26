@@ -24,3 +24,40 @@
 
 <!-- Template JS -->
 <script src="{{ asset('template/frontend/assets/js/noile.js') }}"></script>
+
+<!-- jQuery harus dimuat dulu -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- DataTables -->
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        console.log("jQuery dan DataTables berhasil dimuat!"); // Debugging
+        if ($.fn.DataTable) {
+            $('#pelatihanTable').DataTable({
+                "paging": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "lengthMenu": [5, 10, 25, 50, 100],
+                "language": {
+                    "search": "Cari:",
+                    "lengthMenu": "Tampilkan _MENU_ data per halaman",
+                    "info": "Menampilkan _START_ sampai _END_ dari _TOTAL_ data",
+                    "paginate": {
+                        "first": "Awal",
+                        "last": "Akhir",
+                        "next": "Selanjutnya",
+                        "previous": "Sebelumnya"
+                    },
+                    "emptyTable": "Tidak ada data yang tersedia",
+                    "zeroRecords": "Tidak ditemukan data yang sesuai"
+                }
+            });
+        } else {
+            console.error("DataTables tidak ditemukan! Pastikan skrip dimuat dengan benar.");
+        }
+    });
+</script>

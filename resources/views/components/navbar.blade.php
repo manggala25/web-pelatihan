@@ -155,11 +155,15 @@
                     <li class="{{ request()->routeIs('jadwal-pelatihan') ? 'current' : '' }}">
                         <a href="{{ route('jadwal-pelatihan') }}">Jadwal Pelatihan</a>
                     </li>
-                    <li class="dropdown {{ request()->is('galeri*') ? 'current' : '' }}">
-                        <a href="#">Galeri<i class="fas fa-angle-down"></i></a>
+                    <li class="dropdown {{ request()->is('galeri-dll*') ? 'current' : '' }}">
+                        <a href="#">Galeri dll <i class="fas fa-angle-down"></i></a>
                         <ul>
-                            <li><a href="#">Dokumentasi</a></li>
-                            <li><a href="#">Portofolio</a></li>
+                            <li class="{{ request()->routeIs('galeri') ? 'current' : '' }}">
+                                <a href="{{ route('galeri') }}">Galeri</a>
+                            </li>
+                            <li class="{{ request()->routeIs('formulir-pendaftaran') ? 'current' : '' }}">
+                                <a href="{{ route('formulir-pendaftaran') }}">Formulir Pendaftaran</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>

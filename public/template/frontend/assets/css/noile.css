@@ -62,7 +62,7 @@
   --noile-base3-rgb: 244, 37, 73;
   --noile-primary: #1d1d1d;
   --noile-primary-rgb: 29, 29, 29;
-  --noile-secondary: #A0A1A6;
+  --noile-secondary: #6a6a6a;
   --noile-secondary-rgb: 160, 161, 166;
   --noile-white: #ffffff;
   --noile-white-rgb: 255, 255, 255;
@@ -9037,7 +9037,7 @@ i {
   border-radius: 0px;
   transition: all 0.5s linear;
   z-index: 1;
-  clip-path: polygon(94% 0, 100% 50%, 94% 100%, 0% 100%, 6% 49%, 0% 0%);
+  /* clip-path: polygon(94% 0, 100% 50%, 94% 100%, 0% 100%, 6% 49%, 0% 0%); */
 }
 
 .solution-one__main-tab-box .tab-buttons .tab-btn:nth-child(1) span {

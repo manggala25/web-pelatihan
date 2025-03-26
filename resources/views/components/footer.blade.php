@@ -30,22 +30,22 @@
             <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-4 col-sm-6 wow animated fadeInUp" data-wow-delay="0.3s"
                 data-wow-duration="1500ms">
                 <div class="footer-one__link-wrap">
-                    <h4 class="footer-one__title">About Us</h4>
+                    <h4 class="footer-one__title">Menu</h4>
                     <ul class="footer-one__link-list">
                         <li class="footer-one__link-item">
-                            <a href="#" class="footer-one__link">Corporate Business</a>
+                            <a href="{{ route('home') }}" class="footer-one__link">Beranda</a>
                         </li>
                         <li class="footer-one__link-item">
-                            <a href="#" class="footer-one__link">SEO Agency</a>
+                            <a href="{{ route('tentang-kami') }}" class="footer-one__link">Tentang Kami</a>
                         </li>
                         <li class="footer-one__link-item">
-                            <a href="#" class="footer-one__link">Testimonial</a>
+                            <a href="{{ route('blog') }}" class="footer-one__link">Blog</a>
                         </li>
                         <li class="footer-one__link-item">
-                            <a href="#" class="footer-one__link">Company Report</a>
+                            <a href="{{ route('galeri') }}" class="footer-one__link">Galeri</a>
                         </li>
                         <li class="footer-one__link-item">
-                            <a href="#" class="footer-one__link">Marketing</a>
+                            <a href="{{ route('tema-pelatihan') }}" class="footer-one__link">Tema Pelatihan</a>
                         </li>
                     </ul>
                 </div><!-- /.footer-one__link -->
@@ -53,16 +53,16 @@
             <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-4 col-sm-6 wow animated fadeInUp" data-wow-delay="0.5s"
                 data-wow-duration="1500ms">
                 <div class="footer-one__link-wrap">
-                    <h4 class="footer-one__title">Top Links</h4>
+                    <h4 class="footer-one__title"></h4>
                     <ul class="footer-one__link-list">
                         <li class="footer-one__link-item">
-                            <a href="about.html" class="footer-one__link">Web hosting</a>
+                            <a href="{{ route('jadwal-pelatihan') }}" class="footer-one__link">Jadwal pelatihan</a>
                         </li>
                         <li class="footer-one__link-item">
-                            <a href="service.html" class="footer-one__link">Cloud hosting</a>
+                            <a href="{{ route('legalitas') }}" class="footer-one__link">Legalitas Hukum</a>
                         </li>
                         <li class="footer-one__link-item">
-                            <a href="faq.html" class="footer-one__link">WordPress hosting</a>
+                            <a href="{{ route('formulir-pendaftaran') }}" class="footer-one__link">Formulir Pendaftaran</a>
                         </li>
                         <li class="footer-one__link-item">
                             <a href="contact.html" class="footer-one__link">VPS hosting</a>
@@ -97,9 +97,7 @@
             <div class="footer-one__row-two row g-0 g-sm-4">
                 <div class="col-sm-10">
                     <div class="footer-one__copyright">
-                        <p class="footer-one__copyright-text">&copy; Copyright 2023 <a href="#" class="">Business</a> -
-                            All
-                            Rights Reserved.</p>
+                        <p class="footer-one__copyright-text">&copy; Copyright 2025</p>
                     </div><!-- /.footer-one__copyright -->
                 </div>
                 <div class="col-sm-2">

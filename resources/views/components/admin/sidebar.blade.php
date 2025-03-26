@@ -28,6 +28,7 @@
                     <i class="nav-small-line"></i> <span class="hide-menu">UI</span>
                 </li>
 
+                {{-- Blog --}}
                 <li class="sidebar-item">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                         aria-expanded="false"><i data-feather="file-text"></i><span class="hide-menu">Blog/ Artikel</span></a>
@@ -39,10 +40,16 @@
                     </ul>
                 </li>
 
+                {{-- Portofolio --}}
                 <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="table-bootstrap.html"
-                        aria-expanded="false"><i data-feather="octagon"></i><span class="hide-menu">Table
-                            Bootstrap</span></a>
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                        aria-expanded="false"><i data-feather="award"></i><span class="hide-menu">Portofolio</span></a>
+                    <ul aria-expanded="false" class="collapse first-level">
+                        <li class="sidebar-item">
+                            <a href="{{ Route('admin.portofolio') }}" class="sidebar-link"><i
+                                    class="ri-award-line"></i><span class="hide-menu">Portofolio</span></a>
+                        </li>
+                    </ul>
                 </li>
 
                 

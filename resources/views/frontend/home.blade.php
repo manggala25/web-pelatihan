@@ -32,15 +32,12 @@
     </div>
     </div>
     <a href='#' class="main-slider__circle-text">
-    <div class="main-slider__circle-text-bg"
-    style="background-image: url('https://img.freepik.com/free-vector/colorful-bird-illustration-gradient_343694-1741.jpg?t=st=1742675062~exp=1742678662~hmac=b1772663c9c4057c1472997db568bdc5d34e85f2e8e6b3c8c53a09f5e044ff01&w=900');"></div>
     <div class="main-slider__curved-circle curved-circle">
     <!-- curved-circle start-->
     <div class="main-slider__curved-circle--item curved-circle--item" data-circle-text-options='{
      "radius": 92,
      "forceWidth": true,
      "forceHeight": true}'>
-    . design for your digital products
     </div>
     </div><!-- curved-circle end-->
     </a><!-- /.main-slider__circle-text -->
@@ -73,15 +70,12 @@
     </div>
     </div>
     <a href='#' class="main-slider__circle-text">
-    <div class="main-slider__circle-text-bg"
-    style="background-image: url('https://img.freepik.com/free-vector/colorful-bird-illustration-gradient_343694-1741.jpg?t=st=1742675062~exp=1742678662~hmac=b1772663c9c4057c1472997db568bdc5d34e85f2e8e6b3c8c53a09f5e044ff01&w=900');"></div>
     <div class="main-slider__curved-circle curved-circle">
     <!-- curved-circle start-->
     <div class="main-slider__curved-circle--item curved-circle--item" data-circle-text-options='{
      "radius": 92,
      "forceWidth": true,
      "forceHeight": true}'>
-    . design for your digital products
     </div>
     </div><!-- curved-circle end-->
     </a><!-- /.main-slider__circle-text -->
@@ -282,39 +276,39 @@
                             <p class="sec-title__top">Target Peserta Pelatihan</p>
                         </div>
                         <h2 class="about-two__heading sec-title__heading">Tingkatkan Keahlian, Maksimalkan Potensi.</h2>
-                        <p class="about-two__desc">dirancang khusus untuk profesional, praktisi, dan akademisi yang ingin meningkatkan keterampilan dan memperdalam
+                        <p class="text-white">dirancang khusus untuk profesional, praktisi, dan akademisi yang ingin meningkatkan keterampilan dan memperdalam
                         pemahaman di bidangnya. Target peserta yang dapat mengikuti pelatihan ini antara lain:
                         </p>
                         <div class="about-two__bottom">
                             <ul class="list about-two__list">
                                 <li class="about-two__consulting-title mb-1">
                                     <div class="about-two__consulting-text">
-                                        <h3 class="about-two__consulting-title">Aparatur Perangkat SETDA, SKPD/OPD</h3>
+                                        <h6 class="about-two__consulting-desc text-white">Aparatur Perangkat SETDA, SKPD/OPD</h6>
                                     </div>
                                 </li>
                                 <li class="about-two__consulting-title mb-3">
                                     <div class="about-two__consulting-text">
-                                        <h3 class="about-two__consulting-title">Anggota DPRD/SETWAN</h3>
+                                        <h6 class="about-two__consulting-desc text-white">Anggota DPRD/SETWAN</h6>
                                     </div>
                                 </li>
                                 <li class="about-two__consulting-title mb-3">
                                     <div class="about-two__consulting-text">
-                                        <h3 class="about-two__consulting-title">Aparatur Perangkat Kecamatan/Desa</h3>
+                                        <h6 class="about-two__consulting-desc text-white">Aparatur Perangkat Kecamatan/Desa</h6>
                                     </div>
                                 </li>
                                 <li class="about-two__consulting-title mb-3">
                                     <div class="about-two__consulting-text">
-                                        <h3 class="about-two__consulting-title">RSU, RSP, RSUD</h3>
+                                        <h6 class="about-two__consulting-desc text-white">RSU, RSP, RSUD</h6>
                                     </div>
                                 </li>
                                 <li class="about-two__consulting-title mb-3">
                                     <div class="about-two__consulting-text">
-                                        <h3 class="about-two__consulting-title">Instansi Lembaga Pemerintah</h3>
+                                        <h6 class="about-two__consulting-desc text-white">Instansi Lembaga Pemerintah</h6>
                                     </div>
                                 </li>
                                 <li class="about-two__consulting-title mb-3">
                                     <div class="about-two__consulting-text">
-                                        <h3 class="about-two__consulting-title">Perusahaan/Swasta</h3>
+                                        <h6 class="about-two__consulting-desc text-white">Perusahaan/Swasta</h6>
                                     </div>
                                 </li>
                             </ul>
@@ -447,42 +441,9 @@
                             <img src="{{ asset('template/frontend/assets/images/resources/top-title-logo.png') }}" alt="top-title-logo">
                             <p class="sec-title__top">Tentang Kami</p>
                         </div>
-                        <h2 class="solution-one__heading sec-title__heading">mitra terbaik dalam pengembangan keahlian profesionalisme.
+                        <h2 class="solution-one__heading sec-title__heading">Profil Pelatihan Kami
                         </h2>
-                        <div class="solution-one__main-tab-box tabs-box">
-                            <ul class="tab-buttons">
-                                <li data-tab="#MarketingSolution" class="tab-btn active-btn"><span>Marketing
-                                        Solution</span></li>
-                                <li data-tab="#BusinessSolution" class="tab-btn"><span>Business Solution</span></li>
-                                <li data-tab="#Business-Growth" class="tab-btn"><span>Business Growth</span></li>
-                            </ul><!-- solution-tab -->
-                            <div class="tabs-content">
-                                <!--Marketing Solution-tab-start-->
-                                <div class="tab active-tab fadeInUp animated" data-wow-delay="200ms" id="MarketingSolution"
-                                    style="display: block;">
-                                    <p class="solution-one__service-desc">Mauris ut enim sit amet lacus ornare ullamcorper.
-                                        Praesent placerat neque eu purus rhoncus, vel tincidunt odio ultrices. Sedodau
-                                        feugiat feugiat felis. Curabitur posuere tristique mauris non blandit.</p>
-                                </div>
-                                <!--Marketing Solution-tab-end-->
-                                <!--Business Solution-tab-start-->
-                                <div class="tab fadeInUp animated" data-wow-delay="200ms" id="BusinessSolution"
-                                    style="display: none;">
-                                    <p class="solution-one__service-desc">Mauris ut enim sit amet lacus ornare ullamcorper.
-                                        Praesent placerat neque eu purus rhoncus, vel tincidunt odio ultrices. Sedodau
-                                        feugiat feugiat felis. Curabitur posuere tristique mauris non blandit.</p>
-                                </div>
-                                <!--Business Solution-tab-end-->
-                                <!--Business Growth-tab-start-->
-                                <div class="tab fadeInUp animated" data-wow-delay="200ms" id="Business-Growth"
-                                    style="display: none;">
-                                    <p class="solution-one__service-desc">Mauris ut enim sit amet lacus ornare ullamcorper.
-                                        Praesent placerat neque eu purus rhoncus, vel tincidunt odio ultrices. Sedodau
-                                        feugiat feugiat felis. Curabitur posuere tristique mauris non blandit.</p>
-                                </div>
-                                <!--Business Growth-tab-end-->
-                            </div>
-                        </div>
+                        <p class="solution-one__service-desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos veritatis eligendi vel consectetur vero, eaque necessitatibus dolores. Harum accusantium dolor distinctio quo nam eos ad recusandae porro ipsam iste, architecto reiciendis eligendi tempore animi quas repudiandae molestias vel ipsum dolorem?</p>
                         <a href="#" class="service-one__btn noile-btn">Baca Selengkapnya +</a>
                         <!-- /.olution-one__main-tab-box -->
                     </div><!-- /.solution-one__content -->
@@ -543,10 +504,10 @@
                         </a><!-- /.blog-one__img-box -->
                         <ul class="blog__card-comment-box">
                             <li class="blog__card-comment-item">
-                                <p class="blog__card-comment">02 Comments</p>
+                                <p class="blog__card-comment">Diupload Pada</p>
                             </li>
                             <li class="blog__card-comment-item blog__card-comment-item-divider">
-                                <p class="blog__card-comment">/</p>
+                                <p class="blog__card-comment">:</p>
                             </li>
                             <li class="blog__card-comment-item">
                                 <p class="blog__card-comment">22 Aug 2023</p>
@@ -554,15 +515,6 @@
                         </ul><!-- /.blog-one__comment -->
                         <a href="blog-details.html" class="blog__card-title">Fusce tincidunt commodo saie quis
                             porttitor.</a>
-                        <div class="blog__card-author">
-                            <div class="blog__card-author-img-box">
-                                <img src="{{  asset('template/frontend/assets/images/blog/blog-author-1-1.png') }}" alt="blog-author"
-                                    class="blog__card-author-img">
-                            </div>
-                            <p class="blog__card-author-name">by
-                                <span class="blog__card-author-name-highlight">Noile Mohsin</span>
-                            </p>
-                        </div><!-- /.blog-one__author -->
                     </div><!-- /.blog-one__item -->
                 </div>
                 <div class="col-lg-4 col-md-6 wow animated fadeInUp" data-wow-delay="0.3s" data-wow-duration="1300ms">

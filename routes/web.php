@@ -1,10 +1,13 @@
 <?php
 
 use App\Http\Controllers\Admin\blogController;
+use App\Http\Controllers\Admin\PortofolioController;
 use App\Http\Controllers\Admin\dashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AdminLoginController;
 use App\Http\Controllers\Frontend\FrontBlogController;
+
+
 
 //////// Administrator /////////
 // Ambil prefix dari .env, default ke '/admin' jika tidak diset
@@ -29,6 +32,9 @@ Route::prefix($adminPrefix)->group(function () {
         Route::get('/admin/blog/{slug}/edit', [blogController::class, 'edit'])->name('admin.blog.edit');
         Route::patch('/admin/blog/{id}/update', [blogController::class, 'update'])->name('admin.blog.update');
         Route::delete('/admin/blog/{id}', [blogController::class, 'destroy'])->name('admin.blog.destroy');    
+
+        // Portofolio Routes
+        Route::get('/portofolio', [PortofolioController::class, 'index'])->name('admin.portofolio');
     });
 });
 
@@ -78,9 +84,29 @@ Route::get('/tema-pelatihan', function () {
     return view('frontend.tema-pelatihan');
 })->name('tema-pelatihan');
 
+Route::get('/detail-tema-pelatihan', function () {
+    return view('frontend.detail-tema-pelatihan');
+})->name('detail-tema-pelatihan');
+
+Route::get('/kategori-tema-pelatihan', function () {
+    return view('frontend.kategori-tema-pelatihan');
+})->name('kategori-tema-pelatihan');
+
 Route::get('/jadwal-pelatihan', function () {
     return view('frontend.jadwal-pelatihan');
 })->name('jadwal-pelatihan');
+
+Route::get('/galeri', function () {
+    return view('frontend.galeri');
+})->name('galeri');
+
+Route::get('/detail-galeri', function () {
+    return view('frontend.detail-galeri');
+})->name('detail-galeri');
+
+Route::get('/formulir-pendaftaran', function () {
+    return view('frontend.formulir-pendaftaran');
+})->name('formulir-pendaftaran');
 
 
 
