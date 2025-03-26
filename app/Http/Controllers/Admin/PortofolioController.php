@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Portofolio;
+use Illuminate\Support\Facades\Storage;
+
 
 class PortofolioController extends Controller
 {
@@ -27,7 +29,10 @@ class PortofolioController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.portofolio.create', [
+            'page_title' => 'Tambah Portofolio',
+            'showTambah' => false,
+        ]);
     }
 
     /**
@@ -35,38 +40,114 @@ class PortofolioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'judul_portofolio' => 'required|string|max:255',
+            'nama_klien' => 'required|string|max:255',
+            'kategori_tema' => 'required|string|max:255',
+            'nama_pelatihan' => 'required|string|max:255',
+            'waktu_awal' => 'required|date',
+            'waktu_akhir' => 'required|date|after_or_equal:waktu_awal',
+            'nama_tempat' => 'required|string|max:255',
+            'kota_kabupaten' => 'required|string|max:255',
+            'provinsi' => 'required|string|max:255',
+            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'cover' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'content' => 'required',
+            'link_klien' => 'nullable|url',
+            'status' => 'required|in:aktif,nonaktif',
+        ]);
+
+        $thumbnailPath = $request->file('thumbnail') ? $request->file('thumbnail')->store('portofolio/thumbnails', 'public') : null;
+        $coverPath = $request->file('cover') ? $request->file('cover')->store('portofolio/covers', 'public') : null;
+
+        Portofolio::create([
+            'judul_portofolio' => $request->judul_portofolio,
+            'nama_klien' => $request->nama_klien,
+            'kategori_tema' => $request->kategori_tema,
+            'nama_pelatihan' => $request->nama_pelatihan,
+            'waktu_awal' => $request->waktu_awal,
+            'waktu_akhir' => $request->waktu_akhir,
+            'nama_tempat' => $request->nama_tempat,
+            'kota_kabupaten' => $request->kota_kabupaten,
+            'provinsi' => $request->provinsi,
+            'thumbnail' => $thumbnailPath,
+            'cover' => $coverPath,
+            'content' => $request->content,
+            'link_klien' => $request->link_klien,
+            'status' => $request->status,
+        ]);
+
+        return redirect()->route('admin.portofolio')->with('success', 'Portofolio berhasil ditambahkan!');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($judul_portofolio)
     {
-        //
+        // Cari portofolio berdasarkan judul_portofolio
+        $portofolio = Portofolio::where('judul_portofolio', $judul_portofolio)->firstOrFail();
+
+        return view('backend.portofolio.show', [
+            'page_title' => 'Detail Portofolio',
+            'showTambah' => false,
+            'portofolio' => $portofolio
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Portofolio $portofolio)
     {
-        //
+        return view('backend.portofolio.edit', compact('portofolio'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Portofolio $portofolio)
     {
-        //
+        $request->validate([
+            'judul_portofolio' => 'required|string|max:255',
+            'nama_klien' => 'required|string|max:255',
+            'kategori_tema' => 'required|string|max:255',
+            'nama_pelatihan' => 'required|string|max:255',
+            'waktu_awal' => 'required|date',
+            'waktu_akhir' => 'required|date|after_or_equal:waktu_awal',
+            'nama_tempat' => 'required|string|max:255',
+            'kota_kabupaten' => 'required|string|max:255',
+            'provinsi' => 'required|string|max:255',
+            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'cover' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'content' => 'required',
+            'link_klien' => 'nullable|url',
+            'status' => 'required|in:aktif,nonaktif',
+        ]);
+
+        if ($request->hasFile('thumbnail')) {
+            Storage::disk('public')->delete($portofolio->thumbnail);
+            $portofolio->thumbnail = $request->file('thumbnail')->store('portofolio/thumbnails', 'public');
+        }
+
+        if ($request->hasFile('cover')) {
+            Storage::disk('public')->delete($portofolio->cover);
+            $portofolio->cover = $request->file('cover')->store('portofolio/covers', 'public');
+        }
+
+        $portofolio->update($request->except(['thumbnail', 'cover']));
+
+        return redirect()->route('admin.portofolio.index')->with('success', 'Portofolio berhasil diperbarui!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Portofolio $portofolio)
     {
-        //
+        Storage::disk('public')->delete([$portofolio->thumbnail, $portofolio->cover]);
+        $portofolio->delete();
+
+        return redirect()->route('admin.portofolio.index')->with('success', 'Portofolio berhasil dihapus!');
     }
 }

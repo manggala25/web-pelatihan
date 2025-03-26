@@ -2,34 +2,69 @@
 
 @section('content')
     <div class="container">
-        <h1 class="mb-4">{{ $blog->judul }}</h1>
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h2 class="mb-3">{{ $portofolio->judul_portofolio }}</h2>
 
-        <div class="mb-3">
-            <strong>Kategori:</strong> {{ $blog->kategori }}
-        </div>
+                <div class="mb-3">
+                    <strong>Nama Klien:</strong> {{ $portofolio->nama_klien }}
+                </div>
 
-        <div class="mb-3">
-            <strong>Status:</strong>
-            <span class="badge bg-{{ $blog->status == 'publish' ? 'success' : 'secondary' }}">
-                {{ ucfirst($blog->status) }}
-            </span>
-        </div>
+                <div class="mb-3">
+                    <strong>Kategori Tema:</strong> {{ $portofolio->kategori_tema }}
+                </div>
 
-        <div class="mb-3">
-            <strong>Tanggal Publikasi:</strong>
-            {{ $blog->published_at ? \Carbon\Carbon::parse($blog->published_at)->format('d M Y H:i') : '-' }}
-        </div>
+                <div class="mb-3">
+                    <strong>Nama Pelatihan:</strong> {{ $portofolio->nama_pelatihan }}
+                </div>
 
-        @if($blog->thumbnail)
-            <div class="mb-3">
-                <img src="{{ asset($blog->thumbnail) }}" alt="Thumbnail" class="img-fluid" style="max-width: 500px;">
+                <div class="mb-3">
+                    <strong>Waktu Pelaksanaan:</strong>
+                    {{ \Carbon\Carbon::parse($portofolio->waktu_awal)->format('d M Y') }} -
+                    {{ \Carbon\Carbon::parse($portofolio->waktu_akhir)->format('d M Y') }}
+                </div>
+
+                <div class="mb-3">
+                    <strong>Lokasi:</strong>
+                    {{ $portofolio->nama_tempat }}, {{ $portofolio->kota_kabupaten }}, {{ $portofolio->provinsi }}
+                </div>
+
+                <div class="mb-3">
+                    <strong>Status:</strong>
+                    <span class="badge bg-{{ $portofolio->status == 'aktif' ? 'success' : 'secondary' }}">
+                        {{ ucfirst($portofolio->status) }}
+                    </span>
+                </div>
+
+                @if($portofolio->thumbnail)
+                    <div class="mb-3 text-center">
+                        <img src="{{ asset('storage/' .$portofolio->thumbnail) }}" alt="Thumbnail" class="img-fluid rounded"
+                            style="max-width: 500px;">
+                    </div>
+                @endif
+
+                @if($portofolio->cover)
+                    <div class="mb-3 text-center">
+                        <img src="{{ asset('storage/'. $portofolio->cover) }}" alt="Cover" class="img-fluid rounded"
+                            style="max-width: 700px;">
+                    </div>
+                @endif
+
+                <div class="mb-3">
+                    <strong>Deskripsi:</strong>
+                    <div class="border p-3 rounded bg-light">{!! $portofolio->content !!}</div>
+                </div>
+
+                @if($portofolio->link_klien)
+                    <div class="mb-3">
+                        <strong>Link Klien:</strong>
+                        <a href="{{ $portofolio->link_klien }}" target="_blank" class="btn btn-outline-primary btn-sm">Lihat
+                            Detail</a>
+                    </div>
+                @endif
+
+                <a href="{{ route('admin.portofolio') }}" class="btn btn-secondary mt-3">Kembali</a>
             </div>
-        @endif
-
-        <div class="content">
-            {!! $blog->content !!}
         </div>
-
-        <a href="{{ route('admin.blog') }}" class="btn btn-secondary mt-3">Kembali</a>
     </div>
 @endsection

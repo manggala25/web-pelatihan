@@ -35,6 +35,13 @@ Route::prefix($adminPrefix)->group(function () {
 
         // Portofolio Routes
         Route::get('/portofolio', [PortofolioController::class, 'index'])->name('admin.portofolio');
+        Route::get('/portofolio/create', [PortofolioController::class, 'create'])->name('admin.portofolio.create');
+        Route::post('/portofolio/store', [PortofolioController::class, 'store'])->name('admin.portofolio.store');
+        Route::get('/admin/portofolio/{judul_portofolio}', [PortofolioController::class, 'show'])->name('admin.portofolio.show');
+        Route::post('/upload-image', [PortofolioController::class, 'uploadImage'])->name('upload.image');
+        Route::get('/admin/portofolio/{id}/edit', [PortofolioController::class, 'edit'])->name('admin.portofolio.edit');
+        Route::patch('/admin/portofolio/{id}/update', [PortofolioController::class, 'update'])->name('admin.portofolio.update');
+        Route::delete('/admin/portofolio/{id}', [PortofolioController::class, 'destroy'])->name('admin.portofolio.destroy');
     });
 });
 
