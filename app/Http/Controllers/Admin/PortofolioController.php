@@ -15,7 +15,7 @@ class PortofolioController extends Controller
      */
     public function index()
     {
-        $portofolio = Portofolio::orderBy('created_at', 'desc')->get();
+        $portofolio = Portofolio::orderBy('updated_at', 'desc')->get();
         return view('backend.portofolio.index', [
             'page_title' => 'Portofolio',
             'tambah' => 'admin.portofolio.create',
@@ -98,9 +98,14 @@ class PortofolioController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Portofolio $portofolio)
+    public function edit($id)
     {
-        return view('backend.portofolio.edit', compact('portofolio'));
+        $portofolio = Portofolio::findOrFail($id);
+        return view('backend.portofolio.edit', [
+            'page_title' => 'Edit Portofolio',
+            'showTambah' => false,
+            'portofolio' => $portofolio
+        ]);
     }
 
     /**
@@ -125,29 +130,44 @@ class PortofolioController extends Controller
             'status' => 'required|in:aktif,nonaktif',
         ]);
 
+        $data = $request->except(['thumbnail', 'cover']);
+
         if ($request->hasFile('thumbnail')) {
             Storage::disk('public')->delete($portofolio->thumbnail);
-            $portofolio->thumbnail = $request->file('thumbnail')->store('portofolio/thumbnails', 'public');
+            $data['thumbnail'] = $request->file('thumbnail')->store('portofolio/thumbnails', 'public');
         }
 
         if ($request->hasFile('cover')) {
             Storage::disk('public')->delete($portofolio->cover);
-            $portofolio->cover = $request->file('cover')->store('portofolio/covers', 'public');
+            $data['cover'] = $request->file('cover')->store('portofolio/covers', 'public');
         }
 
-        $portofolio->update($request->except(['thumbnail', 'cover']));
+        $portofolio->update($data);
 
-        return redirect()->route('admin.portofolio.index')->with('success', 'Portofolio berhasil diperbarui!');
+        return redirect()->route('admin.portofolio')->with('success', 'Portofolio berhasil diperbarui!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Portofolio $portofolio)
+    public function destroy($id)
     {
-        Storage::disk('public')->delete([$portofolio->thumbnail, $portofolio->cover]);
+        // Ambil data berdasarkan ID
+        $portofolio = Portofolio::findOrFail($id);
+
+        // Hapus file thumbnail jika ada
+        if ($portofolio->thumbnail) {
+            Storage::disk('public')->delete($portofolio->thumbnail);
+        }
+
+        // Hapus file cover jika ada
+        if ($portofolio->cover) {
+            Storage::disk('public')->delete($portofolio->cover);
+        }
+
+        // Hapus data dari database
         $portofolio->delete();
 
-        return redirect()->route('admin.portofolio.index')->with('success', 'Portofolio berhasil dihapus!');
+        return redirect()->route('admin.portofolio')->with('success', 'Portofolio berhasil dihapus!');
     }
 }

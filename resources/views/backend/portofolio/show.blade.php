@@ -10,6 +10,13 @@
                     <strong>Nama Klien:</strong> {{ $portofolio->nama_klien }}
                 </div>
 
+                @if($portofolio->link_klien)
+                    <div class="mb-3">
+                        <strong>Link Klien:</strong>
+                        <a href="{{ $portofolio->link_klien }}" target="_blank" class="btn btn-outline-primary btn-sm">{{ $portofolio->link_klien }}</a>
+                    </div>
+                @endif
+
                 <div class="mb-3">
                     <strong>Kategori Tema:</strong> {{ $portofolio->kategori_tema }}
                 </div>
@@ -38,14 +45,14 @@
 
                 @if($portofolio->thumbnail)
                     <div class="mb-3 text-center">
-                        <img src="{{ asset('storage/' .$portofolio->thumbnail) }}" alt="Thumbnail" class="img-fluid rounded"
+                        <img src="{{ asset('storage/' . $portofolio->thumbnail) }}" alt="Thumbnail" class="img-fluid rounded"
                             style="max-width: 500px;">
                     </div>
                 @endif
 
                 @if($portofolio->cover)
                     <div class="mb-3 text-center">
-                        <img src="{{ asset('storage/'. $portofolio->cover) }}" alt="Cover" class="img-fluid rounded"
+                        <img src="{{ asset('storage/' . $portofolio->cover) }}" alt="Cover" class="img-fluid rounded"
                             style="max-width: 700px;">
                     </div>
                 @endif
@@ -54,14 +61,6 @@
                     <strong>Deskripsi:</strong>
                     <div class="border p-3 rounded bg-light">{!! $portofolio->content !!}</div>
                 </div>
-
-                @if($portofolio->link_klien)
-                    <div class="mb-3">
-                        <strong>Link Klien:</strong>
-                        <a href="{{ $portofolio->link_klien }}" target="_blank" class="btn btn-outline-primary btn-sm">Lihat
-                            Detail</a>
-                    </div>
-                @endif
 
                 <a href="{{ route('admin.portofolio') }}" class="btn btn-secondary mt-3">Kembali</a>
             </div>

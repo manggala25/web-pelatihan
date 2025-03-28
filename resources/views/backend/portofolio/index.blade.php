@@ -34,29 +34,30 @@
     </thead>
     <tbody>
     @forelse ($portofolio as $key => $portofolio)
-    <tr>
-    <td>{{ $key + 1 }}</td>
-    <td>{{ Str::limit($portofolio->judul_portofolio, 50) }}</td>
-    <td>{{ $portofolio->nama_klien }}</td>
-    <td>{{ $portofolio->kategori_tema }}</td>
-    <td>{{ $portofolio->nama_pelatihan }}</td>
-    <td class="d-flex gap-2 text-white">
-    <a href="{{ route('admin.portofolio.show', $portofolio->judul_portofolio) }}" class="btn btn-info btn-circle">
-    <i class="ri-eye-line"></i>
-    </a>
-    <a href="{{ route('admin.portofolio.edit', $portofolio->id) }}" class="btn btn-warning btn-circle">
-    <i class="ri-edit-2-fill"></i>
-    </a>
-    <form action="{{ route('admin.portofolio.destroy', $portofolio->id) }}" method="POST"
-    class="delete-form" onsubmit="return confirmDelete()">
-    @csrf
-    @method('DELETE')
-    <button type="submit" class="btn btn-danger btn-circle">
-    <i class="ri-delete-bin-fill"></i>
-    </button>
-    </form>
-    </td>
-    </tr>
+        <tr>
+        <td>{{ $key + 1 }}</td>
+        <td>{{ Str::limit($portofolio->judul_portofolio, 50) }}</td>
+        <td>{{ $portofolio->nama_klien }}</td>
+        <td>{{ $portofolio->kategori_tema }}</td>
+        <td>{{ $portofolio->nama_pelatihan }}</td>
+        <td class="d-flex gap-2 text-white">
+        <a href="{{ route('admin.portofolio.show', $portofolio->judul_portofolio) }}" class="btn btn-info btn-circle">
+        <i class="ri-eye-line"></i>
+        </a>
+        <a href="{{ route('admin.portofolio.edit', $portofolio->id) }}" class="btn btn-warning btn-circle">
+        <i class="ri-edit-2-fill"></i>
+        </a>
+        <form action="{{ route('admin.portofolio.destroy', $portofolio->id) }}" method="POST"
+            onsubmit="return confirm('Apakah Anda yakin ingin menghapus portofolio ini?');">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger btn-circle">
+                <i class="ri-delete-bin-fill"></i>
+            </button>
+        </form>
+
+        </td>
+        </tr>
     @empty
     <tr>
     <td colspan="6" class="text-center text-muted">Data Kosong</td>

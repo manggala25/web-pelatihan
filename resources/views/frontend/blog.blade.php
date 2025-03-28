@@ -78,7 +78,7 @@
     <p class="blog__card-comment">{{ \Carbon\Carbon::parse($blog->published_at)->format('d F Y') }}</p>
     </li>
     </ul>
-    <a href="{{ route('detail-blog', $blog->slug) }}" class="blog__card-title">
+    <a href="{{ route('detail-blog', parameters: $blog->slug) }}" class="blog__card-title">
     {{ Str::limit($blog->judul, 50) }}
     </a>
     </div>

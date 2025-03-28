@@ -1047,8 +1047,8 @@ i {
 .case-study__item-img-box {
   position: relative;
   overflow: hidden;
-  background-color: var(--noile-primary, #1d1d1d);
-  background-blend-mode: luminosity;
+  /* background-color: var(--noile-primary, #1d1d1d);
+  background-blend-mode: luminosity; */
 }
 .case-study__item-img-box::after {
   content: "";
@@ -1067,7 +1067,7 @@ i {
 .case-study__item-img {
   width: 100%;
   display: block;
-  mix-blend-mode: luminosity;
+  /* mix-blend-mode: luminosity; */
 }
 .case-study__item-btn {
   display: flex;

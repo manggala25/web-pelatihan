@@ -4,13 +4,10 @@
     <div class="row">
     <div class="col-12">
     <div class="card">
-    <div class="card-header bg-info">
-    <h4 class="card-title text-white">
-    Form Edit Blog
-    </h4>
+    <div class="card-header bg-warning">
+    <h4 class="card-title text-white">Form Edit Portofolio</h4>
     </div>
     <div class="card-body">
-    <!-- Tampilkan Error Validasi -->
     @if ($errors->any())
     <div class="alert alert-danger">
     <ul>
@@ -21,118 +18,140 @@
     </div>
     @endif
 
-    <form action="{{ route('admin.blog.update', $blog->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.portofolio.update', $portofolio->id) }}" method="POST"
+    enctype="multipart/form-data">
     @csrf
     @method('PATCH')
 
     <div class="mb-3">
-    <label for="judul">Judul Blog</label>
-    <input type="text" name="judul" class="form-control" required value="{{ old('judul', $blog->judul) }}" />
+    <label for="judul_portofolio">Judul Portofolio</label>
+    <input type="text" name="judul_portofolio" class="form-control" required
+    value="{{ old('judul_portofolio', $portofolio->judul_portofolio) }}" />
     </div>
 
     <div class="mb-3">
-    <label for="slug">Slug</label>
-    <input type="text" name="slug" class="form-control" required value="{{ old('slug', $blog->slug) }}" />
+    <label for="nama_klien">Nama Klien</label>
+    <input type="text" name="nama_klien" class="form-control" required
+    value="{{ old('nama_klien', $portofolio->nama_klien) }}" />
     </div>
 
     <div class="mb-3">
-    <label for="kategori">Kategori</label>
-    <input type="text" name="kategori" class="form-control" required
-    value="{{ old('kategori', $blog->kategori) }}" />
+    <label for="kategori_tema">Kategori Tema</label>
+    <select name="kategori_tema" class="form-select" required>
+    <option value="">-- Pilih Kategori Tema --</option>
+    <option value="Teknologi" {{ $portofolio->kategori_tema == 'Teknologi' ? 'selected' : '' }}>Teknologi
+    </option>
+    <option value="Bisnis" {{ $portofolio->kategori_tema == 'Bisnis' ? 'selected' : '' }}>Bisnis</option>
+    <option value="Pendidikan" {{ $portofolio->kategori_tema == 'Pendidikan' ? 'selected' : '' }}>Pendidikan
+    </option>
+    <option value="Kesehatan" {{ $portofolio->kategori_tema == 'Kesehatan' ? 'selected' : '' }}>Kesehatan
+    </option>
+    </select>
+    </div>
+
+    <div class="mb-3">
+    <label for="nama_pelatihan">Nama Pelatihan</label>
+    <select name="nama_pelatihan" class="form-select" required>
+    <option value="">-- Pilih Nama Pelatihan --</option>
+    <option value="Pelatihan Digital Marketing" {{ $portofolio->nama_pelatihan == 'Pelatihan Digital Marketing' ? 'selected' : '' }}>Pelatihan Digital Marketing</option>
+    <option value="Pelatihan UI/UX Design" {{ $portofolio->nama_pelatihan == 'Pelatihan UI/UX Design' ? 'selected' : '' }}>Pelatihan UI/UX Design</option>
+    <option value="Pelatihan Software Development" {{ $portofolio->nama_pelatihan == 'Pelatihan Software Development' ? 'selected' : '' }}>Pelatihan Software Development</option>
+    <option value="Pelatihan Manajemen Bisnis" {{ $portofolio->nama_pelatihan == 'Pelatihan Manajemen Bisnis' ? 'selected' : '' }}>Pelatihan Manajemen Bisnis</option>
+    </select>
+    </div>
+
+    <div class="mb-3">
+    <label for="waktu_awal">Waktu Awal</label>
+    <input type="date" name="waktu_awal" class="form-control" required
+    value="{{ old('waktu_awal', \Carbon\Carbon::parse($portofolio->waktu_awal)->format('Y-m-d')) }}" />
+    </div>
+
+    <div class="mb-3">
+    <label for="waktu_akhir">Waktu Akhir</label>
+    <input type="date" name="waktu_akhir" class="form-control" required
+    value="{{ old('waktu_akhir', \Carbon\Carbon::parse($portofolio->waktu_akhir)->format('Y-m-d')) }}" />
+    </div>
+
+    <div class="mb-3">
+    <label for="nama_tempat">Nama Tempat</label>
+    <input type="text" name="nama_tempat" class="form-control" required
+    value="{{ old('nama_tempat', $portofolio->nama_tempat) }}" />
+    </div>
+
+    <div class="mb-3">
+    <label for="kota_kabupaten">Kota/Kabupaten</label>
+    <input type="text" name="kota_kabupaten" class="form-control" required
+    value="{{ old('kota_kabupaten', $portofolio->kota_kabupaten) }}" />
+    </div>
+
+    <div class="mb-3">
+    <label for="provinsi">Provinsi</label>
+    <input type="text" name="provinsi" class="form-control" required
+    value="{{ old('provinsi', $portofolio->provinsi) }}" />
+    </div>
+
+    <div class="mb-3">
+    <label for="thumbnail">Upload Thumbnail (1296x600)</label>
+    <input type="file" name="thumbnail" class="form-control" id="thumbnail" accept="image/*">
+    <img id="previewThumbnail" src="{{ asset('storage/' . $portofolio->thumbnail) }}" class="img-fluid mt-2"
+    style="max-width: 300px;" />
+    </div>
+
+    <div class="mb-3">
+    <label for="cover">Upload Cover (416x450)</label>
+    <input type="file" name="cover" class="form-control" id="cover" accept="image/*">
+    <img id="previewCover" src="{{ asset('storage/' . $portofolio->cover) }}" class="img-fluid mt-2"
+    style="max-width: 300px;" />
+    </div>
+
+    <div class="mb-3">
+    <label for="link_klien">Link Klien</label>
+    <input type="url" name="link_klien" class="form-control"
+    value="{{ old('link_klien', $portofolio->link_klien) }}" />
     </div>
 
     <div class="mb-3">
     <label for="status">Status</label>
-    <select name="status" class="form-select" required id="status">
-    <option value="draft" {{ $blog->status == 'draft' ? 'selected' : '' }}>Draft</option>
-    <option value="publish" {{ $blog->status == 'publish' ? 'selected' : '' }}>Publish</option>
-    <option value="archive" {{ $blog->status == 'archive' ? 'selected' : '' }}>Archive</option>
+    <select name="status" class="form-select" required>
+    <option value="aktif" {{ $portofolio->status == 'aktif' ? 'selected' : '' }}>Aktif</option>
+    <option value="nonaktif" {{ $portofolio->status == 'nonaktif' ? 'selected' : '' }}>Nonaktif</option>
     </select>
-    </div>
-
-    <!-- Input hidden untuk published_at -->
-    <input type="hidden" name="published_at" id="published_at" value="{{ $blog->published_at }}">
-
-    <div class="mb-3 mt-1">
-    <label for="thumbnail">Upload Thumbnail (Kosongkan jika tidak ingin mengganti)</label>
-    <input type="file" name="thumbnail" class="form-control" id="thumbnailInput" accept="image/*">
-    <br>
-    <img id="thumbnailPreview" src="{{ asset($blog->thumbnail) }}" alt="Thumbnail" width="150px"
-    style="display:block; margin-top:10px;">
     </div>
 
     <div class="mb-3">
     <label for="content">Isi Konten</label>
-    <textarea class="summernote" name="content">{{ old('content', $blog->content) }}</textarea>
+    <textarea class="summernote" name="content">{{ old('content', $portofolio->content) }}</textarea>
     </div>
 
     <div class="col-12 d-flex justify-content-md-end">
-    <button type="submit" class="btn btn-info font-weight-medium rounded-pill px-4">
+    <button type="submit" class="btn btn-warning font-weight-medium rounded-pill px-4">
     <div class="d-flex align-items-center">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-    class="feather feather-send feather-sm fill-white me-2">
-    <line x1="22" y1="2" x2="11" y2="13"></line>
-    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-    </svg>
+    <i class="ri-save-3-fill me-2"></i>
     Update
     </div>
     </button>
     </div>
     </form>
-
     </div>
     </div>
     </div>
     </div>
 
     <script>
-    document.getElementById('status').addEventListener('change', function () {
-    let publishedAtInput = document.getElementById('published_at');
-    if (this.value === 'publish') {
-    publishedAtInput.value = new Date().toISOString().slice(0, 19).replace('T', ' '); // Format YYYY-MM-DD HH:MM:SS
-    } else {
-    publishedAtInput.value = '';
-    }
-    });
-    </script>
-
-    <script>
-    document.getElementById('thumbnailInput').addEventListener('change', function (event) {
+    document.getElementById('thumbnail').addEventListener('change', function (event) {
     let reader = new FileReader();
     reader.onload = function () {
-      document.getElementById('thumbnailPreview').src = reader.result;
-    };
-    if (event.target.files[0]) {
-      reader.readAsDataURL(event.target.files[0]);
+    document.getElementById('previewThumbnail').src = reader.result;
     }
+    reader.readAsDataURL(event.target.files[0]);
+    });
+
+    document.getElementById('cover').addEventListener('change', function (event) {
+    let reader = new FileReader();
+    reader.onload = function () {
+    document.getElementById('previewCover').src = reader.result;
+    }
+    reader.readAsDataURL(event.target.files[0]);
     });
     </script>
-
-    <!-- Tambahkan SweetAlert -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    @if(session('success'))
-    <script>
-    Swal.fire({
-      icon: 'success',
-      title: 'Sukses!',
-      text: '{{ session("success") }}',
-      showConfirmButton: false,
-      timer: 3000
-    });
-    </script>
-  @endif
-
-    @if(session('error'))
-    <script>
-    Swal.fire({
-      icon: 'error',
-      title: 'Oops...',
-      text: '{{ session("error") }}',
-    });
-    </script>
-  @endif
-
-
 @endsection

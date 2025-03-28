@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\dashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AdminLoginController;
 use App\Http\Controllers\Frontend\FrontBlogController;
+use App\Http\Controllers\Frontend\FrontGaleriController;
 
 
 
@@ -40,7 +41,7 @@ Route::prefix($adminPrefix)->group(function () {
         Route::get('/admin/portofolio/{judul_portofolio}', [PortofolioController::class, 'show'])->name('admin.portofolio.show');
         Route::post('/upload-image', [PortofolioController::class, 'uploadImage'])->name('upload.image');
         Route::get('/admin/portofolio/{id}/edit', [PortofolioController::class, 'edit'])->name('admin.portofolio.edit');
-        Route::patch('/admin/portofolio/{id}/update', [PortofolioController::class, 'update'])->name('admin.portofolio.update');
+        Route::patch('/admin/portofolio/{portofolio}/update', [PortofolioController::class, 'update'])->name('admin.portofolio.update');
         Route::delete('/admin/portofolio/{id}', [PortofolioController::class, 'destroy'])->name('admin.portofolio.destroy');
     });
 });
@@ -51,8 +52,13 @@ Route::get('/', function () {
     return view('frontend.home');
 })->name('home');
 
+//blog
 Route::get('/blog', [FrontBlogController::class, 'index'])->name('blog');
 Route::get('/blog/{slug}', [FrontBlogController::class, 'show'])->name('detail-blog');
+
+//galeri
+Route::get('/galeri', [FrontGaleriController::class, 'index'])->name('galeri');
+Route::get('/galeri/{slug}', [FrontGaleriController::class, 'show'])->name('detail-galeri');
 
 
 Route::get('/kontak', function () {
@@ -102,14 +108,6 @@ Route::get('/kategori-tema-pelatihan', function () {
 Route::get('/jadwal-pelatihan', function () {
     return view('frontend.jadwal-pelatihan');
 })->name('jadwal-pelatihan');
-
-Route::get('/galeri', function () {
-    return view('frontend.galeri');
-})->name('galeri');
-
-Route::get('/detail-galeri', function () {
-    return view('frontend.detail-galeri');
-})->name('detail-galeri');
 
 Route::get('/formulir-pendaftaran', function () {
     return view('frontend.formulir-pendaftaran');
