@@ -41,22 +41,22 @@ class blogController extends Controller
         ]);
     }
 
+
     public function store(Request $request)
     {
         try {
             // Validasi input
             $validated = $request->validate([
                 'judul' => 'required|max:255',
-                'slug' => 'required|unique:blogs,slug|max:255',
                 'kategori' => 'required|max:255',
                 'status' => 'required|in:draft,publish,archive',
                 'content' => 'required',
-                'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+                'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'
             ]);
 
             $blog = new Blog();
             $blog->judul = $validated['judul'];
-            $blog->slug = Str::slug($validated['slug']); // Format slug URL-friendly
+            $blog->slug = Str::slug($validated['judul']); // Slug di-generate otomatis
             $blog->kategori = $validated['kategori'];
             $blog->status = $validated['status'];
             $blog->content = $validated['content'];
@@ -97,16 +97,15 @@ class blogController extends Controller
         try {
             $request->validate([
                 'judul' => 'required|string|max:255',
-                'slug' => 'required|string|max:255|unique:blogs,slug,' . $id,
                 'kategori' => 'required|string|max:255',
                 'status' => 'required|in:draft,publish,archive',
                 'content' => 'required',
-                'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             ]);
 
             $blog = Blog::findOrFail($id);
             $blog->judul = $request->judul;
-            $blog->slug = Str::slug($request->slug);
+            $blog->slug = Str::slug($request->judul); // Slug otomatis diubah dari judul
             $blog->kategori = $request->kategori;
             $blog->status = $request->status;
             $blog->content = $request->content;
@@ -130,6 +129,7 @@ class blogController extends Controller
             return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
     }
+
 
     public function edit($slug)
     {

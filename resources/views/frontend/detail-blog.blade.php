@@ -67,7 +67,7 @@
     <p class="blog-details__card-comment">Diupload Pada</p>
     </li>
     <li class="blog-details__card-comment-item blog-details__card-comment-item-divider">
-    <p class="blog-details__card-comment">/</p>
+    <p class="blog-details__card-comment">:</p>
     </li>
     <li class="blog-details__card-comment-item">
     <p class="blog-details__card-comment">{{ \Carbon\Carbon::parse($blog->published_at)->format('d F Y') }}</p>

@@ -29,11 +29,6 @@
     </div>
 
     <div class="mb-3">
-    <label for="slug">Slug</label>
-    <input type="text" name="slug" class="form-control" required value="{{ old('slug') }}" />
-    </div>
-
-    <div class="mb-3">
     <label for="kategori">Kategori</label>
     <input type="text" name="kategori" class="form-control" required value="{{ old('kategori') }}" />
     </div>
@@ -48,7 +43,7 @@
     </div>
 
     <div class="mb-3 mt-1">
-    <label for="thumbnail">Upload Thumbnail</label>
+    <label for="thumbnail">Upload Thumbnail (416x270)</label>
     <input type="file" name="thumbnail" class="form-control">
     </div>
 
