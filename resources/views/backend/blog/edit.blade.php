@@ -31,11 +31,6 @@
     </div>
 
     <div class="mb-3">
-    <label for="slug">Slug</label>
-    <input type="text" name="slug" class="form-control" required value="{{ old('slug', $blog->slug) }}" />
-    </div>
-
-    <div class="mb-3">
     <label for="kategori">Kategori</label>
     <input type="text" name="kategori" class="form-control" required
     value="{{ old('kategori', $blog->kategori) }}" />
