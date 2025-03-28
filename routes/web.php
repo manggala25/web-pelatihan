@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\blogController;
 use App\Http\Controllers\Admin\PortofolioController;
 use App\Http\Controllers\Admin\dashboardController;
+use App\Http\Controllers\Admin\KategoriTemaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AdminLoginController;
 use App\Http\Controllers\Frontend\FrontBlogController;
@@ -43,6 +44,10 @@ Route::prefix($adminPrefix)->group(function () {
         Route::get('/admin/portofolio/{id}/edit', [PortofolioController::class, 'edit'])->name('admin.portofolio.edit');
         Route::patch('/admin/portofolio/{portofolio}/update', [PortofolioController::class, 'update'])->name('admin.portofolio.update');
         Route::delete('/admin/portofolio/{id}', [PortofolioController::class, 'destroy'])->name('admin.portofolio.destroy');
+
+        // Kategori Tema
+        // Route::get('/kategori-tema', [KategoriTemaController::class, 'index'])->name('admin.kategori-tema');
+        // Route::get('/kategori-tema/create', [KategoriTemaController::class, 'create'])->name('admin.kategori-tema.create');
     });
 });
 

@@ -52,6 +52,18 @@
                     </ul>
                 </li>
 
+                {{-- Pelatihan --}}
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                        aria-expanded="false"><i data-feather="anchor"></i><span class="hide-menu">Pelatihan</span></a>
+                    <ul aria-expanded="false" class="collapse first-level">
+                        <li class="sidebar-item">
+                            <a href="{{ Route('admin.kategori-tema') }}" class="sidebar-link"><i
+                                    class="ri-list-check"></i><span class="hide-menu">Kategori Tema</span></a>
+                        </li>
+                    </ul>
+                </li>
+
                 
             </ul>
         </nav>
