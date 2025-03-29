@@ -59,7 +59,7 @@
     <div class="blog-details__left">
     <div class="blog-details__blog-card">
     <div class="blog-details__card-img-box wow animated fadeInUp" data-wow-duration="1500ms">
-    <img src="{{ asset('storage/uploads/thumbnails/'.$blog->thumbnail) }}" alt="{{ $blog->judul }}" class="blog-details__card-img">
+    <img src="{{ asset('storage/'.$blog->thumbnail) }}" alt="{{ $blog->judul }}" class="blog-details__card-img">
     <p class="blog-details__card-category">{{ $blog->kategori }}</p><!-- /.blog-one__item-category -->
     </div><!-- /.blog-one__img-box -->
     <ul class="blog-details__card-comment-box">
