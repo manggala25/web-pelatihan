@@ -56,14 +56,14 @@
     <a href="{{ route('detail-blog', $blog->slug) }}" class="blog__card-img-box">
     @if (!empty($blog->thumbnail) && file_exists(public_path($blog->thumbnail)))
     @if (!empty($blog->thumbnail) && file_exists(storage_path('app/public/uploads/thumbnails/' . basename($blog->thumbnail))))
-    <img src="{{ asset('uploads/thumbnails/' . basename($blog->thumbnail)) }}" alt="{{ $blog->judul }}"
+    <img src="{{ asset('storage/uploads/thumbnails/' . basename($blog->thumbnail)) }}" alt="{{ $blog->judul }}"
     class="blog__card-img">
     @else
-    <img src="{{ asset('images/default-thumbnail.jpg') }}" alt="Thumbnail Default" class="blog__card-img">
+    <img src="{{ asset('template/frontend/assets/images/blog/blog-1-2.jpg') }}" alt="Thumbnail Default" class="blog__card-img">
     @endif
 
     @else
-    <img src="{{ asset('images/default-thumbnail.jpg') }}" alt="Thumbnail Default" class="blog__card-img">
+    <img src="{{ asset('template/frontend/assets/images/blog/blog-1-2.jpg') }}" alt="Thumbnail Default" class="blog__card-img">
     @endif
     <p class="blog__card-category">{{ $blog->kategori }}</p>
     </a>

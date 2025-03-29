@@ -22,7 +22,7 @@
 
         @if($blog->thumbnail)
             <div class="mb-3">
-                <img src="{{ asset($blog->thumbnail) }}" alt="Thumbnail" class="img-fluid" style="max-width: 500px;">
+                <img src="{{ asset('storage/'. $blog->thumbnail) }}" alt="Thumbnail" class="img-fluid" style="max-width: 500px;">
             </div>
         @endif
 
