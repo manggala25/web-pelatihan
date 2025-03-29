@@ -45,9 +45,8 @@ Route::prefix($adminPrefix)->group(function () {
         Route::patch('/admin/portofolio/{portofolio}/update', [PortofolioController::class, 'update'])->name('admin.portofolio.update');
         Route::delete('/admin/portofolio/{id}', [PortofolioController::class, 'destroy'])->name('admin.portofolio.destroy');
 
-        // Kategori Tema
-        // Route::get('/kategori-tema', [KategoriTemaController::class, 'index'])->name('admin.kategori-tema');
-        // Route::get('/kategori-tema/create', [KategoriTemaController::class, 'create'])->name('admin.kategori-tema.create');
+        
+       
     });
 });
 
