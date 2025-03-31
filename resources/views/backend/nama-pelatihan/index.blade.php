@@ -7,8 +7,8 @@
             <div class="card">
                 <div
                     class="card-header bg-info border-bottom title-part-padding d-flex justify-content-between align-items-center">
-                    <h4 class="card-title text-white mb-0">Tabel Data Kategori Tema</h4>
-                    <input id="searchInput" type="text" class="form-control w-25" placeholder="Cari nama kategori..." />
+                    <h4 class="card-title text-white mb-0">Tabel Data Nama Pelatihan</h4>
+                    <input id="searchInput" type="text" class="form-control w-25" placeholder="Cari nama pelatihan..." />
                 </div>
                 <div class="card-body">
                     @if (session('success'))
@@ -18,37 +18,41 @@
                         <script>alert("{{ session('error') }}");</script>
                     @endif
                     <div class="table-responsive">
-                        <table id="demo-foo-row-toggler" class="table table-bordered toggle-arrow-tiny text-nowrap" data-bs-toggle-column="first" data-sorting="true" data-paging="true" data-paging-size="10">
+                        <table id="demo-foo-row-toggler" class="table table-bordered toggle-arrow-tiny text-nowrap"
+                            data-bs-toggle-column="first" data-sorting="true" data-paging="true" data-paging-size="10">
                             <thead>
                                 <tr>
                                     <th data-breakpoints="xs">NO.</th>
-                                    <th data-breakpoints="xs sm">Nama Kategori</th>
-                                    <th data-breakpoints="all">Deskripsi</th>
+                                    <th data-breakpoints="xs sm">Nama Pelatihan</th>
+                                    <th data-breakpoints="all">Kategori Tema</th>
                                     <th data-breakpoints="xs">Status</th>
                                     <th class="text-center" data-breakpoints="xs">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($kategoritema as $key => $kategori)
+                                @forelse ($nama_pelatihan as $key => $pelatihan)
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
-                                        <td>{{ Str::limit($kategori->nama_kategori, 50) }}</td>
-                                        <td>{{ Str::limit($kategori->deskripsi, 100) }}</td>
+                                        <td>{{ Str::limit($pelatihan->nama_pelatihan, 50) }}</td>
+                                        <td>{{ Str::limit($pelatihan->nama_kategori, 50) }}</td>
                                         <td>
-                                            @if ($kategori->status == 'aktif')
+                                            @if ($pelatihan->status == 'aktif')
                                                 <span class="badge bg-success">Aktif</span>
                                             @else
                                                 <span class="badge bg-danger">Nonaktif</span>
                                             @endif
                                         </td>
                                         <td class="d-flex gap-2 text-white">
-                                            <a href="{{ route('admin.kategori-tema.edit', $kategori->id) }}"
+                                            <a href="{{ route('admin.nama-pelatihan.show', $pelatihan->slug) }}" class="btn btn-info btn-circle">
+                                                <i class="ri-eye-line"></i>
+                                            </a>
+                                            <a href="{{ route('admin.nama-pelatihan.edit', $pelatihan->id) }}"
                                                 class="btn btn-warning btn-circle">
                                                 <i class="ri-edit-2-fill"></i>
                                             </a>
-                                            <form action="{{ route('admin.kategori-tema.destroy', $kategori->id) }}"
+                                            <form action="{{ route('admin.nama-pelatihan.destroy', $pelatihan->id) }}"
                                                 method="POST"
-                                                onsubmit="return confirm('Apakah Anda yakin ingin menghapus kategori ini?');">
+                                                onsubmit="return confirm('Apakah Anda yakin ingin menghapus pelatihan ini?');">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger btn-circle">
@@ -73,20 +77,20 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-    const searchInput = document.getElementById("searchInput");
-    const tableRows = document.querySelectorAll("#demo-foo-row-toggler tbody tr");
+            const searchInput = document.getElementById("searchInput");
+            const tableRows = document.querySelectorAll("#demo-foo-row-toggler tbody tr");
 
-    searchInput.addEventListener("input", function () {
-    const filter = searchInput.value.toLowerCase();
+            searchInput.addEventListener("input", function () {
+                const filter = searchInput.value.toLowerCase();
 
-    tableRows.forEach(row => {
-    const titleCell = row.cells[1]; // Kolom judul ada di indeks 1
-    if (titleCell) {
-    const titleText = titleCell.textContent.toLowerCase();
-    row.style.display = titleText.includes(filter) ? "" : "none";
-    }
-    });
-    });
-    });
+                tableRows.forEach(row => {
+                    const titleCell = row.cells[1]; // Kolom nama pelatihan ada di indeks 1
+                    if (titleCell) {
+                        const titleText = titleCell.textContent.toLowerCase();
+                        row.style.display = titleText.includes(filter) ? "" : "none";
+                    }
+                });
+            });
+        });
     </script>
 @endsection

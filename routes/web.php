@@ -4,7 +4,10 @@ use App\Http\Controllers\Admin\blogController;
 use App\Http\Controllers\Admin\PortofolioController;
 use App\Http\Controllers\Admin\dashboardController;
 use App\Http\Controllers\Admin\KategoriTemaController;
+use App\Http\Controllers\Admin\NamaPelatihanController;
+
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\Auth\AdminLoginController;
 use App\Http\Controllers\Frontend\FrontBlogController;
 use App\Http\Controllers\Frontend\FrontGaleriController;
@@ -33,7 +36,7 @@ Route::prefix($adminPrefix)->group(function () {
         Route::post('/upload-image', [blogController::class, 'uploadImage'])->name('upload.image');
         Route::get('/admin/blog/{slug}/edit', [blogController::class, 'edit'])->name('admin.blog.edit');
         Route::patch('/admin/blog/{id}/update', [blogController::class, 'update'])->name('admin.blog.update');
-        Route::delete('/admin/blog/{id}', [blogController::class, 'destroy'])->name('admin.blog.destroy');    
+        Route::delete('/admin/blog/{id}', [blogController::class, 'destroy'])->name('admin.blog.destroy');
 
         // Portofolio Routes
         Route::get('/portofolio', [PortofolioController::class, 'index'])->name('admin.portofolio');
@@ -45,8 +48,23 @@ Route::prefix($adminPrefix)->group(function () {
         Route::patch('/admin/portofolio/{portofolio}/update', [PortofolioController::class, 'update'])->name('admin.portofolio.update');
         Route::delete('/admin/portofolio/{id}', [PortofolioController::class, 'destroy'])->name('admin.portofolio.destroy');
 
-        
-       
+        // Kategori Tema Routes
+        Route::get('/kategori-tema', [KategoriTemaController::class, 'index'])->name('admin.kategori-tema');
+        Route::get('/kategori-tema/create', [KategoriTemaController::class, 'create'])->name('admin.kategori-tema.create');
+        Route::post('/kategori-tema/store', [KategoriTemaController::class, 'store'])->name('admin.kategori-tema.store');
+        Route::get('/admin/kategori-tema/{slug}', [KategoriTemaController::class, 'show'])->name('admin.kategori-tema.show');
+        Route::get('/admin/kategori-tema/{id}/edit', [KategoriTemaController::class, 'edit'])->name('admin.kategori-tema.edit');
+        Route::patch('/admin/kategori-tema/{kategori_tema}/update', [KategoriTemaController::class, 'update'])->name('admin.kategori-tema.update');
+        Route::delete('/admin/kategori-tema/{id}', [KategoriTemaController::class, 'destroy'])->name('admin.kategori-tema.destroy');
+
+        // Nama Pelatihan Routes
+        Route::get('/nama-pelatihan', [NamaPelatihanController::class, 'index'])->name('admin.nama-pelatihan');
+        Route::get('/nama-pelatihan/create', [NamaPelatihanController::class, 'create'])->name('admin.nama-pelatihan.create');
+        Route::post('/nama-pelatihan/store', [NamaPelatihanController::class, 'store'])->name('admin.nama-pelatihan.store');
+        Route::get('/nama-pelatihan/{slug}', [NamaPelatihanController::class, 'show'])->name('admin.nama-pelatihan.show');
+        Route::get('/admin/nama-pelatihan/{id}/edit', [NamaPelatihanController::class, 'edit'])->name('admin.nama-pelatihan.edit');
+        Route::patch('/admin/nama-pelatihan/{id}/update', [NamaPelatihanController::class, 'update'])->name('admin.nama-pelatihan.update');
+        Route::delete('/admin/nama-pelatihan/{id}', [NamaPelatihanController::class, 'destroy'])->name('admin.nama-pelatihan.destroy');
     });
 });
 

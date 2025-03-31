@@ -5,17 +5,17 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
-    public function up(): void
+    public function up()
     {
         Schema::table('blogs', function (Blueprint $table) {
-            $table->longText('content')->change(); // Ubah tipe data ke LONGTEXT
+            $table->longText('content')->change();
         });
     }
 
-    public function down(): void
+    public function down()
     {
         Schema::table('blogs', function (Blueprint $table) {
-            $table->text('content')->change(); // Kembalikan ke TEXT jika perlu
+            $table->text('content')->change(); // Jika rollback, kembali ke TEXT
         });
     }
 };
