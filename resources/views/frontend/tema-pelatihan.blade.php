@@ -148,8 +148,6 @@
   </div><!-- /.pagination-wrapper -->
   <x-informasipenting />
   </div><!-- /.case-study-sidebar__right -->
-
-  <x-informasipenting />
   </div>
   <!-- Sidebar Start -->
   <x-sidebarfront />
