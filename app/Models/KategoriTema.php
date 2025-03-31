@@ -23,4 +23,9 @@ class KategoriTema extends Model
             $kategori->slug = Str::slug($kategori->nama_kategori);
         });
     }
+
+    public function pelatihan()
+    {
+        return $this->hasMany(NamaPelatihan::class, 'nama_kategori', 'nama_kategori');
+    }
 }
