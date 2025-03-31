@@ -146,14 +146,14 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="{{ request()->routeIs('kontak') ? 'current' : '' }}">
-                        <a href="{{ route('kontak') }}">Kontak</a>
-                    </li>
                     <li class="{{ request()->routeIs('tema-pelatihan') ? 'current' : '' }}">
                         <a href="{{ route('tema-pelatihan') }}">Tema Pelatihan</a>
                     </li>
                     <li class="{{ request()->routeIs('jadwal-pelatihan') ? 'current' : '' }}">
                         <a href="{{ route('jadwal-pelatihan') }}">Jadwal Pelatihan</a>
+                    </li>
+                    <li class="{{ request()->routeIs('kontak') ? 'current' : '' }}">
+                        <a href="{{ route('kontak') }}">Kontak</a>
                     </li>
                     <li class="dropdown {{ request()->is('galeri-dll*') ? 'current' : '' }}">
                         <a href="#">Galeri dll <i class="fas fa-angle-down"></i></a>

@@ -38,7 +38,7 @@
   </section>
   <!-- Page Header End -->
 
-  <!-- Team Page Start -->
+  <!-- Section Page Start -->
   <section class="case-study-details">
   <div class="container">
   <div class="row g-4">
@@ -117,7 +117,7 @@
   </div><!-- /.row -->
   </div><!-- /.container -->
   </section>
-  <!-- Team Page End -->
+  <!-- Section Page End -->
 
 
 @endsection
