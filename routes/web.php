@@ -6,7 +6,7 @@ use App\Http\Controllers\Admin\dashboardController;
 use App\Http\Controllers\Admin\KategoriTemaController;
 use App\Http\Controllers\Admin\NamaPelatihanController;
 use App\Http\Controllers\Frontend\FrontTemaPelatihanController;
-use App\Http\Controllers\Frontend\FrontSidebarController;
+use App\Http\Controllers\Frontend\FrontJadwalPelatihanController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -123,9 +123,9 @@ Route::get('/tema-pelatihan/{slug}', [FrontTemaPelatihanController::class, 'show
 Route::get('/detail-pelatihan/{slug}', [FrontTemaPelatihanController::class, 'showPelatihan'])->name('detail-pelatihan');
 Route::get('/cari-pelatihan', [FrontTemaPelatihanController::class, 'cariPelatihan'])->name('cari-pelatihan');
 
-Route::get('/jadwal-pelatihan', function () {
-    return view('frontend.jadwal-pelatihan');
-})->name('jadwal-pelatihan');
+// Jadwal Pelatihan
+Route::get('/jadwal-pelatihan', [FrontJadwalPelatihanController::class, 'index'])->name('jadwal-pelatihan');
+
 
 Route::get('/formulir-pendaftaran', function () {
     return view('frontend.formulir-pendaftaran');

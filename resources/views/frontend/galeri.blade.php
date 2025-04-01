@@ -129,7 +129,7 @@
       <x-informasipenting />
       </div>
       <!-- Sidebar Start -->
-      <x-sidebarfront />
+      <x-sidebarfront :kategoriTema="$kategori_tema" />
       </div><!-- /.container -->
     </section>
     <!-- Section End -->

@@ -36,40 +36,43 @@
     </div>
 
     <div class="mb-3">
-    <label for="kategori_tema">Kategori Tema</label>
-    <select name="kategori_tema" class="form-select" required>
-    <option value="">-- Pilih Kategori Tema --</option>
-    <option value="Teknologi" {{ $portofolio->kategori_tema == 'Teknologi' ? 'selected' : '' }}>Teknologi
-    </option>
-    <option value="Bisnis" {{ $portofolio->kategori_tema == 'Bisnis' ? 'selected' : '' }}>Bisnis</option>
-    <option value="Pendidikan" {{ $portofolio->kategori_tema == 'Pendidikan' ? 'selected' : '' }}>Pendidikan
-    </option>
-    <option value="Kesehatan" {{ $portofolio->kategori_tema == 'Kesehatan' ? 'selected' : '' }}>Kesehatan
-    </option>
-    </select>
+        <label for="kategori_tema_nama_pelatihan" class="form-label">Kategori Tema & Nama Pelatihan</label>
+
+        @if ($pelatihanOptions->isEmpty())
+            <div class="alert alert-warning">
+                <strong>Perhatian!</strong> Data pelatihan tidak tersedia.
+            </div>
+        @else
+            <select name="kategori_tema_nama_pelatihan" class="form-select" required>
+                <option value="">-- Pilih Kategori Tema & Nama Pelatihan --</option>
+                @foreach ($pelatihanOptions as $option)
+                    <option value="{{ $option['value'] }}" {{ old('kategori_tema_nama_pelatihan', ($portofolio->kategori_tema ?? '') . '|' . ($portofolio->nama_pelatihan ?? '')) == $option['value'] ? 'selected' : '' }}>
+                        {{ $option['label'] }}
+                    </option>
+                @endforeach
+            </select>
+        @endif
+
+        @error('kategori_tema_nama_pelatihan')
+            <div class="text-danger">{{ $message }}</div>
+        @enderror
     </div>
 
-    <div class="mb-3">
-    <label for="nama_pelatihan">Nama Pelatihan</label>
-    <select name="nama_pelatihan" class="form-select" required>
-    <option value="">-- Pilih Nama Pelatihan --</option>
-    <option value="Pelatihan Digital Marketing" {{ $portofolio->nama_pelatihan == 'Pelatihan Digital Marketing' ? 'selected' : '' }}>Pelatihan Digital Marketing</option>
-    <option value="Pelatihan UI/UX Design" {{ $portofolio->nama_pelatihan == 'Pelatihan UI/UX Design' ? 'selected' : '' }}>Pelatihan UI/UX Design</option>
-    <option value="Pelatihan Software Development" {{ $portofolio->nama_pelatihan == 'Pelatihan Software Development' ? 'selected' : '' }}>Pelatihan Software Development</option>
-    <option value="Pelatihan Manajemen Bisnis" {{ $portofolio->nama_pelatihan == 'Pelatihan Manajemen Bisnis' ? 'selected' : '' }}>Pelatihan Manajemen Bisnis</option>
-    </select>
+
+    <div class="col-md-6">
+        <div class="mb-3">
+        <label for="waktu_awal">Waktu Awal</label>
+        <input type="date" name="waktu_awal" class="form-control" required
+        value="{{ old('waktu_awal', \Carbon\Carbon::parse($portofolio->waktu_awal)->format('Y-m-d')) }}" />
+        </div>
     </div>
 
-    <div class="mb-3">
-    <label for="waktu_awal">Waktu Awal</label>
-    <input type="date" name="waktu_awal" class="form-control" required
-    value="{{ old('waktu_awal', \Carbon\Carbon::parse($portofolio->waktu_awal)->format('Y-m-d')) }}" />
-    </div>
-
-    <div class="mb-3">
-    <label for="waktu_akhir">Waktu Akhir</label>
-    <input type="date" name="waktu_akhir" class="form-control" required
-    value="{{ old('waktu_akhir', \Carbon\Carbon::parse($portofolio->waktu_akhir)->format('Y-m-d')) }}" />
+    <div class="col-md-6">
+        <div class="mb-3">
+        <label for="waktu_akhir">Waktu Akhir</label>
+        <input type="date" name="waktu_akhir" class="form-control" required
+        value="{{ old('waktu_akhir', \Carbon\Carbon::parse($portofolio->waktu_akhir)->format('Y-m-d')) }}" />
+        </div>
     </div>
 
     <div class="mb-3">
