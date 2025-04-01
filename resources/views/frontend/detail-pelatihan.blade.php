@@ -55,7 +55,7 @@
     </div>
     <x-informasipenting />
     </div>
-    <x-sidebarfront />
+    <x-sidebarfront :kategoriTema="$kategori_tema" />
     </div>
     </div>
     </section>

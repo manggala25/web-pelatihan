@@ -4,6 +4,9 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
+use App\Models\KategoriTema;
+use Illuminate\Support\Facades\View;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -17,8 +20,14 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-    public function boot(): void
+    public function boot()
     {
-        //
+        View::composer('components.sidebarfront', function ($view) {
+            $kategori_tema = KategoriTema::select('id', 'nama_kategori', 'slug')
+                ->withCount(['pelatihan as jumlah'])
+                ->get();
+
+            $view->with('kategoriTema', $kategori_tema);
+        });
     }
 }

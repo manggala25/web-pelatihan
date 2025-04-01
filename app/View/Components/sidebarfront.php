@@ -6,21 +6,24 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class sidebarfront extends Component
+class Sidebarfront extends Component
 {
+    public $kategoriTema; // Variabel props
+
     /**
-     * Create a new component instance.
+     * Buat constructor untuk menerima data kategori
      */
-    public function __construct()
+    public function __construct($kategoriTema)
     {
-        //
+        $this->kategoriTema = $kategoriTema;
     }
 
     /**
-     * Get the view / contents that represent the component.
+     * Render view komponen
      */
     public function render(): View|Closure|string
     {
         return view('components.sidebarfront');
     }
 }
+

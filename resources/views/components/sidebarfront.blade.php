@@ -1,3 +1,6 @@
+@props(['kategoriTema'])
+
+
 <div class="col-xl-4 col-lg-5">
     <div class="blog-sidebar__left page-sidebar">
         <div class="page-sidebar__social page-sidebar__single wow animated fadeInRigh text-center" data-wow-delay="0.1s"
@@ -16,53 +19,33 @@
             </p>
         </div><!-- /.page-sidebar__social -->
         <div class="blog-sidebar__left page-sidebar">
-            <div class="page-sidebar__search page-sidebar__single wow animated fadeInRight" data-wow-delay="0.1s"
-                data-wow-duration="1500ms">
+            <div class="page-sidebar__search page-sidebar__single wow animated fadeInRight">
                 <h3 class="page-sidebar__title">Pencarian</h3>
-                <form action="#" class="page-sidebar__search-form">
-                    <input type="search" name="page-sidebar-search-input" id="page-sidebar-search-input"
-                        placeholder="Masukan tema pelatihan..." class="page-sidebar__search-input">
+                <form action="javascript:void(0);" class="page-sidebar__search-form">
+                    <input type="search" id="search-pelatihan" placeholder="Masukkan nama pelatihan..."
+                        class="page-sidebar__search-input">
                     <button type="submit" class="page-sidebar__search-btn"><i
                             class="page-sidebar__search-icon icofont-search-1"></i></button>
                 </form>
-            </div><!-- /.page-sidebar__search -->
-            <div class="page-sidebar__service page-sidebar__single wow animated fadeInRight" data-wow-delay="0.1s"
-                data-wow-duration="1500ms">
-                <h3 class="page-sidebar__title">Tema Pelatihan:</h3>
-                <ul class="page-sidebar__service-list">
-                    <li class="page-sidebar__service-item">
-                        <a href="#" class="page-sidebar__service-link">Bimtek Manajemen Pegawai Negeri Sipil</a>
-                    </li>
-                    <li class="page-sidebar__service-item">
-                        <a href="#" class="page-sidebar__service-link">Bimtek Kepegawaian</a>
-                    </li>
-                    <li class="page-sidebar__service-item">
-                        <a href="#" class="page-sidebar__service-link">Bimtek Perpajakan</a>
-                    </li>
-                    <li class="page-sidebar__service-item">
-                        <a href="#" class="page-sidebar__service-link">Bimtek Bidang Keuangan</a>
-                    </li>
-                    <li class="page-sidebar__service-item">
-                        <a href="#" class="page-sidebar__service-link">Bimtek Bidang Umum</a>
-                    </li>
-                    <li class="page-sidebar__service-item">
-                        <a href="#" class="page-sidebar__service-link">Bimtek Humas Protokol MC</a>
-                    </li>
-                    <li class="page-sidebar__service-item">
-                        <a href="#" class="page-sidebar__service-link">Bimtek Produk Hukum</a>
-                    </li>
-                    <li class="page-sidebar__service-item">
-                        <a href="#" class="page-sidebar__service-link">Bimtek Bidang Tata Ruang</a>
-                    </li>
-                    <li class="page-sidebar__service-item">
-                        <a href="#" class="page-sidebar__service-link">Bimtek Bidang Desa</a>
-                    </li>
-                    <li class="page-sidebar__service-item">
-                        <a href="#" class="page-sidebar__service-link">Bimtek Bidang Pertahanan</a>
-                    </li>
+                <div id="hasil-pencarian" class="search-results"></div>
+            </div>
 
+            <div class="page-sidebar__service page-sidebar__single wow animated fadeInRight">
+                <h3 class="page-sidebar__title">Tema Pelatihan:</h3>
+                @if(is_iterable($kategoriTema) && count($kategoriTema) > 0)
+                    <ul class="page-sidebar__service-list">
+                        @foreach($kategoriTema as $kategori)
+                            <li class="page-sidebar__service-item">
+                                <a href="{{ route('kategori-tema-pelatihan', ['slug' => $kategori->slug]) }}" class="page-sidebar__service-link">
+                                    {{ $kategori->nama_kategori }}
+                                </a>
+                            </li>
+                        @endforeach
+                @else
+                        <p>Tidak ada kategori tersedia.</p>
+                    @endif
                 </ul>
-            </div><!-- /.blog-sidebar__service -->
+            </div><!-- /.page-sidebar__service -->
             <div class="page-sidebar__social page-sidebar__single wow animated fadeInRight" data-wow-delay="0.1s"
                 data-wow-duration="1500ms">
                 <h3 class="page-sidebar__title">Media Sosial</h3>

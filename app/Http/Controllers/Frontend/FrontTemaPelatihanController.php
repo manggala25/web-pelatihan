@@ -13,28 +13,45 @@ class FrontTemaPelatihanController extends Controller
     {
         $kategori_tema = KategoriTema::select('id', 'nama_kategori', 'slug')
             ->withCount(['pelatihan as jumlah'])
-            ->paginate(10); // Tambahkan pagination
+            ->paginate(10); // Pastikan pakai get() kalau tidak butuh pagination
 
         return view('frontend.tema-pelatihan', compact('kategori_tema'));
     }
 
+
     public function showKategoriTema($slug)
     {
-        // Ambil kategori berdasarkan slug
         $kategori = KategoriTema::where('slug', $slug)->firstOrFail();
-
-        // Ambil pelatihan yang sesuai dengan kategori
         $pelatihan = NamaPelatihan::where('nama_kategori', $kategori->nama_kategori)
-            ->select('id', 'nama_pelatihan', 'slug')
+            ->select('id', 'nama_pelatihan', 'slug', 'nama_kategori')
             ->get();
 
-        return view('frontend.kategori-tema-pelatihan', compact('kategori', 'pelatihan'));
+        $kategori_tema = KategoriTema::select('id', 'nama_kategori', 'slug')
+            ->withCount(['pelatihan as jumlah'])
+            ->get(); // Pastikan ada
+
+        return view('frontend.kategori-tema-pelatihan', compact('kategori', 'pelatihan', 'kategori_tema'));
     }
+
 
     public function showPelatihan($slug)
     {
         $nama_pelatihan = NamaPelatihan::where('slug', $slug)->firstOrFail();
+        $kategori_list = KategoriTema::select('nama_kategori', 'slug')->get();
+        $kategori_tema = KategoriTema::select('id', 'nama_kategori', 'slug')
+            ->withCount(['pelatihan as jumlah'])
+            ->get(); // Pastikan ada
 
-        return view('frontend.detail-pelatihan', compact('nama_pelatihan'));
+        return view('frontend.detail-pelatihan', compact('nama_pelatihan', 'kategori_list', 'kategori_tema'));
+    }
+
+    public function cariPelatihan(Request $request)
+    {
+        $query = $request->input('query');
+
+        // Ambil pelatihan berdasarkan pencarian nama_pelatihan
+        $pelatihan = NamaPelatihan::where('nama_pelatihan', 'LIKE', "%{$query}%")->get();
+
+        return response()->json($pelatihan);
     }
 }

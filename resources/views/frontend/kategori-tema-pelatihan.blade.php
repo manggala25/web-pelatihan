@@ -73,7 +73,7 @@
     <a href="{{ route('detail-pelatihan', ['slug' => $item->slug]) }}" class="btn btn-sm btn-primary">Detail</a>
     </td>
     </tr>
-  @endforeach
+    @endforeach
     </tbody>
     </table>
     </div>
@@ -83,7 +83,7 @@
     <x-informasipenting />
     </div>
     </div>
-    <x-sidebarfront />
+    <x-sidebarfront :kategoriTema="$kategori_tema" />
     </div>
     </div>
     </section>

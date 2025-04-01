@@ -61,3 +61,36 @@
         }
     });
 </script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#search-pelatihan').on('keyup', function () {
+            let query = $(this).val();
+
+            if (query.length > 1) {
+                $.ajax({
+                    url: "{{ route('cari-pelatihan') }}",
+                    type: "GET",
+                    data: { query: query },
+                    success: function (data) {
+                        let hasilHtml = '<ul class="list-group">';
+                        if (data.length > 0) {
+                            data.forEach(function (pelatihan) {
+                                hasilHtml += `<li class="list-group-item">
+                                    <a href="/detail-pelatihan/${pelatihan.slug}">${pelatihan.nama_pelatihan}</a>
+                                </li>`;
+                            });
+                        } else {
+                            hasilHtml += '<li class="list-group-item">Tidak ditemukan</li>';
+                        }
+                        hasilHtml += '</ul>';
+                        $('#hasil-pencarian').html(hasilHtml);
+                    }
+                });
+            } else {
+                $('#hasil-pencarian').html('');
+            }
+        });
+    });
+</script>
