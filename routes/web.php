@@ -5,15 +5,17 @@ use App\Http\Controllers\Admin\PortofolioController;
 use App\Http\Controllers\Admin\dashboardController;
 use App\Http\Controllers\Admin\KategoriTemaController;
 use App\Http\Controllers\Admin\NamaPelatihanController;
-use App\Http\Controllers\Frontend\FrontTemaPelatihanController;
-use App\Http\Controllers\Frontend\FrontJadwalPelatihanController;
+use App\Http\Controllers\Admin\ProfilController;
+use App\Http\Controllers\Admin\VisiMisiController;
+use App\Http\Controllers\Admin\TujuanLembagaController;
 
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\AdminLoginController;
 use App\Http\Controllers\Frontend\FrontBlogController;
 use App\Http\Controllers\Frontend\FrontGaleriController;
-
+use App\Http\Controllers\Frontend\FrontTemaPelatihanController;
+use App\Http\Controllers\Frontend\FrontJadwalPelatihanController;
 
 
 //////// Administrator /////////
@@ -67,6 +69,33 @@ Route::prefix($adminPrefix)->group(function () {
         Route::get('/admin/nama-pelatihan/{id}/edit', [NamaPelatihanController::class, 'edit'])->name('admin.nama-pelatihan.edit');
         Route::patch('/admin/nama-pelatihan/{id}/update', [NamaPelatihanController::class, 'update'])->name('admin.nama-pelatihan.update');
         Route::delete('/admin/nama-pelatihan/{id}', [NamaPelatihanController::class, 'destroy'])->name('admin.nama-pelatihan.destroy');
+
+        // Profil
+        Route::get('/profil', [ProfilController::class, 'index'])->name('admin.profil');
+        Route::get('/profil/create', [ProfilController::class, 'create'])->name('admin.profil.create');
+        Route::post('/profil/store', [ProfilController::class, 'store'])->name('admin.profil.store');
+        Route::get('/admin/profil/{id}', [ProfilController::class, 'show'])->name('admin.profil.show');
+        Route::get('/admin/profil/{id}/edit', [ProfilController::class, 'edit'])->name('admin.profil.edit');
+        Route::patch('/admin/profil/{id}/update', [ProfilController::class, 'update'])->name('admin.profil.update');
+        Route::delete('/admin/profil/{id}', [ProfilController::class, 'destroy'])->name('admin.profil.destroy');
+
+        // Visi Misi
+        Route::get('/visimisi', [VisiMisiController::class, 'index'])->name('admin.visimisi');
+        Route::get('/visimisi/create', [VisiMisiController::class, 'create'])->name('admin.visimisi.create');
+        Route::post('/visimisi/store', [VisiMisiController::class, 'store'])->name('admin.visimisi.store');
+        Route::get('/admin/visimisi/{id}', [VisiMisiController::class, 'show'])->name('admin.visimisi.show');
+        Route::get('/admin/visimisi/{id}/edit', [VisiMisiController::class, 'edit'])->name('admin.visimisi.edit');
+        Route::patch('/admin/visimisi/{id}/update', [VisiMisiController::class, 'update'])->name('admin.visimisi.update');
+        Route::delete('/admin/visimisi/{id}', [VisiMisiController::class, 'destroy'])->name('admin.visimisi.destroy');
+
+        // Tujuan Lembaga
+        Route::get('/tujuanlembaga', [TujuanLembagaController::class, 'index'])->name('admin.tujuanlembaga');
+        Route::get('/tujuanlembaga/create', [TujuanLembagaController::class, 'create'])->name('admin.tujuanlembaga.create');
+        Route::post('/tujuanlembaga/store', [TujuanLembagaController::class, 'store'])->name('admin.tujuanlembaga.store');
+        Route::get('/admin/tujuanlembaga/{id}', [TujuanLembagaController::class, 'show'])->name('admin.tujuanlembaga.show');
+        Route::get('/admin/tujuanlembaga/{id}/edit', [TujuanLembagaController::class, 'edit'])->name('admin.tujuanlembaga.edit');
+        Route::patch('/admin/tujuanlembaga/{id}/update', [TujuanLembagaController::class, 'update'])->name('admin.tujuanlembaga.update');
+        Route::delete('/admin/tujuanlembaga/{id}', [TujuanLembagaController::class, 'destroy'])->name('admin.tujuanlembaga.destroy');
     });
 });
 

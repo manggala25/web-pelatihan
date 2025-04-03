@@ -23,19 +23,6 @@
     </ul>
     </div>
     </div><!-- /.page-header__inner -->
-    <a href='#' class="page-header__circle-text">
-    <div class="page-header__circle-text-bg"
-    style="background-image: url('assets/images/resources/circle-text-bg.png');"></div>
-    <div class="page-header__curved-circle curved-circle">
-    <!-- curved-circle start-->
-    <div class="page-header__curved-circle--item curved-circle--item" data-circle-text-options='{
-     "radius": 92,
-     "forceWidth": true,
-     "forceHeight": true}'>
-    . design for your digital products
-    </div>
-    </div><!-- curved-circle end-->
-    </a><!-- /.page-header__circle-text -->
     </div><!-- /.container -->
     <div class="page-header__shape-box">
     <svg class="page-header__shape-one" width="389" height="319" viewBox="0 0 389 319" fill="none"

@@ -16,18 +16,8 @@
                 </li>
 
                 <li class="nav-small-cap">
-                    <i class="nav-small-line"></i>
-                    <span class="hide-menu">Apps</span>
+                    <i class="nav-small-line"></i> <span class="hide-menu">Main Menu</span>
                 </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#"
-                        aria-expanded="false"><i data-feather="calendar"></i><span class="hide-menu">Blog/ Artikel</span></a>
-                </li>
-
-                <li class="nav-small-cap">
-                    <i class="nav-small-line"></i> <span class="hide-menu">UI</span>
-                </li>
-
                 {{-- Blog --}}
                 <li class="sidebar-item">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
@@ -39,7 +29,6 @@
                         </li>
                     </ul>
                 </li>
-
                 {{-- Portofolio --}}
                 <li class="sidebar-item">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
@@ -51,7 +40,6 @@
                         </li>
                     </ul>
                 </li>
-
                 {{-- Pelatihan --}}
                 <li class="sidebar-item">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
@@ -64,6 +52,25 @@
                         <li class="sidebar-item">
                             <a href="{{ Route('admin.kategori-tema') }}" class="sidebar-link"><i
                                     class="ri-bubble-chart-line"></i><span class="hide-menu">Kategori Tema</span></a>
+                        </li>
+                    </ul>
+                </li>
+                {{-- Tentang Kami --}}
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i
+                            data-feather="users"></i><span class="hide-menu">Tentang Kami</span></a>
+                    <ul aria-expanded="false" class="collapse first-level">
+                        <li class="sidebar-item">
+                            <a href="{{ Route('admin.profil') }}" class="sidebar-link"><i class="ri-shield-user-line"></i><span
+                                    class="hide-menu">Profil</span></a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{{ Route('admin.visimisi') }}" class="sidebar-link"><i class="ri-file-paper-line"></i><span
+                                    class="hide-menu">Visi & Misi</span></a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{{ Route('admin.tujuanlembaga') }}" class="sidebar-link"><i class="ri-briefcase-4-line"></i><span
+                                    class="hide-menu">Tujuan Lembaga</span></a>
                         </li>
                     </ul>
                 </li>
