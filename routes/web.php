@@ -16,6 +16,7 @@ use App\Http\Controllers\Frontend\FrontBlogController;
 use App\Http\Controllers\Frontend\FrontGaleriController;
 use App\Http\Controllers\Frontend\FrontTemaPelatihanController;
 use App\Http\Controllers\Frontend\FrontJadwalPelatihanController;
+use App\Http\Controllers\Frontend\FrontTentangKamiController;
 
 
 //////// Administrator /////////
@@ -118,21 +119,15 @@ Route::get('/kontak', function () {
     return view('frontend.kontak');
 })->name('kontak');
 
-Route::get('/tentang-kami', function () {
-    return view('frontend.tentang-kami');
-})->name('tentang-kami');
+// tentang kami
+Route::get('/tentang-kami', [FrontTentangKamiController::class, 'index'])->name('tentang-kami');
+Route::get('/visi-misi', [FrontTentangKamiController::class, 'visiMisi'])->name('visi-misi');
+Route::get('/tujuan-lembaga', [FrontTentangKamiController::class, 'tujuanLembaga'])->name('tujuan-lembaga');
 
-Route::get('/visi-misi', function () {
-    return view('frontend.visi-misi');
-})->name('visi-misi');
 
 Route::get('/legalitas', function () {
     return view('frontend.legalitas');
 })->name('legalitas');
-
-Route::get('/tujuan-lembaga', function () {
-    return view('frontend.tujuan-lembaga');
-})->name('tujuan-lembaga');
 
 Route::get('/agenda-rutin', function () {
     return view('frontend.agenda-rutin');

@@ -37,28 +37,35 @@
     <!-- Visi Misi Start -->
     <section class="visimisi">
     <div class="container my-5">
-    <div class="row">
-    <div class="col-12">
+    <div class="row py-5">
+    <div class="col-md-10">
     <div class="solution-one__content sec-title">
     <div class="sec-title__top-wrap">
     <img src="{{ asset('template/frontend/assets/images/resources/top-title-logo.png') }}" alt="top-title-logo">
-    <p class="sec-title__top">Visi & Misi</p>
+    <p class="sec-title__top">
+        {{ $visimisi ? $visimisi->title_top : 'Visi & Misi Kami' }}
+    </p>
     </div>
-    <h2 class="solution-one__heading sec-title__heading">Visi & Misi Kami
+    <h2 class="solution-one__heading sec-title__heading">
+        {{ $visimisi ? $visimisi->heading : 'Visi & Misi Kami Ialah' }}
     </h2>
     <!-- /.olution-one__main-tab-box -->
     </div><!-- /.solution-one__content -->
     </div>
     <div class="col-md-12 mb-3">
+        <p class="blog-details__card-desc-three fw-bold">Visi:</p>
     <div class="blog-details__card-desc-three-box">
-    <p class="blog-details__card-desc-three">VISI: <br> LEDIKNAS Menghadapi Persaingan dan Perkembangan Sumber Daya Manusia (SDM) Indonesia</p>
+    <p class="blog-details__card-desc-three">
+        {!! nl2br(htmlspecialchars_decode(e($visimisi->visi ?? 'Visi belum dibuat.'))) !!}
+    </p>
     </div><!-- /.blog-details__card-bottom -->
     </div>
     <div class="col-md-12 mb-2">
+        <p class="blog-details__card-desc-three fw-bold">Misi:</p>
     <div class="blog-details__card-desc-three-box">
-    <p class="blog-details__card-desc-three">MISI: <br><ul><li>Mengusahakan dan turut serta membantu Pemerintah Republik Indonesia dalam memajukan pendidikan umum, kesejahteraan dan
-    keamanan, demi kepentingan bangsa dan negara, dalam menuju masyarakat Adil dan Makmur;</li><li>Membantu program pemerintah dalam meningkatkan produktifitas SDM dan mensosialisasikan dan mensikronisasikan antara
-    kebijakan pemerintah pusat dan pemerintah daerah.</li></ul></p>
+    <p class="blog-details__card-desc-three">
+        {!! nl2br(htmlspecialchars_decode(e($visimisi->misi ?? 'Misi belum dibuat.'))) !!}
+    </p>
     </div><!-- /.blog-details__card-bottom -->
     </div>
     </div>

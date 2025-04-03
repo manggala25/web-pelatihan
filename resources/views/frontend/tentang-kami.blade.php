@@ -42,12 +42,17 @@
     <div class="solution-one__content sec-title">
     <div class="sec-title__top-wrap">
     <img src="{{ asset('template/frontend/assets/images/resources/top-title-logo.png') }}" alt="top-title-logo">
-    <p class="sec-title__top">Pengenalan</p>
+    <p class="sec-title__top">
+        {{ $profil ? $profil->title_top : 'Profil Kami' }}
+    </p>
     </div>
-    <h2 class="solution-one__heading sec-title__heading">Lembaga Pelatihan Bimbingan Teknis Nasional.
+    <h2 class="solution-one__heading sec-title__heading">
+        {{ $profil ? $profil->heading : 'Kenal Kami Lebih Dalam' }}
     </h2>
     <div class="solution-one__main-tab-box tabs-box">
-    <p class="solution-one__service-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quia nemo facilis, ullam consequatur pariatur animi voluptatibus iste. Cupiditate suscipit iste vel. Explicabo numquam, quo sequi voluptatum vitae porro nam unde molestias repellendus repudiandae eaque saepe reiciendis? Est eveniet corrupti accusantium illo reiciendis ullam fugiat nostrum quas, enim assumenda in explicabo, quibusdam veniam sunt facilis. Quod cupiditate voluptatibus recusandae ratione itaque, atque facere optio ipsa voluptatum iusto, laborum enim sit.</p>
+    <p class="solution-one__service-desc">
+        {!! nl2br(htmlspecialchars_decode(e($profil->deskripsi ?? 'Deskripsi tidak tersedia.'))) !!}
+    </p>
     </div>
     <!-- /.olution-one__main-tab-box -->
     </div><!-- /.solution-one__content -->
@@ -55,7 +60,8 @@
     <div class="col-xxl-6 col-xl-5 wow animated fadeInRight" data-wow-delay="0.1s" data-wow-duration="1500ms">
     <div class="solution-one__img-col">
     <div class="solution-one__img-wrap">
-    <img src="{{ asset('template/frontend/assets/images/solution/solution-1-1.jpg') }}" alt="solution" class="solution-one__img">
+    <img src="{{ $profil && $profil->img_profil ? asset('storage/' . $profil->img_profil) : asset('template/frontend/assets/images/solution/solution-1-1.jpg') }}"
+        alt="solution" class="solution-one__img">
     <div class="solution-one__icon-wrap">
     <img src="{{ asset('template/frontend/assets/images/solution/solution-icon-1-1.png') }}" alt="solution-icon" class="solution-one__icon">
     </div>
@@ -92,13 +98,16 @@
     <section class="visimisi">
     <div class="container">
     <div class="row">
-    <div class="col-12">
+    <div class="col-md-10">
     <div class="solution-one__content sec-title">
     <div class="sec-title__top-wrap">
     <img src="{{ asset('template/frontend/assets/images/resources/top-title-logo.png') }}" alt="top-title-logo">
-    <p class="sec-title__top">Visi & Misi</p>
+    <p class="sec-title__top">
+        {{ $visimisi ? $visimisi->title_top : 'Visi & Misi Kami' }}
+    </p>
     </div>
-    <h2 class="solution-one__heading sec-title__heading">Visi & Misi Kami
+    <h2 class="solution-one__heading sec-title__heading">
+        {{ $visimisi ? $visimisi->heading : 'Visi & Misi Kami Ialah' }}
     </h2>
     <!-- /.olution-one__main-tab-box -->
     </div><!-- /.solution-one__content -->
@@ -106,20 +115,17 @@
     <div class="col-md-12 mb-3">
         <p class="blog-details__card-desc-three fw-bold">Visi:</p>
     <div class="blog-details__card-desc-three-box">
-    <p class="blog-details__card-desc-three">LEDIKNAS Menghadapi Persaingan dan Perkembangan Sumber Daya Manusia (SDM) Indonesia</p>
+    <p class="blog-details__card-desc-three">
+        {!! nl2br(htmlspecialchars_decode(e($visimisi->visi ?? 'Visi belum dibuat.'))) !!}
+    </p>
     </div><!-- /.blog-details__card-bottom -->
     </div>
     <div class="col-md-12 mb-2">
         <p class="blog-details__card-desc-three fw-bold">Misi:</p>
     <div class="blog-details__card-desc-three-box">
     <p class="blog-details__card-desc-three">
-        <ul class="">
-            <li >Menjadi organisasi yang profesional dan berintegritas</li>
-            <li>Menjadi organisasi yang berorientasi pada kebutuhan dan kepuasan masyarakat</li>
-            <li>Menjadi organisasi yang berorientasi pada kebutuhan dan kepuasan masyarakat</li>
-            <li>Menjadi organisasi yang berorientasi pada kebutuhan dan kepuasan masyarakat</li>
-            <li>Menjadi organisasi yang berorientasi pada kebutuhan dan kepuasan masyarakat</li>
-        </ul>
+        {!! nl2br(htmlspecialchars_decode(e($visimisi->misi ?? 'Misi belum dibuat.'))) !!}
+    </p>
     </div><!-- /.blog-details__card-bottom -->
     </div>
     </div>
