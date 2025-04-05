@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->string('title_top');
             $table->string('heading');
-            $table->text('deskripsi');
+            $table->longText('deskripsi');
             $table->timestamps();
         });
     }

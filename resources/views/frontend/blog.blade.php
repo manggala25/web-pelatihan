@@ -54,7 +54,7 @@
     @endif
     <p class="blog__card-category">{{ $blog->kategori }}</p>
     </a>
-    <a href="{{ route('detail-blog', parameters: $blog->slug) }}" class="blog__card-title mb-0">
+    <a href="{{ route('detail-blog',  $blog->slug) }}" class="blog__card-title mb-0">
       {{ Str::limit($blog->judul, 50) }}
     </a>
     <ul class="blog__card-comment-box">

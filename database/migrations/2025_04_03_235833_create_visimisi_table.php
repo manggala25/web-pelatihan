@@ -11,8 +11,8 @@ return new class extends Migration {
             $table->id();
             $table->string('title_top',);
             $table->string('heading',);
-            $table->text('visi');
-            $table->text('misi');
+            $table->longText('visi');
+            $table->longText('misi');
             $table->timestamps();
         });
     }

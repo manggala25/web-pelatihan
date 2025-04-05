@@ -74,8 +74,17 @@
                         </li>
                     </ul>
                 </li>
-
-                
+                {{-- Kontak --}}
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i
+                            data-feather="phone-call"></i><span class="hide-menu">Kontak</span></a>
+                    <ul aria-expanded="false" class="collapse first-level">
+                        <li class="sidebar-item">
+                            <a href="{{ Route('admin.informasikontak') }}" class="sidebar-link"><i class="ri-contacts-book-line"></i><span
+                                    class="hide-menu">Informasi Kontak</span></a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <!-- End Sidebar navigation -->

@@ -8,15 +8,18 @@ use App\Http\Controllers\Admin\NamaPelatihanController;
 use App\Http\Controllers\Admin\ProfilController;
 use App\Http\Controllers\Admin\VisiMisiController;
 use App\Http\Controllers\Admin\TujuanLembagaController;
+use App\Http\Controllers\Admin\InformasiKontakController;
 
 use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\Auth\AdminLoginController;
+
+use App\Http\Controllers\Frontend\FrontHomeController;
 use App\Http\Controllers\Frontend\FrontBlogController;
 use App\Http\Controllers\Frontend\FrontGaleriController;
 use App\Http\Controllers\Frontend\FrontTemaPelatihanController;
 use App\Http\Controllers\Frontend\FrontJadwalPelatihanController;
 use App\Http\Controllers\Frontend\FrontTentangKamiController;
+use App\Http\Controllers\Frontend\FrontKontakController;
 
 
 //////// Administrator /////////
@@ -97,14 +100,22 @@ Route::prefix($adminPrefix)->group(function () {
         Route::get('/admin/tujuanlembaga/{id}/edit', [TujuanLembagaController::class, 'edit'])->name('admin.tujuanlembaga.edit');
         Route::patch('/admin/tujuanlembaga/{id}/update', [TujuanLembagaController::class, 'update'])->name('admin.tujuanlembaga.update');
         Route::delete('/admin/tujuanlembaga/{id}', [TujuanLembagaController::class, 'destroy'])->name('admin.tujuanlembaga.destroy');
+
+        // Informasi Kontak
+        Route::get('/informasikontak', [InformasiKontakController::class, 'index'])->name('admin.informasikontak');
+        Route::get('/informasikontak/create', [InformasiKontakController::class, 'create'])->name('admin.informasikontak.create');
+        Route::post('/informasikontak/store', [InformasiKontakController::class, 'store'])->name('admin.informasikontak.store');
+        Route::get('/admin/informasikontak/{id}', [InformasiKontakController::class, 'show'])->name('admin.informasikontak.show');
+        Route::get('/admin/informasikontak/{id}/edit', [InformasiKontakController::class, 'edit'])->name('admin.informasikontak.edit');
+        Route::patch('/admin/informasikontak/{id}/update', [InformasiKontakController::class, 'update'])->name('admin.informasikontak.update');
+        Route::delete('/admin/informasikontak/{id}', [InformasiKontakController::class, 'destroy'])->name('admin.informasikontak.destroy');
     });
 });
 
 
 //////// Frontend ///////////
-Route::get('/', function () {
-    return view('frontend.home');
-})->name('home');
+//home
+Route::get('/', [FrontHomeController::class, 'index'])->name('home');
 
 //blog
 Route::get('/blog', [FrontBlogController::class, 'index'])->name('blog');
@@ -114,12 +125,10 @@ Route::get('/blog/{slug}', [FrontBlogController::class, 'show'])->name('detail-b
 Route::get('/galeri', [FrontGaleriController::class, 'index'])->name('galeri');
 Route::get('/galeri/{slug}', [FrontGaleriController::class, 'show'])->name('detail-galeri');
 
+//kontak
+Route::get('/kontak', [FrontkontakController::class, 'index'])->name('kontak');
 
-Route::get('/kontak', function () {
-    return view('frontend.kontak');
-})->name('kontak');
-
-// tentang kami
+//tentang kami
 Route::get('/tentang-kami', [FrontTentangKamiController::class, 'index'])->name('tentang-kami');
 Route::get('/visi-misi', [FrontTentangKamiController::class, 'visiMisi'])->name('visi-misi');
 Route::get('/tujuan-lembaga', [FrontTentangKamiController::class, 'tujuanLembaga'])->name('tujuan-lembaga');

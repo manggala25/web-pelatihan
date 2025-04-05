@@ -4698,12 +4698,12 @@ i {
 }
 @media (max-width: 1399px) {
   .main-slider__content {
-    max-width: 830px;
+    max-width: 930px;
   }
 }
 @media (max-width: 1199px) {
   .main-slider__content {
-    max-width: 650px;
+    max-width: 750px;
   }
 }
 .main-slider__desc-wrap {

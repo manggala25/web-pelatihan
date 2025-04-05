@@ -1,7 +1,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home One || Noile || HTML Template For Business Agency</title>
+    <title>Puspekom</title>
 
     <!-- favicons Icons -->
     <link rel="apple-touch-icon" sizes="180x180"

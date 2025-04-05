@@ -37,9 +37,11 @@
     <section class="contact-one">
     <div class="container">
     <div class="contact-one__google-map google-map wow animated fadeInUp" data-wow-duration="1500ms">
-    <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3259.0708854946206!2d106.82458402498996!3d-6.1754083438119896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x3d2ad6e1e0e9bcc8!2sMonas!5e1!3m2!1sen!2sid!4v1742743988257!5m2!1sen!2sid"
-    allowfullscreen="" class="google-map__default"></iframe>
+    @if ($gmapsFrame)
+    {!! nl2br(htmlspecialchars_decode(e($gmapsFrame->link))) !!}
+    @else
+    <p>Tidak ada data untuk "Gmaps Frame".</p>
+    @endif
     </div><!-- /.contact-one__google-map -->
     <div class="row g-4">
     <div class="col-xl-8 col-lg-7">
@@ -48,36 +50,56 @@
     <div class="contact-one__info-box">
     <div class="contact-one__info-item">
     <div class="contact-one__info-icon contact-one__info-icon--one">
-    <i class="icon-phone"></i>
+    @if ($whatsapp)
+    {!! nl2br(htmlspecialchars_decode(e($whatsapp->icon))) !!}
+    @else
+    <p>Tidak ada data untuk "Whatsapp".</p>
+    @endif
     </div>
-    <a href="tel:+55(9900)66622" class="contact-one__info-title contact-one__info-link">+55 (9900) 666
-    22</a>
+    @if ($whatsapp)
+    <a href="{!! nl2br(htmlspecialchars_decode(e($whatsapp->link))) !!}" class="contact-one__info-title contact-one__info-link">{!! nl2br(htmlspecialchars_decode(e($whatsapp->deskripsi))) !!}</a>
+    @else
+    <p>Tidak ada data untuk "Whatsapp".</p>
+    @endif
     </div>
     <div class="contact-one__info-item">
     <div class="contact-one__info-icon contact-one__info-icon--two">
-    <i class="icon-email"></i>
+    @if ($whatsapp)
+    {!! nl2br(htmlspecialchars_decode(e($whatsapp->icon))) !!}
+    @else
+    <p>Tidak ada data untuk "Whatsapp".</p>
+    @endif
     </div>
-    <a href="mailto:noile@envato.com"
-    class="contact-one__info-title contact-one__info-link">noile@envato.com</a>
+    @if ($whatsapp)
+    <a href="{!! nl2br(htmlspecialchars_decode(e($whatsapp->link))) !!}"
+    class="contact-one__info-title contact-one__info-link">{!! nl2br(htmlspecialchars_decode(e($whatsapp->deskripsi))) !!}</a>
+    @else
+    <p>Tidak ada data untuk "Whatsapp".</p>
+    @endif
     </div>
     <div class="contact-one__info-item">
     <div class="contact-one__info-icon contact-one__info-icon--two">
-    <i class="icofont-ui-pointer"></i>
+    @if ($alamat)
+    {!! nl2br(htmlspecialchars_decode(e($alamat->icon))) !!}
+    @else
+    <p>Tidak ada data untuk "Alamat".</p>
+    @endif
     </div>
-    <p class="contact-one__info-title">Mirpur 12, Block C, Dhaka, BD.</p>
+    @if ($alamat)
+    <a href="{!! nl2br(htmlspecialchars_decode(e($alamat->link))) !!}"
+    class="contact-one__info-title contact-one__info-link">{!! nl2br(htmlspecialchars_decode(e($alamat->deskripsi))) !!}</a>
+    @else
+    <p>Tidak ada data untuk "Alamat".</p>
+    @endif
     </div>
     </div><!-- /.contact-one__info-box -->
     <div class="contact-one__social social-list">
-    <a href="#" class="contact-one__social-link social-link">
-    <i class="icofont-facebook"></i>
+    @foreach($informasi_kontak as $d)
+    <a href="{!! nl2br(htmlspecialchars_decode(e($d->link))) !!}" class="contact-one__social-link social-link" target="_blank">
+      {!! nl2br(htmlspecialchars_decode(e($d->icon))) !!}
     </a>
-    <a href="#" class="contact-one__social-link social-link">
-    <i class="icofont-twitter"></i>
-    </a>
-    <a href="#" class="contact-one__social-link social-link">
-    <i class="icofont-instagram"></i>
-    </a>
-    </div><!-- /.contact-one__info -->
+  @endforeach
+    </div><!-- /.contact-one__social -->
     </div><!-- /.contact-one__info -->
     </div><!-- /.contact-one__left -->
     </div>
@@ -86,9 +108,19 @@
     style="background-image: url('{{ asset('template/frontend/assets/images/resources/sidebar-contact-bg.jpg') }}');">
     <div class="page-sidebar__contact-wrap">
     <h3 class="page-sidebar__contact-title">Have Any Query Feel Free Contact</h3>
-    <a href="tel:(1)245-45678" class="page-sidebar__contact-btn">
+    <a href="@if ($whatsapp)
+    {!! nl2br(htmlspecialchars_decode(e($whatsapp->link))) !!}
+    @else
+    -
+    @endif" class="page-sidebar__contact-btn">
     <span class="page-sidebar__contact-icon icon-phone"></span>
-    <h4 class="page-sidebar__contact-text">(1)245-45678 call</h4>
+    <h4 class="page-sidebar__contact-text">
+    @if ($whatsapp)
+    {!! nl2br(htmlspecialchars_decode(e($whatsapp->deskripsi))) !!}
+    @else
+    <p>Tidak ada data untuk "Whatsapp".</p>
+    @endif
+    </h4>
     </a>
     </div>
     </div>
@@ -101,94 +133,94 @@
     <!-- Formulir Pendaftaran Start -->
     <section class="formulir py-5">
     <div class="container">
-      <div class="row">
-      <div class="col-xl-8 col-lg-7">
-        <div class="contact-one__contact contact wow animated fadeInLeft m-0" data-wow-delay="0.1s"
-        data-wow-duration="1500ms">
-        <div class="contact__form-box">
-          <h3 class="contact__form-title">Formulir Pendaftaran Kegiatan</h3>
-          <form action="https://formspree.io/f/mrbpagay" method="POST"
-          class="contact__form container-fluid wow animated fadeInUp mt-3" data-wow-duration="1500ms">
-          <div class="row g-4">
-            <div class="col-md-12">
-            <div class="contact__form-input-box">
-              <label for="contact-form-name" class="contact__input-title">Masukan Nama Kamu</label>
-              <input type="text" name="contact-form-name" placeholder="tulis nama kamu disini..."
-              id="contact-form-name" class="contact__form-input">
-            </div><!-- /.contact__form-input-box -->
-            </div>
-            <div class="col-md-6">
-            <div class="contact__form-input-box">
-              <label for="contact-form-mail" class="contact__input-title">Alamat E-mail</label>
-              <input type="email" name="contact-form-mail" placeholder="tulis email kamu disini..."
-              id="contact-form-mail" class="contact__form-input">
-            </div><!-- /.contact__form-input-box -->
-            </div>
-            <div class="col-md-6">
-            <div class="contact__form-input-box">
-              <label for="contact-form-mail" class="contact__input-title">Nomor Telepon</label>
-              <input type="text" name="contact-form-mail" placeholder="tulis nomor telepon kamu disini..."
-              id="contact-form-mail" class="contact__form-input">
-            </div><!-- /.contact__form-input-box -->
-            </div>
-            <div class="col-md-6">
-            <div class="contact__form-input-box">
-              <label for="contact-form-mail" class="contact__input-title">Bentuk Kegiatan</label>
-              <select name="contact-form-mail" id="contact-form-mail" class="contact__form-input"
-              placeholder="Pilih Bentuk Kegiatan">
-              <option class="selected" value="">--Pilih Bentuk Kegiatan--</option>
-              <option value="Bentuk Kegiatan">Bentuk Kegiatan</option>
-              <option value="Bentuk Kegiatan">Bentuk Kegiatan</option>
-              <option value="Bentuk Kegiatan">Bentuk Kegiatan</option>
-              <option value="Bentuk Kegiatan">Bentuk Kegiatan</option>
-              </select>
-            </div><!-- /.contact__form-input-box -->
-            </div>
-            <div class="col-md-6">
-            <div class="contact__form-input-box">
-              <label for="contact-form-mail" class="contact__input-title">Tema Pelatihan</label>
-              <select name="contact-form-mail" id="contact-form-mail" class="contact__form-input">
-              <option class="selected" value="">--Pilih Tema Pelatihan--</option>
-              <option value="Tema Pelatihan">Tema Pelatihan</option>
-              <option value="Tema Pelatihan">Tema Pelatihan</option>
-              <option value="Tema Pelatihan">Tema Pelatihan</option>
-              <option value="Tema Pelatihan">Tema Pelatihan</option>
-              </select>
-            </div><!-- /.contact__form-input-box -->
-            </div>
-            <div class="col-md-12">
-            <div class="contact__form-input-box">
-              <label for="contact-form-message" class="contact__input-title">Alamat</label>
-              <input type="text" name="contact-form-message" id="contact-form-message"
-              placeholder="tulis alamat kamu disini..." class="contact__form-input">
-            </div><!-- /.contact__form-input-box -->
-            </div>
-            <div class="col-md-12">
-            <div class="contact__form-input-box">
-              <label for="contact-form-message" class="blog-details__input-title">Pesan Anda</label>
-              <textarea name="contact-form-message" id="contact-form-message"
-              placeholder="tulis pesan kamu disini..." cols="30" rows="10"
-              class="contact__form-message contact__form-input"></textarea>
-              <p class="contact__form-text"><span>*</span> Hubungi kontak kami lainnya bila ada pertanyaan lain.
-              </p>
-            </div><!-- /.contact__form-input-box -->
-            </div>
-            <div class="col-md-12">
-            <div class="contact__form-btn-box">
-              <button type="submit" class="contact__form-btn noile-btn">Kirim Pesan +</button>
-            </div><!-- /.contact__form-btn-box -->
-            </div>
-          </div><!-- /.row -->
-          </form><!-- /.contact_form -->
-        </div>
-        </div><!-- /.contact -->
-      </div>
-      <div class="col-xl-4 col-lg-5">
-        <img
-        src="https://img.freepik.com/free-vector/businessman-holding-pencil-big-complete-checklist-with-tick-marks_1150-35019.jpg?t=st=1743091589~exp=1743095189~hmac=c6225d832f665f8284af717c865007108d8c4b5628a044deb03327740659ddb3&w=1380"
-        class="img-fluid w-100" alt="form_ilustrasi">
-      </div>
-      </div><!-- /.row -->
+    <div class="row">
+    <div class="col-xl-8 col-lg-7">
+    <div class="contact-one__contact contact wow animated fadeInLeft m-0" data-wow-delay="0.1s"
+    data-wow-duration="1500ms">
+    <div class="contact__form-box">
+    <h3 class="contact__form-title">Formulir Pendaftaran Kegiatan</h3>
+    <form action="https://formspree.io/f/mrbpagay" method="POST"
+    class="contact__form container-fluid wow animated fadeInUp mt-3" data-wow-duration="1500ms">
+    <div class="row g-4">
+    <div class="col-md-12">
+    <div class="contact__form-input-box">
+    <label for="contact-form-name" class="contact__input-title">Masukan Nama Kamu</label>
+    <input type="text" name="contact-form-name" placeholder="tulis nama kamu disini..."
+    id="contact-form-name" class="contact__form-input">
+    </div><!-- /.contact__form-input-box -->
+    </div>
+    <div class="col-md-6">
+    <div class="contact__form-input-box">
+    <label for="contact-form-mail" class="contact__input-title">Alamat E-mail</label>
+    <input type="email" name="contact-form-mail" placeholder="tulis email kamu disini..."
+    id="contact-form-mail" class="contact__form-input">
+    </div><!-- /.contact__form-input-box -->
+    </div>
+    <div class="col-md-6">
+    <div class="contact__form-input-box">
+    <label for="contact-form-mail" class="contact__input-title">Nomor Telepon</label>
+    <input type="text" name="contact-form-mail" placeholder="tulis nomor telepon kamu disini..."
+    id="contact-form-mail" class="contact__form-input">
+    </div><!-- /.contact__form-input-box -->
+    </div>
+    <div class="col-md-6">
+    <div class="contact__form-input-box">
+    <label for="contact-form-mail" class="contact__input-title">Bentuk Kegiatan</label>
+    <select name="contact-form-mail" id="contact-form-mail" class="contact__form-input"
+    placeholder="Pilih Bentuk Kegiatan">
+    <option class="selected" value="">--Pilih Bentuk Kegiatan--</option>
+    <option value="Bentuk Kegiatan">Bentuk Kegiatan</option>
+    <option value="Bentuk Kegiatan">Bentuk Kegiatan</option>
+    <option value="Bentuk Kegiatan">Bentuk Kegiatan</option>
+    <option value="Bentuk Kegiatan">Bentuk Kegiatan</option>
+    </select>
+    </div><!-- /.contact__form-input-box -->
+    </div>
+    <div class="col-md-6">
+    <div class="contact__form-input-box">
+    <label for="contact-form-mail" class="contact__input-title">Tema Pelatihan</label>
+    <select name="contact-form-mail" id="contact-form-mail" class="contact__form-input">
+    <option class="selected" value="">--Pilih Tema Pelatihan--</option>
+    <option value="Tema Pelatihan">Tema Pelatihan</option>
+    <option value="Tema Pelatihan">Tema Pelatihan</option>
+    <option value="Tema Pelatihan">Tema Pelatihan</option>
+    <option value="Tema Pelatihan">Tema Pelatihan</option>
+    </select>
+    </div><!-- /.contact__form-input-box -->
+    </div>
+    <div class="col-md-12">
+    <div class="contact__form-input-box">
+    <label for="contact-form-message" class="contact__input-title">Alamat</label>
+    <input type="text" name="contact-form-message" id="contact-form-message"
+    placeholder="tulis alamat kamu disini..." class="contact__form-input">
+    </div><!-- /.contact__form-input-box -->
+    </div>
+    <div class="col-md-12">
+    <div class="contact__form-input-box">
+    <label for="contact-form-message" class="blog-details__input-title">Pesan Anda</label>
+    <textarea name="contact-form-message" id="contact-form-message"
+    placeholder="tulis pesan kamu disini..." cols="30" rows="10"
+    class="contact__form-message contact__form-input"></textarea>
+    <p class="contact__form-text"><span>*</span> Hubungi kontak kami lainnya bila ada pertanyaan lain.
+    </p>
+    </div><!-- /.contact__form-input-box -->
+    </div>
+    <div class="col-md-12">
+    <div class="contact__form-btn-box">
+    <button type="submit" class="contact__form-btn noile-btn">Kirim Pesan +</button>
+    </div><!-- /.contact__form-btn-box -->
+    </div>
+    </div><!-- /.row -->
+    </form><!-- /.contact_form -->
+    </div>
+    </div><!-- /.contact -->
+    </div>
+    <div class="col-xl-4 col-lg-5">
+    <img
+    src="https://img.freepik.com/free-vector/businessman-holding-pencil-big-complete-checklist-with-tick-marks_1150-35019.jpg?t=st=1743091589~exp=1743095189~hmac=c6225d832f665f8284af717c865007108d8c4b5628a044deb03327740659ddb3&w=1380"
+    class="img-fluid w-100" alt="form_ilustrasi">
+    </div>
+    </div><!-- /.row -->
     </div><!-- /.container -->
     </section>
     <!-- Formulir Pendaftaran End -->

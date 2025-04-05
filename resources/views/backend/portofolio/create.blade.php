@@ -45,6 +45,7 @@
     @endforeach
     </select>
     </div>
+    @endif
 
     <div class="col-md-6">
     <div class="mb-3">
@@ -76,12 +77,12 @@
     </div>
 
     <div class="mb-3">
-    <label for="thumbnail">Upload Thumbnail (1296x600)</label>
+    <label for="thumbnail">Upload Thumbnail (416x450)</label>
     <input type="file" name="thumbnail" class="form-control">
     </div>
 
     <div class="mb-3">
-    <label for="cover">Upload Cover (416x450)</label>
+    <label for="cover">Upload Cover (1296x600)</label>
     <input type="file" name="cover" class="form-control">
     </div>
 

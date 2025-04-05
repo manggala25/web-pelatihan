@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Portofolio;
 use App\Models\NamaPelatihan;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 
 class PortofolioController extends Controller
@@ -55,22 +56,14 @@ class PortofolioController extends Controller
     {
         $request->validate([
             'judul_portofolio' => 'required|string|max:255',
-            'nama_klien' => 'required|string|max:255',
-            'kategori_nama_pelatihan' => 'required|string|max:255', // Sesuai dengan select gabungan
-            'waktu_awal' => 'required|date',
-            'waktu_akhir' => 'required|date|after_or_equal:waktu_awal',
-            'nama_tempat' => 'required|string|max:255',
-            'kota_kabupaten' => 'required|string|max:255',
-            'provinsi' => 'required|string|max:255',
-            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,webp,svg|max:2048',
-            'cover' => 'nullable|image|mimes:jpeg,png,jpg,webp,svg|max:2048',
-            'content' => 'required',
-            'link_klien' => 'nullable|string|url',
-            'status' => 'required|in:aktif,nonaktif',
+            // Validasi lainnya
         ]);
 
         // Pisahkan kategori & nama pelatihan dari select
         list($kategori_tema, $nama_pelatihan) = explode('|', $request->kategori_nama_pelatihan);
+
+        // Buat slug unik
+        $slug = $this->createUniqueSlug($request->judul_portofolio);
 
         // Simpan thumbnail dan cover jika diunggah
         $thumbnailPath = $request->file('thumbnail') ? $request->file('thumbnail')->store('portofolio/thumbnails', 'public') : null;
@@ -92,10 +85,24 @@ class PortofolioController extends Controller
             'content' => $request->content,
             'link_klien' => $request->link_klien,
             'status' => $request->status,
+            'slug' => $slug,
         ]);
 
         return redirect()->route('admin.portofolio')->with('success', 'Portofolio berhasil ditambahkan!');
     }
+
+    private function createUniqueSlug($title)
+    {
+        // Buat slug dasar dari judul
+        $slug = Str::slug($title);
+
+        // Cek apakah slug sudah ada di database
+        $count = Portofolio::where('slug', 'LIKE', "{$slug}%")->count();
+
+        // Jika sudah ada, tambahkan angka di akhir slug
+        return $count ? "{$slug}-{$count}" : $slug;
+    }
+
 
     /**
      * Display the specified resource.

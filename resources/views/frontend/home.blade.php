@@ -6,83 +6,48 @@
     <div class="main-slider__carousel noile-owl__carousel owl-carousel owl-theme"
     data-owl-options='{"loop": true, "items": 1, "navText": ["<span class=\"icon-arrow-left\"></span>","<span class=\"icon-arrow-right\"></span>"], "margin": 0, "dots": true, "nav": false, "animateOut": "slideOutDown", "animateIn": "fadeIn", "active": true, "smartSpeed": 1000, "autoplay": true, "autoplayTimeout": 7000, "autoplayHoverPause": false, "navSpeed": 3000}'>
 
-    {{-- Slide One --}}
-    <div class="main-slider__slide main-slider__slide-one item">
-    <div class="main-slider__bg" style="background-image: url('https://img.freepik.com/free-photo/idyllic-shot-huge-mountain-covered-vegetation-with-body-water-its-base_181624-21444.jpg?t=st=1742673839~exp=1742677439~hmac=50973426614eeffb9c55dd7710467fb54712cca4844343f44877a7fdffe0bdda&w=1380')">
-    <div class="main-slider__vartical-line-wrap slide-title">
-
-    <span class="main-slider__vartical-text slide-title__vartical-text">Pelatihan Dinas Pemerintahan</span>
-    <div class="main-slider__vartical-line main-slider__vartical-line--one"></div>
-    <div class="main-slider__vartical-line main-slider__vartical-line--two"></div>
-    <div class="main-slider__vartical-line main-slider__vartical-line--three"></div>
-    </div><!-- /.main-slider__vartical-line-wrap -->
-    </div> <!-- /.Slide One BG -->
-    <div class="main-slider__container container">
-    <div class="main-slider__circle"></div><!-- /.main-slider__circle -->
-    <div class="main-slider__content slide-title">
-    {{-- Judul --}}
-    <h1 class="main-slider__title slide-title__heading">Pelatihan Bersama Dinas Kehutanan.</h1>
-    <div class="main-slider__desc-wrap slide-title__desc-wrap">
-    <span class="main-slider__arrow icon-arrow-right-2"></span>
-    {{-- Paragraf --}}
-    <p class="main-slider__desc">Bimtek Tata Ruang</p>
-    </div>
-    <div class="main-slider__btn-box slide-title__btn-box">
-    <a href="about.html" class="main-slider__btn noile-btn">Free consultation +</a>
-    </div>
-    </div>
-    <a href='#' class="main-slider__circle-text">
-    <div class="main-slider__curved-circle curved-circle">
-    <!-- curved-circle start-->
-    <div class="main-slider__curved-circle--item curved-circle--item" data-circle-text-options='{
-     "radius": 92,
-     "forceWidth": true,
-     "forceHeight": true}'>
-    </div>
-    </div><!-- curved-circle end-->
-    </a><!-- /.main-slider__circle-text -->
-    </div>
-    </div>
-
-    {{-- Slide Two --}}
-    <div class="main-slider__slide main-slider__slide-one item">
-    <div class="main-slider__bg" style="background-image: url('https://img.freepik.com/free-photo/idyllic-shot-huge-mountain-covered-vegetation-with-body-water-its-base_181624-21444.jpg?t=st=1742673839~exp=1742677439~hmac=50973426614eeffb9c55dd7710467fb54712cca4844343f44877a7fdffe0bdda&w=1380')">
-    <div class="main-slider__vartical-line-wrap slide-title">
-
-    <span class="main-slider__vartical-text slide-title__vartical-text">Pelatihan Dinas Pemerintahan</span>
-    <div class="main-slider__vartical-line main-slider__vartical-line--one"></div>
-    <div class="main-slider__vartical-line main-slider__vartical-line--two"></div>
-    <div class="main-slider__vartical-line main-slider__vartical-line--three"></div>
-    </div><!-- /.main-slider__vartical-line-wrap -->
-    </div> <!-- /.Slide One BG -->
-    <div class="main-slider__container container">
-    <div class="main-slider__circle"></div><!-- /.main-slider__circle -->
-    <div class="main-slider__content slide-title">
-    {{-- Judul --}}
-    <h1 class="main-slider__title slide-title__heading">Pelatihan Bersama Dinas Kehutanan.</h1>
-    <div class="main-slider__desc-wrap slide-title__desc-wrap">
-    <span class="main-slider__arrow icon-arrow-right-2"></span>
-    {{-- Paragraf --}}
-    <p class="main-slider__desc">Bimtek Tata Ruang</p>
-    </div>
-    <div class="main-slider__btn-box slide-title__btn-box">
-    <a href="about.html" class="main-slider__btn noile-btn">Free consultation +</a>
-    </div>
-    </div>
-    <a href='#' class="main-slider__circle-text">
-    <div class="main-slider__curved-circle curved-circle">
-    <!-- curved-circle start-->
-    <div class="main-slider__curved-circle--item curved-circle--item" data-circle-text-options='{
-     "radius": 92,
-     "forceWidth": true,
-     "forceHeight": true}'>
-    </div>
-    </div><!-- curved-circle end-->
-    </a><!-- /.main-slider__circle-text -->
-    </div>
-    </div>
-
-
+    @if($portofolio->count())
+        @foreach($portofolio as $item)
+            {{-- Slide One --}}
+            <div class="main-slider__slide main-slider__slide-one item">
+                <div class="main-slider__bg" style="background-image: url('{{ asset('storage/' . $item->cover) }}')">
+                    <div class="main-slider__vartical-line-wrap slide-title">
+                        <div class="main-slider__vartical-line main-slider__vartical-line--one"></div>
+                        <div class="main-slider__vartical-line main-slider__vartical-line--two"></div>
+                        <div class="main-slider__vartical-line main-slider__vartical-line--three"></div>
+                    </div>
+                </div> <!-- /.Slide One BG -->
+                <div class="main-slider__container container">
+                    <div class="main-slider__circle"></div>
+                    <div class="main-slider__content slide-title">
+                        <p class="main-slider__desc">◎ Portofolio Kegiatan</p>
+                        <h1 class="main-slider__title slide-title__heading">{{ Str::words($item->judul_portofolio, 4, '...') }}</h1>
+                        <div class="main-slider__desc-wrap slide-title__desc-wrap">
+                            <span class="main-slider__arrow icon-arrow-right-2"></span>
+                            <p class="main-slider__desc">{{ $item->kategori_tema }}</p>
+                        </div>
+                        <div class="main-slider__btn-box slide-title__btn-box">
+                            <a href="{{ route('detail-galeri', $item->slug) }}" class="main-slider__btn noile-btn">Lihat Detail
+                                +</a>
+                        </div>
+                    </div>
+                    <a href="#" class="main-slider__circle-text">
+                        <div class="main-slider__curved-circle curved-circle">
+                            <div class="main-slider__curved-circle--item curved-circle--item" data-circle-text-options='{
+                                        "radius": 92,
+                                        "forceWidth": true,
+                                        "forceHeight": true}'>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        @endforeach
+    @else
+        <div class="text-center py-5">
+            <h2>Data portofolio belum dibuat.</h2>
+        </div>
+    @endif
 
     </div>
     </section>
@@ -303,75 +268,32 @@
                 }
                 }'>
 
-                <div class="case-study-one__carousel-item item">
-                    <div class="case-study__item">
-                        <div class="case-study__item-img-box">
-                            <img src="{{  asset('template/frontend/assets/images/case-study/case-study-1-1.jpg') }}" alt="case-study"
-                                class="case-study__item-img">
-                            <p class="case-study__item-desc">Bimtek Bidang Desa</p>
-                            <h4 class="case-study__item-title">Desa Haurgeulis Bandung</h4>
-                        </div>
-                        <a href="case-study.html" class="case-study__item-btn">
-                            <span class="case-study__item-btn-icon icon-arrow-right-2"></span>
-                        </a>
-                    </div><!-- /.case-study__item -->
-                </div><!-- /.case-study-one__carousel-item-->
-                <div class="case-study-one__carousel-item item">
-                    <div class="case-study__item">
-                        <div class="case-study__item-img-box">
-                            <img src="{{  asset('template/frontend/assets/images/case-study/case-study-1-1.jpg') }}" alt="case-study"
-                                class="case-study__item-img">
-                            <p class="case-study__item-desc">Bimtek Bidang Desa</p>
-                            <h4 class="case-study__item-title">Desa Haurgeulis Bandung</h4>
-                        </div>
-                        <a href="case-study.html" class="case-study__item-btn">
-                            <span class="case-study__item-btn-icon icon-arrow-right-2"></span>
-                        </a>
-                    </div><!-- /.case-study__item -->
-                </div><!-- /.case-study-one__carousel-item-->
-                <div class="case-study-one__carousel-item item">
-                    <div class="case-study__item">
-                        <div class="case-study__item-img-box">
-                            <img src="{{  asset('template/frontend/assets/images/case-study/case-study-1-1.jpg') }}" alt="case-study"
-                                class="case-study__item-img">
-                            <p class="case-study__item-desc">Bimtek Bidang Desa</p>
-                            <h4 class="case-study__item-title">Desa Haurgeulis Bandung</h4>
-                        </div>
-                        <a href="case-study.html" class="case-study__item-btn">
-                            <span class="case-study__item-btn-icon icon-arrow-right-2"></span>
-                        </a>
-                    </div><!-- /.case-study__item -->
-                </div><!-- /.case-study-one__carousel-item-->
-                <div class="case-study-one__carousel-item item">
-                    <div class="case-study__item">
-                        <div class="case-study__item-img-box">
-                            <img src="{{  asset('template/frontend/assets/images/case-study/case-study-1-1.jpg') }}" alt="case-study"
-                                class="case-study__item-img">
-                            <p class="case-study__item-desc">Bimtek Bidang Desa</p>
-                            <h4 class="case-study__item-title">Desa Haurgeulis Bandung</h4>
-                        </div>
-                        <a href="case-study.html" class="case-study__item-btn">
-                            <span class="case-study__item-btn-icon icon-arrow-right-2"></span>
-                        </a>
-                    </div><!-- /.case-study__item -->
-                </div><!-- /.case-study-one__carousel-item-->
-                <div class="case-study-one__carousel-item item">
-                    <div class="case-study__item">
-                        <div class="case-study__item-img-box">
-                            <img src="{{  asset('template/frontend/assets/images/case-study/case-study-1-1.jpg') }}" alt="case-study"
-                                class="case-study__item-img">
-                            <p class="case-study__item-desc">Bimtek Bidang Desa</p>
-                            <h4 class="case-study__item-title">Desa Haurgeulis Bandung</h4>
-                        </div>
-                        <a href="case-study.html" class="case-study__item-btn">
-                            <span class="case-study__item-btn-icon icon-arrow-right-2"></span>
-                        </a>
-                    </div><!-- /.case-study__item -->
-                </div><!-- /.case-study-one__carousel-item-->
+                @if($portofolio->isEmpty())
+                    <p>Data portofolio belum dibuat.</p>
+                @else
+                    @foreach($portofolio as $item)
+                        <div class="case-study-one__carousel-item item">
+                            <div class="case-study__item">
+                                <div class="case-study__item-img-box">
+                                    <img src="{{ asset('storage/' . $item->thumbnail) }}" alt="{{ $item->judul_portofolio }}"
+                                        class="case-study__item-img">
+                                    <p class="case-study__item-desc mb-2">{{ $item->nama_klien }}</p>
+                                    <h4 class="case-study__item-title">
+                                        {{ Str::words($item->judul_portofolio, 5, '...') }}
+                                    </h4>
+                                </div>
+                                <a href="{{ route('detail-galeri', $item->slug) }}" class="case-study__item-btn">
+                                    <span class="case-study__item-btn-icon icon-arrow-right-2"></span>
+                                </a>
+                            </div><!-- /.case-study__item -->
+                        </div><!-- /.case-study-one__carousel-item-->
+                    @endforeach
+                @endif
+
             </div><!-- /.case-study-one__carousel-->
             <div class="row pt-5 d-flex justify-content-center">
                 <div class="col-6 text-center">
-                    <a href="#" class="service-one__btn noile-btn">Lihat Portofolio Lainnya +</a>
+                    <a href="{{ route('galeri') }}" class="service-one__btn noile-btn">Lihat Selengkapnya +</a>
                 </div>
             </div>
         </div><!-- /.container -->
@@ -386,19 +308,21 @@
                     <div class="solution-one__content sec-title">
                         <div class="sec-title__top-wrap">
                             <img src="{{ asset('template/frontend/assets/images/resources/top-title-logo.png') }}" alt="top-title-logo">
-                            <p class="sec-title__top">Tentang Kami</p>
+                            <p class="sec-title__top">{{ $profil ? $profil->title_top : 'Profil Kami' }}</p>
                         </div>
-                        <h2 class="solution-one__heading sec-title__heading">Profil Pelatihan Kami
+                        <h2 class="solution-one__heading sec-title__heading">{{ $profil ? $profil->heading : 'Kenal Kami Lebih Dalam' }}
                         </h2>
-                        <p class="solution-one__service-desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos veritatis eligendi vel consectetur vero, eaque necessitatibus dolores. Harum accusantium dolor distinctio quo nam eos ad recusandae porro ipsam iste, architecto reiciendis eligendi tempore animi quas repudiandae molestias vel ipsum dolorem?</p>
-                        <a href="#" class="service-one__btn noile-btn">Baca Selengkapnya +</a>
+                        <p class="solution-one__service-desc">
+                            {!! nl2br(htmlspecialchars_decode(e($profil->deskripsi ?? 'Deskripsi tidak tersedia.'))) !!}
+                        </p>
+                        <a href="{{ route('tentang-kami') }}" class="service-one__btn noile-btn">Baca Selengkapnya +</a>
                         <!-- /.olution-one__main-tab-box -->
                     </div><!-- /.solution-one__content -->
                 </div>
                 <div class="col-xxl-6 col-xl-5 wow animated fadeInRight" data-wow-delay="0.1s" data-wow-duration="1500ms">
                     <div class="solution-one__img-col">
                         <div class="solution-one__img-wrap">
-                            <img src="{{ asset('template/frontend/assets/images/solution/solution-1-1.jpg') }}" alt="solution" class="solution-one__img">
+                            <img src="{{ $profil && $profil->img_profil ? asset('storage/' . $profil->img_profil) : asset('template/frontend/assets/images/solution/solution-1-1.jpg') }}" alt="solution" class="solution-one__img">
                             <div class="solution-one__icon-wrap">
                                 <img src="{{ asset('template/frontend/assets/images/solution/solution-icon-1-1.png') }}" alt="solution-icon"
                                     class="solution-one__icon">
@@ -443,87 +367,27 @@
                 <h2 class="blog-one__heading sec-title__heading">Artikel Terbaru</h2>
             </div><!-- /.blog-one__sec-title -->
             <div class="row g-4">
-                <div class="col-lg-4 col-md-6 wow animated fadeInUp" data-wow-delay="0.1s" data-wow-duration="1300ms">
-                    <div class="blog__card">
-                        <a href="blog-details.html" class="blog__card-img-box">
-                            <img src="{{  asset('template/frontend/assets/images/blog/blog-1-1.jpg') }}" alt="blog" class="blog__card-img">
-                            <p class="blog__card-category">Business</p><!-- /.blog-one__item-category -->
-                        </a><!-- /.blog-one__img-box -->
-                        <ul class="blog__card-comment-box">
-                            <li class="blog__card-comment-item">
-                                <p class="blog__card-comment">Diupload Pada</p>
-                            </li>
-                            <li class="blog__card-comment-item blog__card-comment-item-divider">
-                                <p class="blog__card-comment">:</p>
-                            </li>
-                            <li class="blog__card-comment-item">
-                                <p class="blog__card-comment">22 Aug 2023</p>
-                            </li>
-                        </ul><!-- /.blog-one__comment -->
-                        <a href="blog-details.html" class="blog__card-title">Fusce tincidunt commodo saie quis
-                            porttitor.</a>
-                    </div><!-- /.blog-one__item -->
-                </div>
-                <div class="col-lg-4 col-md-6 wow animated fadeInUp" data-wow-delay="0.3s" data-wow-duration="1300ms">
-                    <div class="blog__card">
-                        <a href="blog-details.html" class="blog__card-img-box">
-                            <img src="{{  asset('template/frontend/assets/images/blog/blog-1-2.jpg') }}" alt="blog" class="blog__card-img">
-                            <p class="blog__card-category">Business</p><!-- /.blog-one__item-category -->
-                        </a><!-- /.blog-one__img-box -->
-                        <ul class="blog__card-comment-box">
-                            <li class="blog__card-comment-item">
-                                <p class="blog__card-comment">02 Comments</p>
-                            </li>
-                            <li class="blog__card-comment-item blog__card-comment-item-divider">
-                                <p class="blog__card-comment">/</p>
-                            </li>
-                            <li class="blog__card-comment-item">
-                                <p class="blog__card-comment">22 Aug 2023</p>
-                            </li>
-                        </ul><!-- /.blog-one__comment -->
-                        <a href="blog-details.html" class="blog__card-title">Fusce tincidunt commodo saie quis
-                            porttitor.</a>
-                        <div class="blog__card-author">
-                            <div class="blog__card-author-img-box">
-                                <img src="{{  asset('template/frontend/assets/images/blog/blog-author-1-2.png') }}" alt="blog-author"
-                                    class="blog__card-author-img">
-                            </div>
-                            <p class="blog__card-author-name">by
-                                <span class="blog__card-author-name-highlight">Noile Mohsin</span>
-                            </p>
-                        </div><!-- /.blog-one__author -->
-                    </div><!-- /.blog-one__item -->
-                </div>
-                <div class="col-lg-4 col-md-6 wow animated fadeInUp" data-wow-delay="0.5s" data-wow-duration="1300ms">
-                    <div class="blog__card">
-                        <a href="blog-details.html" class="blog__card-img-box">
-                            <img src="{{  asset('template/frontend/assets/images/blog/blog-1-3.jpg') }}" alt="blog" class="blog__card-img">
-                            <p class="blog__card-category">Business</p><!-- /.blog-one__item-category -->
-                        </a><!-- /.blog-one__img-box -->
-                        <ul class="blog__card-comment-box">
-                            <li class="blog__card-comment-item">
-                                <p class="blog__card-comment">02 Comments</p>
-                            </li>
-                            <li class="blog__card-comment-item blog__card-comment-item-divider">
-                                <p class="blog__card-comment">/</p>
-                            </li>
-                            <li class="blog__card-comment-item">
-                                <p class="blog__card-comment">22 Aug 2023</p>
-                            </li>
-                        </ul><!-- /.blog-one__comment -->
-                        <a href="blog-details.html" class="blog__card-title">Fusce tincidunt commodo saie quis
-                            porttitor.</a>
-                        <div class="blog__card-author">
-                            <div class="blog__card-author-img-box">
-                                <img src="{{  asset('template/frontend/assets/images/blog/blog-author-1-3.png') }}" alt="blog-author"
-                                    class="blog__card-author-img">
-                            </div>
-                            <p class="blog__card-author-name">by
-                                <span class="blog__card-author-name-highlight">Noile Mohsin</span>
-                            </p>
-                        </div><!-- /.blog-one__author -->
-                    </div><!-- /.blog-one__item -->
-                </div>
+                @if($blog->isEmpty())
+                    <p>Data blog belum dibuat.</p>
+                @else
+                    @foreach($blog as $item)
+                        <div class="col-lg-4 col-md-6 wow animated fadeInUp" data-wow-delay="0.1s" data-wow-duration="1300ms">
+                            <div class="blog__card">
+                                <a href="{{ route('detail-blog', $item->slug) }}" class="blog__card-img-box">
+                                    <img src="{{  asset($item->thumbnail) ?? asset('template/frontend/assets/images/blog/blog-1-1.jpg') }}" alt="blog" class="blog__card-img">
+                                    <p class="blog__card-category">{{ $item->kategori }}</p><!-- /.blog-one__item-category -->
+                                </a><!-- /.blog-one__img-box -->
+                                <a href="{{ route('detail-blog', $item->slug) }}" class="blog__card-title mb-0">{{ Str::limit($item->judul, 50) }}</a>
+                                <ul class="blog__card-comment-box">
+                                    <li class="blog__card-comment-item">
+                                        <p class="blog__card-comment">{{ \Carbon\Carbon::parse($item->published_at)->format('d F Y') }}</p>
+                                    </li>
+                                </ul><!-- /.blog-one__comment -->
+                            </div><!-- /.blog-one__item -->
+                        </div>
+                    @endforeach
+                @endif
+
             </div><!-- /.row -->
             <div class="row pt-5 d-flex justify-content-center">
                 <div class="col-6 text-center">
@@ -610,7 +474,7 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="mini-banner-one__btn-wrap">
-                        <a href="about.html" class="mini-banner-one__btn noile-btn">Free consultation +</a>
+                        <a href="{{ route('kontak') }}" class="mini-banner-one__btn noile-btn">Free consultation +</a>
                     </div><!-- /.mini-banner-one__btn-wrap -->
                 </div>
             </div><!-- /.row -->

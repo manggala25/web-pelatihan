@@ -94,14 +94,14 @@
     </div>
 
     <div class="mb-3">
-    <label for="thumbnail">Upload Thumbnail (1296x600)</label>
+    <label for="thumbnail">Upload Thumbnail (416x450)</label>
     <input type="file" name="thumbnail" class="form-control" id="thumbnail" accept="image/*">
     <img id="previewThumbnail" src="{{ asset('storage/' . $portofolio->thumbnail) }}" class="img-fluid mt-2"
     style="max-width: 300px;" />
     </div>
 
     <div class="mb-3">
-    <label for="cover">Upload Cover (416x450)</label>
+    <label for="cover">Upload Cover (1296x600)</label>
     <input type="file" name="cover" class="form-control" id="cover" accept="image/*">
     <img id="previewCover" src="{{ asset('storage/' . $portofolio->cover) }}" class="img-fluid mt-2"
     style="max-width: 300px;" />
