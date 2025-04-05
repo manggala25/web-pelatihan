@@ -1,4 +1,4 @@
-@props(['kategoriTema'])
+@props(['kategoriTema', 'kontak'])
 
 
 <div class="col-xl-4 col-lg-5">
@@ -50,18 +50,29 @@
                 data-wow-duration="1500ms">
                 <h3 class="page-sidebar__title">Media Sosial</h3>
                 <div class="page-sidebar__social-list social-list">
-                    <a href="#" class="page-sidebar__social-link social-link">
-                        <i class="icofont-facebook"></i>
-                    </a>
-                    <a href="#" class="page-sidebar__social-link social-link">
-                        <i class="icofont-twitter"></i>
-                    </a>
-                    <a href="#" class="page-sidebar__social-link social-link">
-                        <i class="icofont-instagram"></i>
-                    </a>
-                    <a href="#" class="page-sidebar__social-link social-link">
-                        <i class="icofont-whatsapp"></i>
-                    </a>
+                    @if ($kontak->isNotEmpty())
+                        @foreach ($kontak as $item)
+                            @if ($item->nama_kontak === 'Facebook')
+                                <a href="{{ $item->link }}" class="page-sidebar__social-link social-link" target="_blank">
+                                    <i class="icofont-facebook"></i>
+                                </a>
+                            @elseif ($item->nama_kontak === 'Twitter')
+                                <a href="{{ $item->link }}" class="page-sidebar__social-link social-link" target="_blank">
+                                    <i class="icofont-twitter"></i>
+                                </a>
+                            @elseif ($item->nama_kontak === 'Instagram')
+                                <a href="{{ $item->link }}" class="page-sidebar__social-link social-link" target="_blank">
+                                    <i class="icofont-instagram"></i>
+                                </a>
+                            @elseif ($item->nama_kontak === 'WhatsApp')
+                                <a href="{{ $item->link }}" class="page-sidebar__social-link social-link" target="_blank">
+                                    <i class="icofont-whatsapp"></i>
+                                </a>
+                            @endif
+                        @endforeach
+                    @else
+                        <p>Tidak ada media sosial yang tersedia.</p>
+                    @endif
                 </div>
             </div><!-- /.page-sidebar__social -->
             <div class="page-sidebar__contact page-sidebar__single wow animated fadeInRight" data-wow-delay="0.1s"
@@ -70,10 +81,22 @@
                 <div class="page-sidebar__contact-wrap">
                     <h3 class="page-sidebar__contact-title mb-0">Hubung Kami:</h3>
                     <p class="page-sidebar__contact-text mb-3">Cari tau informasi lebih lanjut!</p>
-                    <a href="tel:(1)245-45678" class="page-sidebar__contact-btn">
-                        <span class="page-sidebar__contact-icon icon-phone"></span>
-                        <h4 class="page-sidebar__contact-text">(62) 8245-45678</h4>
-                    </a>
+                    @if ($kontak->isNotEmpty())
+                            @foreach ($kontak as $item)
+                                @if ($item->nama_kontak === 'WhatsApp')
+                                    <a href="{{ ltrim($item->link, '0') }}" class="page-sidebar__contact-btn" target="_blank">
+                                        <span class="page-sidebar__contact-icon icon-whatsapp"></span>
+                                        <h4 class="page-sidebar__contact-text">{{ $item->deskripsi }}</h4>
+                                    </a>
+                                @endif
+                            @endforeach
+                        </div>
+                    @else
+                        <a href="#" class="page-sidebar__contact-btn">
+                            <span class="page-sidebar__contact-icon icon-phone"></span>
+                            <h4 class="page-sidebar__contact-text">tidak ada data "WhatsApp".</h4>
+                        </a>
+                    @endif
                 </div>
             </div><!-- /.page-sidebar__contact -->
 

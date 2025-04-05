@@ -10,6 +10,7 @@ use App\Models\VisiMisi;
 use App\Models\TujuanLembaga;
 use App\Models\NamaPelatihan;
 use App\Models\KategoriTema;
+use App\Models\Kontak;
 
 class FrontTentangKamiController extends Controller
 {
@@ -21,7 +22,10 @@ class FrontTentangKamiController extends Controller
         // Ambil 1 visi misi terakhir yang diperbarui
         $visimisi = VisiMisi::latest('updated_at')->first();
 
-        return view('frontend.tentang-kami', compact('profil', 'visimisi'));
+        // Kontak
+        $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat'])->get();
+
+        return view('frontend.tentang-kami', compact('profil', 'visimisi', 'kontak'));
     }
 
     public function visiMisi() // Ubah dari visi-misi ke visiMisi
@@ -32,7 +36,10 @@ class FrontTentangKamiController extends Controller
             ->withCount(['pelatihan as jumlah'])
             ->paginate(10); // Pastikan pakai get() kalau tidak butuh pagination
 
-        return view('frontend.visi-misi', compact('visimisi', 'kategori_tema'));
+        // Kontak
+        $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat'])->get();
+
+        return view('frontend.visi-misi', compact('visimisi', 'kategori_tema', 'kontak'));
     }
 
     public function tujuanLembaga()
@@ -43,7 +50,10 @@ class FrontTentangKamiController extends Controller
             ->withCount(['pelatihan as jumlah'])
             ->paginate(10); // Pastikan pakai get() kalau tidak butuh pagination
 
-        return view('frontend.tujuan-lembaga', compact('tujuanlembaga', 'kategori_tema'));
+        // Kontak
+        $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat'])->get();
+
+        return view('frontend.tujuan-lembaga', compact('tujuanlembaga', 'kategori_tema', 'kontak'));
     }
 
     public function cariPelatihan(Request $request)

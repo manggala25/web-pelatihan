@@ -98,7 +98,7 @@
     <a href="{!! nl2br(htmlspecialchars_decode(e($d->link))) !!}" class="contact-one__social-link social-link" target="_blank">
       {!! nl2br(htmlspecialchars_decode(e($d->icon))) !!}
     </a>
-  @endforeach
+    @endforeach
     </div><!-- /.contact-one__social -->
     </div><!-- /.contact-one__info -->
     </div><!-- /.contact-one__left -->
@@ -163,28 +163,18 @@
     id="contact-form-mail" class="contact__form-input">
     </div><!-- /.contact__form-input-box -->
     </div>
-    <div class="col-md-6">
+    <div class="col-md-9">
     <div class="contact__form-input-box">
-    <label for="contact-form-mail" class="contact__input-title">Bentuk Kegiatan</label>
-    <select name="contact-form-mail" id="contact-form-mail" class="contact__form-input"
-    placeholder="Pilih Bentuk Kegiatan">
-    <option class="selected" value="">--Pilih Bentuk Kegiatan--</option>
-    <option value="Bentuk Kegiatan">Bentuk Kegiatan</option>
-    <option value="Bentuk Kegiatan">Bentuk Kegiatan</option>
-    <option value="Bentuk Kegiatan">Bentuk Kegiatan</option>
-    <option value="Bentuk Kegiatan">Bentuk Kegiatan</option>
-    </select>
-    </div><!-- /.contact__form-input-box -->
-    </div>
-    <div class="col-md-6">
-    <div class="contact__form-input-box">
-    <label for="contact-form-mail" class="contact__input-title">Tema Pelatihan</label>
+      <label for="contact-form-mail" class="contact__input-title">Nama Pelatihan</label>
     <select name="contact-form-mail" id="contact-form-mail" class="contact__form-input">
-    <option class="selected" value="">--Pilih Tema Pelatihan--</option>
-    <option value="Tema Pelatihan">Tema Pelatihan</option>
-    <option value="Tema Pelatihan">Tema Pelatihan</option>
-    <option value="Tema Pelatihan">Tema Pelatihan</option>
-    <option value="Tema Pelatihan">Tema Pelatihan</option>
+      <option value="" disabled selected>--Pilih Nama Pelatihan--</option>
+      @if ($nama_pelatihan && count($nama_pelatihan) > 0)
+      @foreach ($nama_pelatihan as $pelatihan)
+      <option value="{{ $pelatihan->nama_pelatihan }}">{{ $pelatihan->nama_pelatihan }}</option>
+    @endforeach
+    @else
+      <option value="" disabled>Tidak ada data untuk "Nama Pelatihan".</option>
+    @endif
     </select>
     </div><!-- /.contact__form-input-box -->
     </div>

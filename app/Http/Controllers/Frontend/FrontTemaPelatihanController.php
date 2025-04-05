@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Models\NamaPelatihan;
 use App\Models\KategoriTema;
+use App\Models\Kontak;
+
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -15,7 +18,10 @@ class FrontTemaPelatihanController extends Controller
             ->withCount(['pelatihan as jumlah'])
             ->paginate(10); // Pastikan pakai get() kalau tidak butuh pagination
 
-        return view('frontend.tema-pelatihan', compact('kategori_tema'));
+        // Kontak
+        $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat'])->get();
+
+        return view('frontend.tema-pelatihan', compact('kategori_tema', 'kontak'));
     }
 
 
@@ -30,7 +36,10 @@ class FrontTemaPelatihanController extends Controller
             ->withCount(['pelatihan as jumlah'])
             ->get(); // Pastikan ada
 
-        return view('frontend.kategori-tema-pelatihan', compact('kategori', 'pelatihan', 'kategori_tema'));
+        // Kontak
+        $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat'])->get();
+
+        return view('frontend.kategori-tema-pelatihan', compact('kategori', 'pelatihan', 'kategori_tema', 'kontak'));
     }
 
 
@@ -42,7 +51,10 @@ class FrontTemaPelatihanController extends Controller
             ->withCount(['pelatihan as jumlah'])
             ->get(); // Pastikan ada
 
-        return view('frontend.detail-pelatihan', compact('nama_pelatihan', 'kategori_list', 'kategori_tema'));
+        // Kontak
+        $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat'])->get();
+
+        return view('frontend.detail-pelatihan', compact('nama_pelatihan', 'kategori_list', 'kategori_tema', 'kontak'));
     }
 
     public function cariPelatihan(Request $request)

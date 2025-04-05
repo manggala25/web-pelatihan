@@ -65,7 +65,7 @@
     <img src="{{ asset('template/frontend/assets/images/service/service-1-1.png') }}" alt="service"
     class="service-one__img">
     <h5 class="fw-bold mb-4">{{ $kategori->nama_kategori }}</h5>
-    <a ref="{{ route('kategori-tema-pelatihan', ['slug' => $kategori->slug]) }}"
+    <a href="{{ route('kategori-tema-pelatihan', ['slug' => $kategori->slug]) }}"
     class="service-one__btn noile-btn">Lihat Materi +</a>
     </div>
     </div>
@@ -145,7 +145,7 @@
     </div>
 
     <!-- Sidebar Start -->
-    <x-sidebarfront :kategoriTema="$kategori_tema" />
+    <x-sidebarfront :kategoriTema="$kategori_tema" :kontak="$kontak" />
 
     </div>
     </div>

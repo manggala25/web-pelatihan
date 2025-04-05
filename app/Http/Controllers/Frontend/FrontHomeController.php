@@ -19,7 +19,10 @@ class FrontHomeController extends Controller
         // Ambil blog terbaru
         $blog = Blog::latest('created_at')->take(3)->get();
 
+        // Kontak
+        $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat'])->get();
+
         $portofolio = Portofolio::latest('updated_at')->get();
-        return view('frontend.home', compact('portofolio', 'profil', 'blog'));
+        return view('frontend.home', compact('portofolio', 'profil', 'blog', 'kontak'));
     }
 }

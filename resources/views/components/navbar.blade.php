@@ -1,3 +1,5 @@
+@props(['kontak'])
+
 <header class="main-header">
     <div class="topbar">
         <div class="topbar__shape-box">
@@ -21,24 +23,36 @@
         <div class="container">
             <div class="topbar__left">
                 <div class="topbar__page-list">
-                    <a href="about.html" class="topbar__page-link">Terms & Condition</a>
+                    <a href="#" class="topbar__page-link">Terms & Condition</a>
                     <span class="topbar__page-divider">/</span>
-                    <a href="about.html" class="topbar__page-link">Privacy Policy</a>
+                    <a href="#" class="topbar__page-link">Privacy Policy</a>
                     <span class="topbar__page-divider">/</span>
-                    <a href="contact.html" class="topbar__page-link">Contact Us</a>
+                    <a href="{{ route('kontak') }}" class="topbar__page-link">Contact Us</a>
                 </div><!-- /.topbar__page-list -->
             </div><!-- /.topbar__left -->
             <div class="topbar__right">
                 <ul class="topbar__info topbar__right-item">
                     <li class="topbar__info-item">
                         <i class="topbar__info-icon icofont-clock-time"></i>
-                        <p class="topbar__info-text">Monday - Friday, 10am - 5pm</p>
+                        <p class="topbar__info-text">Senin - Jumat, 10.00 - 15.00</p>
                     </li>
-                    <li class="topbar__info-item">
-                        <i class="topbar__info-icon icon-email"></i>
-                        <a href="mailto:noile@envato.com"
-                            class="topbar__info-text topbar__info-text--email">noile@envato.com</a>
-                    </li>
+                    @if ($kontak->isEmpty())
+                        <li>
+                            <i class="topbar__info-icon icon-email"></i>
+                            <a href="#" class="topbar__info-text topbar__info-text--email">tidak ada data "Email"</a>
+                        </li>
+                    @else
+                        @foreach ($kontak as $item)
+                            @if ($item->nama_kontak === 'Email')
+                                <li class="topbar__info-item">
+                                    <i class="topbar__info-icon icon-email"></i>
+                                    <a href="{{ $item->link }}" class="topbar__info-text topbar__info-text--email">
+                                        {{ $item->deskripsi }}
+                                    </a>
+                                </li>
+                            @endif
+                        @endforeach
+                    @endif
                 </ul><!-- /.topbar__date -->
             </div><!-- /.topbar__left -->
 
@@ -58,8 +72,17 @@
                             <span class="icon-phone"></span>
                         </div>
                         <div class="header__phone-text">
-                            <p class="header__phone-title">Phone Number</p>
-                            <a href="tel:(1)245-45678" class="header__phone-number">(1)245-45678 Call</a>
+                            @if ($kontak->isNotEmpty())
+                                @foreach ($kontak as $item)
+                                    @if ($item->nama_kontak === 'WhatsApp')
+                                        <p class="header__phone-title">No. Whatsapp</p>
+                                        <a href="{{ $item->link }}" class="header__phone-number">{{ $item->deskripsi }}</a>
+                                    @endif
+                                @endforeach
+                            @else
+                                <p class="header__phone-title">No. Whatsapp</p>
+                                <a href="#" class="header__phone-number">tidak ada data "Whatsapp"</a>
+                            @endif
                         </div>
                     </div><!-- /.header-one__phone -->
                     <div class="header__email">
@@ -67,14 +90,23 @@
                             <span class="icon-email"></span>
                         </div>
                         <div class="header__email-text">
-                            <p class="header__email-title">Quick You Email!</p>
-                            <a href="mailto:noile@envato.com" class="header__email-address">noile@envato.com</a>
+                            @if ($kontak->isNotEmpty())
+                                @foreach ($kontak as $item)
+                                    @if ($item->nama_kontak === 'Email')
+                                        <p class="header__email-title">Hubungi Email Kami!</p>
+                                        <a href="{{ $item->link }}" class="header__email-address">{{ $item->deskripsi }}</a>
+                                    @endif
+                                @endforeach
+                            @else
+                                <p class="header__email-title">Hubungi Email Kami!</p>
+                                <a href="#" class="header__email-address">tidak ada data "Email"</a>
+                            @endif
                         </div>
                     </div><!-- /.header-one__email -->
                 </div><!-- /.header-one__info -->
             </div><!-- /.header-one__left -->
             <div class="header__right">
-                <a href="about.html" class="header__btn noile-btn">Free consultation +</a>
+                <a href="{{ route('kontak') }}" class="header__btn noile-btn">Konsultasi Sekarang +</a>
                 <button type="button" class="header__bar mobile-nav__toggler">
                     <span class="mobile-nav__toggler-bars"></span>
                     <span class="mobile-nav__toggler-bars"></span>
@@ -98,15 +130,23 @@
         <div class="container">
             <div class="main-menu-one__left">
                 <div class="main-menu-one__social social-list">
-                    <a href="#" class="main-menu-one__social-link social-link">
-                        <i class="icofont-facebook"></i>
-                    </a>
-                    <a href="#" class="main-menu-one__social-link social-link">
-                        <i class="icofont-twitter"></i>
-                    </a>
-                    <a href="#" class="main-menu-one__social-link social-link">
-                        <i class="icofont-instagram"></i>
-                    </a>
+                    @if ($kontak->isNotEmpty())
+                        @foreach ($kontak as $item)
+                            @if ($item->nama_kontak === 'Facebook' || $item->nama_kontak === 'Twitter' || $item->nama_kontak === 'Instagram')
+                                <a href="{{ $item->link }}" class="main-menu-one__social-link social-link" target="_blank">
+                                    @if ($item->nama_kontak === 'Facebook')
+                                        <i class="icofont-facebook"></i>
+                                    @elseif ($item->nama_kontak === 'Twitter')
+                                        <i class="icofont-twitter"></i>
+                                    @elseif ($item->nama_kontak === 'Instagram')
+                                        <i class="icofont-instagram"></i>
+                                    @endif
+                                </a>
+                            @endif
+                        @endforeach
+                    @else
+                        <p>Tidak ada media sosial yang tersedia.</p>
+                    @endif
                 </div><!-- /.main-menu-one__social -->
                 <div class="main-menu-one__logo">
                     <a href="index.html">
@@ -211,56 +251,54 @@
 
         <ul class="mobile-nav__contact">
             <li>
-                <i class="fa fa-envelope"></i>
-                <a href="mailto:noile@envato.com">noile@envato.com</a>
+                @if ($kontak->isNotEmpty())
+                    @foreach ($kontak as $item)
+                        @if ($item->nama_kontak === 'Email')
+                            <i class="fa fa-envelope"></i>
+                            <a href="{{ $item->link }}">{{ $item->deskripsi }}</a>
+                        @endif
+                    @endforeach
+                @else
+                    <i class="fa fa-envelope"></i>
+                    <a href="#">tidak ada data "Email"</a>
+                @endif
             </li>
             <li>
-                <i class="fa fa-phone"></i>
-                <a href="(1)245-45678">(1)245-45678 Call</a>
+                @if ($kontak->isNotEmpty())
+                    @foreach ($kontak as $item)
+                        @if ($item->nama_kontak === 'WhatsApp')
+                            <i class="fa fa-phone"></i>
+                            <a href="{{ $item->link }}">{{ $item->deskripsi }}</a>
+                        @endif
+                    @endforeach
+                @else
+                    <i class="fa fa-phone"></i>
+                    <a href="#">tidak ada data "WhatsApp"</a>
+                @endif
             </li>
         </ul><!-- /.mobile-nav__contact -->
         <div class="mobile-nav__top">
-            <div class="mobile-nav__language">
-                <img src="assets/images/resources/flag-1-1.png" alt="flag">
-                <label class="sr-only" for="language-select">select language</label>
-                <!-- /#language-select.sr-only -->
-                <select class="selectpicker" id="language-select">
-                    <option value="english">English</option>
-                    <option value="arabic">Arabic</option>
-                </select>
-            </div><!-- /.mobile-nav__language -->
         </div><!-- /.mobile-nav__top -->
         <div class="mobile-nav__socila main-menu__social">
-            <a href="#" class="mobile-nav__socila-link main-menu__social-link">
-                <i class="icofont-facebook"></i>
-            </a>
-            <a href="#" class="mobile-nav__socila-link main-menu__social-link">
-                <i class="icofont-twitter"></i>
-            </a>
-            <a href="#" class="mobile-nav__socila-link main-menu__social-link">
-                <i class="icofont-instagram"></i>
-            </a>
-            <a href="#" class="mobile-nav__socila-link main-menu__social-link">
-                <i class="icofont-pinterest"></i>
-            </a>
+            @if ($kontak->isNotEmpty())
+                @foreach ($kontak as $item)
+                    @if ($item->nama_kontak === 'Facebook' || $item->nama_kontak === 'Twitter' || $item->nama_kontak === 'Instagram')
+                        <a href="{{ $item->link }}" class="mobile-nav__socila-link main-menu__social-link" target="_blank">
+                            @if ($item->nama_kontak === 'Facebook')
+                                <i class="icofont-facebook"></i>
+                            @elseif ($item->nama_kontak === 'Twitter')
+                                <i class="icofont-twitter"></i>
+                            @elseif ($item->nama_kontak === 'Instagram')
+                                <i class="icofont-instagram"></i>
+                            @endif
+                        </a>
+                    @endif
+                @endforeach
+            @else
+                <p>Tidak ada media sosial yang tersedia.</p>
+            @endif
         </div><!-- /.mobile-nav__socila -->
     </div>
     <!-- /.mobile-nav__content -->
 </div>
 <!-- /.mobile-nav__wrapper -->
-
-<div class="search-popup">
-    <div class="search-popup__overlay search-toggler"></div>
-    <!-- /.search-popup__overlay -->
-    <div class="search-popup__content">
-        <form action="#">
-            <label for="search" class="sr-only">search here</label><!-- /.sr-only -->
-            <input type="text" id="search" placeholder="Search Here...">
-            <button type="submit" aria-label="search submit" class="thm-btn">
-                <i class="noile-icon-magnifying-glass"></i>
-            </button>
-        </form>
-    </div>
-    <!-- /.search-popup__content -->
-</div>
-<!-- /.search-popup -->

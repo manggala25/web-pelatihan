@@ -72,7 +72,7 @@
                 </div>
 
                 <!-- Sidebar Start -->
-                <x-sidebarfront :kategoriTema="$kategori_tema" />
+                <x-sidebarfront :kategoriTema="$kategori_tema" :kontak="$kontak" />
 
             </div>
         </div>

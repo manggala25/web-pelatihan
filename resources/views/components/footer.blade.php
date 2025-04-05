@@ -1,3 +1,5 @@
+@props(['kontak'])
+
 <!-- Footer One Start -->
 <footer class="footer-one @@extraClassName">
     <div class="container">
@@ -15,15 +17,23 @@
                         nequ
                         puru rhoncu tincidunt odio ultrices. Sed feugiat feugiat felis.</p>
                     <div class="mfooter-social__social social-list">
-                        <a href="#" class="main-menu__social-link social-link">
-                            <i class="icofont-facebook"></i>
-                        </a>
-                        <a href="#" class="main-menu__social-link social-link">
-                            <i class="icofont-twitter"></i>
-                        </a>
-                        <a href="#" class="main-menu__social-link social-link">
-                            <i class="icofont-instagram"></i>
-                        </a>
+                        @if ($kontak->isNotEmpty())
+                            @foreach ($kontak as $item)
+                                @if ($item->nama_kontak === 'Facebook' || $item->nama_kontak === 'Twitter' || $item->nama_kontak === 'Instagram')
+                                    <a href="{{ $item->link }}" class="main-menu__social-link social-link" target="_blank">
+                                        @if ($item->nama_kontak === 'Facebook')
+                                            <i class="icofont-facebook"></i>
+                                        @elseif ($item->nama_kontak === 'Twitter')
+                                            <i class="icofont-twitter"></i>
+                                        @elseif ($item->nama_kontak === 'Instagram')
+                                            <i class="icofont-instagram"></i>
+                                        @endif
+                                    </a>
+                                @endif
+                            @endforeach
+                        @else
+                            <p>Tidak ada media sosial yang tersedia.</p>
+                        @endif
                     </div>
                 </div><!-- /.footer-one__about -->
             </div>
@@ -65,10 +75,7 @@
                             <a href="{{ route('formulir-pendaftaran') }}" class="footer-one__link">Formulir Pendaftaran</a>
                         </li>
                         <li class="footer-one__link-item">
-                            <a href="contact.html" class="footer-one__link">VPS hosting</a>
-                        </li>
-                        <li class="footer-one__link-item">
-                            <a href="case-study.html" class="footer-one__link">Dedicated hosting</a>
+                            <a href="{{ route('kontak') }}" class="footer-one__link">Kontak Kami</a>
                         </li>
                     </ul>
                 </div><!-- /.footer-one__link -->
@@ -78,17 +85,24 @@
                 <div class="footer-one__info-wrap">
                     <h4 class="footer-one__title">Information</h4>
                     <ul class="footer-one__info-list">
-                        <li class="footer-one__info-item">
-                            <address class="footer-one__address">
-                                <p class="footer-one__info">Sydney Harbor Bridge Circular City of Sydney, #Australia.
-                                </p>
-                            </address>
-                        </li>
-                        <li class="footer-one__info-item">
-                            <p class="footer-one__info">Call Me <a href="tel:(+55)-669988"
-                                    class="footer-one__info-link">(+55) -66
-                                    99 88</a></p>
-                        </li>
+                        @if ($kontak->isNotEmpty())
+                            @foreach ($kontak as $item)
+                                @if ($item->nama_kontak === 'Alamat')
+                                    <li class="footer-one__info-item">
+                                        <address class="footer-one__address">
+                                            <p class="footer-one__info">{{ $item->deskripsi }}</p>
+                                        </address>
+                                    </li>
+                                @elseif ($item->nama_kontak === 'WhatsApp')
+                                    <li class="footer-one__info-item">
+                                        <p class="footer-one__info">Hubungi Kami: <a href="{{ $item->link }}"
+                                                class="footer-one__info-link">{{ $item->deskripsi }}</a></p>
+                                    </li>
+                                @endif
+                            @endforeach
+                        @else
+                            <p>Tidak ada informasi kontak yang tersedia.</p>
+                        @endif
                     </ul>
                 </div><!-- /.footer-one__link -->
             </div>
@@ -97,7 +111,7 @@
             <div class="footer-one__row-two row g-0 g-sm-4">
                 <div class="col-sm-10">
                     <div class="footer-one__copyright">
-                        <p class="footer-one__copyright-text">&copy; Copyright 2025</p>
+                        <p class="footer-one__copyright-text">&copy; Copyright 2025 | PUSPEKOM</p>
                     </div><!-- /.footer-one__copyright -->
                 </div>
                 <div class="col-sm-2">

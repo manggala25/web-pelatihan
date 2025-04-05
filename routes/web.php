@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\ProfilController;
 use App\Http\Controllers\Admin\VisiMisiController;
 use App\Http\Controllers\Admin\TujuanLembagaController;
 use App\Http\Controllers\Admin\InformasiKontakController;
+use App\Http\Controllers\Admin\TestimoniController;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AdminLoginController;
@@ -20,6 +21,7 @@ use App\Http\Controllers\Frontend\FrontTemaPelatihanController;
 use App\Http\Controllers\Frontend\FrontJadwalPelatihanController;
 use App\Http\Controllers\Frontend\FrontTentangKamiController;
 use App\Http\Controllers\Frontend\FrontKontakController;
+use App\Http\Controllers\Frontend\FrontFormulirPendaftaranController;
 
 
 //////// Administrator /////////
@@ -109,6 +111,15 @@ Route::prefix($adminPrefix)->group(function () {
         Route::get('/admin/informasikontak/{id}/edit', [InformasiKontakController::class, 'edit'])->name('admin.informasikontak.edit');
         Route::patch('/admin/informasikontak/{id}/update', [InformasiKontakController::class, 'update'])->name('admin.informasikontak.update');
         Route::delete('/admin/informasikontak/{id}', [InformasiKontakController::class, 'destroy'])->name('admin.informasikontak.destroy');
+
+        // Testimoni
+        Route::get('/testimoni', [TestimoniController::class, 'index'])->name('admin.testimoni');
+        Route::get('/testimoni/create', [TestimoniController::class, 'create'])->name('admin.testimoni.create');
+        Route::post('/testimoni/store', [TestimoniController::class, 'store'])->name('admin.testimoni.store');
+        Route::get('/admin/testimoni/{id}', [TestimoniController::class, 'show'])->name('admin.testimoni.show');
+        Route::get('/admin/testimoni/{id}/edit', [TestimoniController::class, 'edit'])->name('admin.testimoni.edit');
+        Route::patch('/admin/testimoni/{id}/update', [TestimoniController::class, 'update'])->name('admin.testimoni.update');
+        Route::delete('/admin/testimoni/{id}', [TestimoniController::class, 'destroy'])->name('admin.testimoni.destroy');
     });
 });
 
@@ -159,10 +170,8 @@ Route::get('/cari-pelatihan', [FrontTemaPelatihanController::class, 'cariPelatih
 // Jadwal Pelatihan
 Route::get('/jadwal-pelatihan', [FrontJadwalPelatihanController::class, 'index'])->name('jadwal-pelatihan');
 
-
-Route::get('/formulir-pendaftaran', function () {
-    return view('frontend.formulir-pendaftaran');
-})->name('formulir-pendaftaran');
+// Formulir Pendaftaran
+Route::get('/formulir-pendaftaran', [FrontFormulirPendaftaranController::class, 'index'])->name('formulir-pendaftaran');
 
 
 

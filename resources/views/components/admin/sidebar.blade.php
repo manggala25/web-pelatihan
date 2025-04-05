@@ -1,3 +1,4 @@
+
 <aside class="left-sidebar">
     <!-- Sidebar scroll-->
     <div class="scroll-sidebar">
@@ -71,6 +72,10 @@
                         <li class="sidebar-item">
                             <a href="{{ Route('admin.tujuanlembaga') }}" class="sidebar-link"><i class="ri-briefcase-4-line"></i><span
                                     class="hide-menu">Tujuan Lembaga</span></a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{{ Route('admin.testimoni') }}" class="sidebar-link"><i class="ri-chat-quote-line"></i><span
+                                    class="hide-menu">Testimoni</span></a>
                         </li>
                     </ul>
                 </li>

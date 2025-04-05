@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Kontak;
+use App\Models\NamaPelatihan;
 
 class FrontKontakController extends Controller
 {
@@ -33,6 +34,12 @@ class FrontKontakController extends Controller
         // Mengambil data kontak yang hanya memiliki nama 'facebook', 'twitter', dan 'instagram'
         $informasi_kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram'])->get();
 
-        return view('frontend.kontak', compact('kontak', 'gmapsFrame', 'whatsapp', 'email', 'alamat', 'informasi_kontak'));
+        // Kontak
+        $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat'])->get();
+
+        // Mengambil nama Pelatihan
+        $nama_pelatihan = NamaPelatihan::all();
+
+        return view('frontend.kontak', compact('kontak', 'gmapsFrame', 'whatsapp', 'email', 'alamat', 'informasi_kontak', 'nama_pelatihan'));
     }
 }

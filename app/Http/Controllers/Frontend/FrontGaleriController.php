@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Portofolio; // Pastikan modelnya ada
 use App\Models\KategoriTema;
+use App\Models\Kontak;
 
 class FrontGaleriController extends Controller
 {
@@ -16,7 +17,11 @@ class FrontGaleriController extends Controller
       ->paginate(10); // Pastikan pakai get() kalau tidak butuh pagination
 
     $portofolio = Portofolio::latest()->paginate(6);
-    return view('frontend.galeri', compact('portofolio' , 'kategori_tema'));
+
+    // Kontak
+    $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat'])->get();
+
+    return view('frontend.galeri', compact('portofolio' , 'kategori_tema', 'kontak'));
   }
 
   public function show($slug)
@@ -27,6 +32,9 @@ class FrontGaleriController extends Controller
       
     $portofolio = Portofolio::where('slug', $slug)->firstOrFail(); // Ambil data berdasarkan slug
 
-    return view('frontend.detail-galeri', compact('portofolio', 'kategori_tema')); // Pastikan view detail tersedia
+    // Kontak
+    $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat'])->get();
+
+    return view('frontend.detail-galeri', compact('portofolio', 'kategori_tema', 'kontak')); // Pastikan view detail tersedia
   }
 }
