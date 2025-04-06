@@ -179,7 +179,7 @@
         <div class="testimonial__name-box">
         <h3 class="testimonial__name">{{ $item->nama_pic }}</h3>
         <div class="testimonial__review-box">
-        <p class="testimonial__review-text">{{ $item->okupasi }} di {{ $item->nama_lembaga }}</p>
+        <p class="testimonial__review-text">{{ $item->okupasi }} di{{ $item->nama_lembaga }}</p>
         </div><!-- /.testimonial__review-box -->
         </div><!-- /.testimonial__name-box -->
         </div><!-- /.testimonial__info -->

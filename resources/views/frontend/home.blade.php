@@ -376,12 +376,15 @@
                                         <img src="{{  asset($item->thumbnail) ?? asset('template/frontend/assets/images/blog/blog-1-1.jpg') }}" alt="blog" class="blog__card-img">
                                         <p class="blog__card-category">{{ $item->kategori }}</p><!-- /.blog-one__item-category -->
                                     </a><!-- /.blog-one__img-box -->
-                                    <a href="{{ route('detail-blog', $item->slug) }}" class="blog__card-title mb-0">{{ Str::limit($item->judul, 50) }}</a>
                                     <ul class="blog__card-comment-box">
                                         <li class="blog__card-comment-item">
                                             <p class="blog__card-comment">{{ \Carbon\Carbon::parse($item->published_at)->format('d F Y') }}</p>
                                         </li>
                                     </ul><!-- /.blog-one__comment -->
+                                    <a href="{{ route('detail-blog', $item->slug) }}" class="blog__card-title mb-0">{{ Str::limit($item->judul, 700) }}</a>
+                                    <p class="blog__card-desc">
+                                        {!! nl2br(Str::limit(strip_tags($item->content), 120)) !!}
+                                        </p><!-- /.blog-one__item-desc -->
                                 </div><!-- /.blog-one__item -->
                             </div>
                         @endforeach

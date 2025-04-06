@@ -54,7 +54,7 @@
   --noile-font: "Sora", sans-serif;
   --noile-font2: "Syne", sans-serif;
   --noile-heading-font: "Epilogue", sans-serif;
-  --noile-base: #D94645;
+  --noile-base: rgb(217, 70, 69);
   --noile-base-rgb: 217, 70, 69;
   --noile-base2: #BE403F;
   --noile-base2-rgb: 190, 64, 63;
@@ -4505,8 +4505,8 @@ i {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
-  background-color: var(--noile-primary, #1d1d1d);
-  background-blend-mode: luminosity;
+  /* background-color: var(--noile-primary, #1d1d1d);
+  background-blend-mode: luminosity; */
 }
 .main-slider__bg::after {
   content: "";
@@ -4518,7 +4518,7 @@ i {
   z-index: 1;
   width: 100%;
   height: 100%;
-  background-color: rgba(var(--noile-primary-rgb, 29, 29, 29), 0.8);
+  /* background-color: rgba(var(--noile-primary-rgb, 29, 29, 29), 0.8); */
   background-blend-mode: overlay;
   z-index: 1;
 }

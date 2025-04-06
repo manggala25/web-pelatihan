@@ -59,7 +59,9 @@
 
                 <div class="mb-3">
                     <strong>Deskripsi:</strong>
-                    <div class="border p-3 rounded bg-light">{!! $portofolio->content !!}</div>
+                    <div class="border p-3 rounded bg-light">
+                        {!! nl2br(htmlspecialchars_decode(e($portofolio->content))) !!}
+                    </div>
                 </div>
 
                 <a href="{{ route('admin.portofolio') }}" class="btn btn-secondary mt-3">Kembali</a>
