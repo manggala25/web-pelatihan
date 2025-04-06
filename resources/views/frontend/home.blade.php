@@ -312,7 +312,7 @@
                             <h2 class="solution-one__heading sec-title__heading">{{ $profil ? $profil->heading : 'Kenal Kami Lebih Dalam' }}
                             </h2>
                             <p class="solution-one__service-desc">
-                                {!! nl2br(htmlspecialchars_decode(e($profil->deskripsi ?? 'Deskripsi tidak tersedia.'))) !!}
+                                {!! nl2br(Str::limit(strip_tags($profil->deskripsi), 450)) !!}
                             </p>
                             <a href="{{ route('tentang-kami') }}" class="service-one__btn noile-btn">Baca Selengkapnya +</a>
                             <!-- /.olution-one__main-tab-box -->
