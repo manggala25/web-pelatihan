@@ -61,7 +61,7 @@
                             <img src="{{ asset('template/frontend/assets/images/resources/top-title-logo.png') }}" alt="top-title-logo">
                             <p class="sec-title__top">Bentuk Pelatihan</p>
                         </div>
-                        <h2 class="about-one__heading sec-title__heading">Kami Adalah Lembaga Pelatihan  Nasional </h2>
+                        <h2 class="about-one__heading sec-title__heading">Bentuk Pelatihan Yang Kami Sediakan</h2>
                         <p class="about-one__desc service-one__bottom-descs">
                             Kami memiliki beberapa bentuk pelatihan, yang menyelenggarakan keahlian seperti:
                         </p>
