@@ -54,6 +54,10 @@
                             <a href="{{ Route('admin.kategori-tema') }}" class="sidebar-link"><i
                                     class="ri-bubble-chart-line"></i><span class="hide-menu">Kategori Tema</span></a>
                         </li>
+                        <li class="sidebar-item">
+                            <a href="{{ Route('admin.bentuk-pelatihan') }}" class="sidebar-link"><i
+                                    class="ri-map-pin-4-line"></i><span class="hide-menu">Bentuk Pelatihan</span></a>
+                        </li>
                     </ul>
                 </li>
                 {{-- Tentang Kami --}}

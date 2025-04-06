@@ -67,73 +67,25 @@
                         </p>
                     </div>
                 </div>
-                <div class="row gx-4 gy-4 gy-xl-0">
-                    <div href="services.html"
+                <div class="row gx-4 gy-4 gy-xl-0 d-flex justify-content-center">
+                    @if ($bentuk_pelatihan->count())
+                        @foreach ($bentuk_pelatihan as $item)
+                        <div href="services.html"
                         class="col-xxl-2 col-xl-3 col-lg-4 col-sm-6 service-two__col service-two__col--two wow animated fadeInUp"
                         data-wow-delay="0.3s" data-wow-duration="1500ms">
                         <div class="service-two__item">
                             <div class="service-two__icon-box">
-                                <img class="service-two__icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD9klEQVR4nO2dTWgdVRiGn2taa2tLLRKoBEITUForFCyBQqWIRSkKjQuzsmRnXfWHoEltN8VFfzbaPyguuihUkCiKuCgoOCiiotCNWgQRCd2EgNIWJI1iRwZOIFzu5J7JnTvnm3PfB77d3DNzzjM/Z86c+x0QQgghhBBCCCGEEKL3GAbGgTeAI8AosGGZ7fcDUxHGBPAMAXkO+A5IW8Q94Aow0OJ3TwB3cn6XRhAXqhbxAHDa8+D+BPa2KOOogYZLuxi7qxTiK2Mx5oFdTWWsBv4w0HBpl+LNKm9T91dwgDPAQ01lnTDQcGmX4mRVQvKeGT6R3aaWss1Aw6V1FjLc4UH+0FReA/gU+KLG8VdIIeMdCsludWuJiySkkKkSLuUh4iIJKeRICUI2ExdJSCGjHcr4G+gjLpKQQta7d4qVCvmY+EhCCsENh6xUyAvERxJayIAbDikqI+vexkgSWghubKrIretn4BHiJLEgBDc2NeN5ZWwkXhIrQnBjU9lwyI9N41tZb+qTSJ8ZpoU0y9kCPOaG53uFxKqQXiWREFtIiDGCC2m4j1RngfeBaSNxBXiRHhMy3OEHqiriGD0iJOtBzRpo8LRNzFf83hNMyJcGGjv1jKeIXMhOA42cesZd4GEiFzJpoKFTj/gPOEi1BBFyrsRGy3pE73UhTgEjVE8QIZdKFLKduEgkxBYSYgwJMYaEGENCjCEhxpAQY0iIMSTEGBJiDAkxhoQYQ0KMISHGkBBjSIgxJMQY0QmZKHGy3Ifub3NVTtCby6nnL24i4WSbzEjmhEwbmByRdjl+LVuKhGArGY2E0LGQbO6xhGAnDkkIZuJ7YE0VQn7PmbR2tcBD/WAJk+TSnPisS5PyfOO8S9iTJWujCiFZD6kV/QWElEGaE88SKRJiDAkxhoQYQ0KMISHGkBBjSIgxJMQYEmIMy0JGLORfrxqLQvpcHuGFNgN7HwGPEhnWhGwBvi4w2jobKA9KTwgZd8kBig6B33cjsOuIAAtC+l3awLTDuAk8Tc0JLeSlAolv/vXYZsE9f2qbijCUkLXAZc8FZLJcwmPADuAnT3lfAYPUkBBCVgHfeDbs502Lj2UJOd/xFDlbRykhhIx55sY67LLc5SV8vuVRzkVqxrs5FbmWs/3GZSr/uOc+32rTiDeAJz3K2QR80Kas69SMA55rSi3ltxbbzxX44L9vmRRMZ4AHC9bhVeB2TplZJqFascqdRUsr8W2b5YuedxmuF7f/B3ilwD4bbq7u0n1my+zt6aAegy0mR9+s65t8n7uvv+3ONp8zdMh1L48DW1ewzwbwsls38bWSXuoabmGa7Kp4veLsc0IIIYQQQgghhBBCEAP/A/NhchNsmUQmAAAAAElFTkSuQmCC"
-                                    alt="training">
+                                <img class="service-two__icon img-fluid" src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->nama_bentuk_pelatihan }}">
                             </div><!-- /.service-two__icon-box -->
-                            <h3 class="service-two__title">BIMTEK (Bimbingan Teknis)</h3>
+                            <h3 class="service-two__title" style="text-transform: uppercase">{{ $item->nama_bentuk_pelatihan }}</h3>
                         </div><!-- /.service-two__item -->
                     </div>
-                    <div href="services.html"
-                        class="col-xxl-2 col-xl-3 col-lg-4 col-sm-6 service-two__col service-two__col--two wow animated fadeInUp"
-                        data-wow-delay="0.3s" data-wow-duration="1500ms">
-                        <div class="service-two__item">
-                            <div class="service-two__icon-box">
-                                <img class="service-two__icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD9klEQVR4nO2dTWgdVRiGn2taa2tLLRKoBEITUForFCyBQqWIRSkKjQuzsmRnXfWHoEltN8VFfzbaPyguuihUkCiKuCgoOCiiotCNWgQRCd2EgNIWJI1iRwZOIFzu5J7JnTvnm3PfB77d3DNzzjM/Z86c+x0QQgghhBBCCCGEEKL3GAbGgTeAI8AosGGZ7fcDUxHGBPAMAXkO+A5IW8Q94Aow0OJ3TwB3cn6XRhAXqhbxAHDa8+D+BPa2KOOogYZLuxi7qxTiK2Mx5oFdTWWsBv4w0HBpl+LNKm9T91dwgDPAQ01lnTDQcGmX4mRVQvKeGT6R3aaWss1Aw6V1FjLc4UH+0FReA/gU+KLG8VdIIeMdCsludWuJiySkkKkSLuUh4iIJKeRICUI2ExdJSCGjHcr4G+gjLpKQQta7d4qVCvmY+EhCCsENh6xUyAvERxJayIAbDikqI+vexkgSWghubKrIretn4BHiJLEgBDc2NeN5ZWwkXhIrQnBjU9lwyI9N41tZb+qTSJ8ZpoU0y9kCPOaG53uFxKqQXiWREFtIiDGCC2m4j1RngfeBaSNxBXiRHhMy3OEHqiriGD0iJOtBzRpo8LRNzFf83hNMyJcGGjv1jKeIXMhOA42cesZd4GEiFzJpoKFTj/gPOEi1BBFyrsRGy3pE73UhTgEjVE8QIZdKFLKduEgkxBYSYgwJMYaEGENCjCEhxpAQY0iIMSTEGBJiDAkxhoQYQ0KMISHGkBBjSIgxJMQY0QmZKHGy3Ifub3NVTtCby6nnL24i4WSbzEjmhEwbmByRdjl+LVuKhGArGY2E0LGQbO6xhGAnDkkIZuJ7YE0VQn7PmbR2tcBD/WAJk+TSnPisS5PyfOO8S9iTJWujCiFZD6kV/QWElEGaE88SKRJiDAkxhoQYQ0KMISHGkBBjSIgxJMQYEmIMy0JGLORfrxqLQvpcHuGFNgN7HwGPEhnWhGwBvi4w2jobKA9KTwgZd8kBig6B33cjsOuIAAtC+l3awLTDuAk8Tc0JLeSlAolv/vXYZsE9f2qbijCUkLXAZc8FZLJcwmPADuAnT3lfAYPUkBBCVgHfeDbs502Lj2UJOd/xFDlbRykhhIx55sY67LLc5SV8vuVRzkVqxrs5FbmWs/3GZSr/uOc+32rTiDeAJz3K2QR80Kas69SMA55rSi3ltxbbzxX44L9vmRRMZ4AHC9bhVeB2TplZJqFascqdRUsr8W2b5YuedxmuF7f/B3ilwD4bbq7u0n1my+zt6aAegy0mR9+s65t8n7uvv+3ONp8zdMh1L48DW1ewzwbwsls38bWSXuoabmGa7Kp4veLsc0IIIYQQQgghhBBCEAP/A/NhchNsmUQmAAAAAElFTkSuQmCC"
-                                    alt="training">
-                            </div><!-- /.service-two__icon-box -->
-                            <h3 class="service-two__title">BIMTEK (Bimbingan Teknis)</h3>
-                        </div><!-- /.service-two__item -->
+                    @endforeach
+                    @else
+                    <div class="text-center py-5">
+                        <p>Data bentuk pelatihan belum dibuat.</p>
                     </div>
-                    <div href="services.html"
-                        class="col-xxl-2 col-xl-3 col-lg-4 col-sm-6 service-two__col service-two__col--two wow animated fadeInUp"
-                        data-wow-delay="0.3s" data-wow-duration="1500ms">
-                        <div class="service-two__item">
-                            <div class="service-two__icon-box">
-                                <img class="service-two__icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD9klEQVR4nO2dTWgdVRiGn2taa2tLLRKoBEITUForFCyBQqWIRSkKjQuzsmRnXfWHoEltN8VFfzbaPyguuihUkCiKuCgoOCiiotCNWgQRCd2EgNIWJI1iRwZOIFzu5J7JnTvnm3PfB77d3DNzzjM/Z86c+x0QQgghhBBCCCGEEKL3GAbGgTeAI8AosGGZ7fcDUxHGBPAMAXkO+A5IW8Q94Aow0OJ3TwB3cn6XRhAXqhbxAHDa8+D+BPa2KOOogYZLuxi7qxTiK2Mx5oFdTWWsBv4w0HBpl+LNKm9T91dwgDPAQ01lnTDQcGmX4mRVQvKeGT6R3aaWss1Aw6V1FjLc4UH+0FReA/gU+KLG8VdIIeMdCsludWuJiySkkKkSLuUh4iIJKeRICUI2ExdJSCGjHcr4G+gjLpKQQta7d4qVCvmY+EhCCsENh6xUyAvERxJayIAbDikqI+vexkgSWghubKrIretn4BHiJLEgBDc2NeN5ZWwkXhIrQnBjU9lwyI9N41tZb+qTSJ8ZpoU0y9kCPOaG53uFxKqQXiWREFtIiDGCC2m4j1RngfeBaSNxBXiRHhMy3OEHqiriGD0iJOtBzRpo8LRNzFf83hNMyJcGGjv1jKeIXMhOA42cesZd4GEiFzJpoKFTj/gPOEi1BBFyrsRGy3pE73UhTgEjVE8QIZdKFLKduEgkxBYSYgwJMYaEGENCjCEhxpAQY0iIMSTEGBJiDAkxhoQYQ0KMISHGkBBjSIgxJMQY0QmZKHGy3Ifub3NVTtCby6nnL24i4WSbzEjmhEwbmByRdjl+LVuKhGArGY2E0LGQbO6xhGAnDkkIZuJ7YE0VQn7PmbR2tcBD/WAJk+TSnPisS5PyfOO8S9iTJWujCiFZD6kV/QWElEGaE88SKRJiDAkxhoQYQ0KMISHGkBBjSIgxJMQYEmIMy0JGLORfrxqLQvpcHuGFNgN7HwGPEhnWhGwBvi4w2jobKA9KTwgZd8kBig6B33cjsOuIAAtC+l3awLTDuAk8Tc0JLeSlAolv/vXYZsE9f2qbijCUkLXAZc8FZLJcwmPADuAnT3lfAYPUkBBCVgHfeDbs502Lj2UJOd/xFDlbRykhhIx55sY67LLc5SV8vuVRzkVqxrs5FbmWs/3GZSr/uOc+32rTiDeAJz3K2QR80Kas69SMA55rSi3ltxbbzxX44L9vmRRMZ4AHC9bhVeB2TplZJqFascqdRUsr8W2b5YuedxmuF7f/B3ilwD4bbq7u0n1my+zt6aAegy0mR9+s65t8n7uvv+3ONp8zdMh1L48DW1ewzwbwsls38bWSXuoabmGa7Kp4veLsc0IIIYQQQgghhBBCEAP/A/NhchNsmUQmAAAAAElFTkSuQmCC"
-                                    alt="training">
-                            </div><!-- /.service-two__icon-box -->
-                            <h3 class="service-two__title">BIMTEK (Bimbingan Teknis)</h3>
-                        </div><!-- /.service-two__item -->
-                    </div>
-                    <div href="services.html"
-                        class="col-xxl-2 col-xl-3 col-lg-4 col-sm-6 service-two__col service-two__col--two wow animated fadeInUp"
-                        data-wow-delay="0.3s" data-wow-duration="1500ms">
-                        <div class="service-two__item">
-                            <div class="service-two__icon-box">
-                                <img class="service-two__icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD9klEQVR4nO2dTWgdVRiGn2taa2tLLRKoBEITUForFCyBQqWIRSkKjQuzsmRnXfWHoEltN8VFfzbaPyguuihUkCiKuCgoOCiiotCNWgQRCd2EgNIWJI1iRwZOIFzu5J7JnTvnm3PfB77d3DNzzjM/Z86c+x0QQgghhBBCCCGEEKL3GAbGgTeAI8AosGGZ7fcDUxHGBPAMAXkO+A5IW8Q94Aow0OJ3TwB3cn6XRhAXqhbxAHDa8+D+BPa2KOOogYZLuxi7qxTiK2Mx5oFdTWWsBv4w0HBpl+LNKm9T91dwgDPAQ01lnTDQcGmX4mRVQvKeGT6R3aaWss1Aw6V1FjLc4UH+0FReA/gU+KLG8VdIIeMdCsludWuJiySkkKkSLuUh4iIJKeRICUI2ExdJSCGjHcr4G+gjLpKQQta7d4qVCvmY+EhCCsENh6xUyAvERxJayIAbDikqI+vexkgSWghubKrIretn4BHiJLEgBDc2NeN5ZWwkXhIrQnBjU9lwyI9N41tZb+qTSJ8ZpoU0y9kCPOaG53uFxKqQXiWREFtIiDGCC2m4j1RngfeBaSNxBXiRHhMy3OEHqiriGD0iJOtBzRpo8LRNzFf83hNMyJcGGjv1jKeIXMhOA42cesZd4GEiFzJpoKFTj/gPOEi1BBFyrsRGy3pE73UhTgEjVE8QIZdKFLKduEgkxBYSYgwJMYaEGENCjCEhxpAQY0iIMSTEGBJiDAkxhoQYQ0KMISHGkBBjSIgxJMQY0QmZKHGy3Ifub3NVTtCby6nnL24i4WSbzEjmhEwbmByRdjl+LVuKhGArGY2E0LGQbO6xhGAnDkkIZuJ7YE0VQn7PmbR2tcBD/WAJk+TSnPisS5PyfOO8S9iTJWujCiFZD6kV/QWElEGaE88SKRJiDAkxhoQYQ0KMISHGkBBjSIgxJMQYEmIMy0JGLORfrxqLQvpcHuGFNgN7HwGPEhnWhGwBvi4w2jobKA9KTwgZd8kBig6B33cjsOuIAAtC+l3awLTDuAk8Tc0JLeSlAolv/vXYZsE9f2qbijCUkLXAZc8FZLJcwmPADuAnT3lfAYPUkBBCVgHfeDbs502Lj2UJOd/xFDlbRykhhIx55sY67LLc5SV8vuVRzkVqxrs5FbmWs/3GZSr/uOc+32rTiDeAJz3K2QR80Kas69SMA55rSi3ltxbbzxX44L9vmRRMZ4AHC9bhVeB2TplZJqFascqdRUsr8W2b5YuedxmuF7f/B3ilwD4bbq7u0n1my+zt6aAegy0mR9+s65t8n7uvv+3ONp8zdMh1L48DW1ewzwbwsls38bWSXuoabmGa7Kp4veLsc0IIIYQQQgghhBBCEAP/A/NhchNsmUQmAAAAAElFTkSuQmCC"
-                                    alt="training">
-                            </div><!-- /.service-two__icon-box -->
-                            <h3 class="service-two__title">BIMTEK (Bimbingan Teknis)</h3>
-                        </div><!-- /.service-two__item -->
-                    </div>
-                    <div href="services.html"
-                        class="col-xxl-2 col-xl-3 col-lg-4 col-sm-6 service-two__col service-two__col--two wow animated fadeInUp"
-                        data-wow-delay="0.3s" data-wow-duration="1500ms">
-                        <div class="service-two__item">
-                            <div class="service-two__icon-box">
-                                <img class="service-two__icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD9klEQVR4nO2dTWgdVRiGn2taa2tLLRKoBEITUForFCyBQqWIRSkKjQuzsmRnXfWHoEltN8VFfzbaPyguuihUkCiKuCgoOCiiotCNWgQRCd2EgNIWJI1iRwZOIFzu5J7JnTvnm3PfB77d3DNzzjM/Z86c+x0QQgghhBBCCCGEEKL3GAbGgTeAI8AosGGZ7fcDUxHGBPAMAXkO+A5IW8Q94Aow0OJ3TwB3cn6XRhAXqhbxAHDa8+D+BPa2KOOogYZLuxi7qxTiK2Mx5oFdTWWsBv4w0HBpl+LNKm9T91dwgDPAQ01lnTDQcGmX4mRVQvKeGT6R3aaWss1Aw6V1FjLc4UH+0FReA/gU+KLG8VdIIeMdCsludWuJiySkkKkSLuUh4iIJKeRICUI2ExdJSCGjHcr4G+gjLpKQQta7d4qVCvmY+EhCCsENh6xUyAvERxJayIAbDikqI+vexkgSWghubKrIretn4BHiJLEgBDc2NeN5ZWwkXhIrQnBjU9lwyI9N41tZb+qTSJ8ZpoU0y9kCPOaG53uFxKqQXiWREFtIiDGCC2m4j1RngfeBaSNxBXiRHhMy3OEHqiriGD0iJOtBzRpo8LRNzFf83hNMyJcGGjv1jKeIXMhOA42cesZd4GEiFzJpoKFTj/gPOEi1BBFyrsRGy3pE73UhTgEjVE8QIZdKFLKduEgkxBYSYgwJMYaEGENCjCEhxpAQY0iIMSTEGBJiDAkxhoQYQ0KMISHGkBBjSIgxJMQY0QmZKHGy3Ifub3NVTtCby6nnL24i4WSbzEjmhEwbmByRdjl+LVuKhGArGY2E0LGQbO6xhGAnDkkIZuJ7YE0VQn7PmbR2tcBD/WAJk+TSnPisS5PyfOO8S9iTJWujCiFZD6kV/QWElEGaE88SKRJiDAkxhoQYQ0KMISHGkBBjSIgxJMQYEmIMy0JGLORfrxqLQvpcHuGFNgN7HwGPEhnWhGwBvi4w2jobKA9KTwgZd8kBig6B33cjsOuIAAtC+l3awLTDuAk8Tc0JLeSlAolv/vXYZsE9f2qbijCUkLXAZc8FZLJcwmPADuAnT3lfAYPUkBBCVgHfeDbs502Lj2UJOd/xFDlbRykhhIx55sY67LLc5SV8vuVRzkVqxrs5FbmWs/3GZSr/uOc+32rTiDeAJz3K2QR80Kas69SMA55rSi3ltxbbzxX44L9vmRRMZ4AHC9bhVeB2TplZJqFascqdRUsr8W2b5YuedxmuF7f/B3ilwD4bbq7u0n1my+zt6aAegy0mR9+s65t8n7uvv+3ONp8zdMh1L48DW1ewzwbwsls38bWSXuoabmGa7Kp4veLsc0IIIYQQQgghhBBCEAP/A/NhchNsmUQmAAAAAElFTkSuQmCC"
-                                    alt="training">
-                            </div><!-- /.service-two__icon-box -->
-                            <h3 class="service-two__title">BIMTEK (Bimbingan Teknis)</h3>
-                        </div><!-- /.service-two__item -->
-                    </div>
-                    <div href="services.html"
-                        class="col-xxl-2 col-xl-3 col-lg-4 col-sm-6 service-two__col service-two__col--two wow animated fadeInUp"
-                        data-wow-delay="0.3s" data-wow-duration="1500ms">
-                        <div class="service-two__item">
-                            <div class="service-two__icon-box">
-                                <img class="service-two__icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD9klEQVR4nO2dTWgdVRiGn2taa2tLLRKoBEITUForFCyBQqWIRSkKjQuzsmRnXfWHoEltN8VFfzbaPyguuihUkCiKuCgoOCiiotCNWgQRCd2EgNIWJI1iRwZOIFzu5J7JnTvnm3PfB77d3DNzzjM/Z86c+x0QQgghhBBCCCGEEKL3GAbGgTeAI8AosGGZ7fcDUxHGBPAMAXkO+A5IW8Q94Aow0OJ3TwB3cn6XRhAXqhbxAHDa8+D+BPa2KOOogYZLuxi7qxTiK2Mx5oFdTWWsBv4w0HBpl+LNKm9T91dwgDPAQ01lnTDQcGmX4mRVQvKeGT6R3aaWss1Aw6V1FjLc4UH+0FReA/gU+KLG8VdIIeMdCsludWuJiySkkKkSLuUh4iIJKeRICUI2ExdJSCGjHcr4G+gjLpKQQta7d4qVCvmY+EhCCsENh6xUyAvERxJayIAbDikqI+vexkgSWghubKrIretn4BHiJLEgBDc2NeN5ZWwkXhIrQnBjU9lwyI9N41tZb+qTSJ8ZpoU0y9kCPOaG53uFxKqQXiWREFtIiDGCC2m4j1RngfeBaSNxBXiRHhMy3OEHqiriGD0iJOtBzRpo8LRNzFf83hNMyJcGGjv1jKeIXMhOA42cesZd4GEiFzJpoKFTj/gPOEi1BBFyrsRGy3pE73UhTgEjVE8QIZdKFLKduEgkxBYSYgwJMYaEGENCjCEhxpAQY0iIMSTEGBJiDAkxhoQYQ0KMISHGkBBjSIgxJMQY0QmZKHGy3Ifub3NVTtCby6nnL24i4WSbzEjmhEwbmByRdjl+LVuKhGArGY2E0LGQbO6xhGAnDkkIZuJ7YE0VQn7PmbR2tcBD/WAJk+TSnPisS5PyfOO8S9iTJWujCiFZD6kV/QWElEGaE88SKRJiDAkxhoQYQ0KMISHGkBBjSIgxJMQYEmIMy0JGLORfrxqLQvpcHuGFNgN7HwGPEhnWhGwBvi4w2jobKA9KTwgZd8kBig6B33cjsOuIAAtC+l3awLTDuAk8Tc0JLeSlAolv/vXYZsE9f2qbijCUkLXAZc8FZLJcwmPADuAnT3lfAYPUkBBCVgHfeDbs502Lj2UJOd/xFDlbRykhhIx55sY67LLc5SV8vuVRzkVqxrs5FbmWs/3GZSr/uOc+32rTiDeAJz3K2QR80Kas69SMA55rSi3ltxbbzxX44L9vmRRMZ4AHC9bhVeB2TplZJqFascqdRUsr8W2b5YuedxmuF7f/B3ilwD4bbq7u0n1my+zt6aAegy0mR9+s65t8n7uvv+3ONp8zdMh1L48DW1ewzwbwsls38bWSXuoabmGa7Kp4veLsc0IIIYQQQgghhBBCEAP/A/NhchNsmUQmAAAAAElFTkSuQmCC"
-                                    alt="training">
-                            </div><!-- /.service-two__icon-box -->
-                            <h3 class="service-two__title">BIMTEK (Bimbingan Teknis)</h3>
-                        </div><!-- /.service-two__item -->
-                    </div>
+                    @endif
                 </div><!-- /.row -->
             </div><!-- /.container -->
             <div class="service-two__shape-box">

@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\VisiMisiController;
 use App\Http\Controllers\Admin\TujuanLembagaController;
 use App\Http\Controllers\Admin\InformasiKontakController;
 use App\Http\Controllers\Admin\TestimoniController;
+use App\Http\Controllers\Admin\BentukPelatihanController;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AdminLoginController;
@@ -75,6 +76,15 @@ Route::prefix($adminPrefix)->group(function () {
         Route::get('/admin/nama-pelatihan/{id}/edit', [NamaPelatihanController::class, 'edit'])->name('admin.nama-pelatihan.edit');
         Route::patch('/admin/nama-pelatihan/{id}/update', [NamaPelatihanController::class, 'update'])->name('admin.nama-pelatihan.update');
         Route::delete('/admin/nama-pelatihan/{id}', [NamaPelatihanController::class, 'destroy'])->name('admin.nama-pelatihan.destroy');
+
+        // Bentuk Pelatihan Routes
+        Route::get('/bentuk-pelatihan', [BentukPelatihanController::class, 'index'])->name('admin.bentuk-pelatihan');
+        Route::get('/bentuk-pelatihan/create', [BentukPelatihanController::class, 'create'])->name('admin.bentuk-pelatihan.create');
+        Route::post('/bentuk-pelatihan/store', [BentukPelatihanController::class, 'store'])->name('admin.bentuk-pelatihan.store');
+        Route::get('/bentuk-pelatihan/{id}', [BentukPelatihanController::class, 'show'])->name('admin.bentuk-pelatihan.show');
+        Route::get('/admin/bentuk-pelatihan/{id}/edit', [BentukPelatihanController::class, 'edit'])->name('admin.bentuk-pelatihan.edit');
+        Route::patch('/admin/bentuk-pelatihan/{id}/update', [BentukPelatihanController::class, 'update'])->name('admin.bentuk-pelatihan.update');
+        Route::delete('/admin/bentuk-pelatihan/{id}', [BentukPelatihanController::class, 'destroy'])->name('admin.bentuk-pelatihan.destroy');
 
         // Profil
         Route::get('/profil', [ProfilController::class, 'index'])->name('admin.profil');

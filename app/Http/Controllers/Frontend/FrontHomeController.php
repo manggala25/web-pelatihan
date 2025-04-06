@@ -8,6 +8,7 @@ use App\Models\Portofolio;
 use App\Models\Profil;
 use App\Models\Kontak;  
 use App\Models\Blog;
+use App\Models\BentukPelatihan;
 
 class FrontHomeController extends Controller
 {
@@ -22,7 +23,10 @@ class FrontHomeController extends Controller
         // Kontak
         $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat'])->get();
 
+        // Ambil semua bentuk pelatihan dari terlama dan status aktf
+        $bentuk_pelatihan = BentukPelatihan::where('status', 'aktif')->latest('updated_at')->get();
+
         $portofolio = Portofolio::latest('updated_at')->get();
-        return view('frontend.home', compact('portofolio', 'profil', 'blog', 'kontak'));
+        return view('frontend.home', compact('portofolio', 'profil', 'blog', 'kontak', 'bentuk_pelatihan'));
     }
 }
