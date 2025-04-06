@@ -5,7 +5,7 @@
     <div class="col-12">
     <div class="card">
     <div class="card-header bg-info">
-    <h4 class="card-title text-white">Form Tambah Portofolio</h4>
+    <h4 class="card-title text-white">Form Tambah Testimoni</h4>
     </div>
     <div class="card-body">
     <!-- Tampilkan Error Validasi -->
@@ -19,76 +19,27 @@
     </div>
     @endif
 
-    <form action="{{ route('admin.portofolio.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.testimoni.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
+
     <div class="mb-3">
-    <label for="judul_portofolio">Judul Portofolio</label>
-    <input type="text" name="judul_portofolio" class="form-control" required value="{{ old('judul_portofolio') }}" />
+    <label for="nama_pic">Nama PIC</label>
+    <input type="text" name="nama_pic" class="form-control" required value="{{ old('nama_pic') }}" />
     </div>
 
     <div class="mb-3">
-    <label for="nama_klien">Nama Klien</label>
-    <input type="text" name="nama_klien" class="form-control" required value="{{ old('nama_klien') }}" />
+    <label for="okupasi">Jabatan/ Okupasi</label>
+    <input type="text" name="okupasi" class="form-control" required value="{{ old('okupasi') }}" />
     </div>
 
     <div class="mb-3">
-    <label for="pelatihan">Pilih Pelatihan</label>
-    @if ($pelatihanOptions->isEmpty())
-            <div class="alert alert-warning">
-                <strong>Perhatian!</strong> Data pelatihan tidak tersedia.
-            </div>
-        @else
-    <select name="kategori_nama_pelatihan" class="form-select" required>
-      <option value="">-- Pilih Kategori & Nama Pelatihan --</option>
-      @foreach ($pelatihanOptions as $option)
-      <option value="{{ $option['value'] }}">{{ $option['label'] }}</option>
-    @endforeach
-    </select>
-    </div>
-    @endif
-
-    <div class="col-md-6">
-    <div class="mb-3">
-    <label for="waktu_awal">Waktu Awal Pelaksanaan</label>
-    <input type="date" name="waktu_awal" class="form-control" required value="{{ old('waktu_awal') }}" />
-    </div>
-    </div>
-
-    <div class="col-md-6">
-    <div class="mb-3">
-    <label for="waktu_akhir">Waktu Akhir Pelaksanaan</label>
-    <input type="date" name="waktu_akhir" class="form-control" required value="{{ old('waktu_akhir') }}" />
-    </div>
+    <label for="nama_lembaga">Nama Lembaga</label>
+    <input type="text" name="nama_lembaga" class="form-control" required value="{{ old('nama_lembaga') }}" />
     </div>
 
     <div class="mb-3">
-    <label for="nama_tempat">Nama Tempat</label>
-    <input type="text" name="nama_tempat" class="form-control" required value="{{ old('nama_tempat') }}" />
-    </div>
-
-    <div class="mb-3">
-    <label for="kota_kabupaten">Kota/Kabupaten</label>
-    <input type="text" name="kota_kabupaten" class="form-control" required value="{{ old('kota_kabupaten') }}" />
-    </div>
-
-    <div class="mb-3">
-    <label for="provinsi">Provinsi</label>
-    <input type="text" name="provinsi" class="form-control" required value="{{ old('provinsi') }}" />
-    </div>
-
-    <div class="mb-3">
-    <label for="thumbnail">Upload Thumbnail (416x450)</label>
-    <input type="file" name="thumbnail" class="form-control">
-    </div>
-
-    <div class="mb-3">
-    <label for="cover">Upload Cover (1296x600)</label>
-    <input type="file" name="cover" class="form-control">
-    </div>
-
-    <div class="mb-3">
-    <label for="link_klien">Link Website Klien</label>
-    <input type="url" name="link_klien" class="form-control" value="{{ old('link_klien') }}" />
+    <label for="image">Upload Gambar (65x65)</label>
+    <input type="file" name="image" class="form-control">
     </div>
 
     <div class="mb-3">
@@ -100,9 +51,10 @@
     </div>
 
     <div class="mb-3">
-    <label for="content">Isi Konten</label>
-    <textarea class="summernote" name="content">{{ old('content') }}</textarea>
+        <label for="content">Isi Testimoni</label>
+        <textarea class="form-control" rows="3" name="content">{{ old('content') }}</textarea>
     </div>
+
 
     <div class="col-12 d-flex justify-content-md-end">
     <button type="submit" class="btn btn-info font-weight-medium rounded-pill px-4">

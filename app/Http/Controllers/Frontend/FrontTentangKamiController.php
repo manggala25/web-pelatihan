@@ -11,6 +11,7 @@ use App\Models\TujuanLembaga;
 use App\Models\NamaPelatihan;
 use App\Models\KategoriTema;
 use App\Models\Kontak;
+use App\Models\Testimoni;
 
 class FrontTentangKamiController extends Controller
 {
@@ -25,7 +26,10 @@ class FrontTentangKamiController extends Controller
         // Kontak
         $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat'])->get();
 
-        return view('frontend.tentang-kami', compact('profil', 'visimisi', 'kontak'));
+        // Ambil Testimoni dari yg baru diupdate dan akif
+        $testimoni = Testimoni::latest('updated_at', 'aktif')->get();
+
+        return view('frontend.tentang-kami', compact('profil', 'visimisi', 'kontak', 'testimoni'));
     }
 
     public function visiMisi() // Ubah dari visi-misi ke visiMisi

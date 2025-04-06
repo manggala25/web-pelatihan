@@ -16,5 +16,6 @@ class Testimoni extends Model
         'nama_lembaga',
         'content',
         'image',
+        'status',
     ];
 }
