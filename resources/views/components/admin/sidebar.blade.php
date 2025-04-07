@@ -58,6 +58,10 @@
                             <a href="{{ Route('admin.bentuk-pelatihan') }}" class="sidebar-link"><i
                                     class="ri-map-pin-4-line"></i><span class="hide-menu">Bentuk Pelatihan</span></a>
                         </li>
+                        <li class="sidebar-item">
+                            <a href="{{ Route('admin.target-pelatihan') }}" class="sidebar-link"><i
+                                    class="ri-team-line"></i><span class="hide-menu">Target Pelatihan</span></a>
+                        </li>
                     </ul>
                 </li>
                 {{-- Tentang Kami --}}
@@ -80,6 +84,10 @@
                         <li class="sidebar-item">
                             <a href="{{ Route('admin.testimoni') }}" class="sidebar-link"><i class="ri-chat-quote-line"></i><span
                                     class="hide-menu">Testimoni</span></a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{{ Route('admin.mitra') }}" class="sidebar-link"><i class="ri-service-line"></i><span
+                                    class="hide-menu">Mitra</span></a>
                         </li>
                     </ul>
                 </li>

@@ -54,22 +54,25 @@
     @endif
     <p class="blog__card-category">{{ $blog->kategori }}</p>
     </a>
-    <a href="{{ route('detail-blog',  $blog->slug) }}" class="blog__card-title mb-0">
-      {{ Str::limit($blog->judul, 50) }}
-    </a>
+    <a href="{{ route('detail-blog', $blog->slug) }}" class="blog__card-title mb-0">{{ Str::limit($blog->judul, 700) }}</a>
     <ul class="blog__card-comment-box">
-    <li class="blog__card-comment-item">
-    <p class="blog__card-comment">{{ \Carbon\Carbon::parse($blog->published_at)->format('d F Y') }}</p>
-    </li>
-    </ul>
+      <li class="blog__card-comment-blog">
+      <p class="blog__card-comment">{{ \Carbon\Carbon::parse($blog->published_at)->format('d F Y') }}</p>
+      </li>
+    </ul><!-- /.blog-one__comment -->
+    <p class="blog__card-desc mt-1 mb-0">
+      {!! nl2br(Str::limit(strip_tags($blog->content), 120)) !!}
+    </p><!-- /.blog-one__blog-desc -->
+    <a href="{{ route('detail-blog', $blog->slug) }}" class="blog__card-link">Selengkapnya <i
+      class="icon-arrow-right-2"></i></a>
     </div>
     </div>
   @endforeach
   @else
-    <div class="col-12 text-center">
-    <h4 class="text-muted">Tidak ada blog ditemukan atau masih kosong.</h4>
-    </div>
-    @endif
+  <div class="col-12 text-center">
+  <h4 class="text-muted">Tidak ada blog ditemukan atau masih kosong.</h4>
+  </div>
+@endif
     </div>
 
     <!-- Pagination -->

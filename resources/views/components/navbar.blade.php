@@ -62,7 +62,7 @@
         <div class="container">
             <div class="header__left">
                 <div class="header__logo">
-                    <a href="index.html">
+                    <a href="{{ route('home') }}">
                         <img src="{{  asset('template/frontend/assets/images/logo-light.png') }}" alt="logo-light">
                     </a>
                 </div><!-- /.header-one__logo -->
@@ -148,8 +148,8 @@
                         <p>Tidak ada media sosial yang tersedia.</p>
                     @endif
                 </div><!-- /.main-menu-one__social -->
-                <div class="main-menu-one__logo">
-                    <a href="index.html">
+                <div class="main-menu-one__logo me-4">
+                    <a href="{{ route('home') }}">
                         <img src="{{  asset('template/frontend/assets/images/logo-dark.png') }}" alt="logo-dark">
                     </a>
                 </div><!-- /.main-menu-one__logo -->
@@ -242,7 +242,7 @@
         <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
 
         <div class="logo-box">
-            <a href="index.html" aria-label="logo image"><img src="assets/images/logo-dark.png" width="155"
+            <a href="{{ route('home') }}" aria-label="logo image"><img src="assets/images/logo-dark.png" width="155"
                     alt="logo-dark"></a>
         </div>
         <!-- /.logo-box -->

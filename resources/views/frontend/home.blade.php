@@ -20,7 +20,7 @@
                         <div class="main-slider__circle"></div>
                         <div class="main-slider__content slide-title">
                             <p class="main-slider__desc">◎ Portofolio Kegiatan</p>
-                            <h1 class="main-slider__title slide-title__heading">{{ Str::words($item->judul_portofolio, 4, '...') }}</h1>
+                            <h1 class="main-slider__title slide-title__heading">{{ Str::limit($item->judul_portofolio, 50, '...') }}</h1>
                             <div class="main-slider__desc-wrap slide-title__desc-wrap">
                                 <span class="main-slider__arrow icon-arrow-right-2"></span>
                                 <p class="main-slider__desc">{{ $item->kategori_tema }}</p>
@@ -108,13 +108,21 @@
                         <div class="about-two__img-wrap">
                             <div class="about-two__img-one-box">
                                 <div class="about-two__img-one-box-inner">
-                                    <img src="{{ asset('template/frontend/assets/images/about/about-2-1.jpg') }}" alt="about image" class="about-two__img-one">
+                                    @if ($target_pelatihan) <!-- Memeriksa apakah ada data -->
+                                            <img src="{{ asset('storage/' . $target_pelatihan->image_back) }}" alt="about image" class="about-two__img-one">
+                                    @else
+                                        <p>Konten target peserta pelatihan belum dibuat.</p>
+                                    @endif
                                 </div>
                             </div>
                             <div class="about-two__img-two-box">
                                 <div class="about-two__img-two-box-inner">
-                                    <img src="{{ asset('template/frontend/assets/images/about/about-2-2.jpg') }}" alt="about image" class="about-two__img-two">
-                                    <img src="{{ asset('template/frontend/assets/images/about/about-2-3.png') }}" alt="about image" class="about-two__img-three">
+                                    @if ($target_pelatihan) <!-- Memeriksa apakah ada data -->
+                                        <img src="{{ asset('storage/' . $target_pelatihan->image_front) }}" alt="about image" class="about-two__img-two">
+                                    @else
+                                        <p>Konten target peserta pelatihan belum dibuat.</p>
+                                    @endif
+                                    <img src="{{ asset('template/frontend/assets/images/resources/top-title-logo.png') }}" alt="about image" class="about-two__img-three">
                                 </div>
                                 <div class="about-two__shape-box about-two__shape-box-two"></div>
                                 <div class="about-two__shape-box about-two__shape-box-three"></div>
@@ -134,48 +142,18 @@
                     </div>
                     <div class="col-lg-6 order-lg-1 order-0">
                         <div class="about-two__content sec-title">
-                            <div class="sec-title__top-wrap">
-                                <img src="{{ asset('template/frontend/assets/images/resources/top-title-logo.png') }}" alt="top-title-logo">
-                                <p class="sec-title__top">Target Peserta Pelatihan</p>
-                            </div>
-                            <h2 class="about-two__heading sec-title__heading">Tingkatkan Keahlian, Maksimalkan Potensi.</h2>
-                            <p class="text-white">dirancang khusus untuk profesional, praktisi, dan akademisi yang ingin meningkatkan keterampilan dan memperdalam
-                            pemahaman di bidangnya. Target peserta yang dapat mengikuti pelatihan ini antara lain:
-                            </p>
-                            <div class="about-two__bottom">
-                                <ul class="list about-two__list">
-                                    <li class="about-two__consulting-title mb-1">
-                                        <div class="about-two__consulting-text">
-                                            <h6 class="about-two__consulting-desc text-white">Aparatur Perangkat SETDA, SKPD/OPD</h6>
-                                        </div>
-                                    </li>
-                                    <li class="about-two__consulting-title mb-3">
-                                        <div class="about-two__consulting-text">
-                                            <h6 class="about-two__consulting-desc text-white">Anggota DPRD/SETWAN</h6>
-                                        </div>
-                                    </li>
-                                    <li class="about-two__consulting-title mb-3">
-                                        <div class="about-two__consulting-text">
-                                            <h6 class="about-two__consulting-desc text-white">Aparatur Perangkat Kecamatan/Desa</h6>
-                                        </div>
-                                    </li>
-                                    <li class="about-two__consulting-title mb-3">
-                                        <div class="about-two__consulting-text">
-                                            <h6 class="about-two__consulting-desc text-white">RSU, RSP, RSUD</h6>
-                                        </div>
-                                    </li>
-                                    <li class="about-two__consulting-title mb-3">
-                                        <div class="about-two__consulting-text">
-                                            <h6 class="about-two__consulting-desc text-white">Instansi Lembaga Pemerintah</h6>
-                                        </div>
-                                    </li>
-                                    <li class="about-two__consulting-title mb-3">
-                                        <div class="about-two__consulting-text">
-                                            <h6 class="about-two__consulting-desc text-white">Perusahaan/Swasta</h6>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div><!-- /.about-two__bottom -->
+                            @if ($target_pelatihan) <!-- Memeriksa apakah ada data -->
+                                <div class="sec-title__top-wrap">
+                                    <img src="{{ asset('template/frontend/assets/images/resources/top-title-logo.png') }}" alt="top-title-logo">
+                                    <p class="sec-title__top">{{ $target_pelatihan->top_title }}</p>
+                                </div>
+                                <h2 class="about-two__heading sec-title__heading">{{ $target_pelatihan->heading }}</h2>
+                                <div class="text-white mt-3">
+                                    {!! nl2br($target_pelatihan->content ?? 'Konten belum dibuat.') !!}
+                                </div>
+                            @else
+                                <p>Konten target peserta pelatihan belum dibuat.</p>
+                            @endif
                         </div><!-- /.about-one__content -->
                     </div>
                 </div><!-- /.row -->
@@ -328,15 +306,16 @@
                                         <img src="{{  asset($item->thumbnail) ?? asset('template/frontend/assets/images/blog/blog-1-1.jpg') }}" alt="blog" class="blog__card-img">
                                         <p class="blog__card-category">{{ $item->kategori }}</p><!-- /.blog-one__item-category -->
                                     </a><!-- /.blog-one__img-box -->
+                                    <a href="{{ route('detail-blog', $item->slug) }}" class="blog__card-title mb-0">{{ Str::limit($item->judul, 700) }}</a>
                                     <ul class="blog__card-comment-box">
                                         <li class="blog__card-comment-item">
                                             <p class="blog__card-comment">{{ \Carbon\Carbon::parse($item->published_at)->format('d F Y') }}</p>
                                         </li>
                                     </ul><!-- /.blog-one__comment -->
-                                    <a href="{{ route('detail-blog', $item->slug) }}" class="blog__card-title mb-0">{{ Str::limit($item->judul, 700) }}</a>
-                                    <p class="blog__card-desc">
+                                    <p class="blog__card-desc mt-1 mb-0">
                                         {!! nl2br(Str::limit(strip_tags($item->content), 120)) !!}
                                         </p><!-- /.blog-one__item-desc -->
+                                        <a href="{{ route('detail-blog', $item->slug) }}" class="blog__card-link">Selengkapnya <i class="icon-arrow-right-2"></i></a>
                                 </div><!-- /.blog-one__item -->
                             </div>
                         @endforeach
@@ -355,12 +334,15 @@
         <!-- Logo Mitra/ Partner Start -->
         <div class="brand-one">
             <div class="container">
+                <div class="brand-one__sec-title sec-title d-flex justify-content-center mb-4">
+                    <h4 class="fw-semibold text-center">Mitra Kami:</h4>
+                </div>
                 <div class="brand-one__carousel noile-owl__carousel owl-theme owl-carousel" data-owl-options='{
                         "items": 4,
                         "margin": 50,
                         "smartSpeed": 1000,
                         "loop":true,
-                        "autoplay": 200,
+                        "autoplay": 50,
                         "nav":false,
                         "dots":false,
                         "navText": ["<span class=\"fa fa-angle-left\"></span>","<span class=\"fa fa-angle-right\"></span>"],
@@ -388,31 +370,19 @@
                             }
                         }
                         }'>
-                    <div class="brand-one__item item">
-                        <img src="{{  asset('template/frontend/assets/images/brand/brand-1-1.png') }}" alt="brand"
+                        @if ($mitra->isNotEmpty())
+                        @foreach ($mitra as $item)
+                            <div class="brand-one__item item">
+                        <img src="{{ asset('storage/' . $item->logo) }}" alt="{{ $item->nama_mitra }}"
                             class="brand-one__item-img">
                     </div><!-- /.brand-one__item-->
-                    <div class="brand-one__item item">
-                        <img src="{{  asset('template/frontend/assets/images/brand/brand-1-2.png') }}" alt="brand"
-                            class="brand-one__item-img">
-                    </div><!-- /.brand-one__item-->
-                    <div class="brand-one__item item">
-                        <img src="{{  asset('template/frontend/assets/images/brand/brand-1-3.png') }}" alt="brand"
-                            class="brand-one__item-img">
-                    </div><!-- /.brand-one__item-->
-                    <div class="brand-one__item item">
-                        <img src="{{  asset('template/frontend/assets/images/brand/brand-1-4.png') }}" alt="brand"
-                            class="brand-one__item-img">
-                    </div><!-- /.brand-one__item-->
-                    <div class="brand-one__item item">
-                        <img src="{{  asset('template/frontend/assets/images/brand/brand-1-5.png') }}" alt="brand"
-                            class="brand-one__item-img">
-                    </div><!-- /.brand-one__item-->
-                    <div class="brand-one__item item">
-                        <img src="{{  asset('template/frontend/assets/images/brand/brand-1-6.png') }}" alt="brand"
-                            class="brand-one__item-img">
-                    </div><!-- /.brand-one__item-->
+                    @endforeach
+                        @else
+                            <p>Data mitra belum dibuat.</p>
+                        @endif
+
                 </div><!-- /.brand-one__carousel -->
+
             </div><!-- /.container -->
         </div>
         <!-- Logo Mitra/ Partner End -->

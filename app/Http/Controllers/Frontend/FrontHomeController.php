@@ -9,6 +9,8 @@ use App\Models\Profil;
 use App\Models\Kontak;  
 use App\Models\Blog;
 use App\Models\BentukPelatihan;
+use App\Models\Mitra;
+use App\Models\TargetPelatihan;
 
 class FrontHomeController extends Controller
 {
@@ -26,7 +28,13 @@ class FrontHomeController extends Controller
         // Ambil semua bentuk pelatihan dari terlama dan status aktf
         $bentuk_pelatihan = BentukPelatihan::where('status', 'aktif')->latest('updated_at')->get();
 
+        // Ambil mitra yg aktif dan paling baru diupdate
+        $mitra = Mitra::where('status', 'aktif')->latest('updated_at')->get();
+
+        // Hanya ambil 1 target pelatihan terbaru
+        $target_pelatihan = TargetPelatihan::latest('updated_at')->first();
+
         $portofolio = Portofolio::latest('updated_at')->get();
-        return view('frontend.home', compact('portofolio', 'profil', 'blog', 'kontak', 'bentuk_pelatihan'));
+        return view('frontend.home', compact('portofolio', 'profil', 'blog', 'kontak', 'bentuk_pelatihan', 'mitra', 'target_pelatihan'));
     }
 }

@@ -11,6 +11,8 @@ use App\Http\Controllers\Admin\TujuanLembagaController;
 use App\Http\Controllers\Admin\InformasiKontakController;
 use App\Http\Controllers\Admin\TestimoniController;
 use App\Http\Controllers\Admin\BentukPelatihanController;
+use App\Http\Controllers\Admin\MitraController;
+use App\Http\Controllers\Admin\TargetPelatihanController;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AdminLoginController;
@@ -130,6 +132,21 @@ Route::prefix($adminPrefix)->group(function () {
         Route::get('/admin/testimoni/{id}/edit', [TestimoniController::class, 'edit'])->name('admin.testimoni.edit');
         Route::patch('/admin/testimoni/{id}/update', [TestimoniController::class, 'update'])->name('admin.testimoni.update');
         Route::delete('/admin/testimoni/{id}', [TestimoniController::class, 'destroy'])->name('admin.testimoni.destroy');
+
+        // Mitra
+        Route::get('/mitra', [MitraController::class, 'index'])->name('admin.mitra');    
+        Route::get('/mitra/create', [MitraController::class, 'create'])->name('admin.mitra.create');    
+        Route::post('/mitra/store', [MitraController::class, 'store'])->name('admin.mitra.store');       
+        Route::get('/admin/mitra/{id}/edit', [MitraController::class, 'edit'])->name('admin.mitra.edit');    
+        Route::patch('/admin/mitra/{id}/update', [MitraController::class, 'update'])->name('admin.mitra.update');    
+        Route::delete('/admin/mitra/{id}', [MitraController::class, 'destroy'])->name('admin.mitra.destroy');
+
+        //Target Pelatihan
+        Route::get('/targetpelatihan', [TargetPelatihanController::class, 'index'])->name('admin.target-pelatihan');      
+        Route::get('/targetpelatihan/{id}', [TargetPelatihanController::class, 'show'])->name('admin.target-pelatihan.show');
+        Route::get('/admin/targetpelatihan/{id}/edit', [TargetPelatihanController::class, 'edit'])->name('admin.target-pelatihan.edit');    
+        Route::patch('/admin/targetpelatihan/{id}/update', [TargetPelatihanController::class, 'update'])->name('admin.target-pelatihan.update');    
+        Route::delete('/admin/targetpelatihan/{id}', [TargetPelatihanController::class, 'destroy'])->name('admin.target-pelatihan.destroy');
     });
 });
 
