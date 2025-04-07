@@ -11,6 +11,7 @@ use App\Models\Blog;
 use App\Models\BentukPelatihan;
 use App\Models\Mitra;
 use App\Models\TargetPelatihan;
+use App\Models\SectionBentukPelatihan;
 
 class FrontHomeController extends Controller
 {
@@ -34,7 +35,10 @@ class FrontHomeController extends Controller
         // Hanya ambil 1 target pelatihan terbaru
         $target_pelatihan = TargetPelatihan::latest('updated_at')->first();
 
+        // Hanya ambil 1 section bentuk pelatihan terbaru
+        $section_bentuk_pelatihan = SectionBentukPelatihan::latest('updated_at')->first();
+
         $portofolio = Portofolio::latest('updated_at')->get();
-        return view('frontend.home', compact('portofolio', 'profil', 'blog', 'kontak', 'bentuk_pelatihan', 'mitra', 'target_pelatihan'));
+        return view('frontend.home', compact('portofolio', 'profil', 'blog', 'kontak', 'bentuk_pelatihan', 'mitra', 'target_pelatihan', 'section_bentuk_pelatihan'));
     }
 }

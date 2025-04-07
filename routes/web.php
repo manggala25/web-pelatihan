@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\TujuanLembagaController;
 use App\Http\Controllers\Admin\InformasiKontakController;
 use App\Http\Controllers\Admin\TestimoniController;
 use App\Http\Controllers\Admin\BentukPelatihanController;
+use App\Http\Controllers\Admin\SectionBentukPelatihanController;
 use App\Http\Controllers\Admin\MitraController;
 use App\Http\Controllers\Admin\TargetPelatihanController;
 
@@ -147,6 +148,11 @@ Route::prefix($adminPrefix)->group(function () {
         Route::get('/admin/targetpelatihan/{id}/edit', [TargetPelatihanController::class, 'edit'])->name('admin.target-pelatihan.edit');    
         Route::patch('/admin/targetpelatihan/{id}/update', [TargetPelatihanController::class, 'update'])->name('admin.target-pelatihan.update');    
         Route::delete('/admin/targetpelatihan/{id}', [TargetPelatihanController::class, 'destroy'])->name('admin.target-pelatihan.destroy');
+
+        // Section Bentuk Pelatihan
+        Route::get('/section-bentuk-pelatihan', [SectionBentukPelatihanController::class, 'index'])->name('admin.section-bentuk-pelatihan');
+        Route::get('/admin/section-bentuk-pelatihan/{id}/edit', [SectionBentukPelatihanController::class, 'edit'])->name('admin.section-bentuk-pelatihan.edit');
+        Route::patch('/admin/section-bentuk-pelatihan/{id}/update', [SectionBentukPelatihanController::class, 'update'])->name('admin.section-bentuk-pelatihan.update');
     });
 });
 

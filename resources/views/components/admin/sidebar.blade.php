@@ -59,6 +59,10 @@
                                     class="ri-map-pin-4-line"></i><span class="hide-menu">Bentuk Pelatihan</span></a>
                         </li>
                         <li class="sidebar-item">
+                            <a href="{{ Route('admin.section-bentuk-pelatihan') }}" class="sidebar-link"><i
+                                    class="ri-layout-line"></i><span class="hide-menu">Section Bentuk Pelatihan</span></a>
+                        </li>
+                        <li class="sidebar-item">
                             <a href="{{ Route('admin.target-pelatihan') }}" class="sidebar-link"><i
                                     class="ri-team-line"></i><span class="hide-menu">Target Pelatihan</span></a>
                         </li>

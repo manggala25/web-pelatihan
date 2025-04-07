@@ -59,12 +59,18 @@
                     <div class="col-lg-8">
                         <div class="sec-title__top-wrap justify-content-md-center">
                             <img src="{{ asset('template/frontend/assets/images/resources/top-title-logo.png') }}" alt="top-title-logo">
-                            <p class="sec-title__top">Bentuk Pelatihan</p>
-                        </div>
-                        <h2 class="about-one__heading sec-title__heading">Bentuk Pelatihan Yang Kami Sediakan</h2>
-                        <p class="about-one__desc service-one__bottom-descs">
-                            Kami memiliki beberapa bentuk pelatihan, yang menyelenggarakan keahlian seperti:
-                        </p>
+                            @if ($section_bentuk_pelatihan) <!-- Memeriksa apakah ada data -->
+                                <p class="sec-title__top">{{ $section_bentuk_pelatihan->top_title }}</p>
+                                </div>
+                                <h2 class="about-one__heading sec-title__heading">
+                                    {{ $section_bentuk_pelatihan->heading }}
+                                </h2>
+                                <p class="about-one__desc service-one__bottom-descs">
+                                    {{ $section_bentuk_pelatihan->deskripsi }}
+                                </p>
+                            @else
+                                <p>Konten belum dibuat.</p>
+                            @endif
                     </div>
                 </div>
                 <div class="row gx-4 gy-4 gy-xl-0 d-flex justify-content-center">
