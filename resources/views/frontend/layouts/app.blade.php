@@ -4,7 +4,7 @@
 <x-head />
 
 <body>
-  <x-preloader />
+  {{-- <x-preloader /> --}}
 
   <div class="page-wrapper">
     {{-- Navbar --}}

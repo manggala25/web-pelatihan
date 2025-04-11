@@ -31,4 +31,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <link href="{{ asset('template/backend/package/html/main/../../assets/libs/jquery-steps/jquery.steps.css') }}" rel="stylesheet" />
+    <link href="{{ asset('template/backend/package/html/main/../../assets/libs/jquery-steps/steps.css') }}" rel="stylesheet" />
+
 </head>

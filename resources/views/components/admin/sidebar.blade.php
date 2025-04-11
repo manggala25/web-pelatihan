@@ -19,6 +19,16 @@
                 <li class="nav-small-cap">
                     <i class="nav-small-line"></i> <span class="hide-menu">Main Menu</span>
                 </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                        aria-expanded="false"><i data-feather="layout"></i><span class="hide-menu">Section</span></a>
+                    <ul aria-expanded="false" class="collapse first-level">
+                        <li class="sidebar-item">
+                            <a href="{{ Route('admin.section') }}" class="sidebar-link"><i
+                                    class="ri-home-4-line"></i><span class="hide-menu">Homepage</span></a>
+                        </li>
+                    </ul>
+                </li>
                 {{-- Blog --}}
                 <li class="sidebar-item">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"

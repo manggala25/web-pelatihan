@@ -39,6 +39,10 @@
 <script src="{{  asset('template/backend/package/html/main/../../assets/libs/footable/js/footable.min.js') }}"></script>
 <script src="{{  asset('template/backend/package/html/main/../../dist/js/pages/tables/footable-init.js') }}"></script>
 
+<!--Custom JavaScript -->
+<script src="{{ asset('template/backend/package/html/main/../../assets/libs/jquery-steps/build/jquery.steps.min.js') }}"></script>
+<script src="{{ asset('template/backend/package/html/main/../../assets/libs/jquery-validation/dist/jquery.validate.min.js') }}"></script>
+
 <!-- This Page JS -->
 <!-- codemirror -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.41.0/codemirror.js"></script>
@@ -55,3 +59,101 @@
         focus: false, // set focus to editable area after initializing summernote
     });
 </script>
+
+
+    <script>
+        document.getElementById('layout_type').addEventListener('change', function () {
+            var layoutImage = document.getElementById('layout_image');
+            var selectedValue = this.value;
+
+            // Gambar untuk setiap layout
+            var images = {
+                '1': '{{ asset('storage/preview-layout/layout1.svg') }}',
+                '2': '{{ asset('storage/preview-layout/layout2.svg') }}',
+                '3': '{{ asset('storage/preview-layout/layout3.svg') }}'
+            };
+
+            // Cek apakah ada gambar untuk layout yang dipilih
+            if (images[selectedValue]) {
+                layoutImage.src = images[selectedValue];
+                layoutImage.style.display = 'block'; // Tampilkan gambar
+            } else {
+                layoutImage.style.display = 'none'; // Sembunyikan gambar jika tidak ada
+            }
+        });
+    </script>
+
+    <script>
+        document.getElementById('edit_layout_type').addEventListener('change', function () {
+                var layoutImage = document.getElementById('layout_image');
+                var selectedValue = this.value;
+
+                // Gambar untuk setiap layout
+                var images = {
+                    '1': '{{ asset('storage/preview-layout/layout1.svg') }}',
+                    '2': '{{ asset('storage/preview-layout/layout2.svg') }}',
+                    '3': '{{ asset('storage/preview-layout/layout3.svg') }}'
+                };
+
+                // Cek apakah ada gambar untuk layout yang dipilih
+                if (images[selectedValue]) {
+                    layoutImage.src = images[selectedValue];
+                    layoutImage.style.display = 'block';
+                } else {
+                    layoutImage.style.display = 'none';
+                }
+            });
+
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const radioButtons = document.querySelectorAll('input[name="media_type"]');
+            const sections = {
+                image_upload: document.getElementById('imageUploadSection'),
+                image_url: document.getElementById('imageUrlSection'),
+                video_url: document.getElementById('videoUrlSection')
+            };
+
+            function hideAllSections() {
+                for (const key in sections) {
+                    sections[key].style.display = 'none';
+                    const inputs = sections[key].querySelectorAll('input');
+                    inputs.forEach(input => input.value = '');
+                }
+            }
+
+            radioButtons.forEach(radio => {
+                radio.addEventListener('change', function () {
+                    hideAllSections();
+                    if (this.checked && sections[this.value]) {
+                        sections[this.value].style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        function toggleEditMediaSection() {
+            $('.media-section').hide();
+            let selected = $('input[name="media_type"]:checked').val();
+            if (selected === 'image_upload') {
+                $('#editImageUploadSection').show();
+            } else if (selected === 'image_url') {
+                $('#editImageUrlSection').show();
+            } else if (selected === 'video_url') {
+                $('#editVideoUrlSection').show();
+            }
+        }
+
+        $(document).ready(function () {
+            toggleEditMediaSection();
+
+            $('input[name="media_type"]').change(function () {
+                toggleEditMediaSection();
+            });
+        });
+    </script>
+
+    

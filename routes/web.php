@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\BentukPelatihanController;
 use App\Http\Controllers\Admin\SectionBentukPelatihanController;
 use App\Http\Controllers\Admin\MitraController;
 use App\Http\Controllers\Admin\TargetPelatihanController;
+use App\Http\Controllers\Admin\SectionController;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AdminLoginController;
@@ -41,6 +42,14 @@ Route::prefix($adminPrefix)->group(function () {
         // Dashboard Route
         Route::get('/dashboard', [dashboardController::class, 'index'])->name('admin.dashboard');
 
+        // Section Routes
+        Route::get('/section', [SectionController::class, 'index'])->name('admin.section');
+        Route::get('/section/create', [SectionController::class, 'create'])->name('admin.section.create');
+        Route::post('/section/store', [SectionController::class, 'store'])->name('admin.section.store');
+        Route::get('/admin/section/{id}', [SectionController::class, 'show'])->name('admin.section.show');
+        Route::get('/admin/section/{id}/edit', [SectionController::class, 'edit'])->name('admin.section.edit');
+        Route::patch('/admin/section/{id}/update', [SectionController::class, 'update'])->name('admin.section.update');
+        Route::delete('/admin/section/{id}', [SectionController::class, 'destroy'])->name('admin.section.destroy');
 
         // Blog Routes
         Route::get('/blog', [blogController::class, 'index'])->name('admin.blog');

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
+
 use Illuminate\Http\Request;
 use App\Models\Portofolio;
 use App\Models\Profil;
@@ -12,6 +14,7 @@ use App\Models\BentukPelatihan;
 use App\Models\Mitra;
 use App\Models\TargetPelatihan;
 use App\Models\SectionBentukPelatihan;
+use App\Models\Section;
 
 class FrontHomeController extends Controller
 {
@@ -38,7 +41,10 @@ class FrontHomeController extends Controller
         // Hanya ambil 1 section bentuk pelatihan terbaru
         $section_bentuk_pelatihan = SectionBentukPelatihan::latest('updated_at')->first();
 
+        // Menampilkan Section Homepage
+        $section = Section::orderBy('order')->get();
+
         $portofolio = Portofolio::latest('updated_at')->get();
-        return view('frontend.home', compact('portofolio', 'profil', 'blog', 'kontak', 'bentuk_pelatihan', 'mitra', 'target_pelatihan', 'section_bentuk_pelatihan'));
+        return view('frontend.home', compact('portofolio', 'profil', 'blog', 'kontak', 'bentuk_pelatihan', 'mitra', 'target_pelatihan', 'section_bentuk_pelatihan', 'section'));
     }
 }
