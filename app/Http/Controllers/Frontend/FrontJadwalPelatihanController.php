@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\KategoriTema;
 use App\Models\Kontak;
 use App\Models\Banner;
+use App\Models\InformasiPendaftaran;
 
 class FrontJadwalPelatihanController extends Controller
 {
@@ -27,6 +28,8 @@ class FrontJadwalPelatihanController extends Controller
 
         $latestBanner = Banner::orderBy('updated_at', 'desc')->first(); // Ambil satu yang paling baru
 
-        return view('frontend.jadwal-pelatihan', compact('kategori_tema', 'kontak', 'latestBanner'));
+        $informasipendaftaran = InformasiPendaftaran::orderBy('updated_at', 'desc')->first(); // hanya 1 data terbaru
+
+        return view('frontend.jadwal-pelatihan', compact('kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran'));
     }
 }

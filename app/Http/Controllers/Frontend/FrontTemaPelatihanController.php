@@ -8,6 +8,7 @@ use App\Models\NamaPelatihan;
 use App\Models\KategoriTema;
 use App\Models\Kontak;
 use App\Models\Banner;
+use App\Models\InformasiPendaftaran;
 
 
 class FrontTemaPelatihanController extends Controller
@@ -23,7 +24,9 @@ class FrontTemaPelatihanController extends Controller
 
         $latestBanner = Banner::orderBy('updated_at', 'desc')->first(); // Ambil satu yang paling baru
 
-        return view('frontend.tema-pelatihan', compact('kategori_tema', 'kontak', 'latestBanner'));
+        $informasipendaftaran = InformasiPendaftaran::orderBy('updated_at', 'desc')->first(); // hanya 1 data terbaru
+
+        return view('frontend.tema-pelatihan', compact('kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran'));
     }
 
 
@@ -43,7 +46,9 @@ class FrontTemaPelatihanController extends Controller
 
         $latestBanner = Banner::orderBy('updated_at', 'desc')->first(); // Ambil satu yang paling baru
 
-        return view('frontend.kategori-tema-pelatihan', compact('kategori', 'pelatihan', 'kategori_tema', 'kontak', 'latestBanner'));
+        $informasipendaftaran = InformasiPendaftaran::orderBy('updated_at', 'desc')->first(); // hanya 1 data terbaru
+
+        return view('frontend.kategori-tema-pelatihan', compact('kategori', 'pelatihan', 'kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran'));
     }
 
 
@@ -60,7 +65,9 @@ class FrontTemaPelatihanController extends Controller
 
         $latestBanner = Banner::orderBy('updated_at', 'desc')->first(); // Ambil satu yang paling baru
 
-        return view('frontend.detail-pelatihan', compact('nama_pelatihan', 'kategori_list', 'kategori_tema', 'kontak', 'latestBanner'));
+        $informasipendaftaran = InformasiPendaftaran::orderBy('updated_at', 'desc')->first(); // hanya 1 data terbaru
+
+        return view('frontend.detail-pelatihan', compact('nama_pelatihan', 'kategori_list', 'kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran'));
     }
 
     public function cariPelatihan(Request $request)

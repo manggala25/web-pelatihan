@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\MitraController;
 use App\Http\Controllers\Admin\TargetPelatihanController;
 use App\Http\Controllers\Admin\SectionController;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\InformasiPendaftaranController;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AdminLoginController;
@@ -171,6 +172,16 @@ Route::prefix($adminPrefix)->group(function () {
         Route::get('/admin/banner/{id}/edit', [BannerController::class, 'edit'])->name('admin.banner.edit');
         Route::patch('/admin/banner/{id}/update', [BannerController::class, 'update'])->name('admin.banner.update');
         Route::delete('/admin/banner/{id}', [BannerController::class, 'destroy'])->name('admin.banner.destroy');
+
+        // Route Informasi Pendaftaran
+        Route::get('/informasipendaftaran', [InformasiPendaftaranController::class, 'index'])->name('admin.informasipendaftaran');
+        Route::get('/informasipendaftaran/{id}/show', [InformasiPendaftaranController::class, 'show'])->name('admin.informasipendaftaran.show');
+        Route::get('/informasipendaftaran/create', [InformasiPendaftaranController::class, 'create'])->name('admin.informasipendaftaran.create');
+        Route::post('/informasipendaftaran/store', [InformasiPendaftaranController::class, 'store'])->name('admin.informasipendaftaran.store');
+        Route::get('/admin/informasipendaftaran/{id}/edit', [InformasiPendaftaranController::class, 'edit'])->name('admin.informasipendaftaran.edit');
+        Route::patch('/admin/informasipendaftaran/{id}/update', [InformasiPendaftaranController::class, 'update'])->name('admin.informasipendaftaran.update');
+        Route::delete('/admin/informasipendaftaran/{id}', [InformasiPendaftaranController::class, 'destroy'])->name('admin.informasipendaftaran.destroy');
+
     });
 });
 

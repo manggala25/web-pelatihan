@@ -8,6 +8,7 @@ use App\Models\Portofolio; // Pastikan modelnya ada
 use App\Models\KategoriTema;
 use App\Models\Kontak;
 use App\Models\Banner;
+use App\Models\InformasiPendaftaran;
 
 class FrontGaleriController extends Controller
 {
@@ -24,7 +25,9 @@ class FrontGaleriController extends Controller
 
     $latestBanner = Banner::orderBy('updated_at', 'desc')->first(); // Ambil satu yang paling baru
 
-    return view('frontend.galeri', compact('portofolio' , 'kategori_tema', 'kontak', 'latestBanner'));
+    $informasipendaftaran = InformasiPendaftaran::orderBy('updated_at', 'desc')->first(); // hanya 1 data terbaru
+
+    return view('frontend.galeri', compact('portofolio' , 'kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran'));
   }
 
   public function show($slug)
@@ -40,6 +43,8 @@ class FrontGaleriController extends Controller
 
     $latestBanner = Banner::orderBy('updated_at', 'desc')->first(); // Ambil satu yang paling baru
 
-    return view('frontend.detail-galeri', compact('portofolio', 'kategori_tema', 'kontak', 'latestBanner')); // Pastikan view detail tersedia
+    $informasipendaftaran = InformasiPendaftaran::orderBy('updated_at', 'desc')->first(); // hanya 1 data terbaru
+
+    return view('frontend.detail-galeri', compact('portofolio', 'kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran')); // Pastikan view detail tersedia
   }
 }

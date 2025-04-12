@@ -1,4 +1,4 @@
-@props(['kategoriTema', 'kontak'])
+@props(['kategoriTema', 'kontak', 'informasipendaftaran'])
 
 
 <div class="col-xl-4 col-lg-5">
@@ -7,15 +7,11 @@
             data-wow-duration="1500ms">
             <h3 class="page-sidebar__title">Informasi Pendaftaran</h3>
             <p class="page-sidebar__text text-center">
-                PENDAFTARAN PESERTA BIMTEK
-
-                Telp. 021-21478758
-                Call-Sms-WA. 082112366662-0811180721 a/n. Arifin
-                Email: lediknas@gmail.com
-
-                Request kegiatan bimtek anda dengan menentukan materi bimtek, tanggal dan lokasi disesuaikan dengan
-                permintaan calon
-                peserta
+                @if ($informasipendaftaran)
+                    {!! $informasipendaftaran->content !!}
+                @else
+                    <p>Belum ada informasi!</p>
+                @endif
             </p>
         </div><!-- /.page-sidebar__social -->
         <div class="blog-sidebar__left page-sidebar">

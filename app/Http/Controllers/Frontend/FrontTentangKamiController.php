@@ -13,6 +13,7 @@ use App\Models\KategoriTema;
 use App\Models\Kontak;
 use App\Models\Testimoni;
 use App\Models\Banner;
+use App\Models\InformasiPendaftaran;
 
 class FrontTentangKamiController extends Controller
 {
@@ -48,7 +49,9 @@ class FrontTentangKamiController extends Controller
 
         $latestBanner = Banner::orderBy('updated_at', 'desc')->first(); // Ambil satu yang paling baru
 
-        return view('frontend.visi-misi', compact('visimisi', 'kategori_tema', 'kontak', 'latestBanner'));
+        $informasipendaftaran = InformasiPendaftaran::orderBy('updated_at', 'desc')->first(); // hanya 1 data terbaru
+
+        return view('frontend.visi-misi', compact('visimisi', 'kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran'));
     }
 
     public function tujuanLembaga()
@@ -64,7 +67,9 @@ class FrontTentangKamiController extends Controller
 
         $latestBanner = Banner::orderBy('updated_at', 'desc')->first(); // Ambil satu yang paling baru
 
-        return view('frontend.tujuan-lembaga', compact('tujuanlembaga', 'kategori_tema', 'kontak', 'latestBanner'));
+        $informasipendaftaran = InformasiPendaftaran::orderBy('updated_at', 'desc')->first(); // hanya 1 data terbaru
+
+        return view('frontend.tujuan-lembaga', compact('tujuanlembaga', 'kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran'));
     }
 
     public function cariPelatihan(Request $request)

@@ -12,10 +12,11 @@
                 <li class="sidebar-item">
                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('admin.dashboard') }}"
                         aria-expanded="false">
-                        <i data-feather="pie-chart"></i><span class="hide-menu">Analytical</span>
+                        <i data-feather="pie-chart"></i><span class="hide-menu">Dashboard</span>
                     </a>
                 </li>
 
+                {{-- Section --}}
                 <li class="nav-small-cap">
                     <i class="nav-small-line"></i> <span class="hide-menu">Main Menu</span>
                 </li>
@@ -30,6 +31,10 @@
                         <li class="sidebar-item">
                             <a href="{{ Route('admin.banner') }}" class="sidebar-link"><i
                                     class="ri-image-line"></i><span class="hide-menu">Banner</span></a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{{ Route('admin.informasipendaftaran') }}" class="sidebar-link"><i
+                                    class="ri-customer-service-2-line"></i><span class="hide-menu">Info Pendaftaran</span></a>
                         </li>
                     </ul>
                 </li>
