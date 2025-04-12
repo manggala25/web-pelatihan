@@ -27,6 +27,10 @@
                             <a href="{{ Route('admin.section') }}" class="sidebar-link"><i
                                     class="ri-home-4-line"></i><span class="hide-menu">Homepage</span></a>
                         </li>
+                        <li class="sidebar-item">
+                            <a href="{{ Route('admin.banner') }}" class="sidebar-link"><i
+                                    class="ri-image-line"></i><span class="hide-menu">Banner</span></a>
+                        </li>
                     </ul>
                 </li>
                 {{-- Blog --}}

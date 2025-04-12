@@ -3,7 +3,8 @@
 @section('content')
 
     <!-- Page Header Start -->
-    <section class="page-header" style="background-image: url('{{ asset('template/backend/package/html/main/assets/images/backgrounds/blog-page-bg.jpg') }}');">
+    <section class="page-header"
+      style="background-image: url('{{ asset('storage/'.$latestBanner?->gambar ?? 'template/backend/package/html/main/assets/images/backgrounds/blog-page-bg.jpg') }}');">
     <div class="page-header__vartical-line-wrap">
     <div class="page-header__vartical-line page-header__vartical-line--one"></div>
     <div class="page-header__vartical-line page-header__vartical-line--two"></div>
@@ -67,12 +68,12 @@
       class="icon-arrow-right-2"></i></a>
     </div>
     </div>
-  @endforeach
-  @else
-  <div class="col-12 text-center">
-  <h4 class="text-muted">Tidak ada blog ditemukan atau masih kosong.</h4>
-  </div>
-@endif
+    @endforeach
+    @else
+    <div class="col-12 text-center">
+    <h4 class="text-muted">Tidak ada blog ditemukan atau masih kosong.</h4>
+    </div>
+  @endif
     </div>
 
     <!-- Pagination -->

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Models\KategoriTema;
 use App\Models\Kontak;
+use App\Models\Banner;
 
 class FrontJadwalPelatihanController extends Controller
 {
@@ -24,6 +25,8 @@ class FrontJadwalPelatihanController extends Controller
         // Kontak
         $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat'])->get();
 
-        return view('frontend.jadwal-pelatihan', compact('kategori_tema', 'kontak'));
+        $latestBanner = Banner::orderBy('updated_at', 'desc')->first(); // Ambil satu yang paling baru
+
+        return view('frontend.jadwal-pelatihan', compact('kategori_tema', 'kontak', 'latestBanner'));
     }
 }

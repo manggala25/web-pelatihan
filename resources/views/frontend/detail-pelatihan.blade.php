@@ -4,7 +4,7 @@
 
     <!-- Page Header Start -->
     <section class="page-header"
-    style="background-image: url('{{ asset('template/frontend/assets/images/backgrounds/blog-page-bg.jpg') }}');">
+        style="background-image: url('{{ asset('storage/' . $latestBanner?->gambar ?? 'template/backend/package/html/main/assets/images/backgrounds/blog-page-bg.jpg') }}');">
     <div class="page-header__vartical-line-wrap">
     <div class="page-header__vartical-line page-header__vartical-line--one"></div>
     <div class="page-header__vartical-line page-header__vartical-line--two"></div>

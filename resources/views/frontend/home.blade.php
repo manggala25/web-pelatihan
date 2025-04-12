@@ -292,9 +292,9 @@
         <!-- Tentang Kami End -->
 
         <!-- Section Tambahan Homepage Start -->
-        @foreach ($section as $section)
-    @includeIf('frontend.section.layout' . $section->layout_type, ['section' => $section])
-@endforeach
+        @foreach ($section as $data)
+            @includeIf('frontend.section.layout' . $data->layout_type, ['section' => $data])
+        @endforeach
 
         <!-- Section Tambahan Homepage End -->
 

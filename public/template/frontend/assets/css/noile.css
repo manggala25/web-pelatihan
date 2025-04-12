@@ -3492,7 +3492,7 @@ i {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgba(var(--noile-primary-rgb, 29, 29, 29), 0.8);
+  /* background-color: rgba(var(--noile-primary-rgb, 29, 29, 29), 0.8); */
   background-blend-mode: overlay;
 }
 .page-header__vartical-text {

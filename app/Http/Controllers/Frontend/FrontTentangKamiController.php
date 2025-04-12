@@ -12,6 +12,7 @@ use App\Models\NamaPelatihan;
 use App\Models\KategoriTema;
 use App\Models\Kontak;
 use App\Models\Testimoni;
+use App\Models\Banner;
 
 class FrontTentangKamiController extends Controller
 {
@@ -29,7 +30,9 @@ class FrontTentangKamiController extends Controller
         // Ambil Testimoni dari yg baru diupdate dan akif
         $testimoni = Testimoni::latest('updated_at', 'aktif')->get();
 
-        return view('frontend.tentang-kami', compact('profil', 'visimisi', 'kontak', 'testimoni'));
+        $latestBanner = Banner::orderBy('updated_at', 'desc')->first(); // Ambil satu yang paling baru
+
+        return view('frontend.tentang-kami', compact('profil', 'visimisi', 'kontak', 'testimoni', 'latestBanner'));
     }
 
     public function visiMisi() // Ubah dari visi-misi ke visiMisi
@@ -43,7 +46,9 @@ class FrontTentangKamiController extends Controller
         // Kontak
         $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat'])->get();
 
-        return view('frontend.visi-misi', compact('visimisi', 'kategori_tema', 'kontak'));
+        $latestBanner = Banner::orderBy('updated_at', 'desc')->first(); // Ambil satu yang paling baru
+
+        return view('frontend.visi-misi', compact('visimisi', 'kategori_tema', 'kontak', 'latestBanner'));
     }
 
     public function tujuanLembaga()
@@ -57,7 +62,9 @@ class FrontTentangKamiController extends Controller
         // Kontak
         $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat'])->get();
 
-        return view('frontend.tujuan-lembaga', compact('tujuanlembaga', 'kategori_tema', 'kontak'));
+        $latestBanner = Banner::orderBy('updated_at', 'desc')->first(); // Ambil satu yang paling baru
+
+        return view('frontend.tujuan-lembaga', compact('tujuanlembaga', 'kategori_tema', 'kontak', 'latestBanner'));
     }
 
     public function cariPelatihan(Request $request)

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Blog; // Pastikan modelnya ada
 use App\Models\Kontak;
+use App\Models\Banner;
 
 class FrontBlogController extends Controller
 {
@@ -18,7 +19,9 @@ class FrontBlogController extends Controller
     // Kontak
     $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat'])->get();
 
-    return view('frontend.blog', compact('blogs', 'kontak'));
+    $latestBanner = Banner::orderBy('updated_at', 'desc')->first(); // Ambil satu yang paling baru
+
+    return view('frontend.blog', compact('blogs', 'kontak', 'latestBanner'));
   }
 
   public function show($slug)
@@ -28,6 +31,8 @@ class FrontBlogController extends Controller
     // Kontak
     $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat'])->get();
 
-    return view('frontend.detail-blog', compact('blog', 'kontak')); // Pastikan view detail tersedia
+    $latestBanner = Banner::orderBy('updated_at', 'desc')->first(); // Ambil satu yang paling baru
+
+    return view('frontend.detail-blog', compact('blog', 'kontak', 'latestBanner')); // Pastikan view detail tersedia
   }
 }

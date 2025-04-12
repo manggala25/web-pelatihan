@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\NamaPelatihan;
 use App\Models\Kontak;
+use App\Models\Banner;
 
 class FrontFormulirPendaftaranController extends Controller
 {
@@ -17,6 +18,8 @@ class FrontFormulirPendaftaranController extends Controller
         // Kontak
         $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat'])->get();
 
-        return view('frontend.formulir-pendaftaran', compact('nama_pelatihan', 'kontak'));
+        $latestBanner = Banner::orderBy('updated_at', 'desc')->first(); // Ambil satu yang paling baru
+
+        return view('frontend.formulir-pendaftaran', compact('nama_pelatihan', 'kontak', 'latestBanner'));
     }
 }

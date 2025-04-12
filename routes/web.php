@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\SectionBentukPelatihanController;
 use App\Http\Controllers\Admin\MitraController;
 use App\Http\Controllers\Admin\TargetPelatihanController;
 use App\Http\Controllers\Admin\SectionController;
+use App\Http\Controllers\Admin\BannerController;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AdminLoginController;
@@ -162,6 +163,14 @@ Route::prefix($adminPrefix)->group(function () {
         Route::get('/section-bentuk-pelatihan', [SectionBentukPelatihanController::class, 'index'])->name('admin.section-bentuk-pelatihan');
         Route::get('/admin/section-bentuk-pelatihan/{id}/edit', [SectionBentukPelatihanController::class, 'edit'])->name('admin.section-bentuk-pelatihan.edit');
         Route::patch('/admin/section-bentuk-pelatihan/{id}/update', [SectionBentukPelatihanController::class, 'update'])->name('admin.section-bentuk-pelatihan.update');
+
+        // Route Banner
+        Route::get('/banner', [BannerController::class, 'index'])->name('admin.banner');    
+        Route::get('/banner/create', [BannerController::class, 'create'])->name('admin.banner.create');
+        Route::post('/banner/store', [BannerController::class, 'store'])->name('admin.banner.store');
+        Route::get('/admin/banner/{id}/edit', [BannerController::class, 'edit'])->name('admin.banner.edit');
+        Route::patch('/admin/banner/{id}/update', [BannerController::class, 'update'])->name('admin.banner.update');
+        Route::delete('/admin/banner/{id}', [BannerController::class, 'destroy'])->name('admin.banner.destroy');
     });
 });
 

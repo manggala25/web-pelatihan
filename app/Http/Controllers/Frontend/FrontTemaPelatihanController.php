@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Http\Controllers\Frontend;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 use App\Models\NamaPelatihan;
 use App\Models\KategoriTema;
 use App\Models\Kontak;
+use App\Models\Banner;
 
-
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
 class FrontTemaPelatihanController extends Controller
 {
@@ -21,7 +21,9 @@ class FrontTemaPelatihanController extends Controller
         // Kontak
         $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat'])->get();
 
-        return view('frontend.tema-pelatihan', compact('kategori_tema', 'kontak'));
+        $latestBanner = Banner::orderBy('updated_at', 'desc')->first(); // Ambil satu yang paling baru
+
+        return view('frontend.tema-pelatihan', compact('kategori_tema', 'kontak', 'latestBanner'));
     }
 
 
@@ -39,7 +41,9 @@ class FrontTemaPelatihanController extends Controller
         // Kontak
         $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat'])->get();
 
-        return view('frontend.kategori-tema-pelatihan', compact('kategori', 'pelatihan', 'kategori_tema', 'kontak'));
+        $latestBanner = Banner::orderBy('updated_at', 'desc')->first(); // Ambil satu yang paling baru
+
+        return view('frontend.kategori-tema-pelatihan', compact('kategori', 'pelatihan', 'kategori_tema', 'kontak', 'latestBanner'));
     }
 
 
@@ -54,7 +58,9 @@ class FrontTemaPelatihanController extends Controller
         // Kontak
         $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat'])->get();
 
-        return view('frontend.detail-pelatihan', compact('nama_pelatihan', 'kategori_list', 'kategori_tema', 'kontak'));
+        $latestBanner = Banner::orderBy('updated_at', 'desc')->first(); // Ambil satu yang paling baru
+
+        return view('frontend.detail-pelatihan', compact('nama_pelatihan', 'kategori_list', 'kategori_tema', 'kontak', 'latestBanner'));
     }
 
     public function cariPelatihan(Request $request)

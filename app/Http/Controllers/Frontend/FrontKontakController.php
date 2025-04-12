@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Kontak;
 use App\Models\NamaPelatihan;
+use App\Models\Banner;
 
 class FrontKontakController extends Controller
 {
@@ -40,6 +41,8 @@ class FrontKontakController extends Controller
         // Mengambil nama Pelatihan
         $nama_pelatihan = NamaPelatihan::all();
 
-        return view('frontend.kontak', compact('kontak', 'gmapsFrame', 'whatsapp', 'email', 'alamat', 'informasi_kontak', 'nama_pelatihan'));
+        $latestBanner = Banner::orderBy('updated_at', 'desc')->first(); // Ambil satu yang paling baru
+
+        return view('frontend.kontak', compact('kontak', 'gmapsFrame', 'whatsapp', 'email', 'alamat', 'informasi_kontak', 'nama_pelatihan', 'latestBanner'));
     }
 }
