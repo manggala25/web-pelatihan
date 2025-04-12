@@ -72,40 +72,44 @@
     required>{{ old('content') }}</textarea>
     </div>
 
-    {{-- Pilihan Jenis Media --}}
+    {{-- Pilihan Jenis Media Create --}}
     <div class="mb-3">
-    <label class="form-label">Pilih Salah Satu Jenis Media</label>
-    <div class="form-check">
-    <input class="form-check-input" type="radio" name="media_type" id="mediaImageUpload" value="image_upload">
-    <label class="form-check-label" for="mediaImageUpload">Upload Gambar</label>
-    </div>
-    <div class="form-check">
-    <input class="form-check-input" type="radio" name="media_type" id="mediaImageUrl" value="image_url">
-    <label class="form-check-label" for="mediaImageUrl">URL Gambar</label>
-    </div>
-    <div class="form-check">
-    <input class="form-check-input" type="radio" name="media_type" id="mediaVideoUrl" value="video_url">
-    <label class="form-check-label" for="mediaVideoUrl">URL Video YouTube</label>
-    </div>
-    </div>
-
-    {{-- Inputan Upload Gambar --}}
-    <div id="imageUploadSection" class="mb-3 media-section" style="display: none;">
-    <label for="image" class="form-label">Upload Gambar</label>
-    <input type="file" class="form-control" id="image" name="image">
+        <label class="form-label">Pilih Salah Satu Jenis Media</label>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="media_type_create" id="mediaImageUploadCreate"
+                value="image_upload">
+            <label class="form-check-label" for="mediaImageUploadCreate">Upload Gambar</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="media_type_create" id="mediaImageUrlCreate"
+                value="image_url">
+            <label class="form-check-label" for="mediaImageUrlCreate">URL Gambar</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="media_type_create" id="mediaVideoUrlCreate"
+                value="video_url">
+            <label class="form-check-label" for="mediaVideoUrlCreate">URL Video YouTube</label>
+        </div>
     </div>
 
-    {{-- Inputan URL Gambar --}}
-    <div id="imageUrlSection" class="mb-3 media-section" style="display: none;">
-    <label for="image_url" class="form-label">URL Gambar</label>
-    <input type="url" class="form-control" id="image_url" name="image_url" placeholder="contoh: https://example.com/image.jpg">
+    <div id="createImageUploadSection" class="mb-3 media-section" style="display: none;">
+        <label for="image" class="form-label">Upload Gambar</label>
+        <input type="file" class="form-control" id="image" name="image">
     </div>
 
-    {{-- Inputan URL Video --}}
-    <div id="videoUrlSection" class="mb-3 media-section" style="display: none;">
-    <label for="video_url" class="form-label">URL Video YouTube</label>
-    <input type="url" class="form-control" id="video_url" name="video_url" placeholder="contoh: https://youtube.com/watch?v=...">
+    <div id="createImageUrlSection" class="mb-3 media-section" style="display: none;">
+        <label for="image_url" class="form-label">URL Gambar</label>
+        <input type="url" class="form-control" id="image_url" name="image_url"
+            placeholder="contoh: https://example.com/image.jpg">
     </div>
+
+    <div id="createVideoUrlSection" class="mb-3 media-section" style="display: none;">
+        <label for="video_url" class="form-label">URL Video YouTube</label>
+        <input type="url" class="form-control" id="video_url" name="video_url"
+            placeholder="contoh: https://youtube.com/watch?v=...">
+    </div>
+
+
 
     <div class="mt-4 text-end">
     <button type="submit" class="btn btn-info font-weight-medium rounded-pill px-4">

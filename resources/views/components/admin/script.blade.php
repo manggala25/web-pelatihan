@@ -107,32 +107,26 @@
     </script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const radioButtons = document.querySelectorAll('input[name="media_type"]');
-            const sections = {
-                image_upload: document.getElementById('imageUploadSection'),
-                image_url: document.getElementById('imageUrlSection'),
-                video_url: document.getElementById('videoUrlSection')
-            };
-
-            function hideAllSections() {
-                for (const key in sections) {
-                    sections[key].style.display = 'none';
-                    const inputs = sections[key].querySelectorAll('input');
-                    inputs.forEach(input => input.value = '');
-                }
+        function toggleCreateMediaSection() {
+            $('#createImageUploadSection, #createImageUrlSection, #createVideoUrlSection').hide();
+            let selected = $('input[name="media_type_create"]:checked').val();
+            if (selected === 'image_upload') {
+                $('#createImageUploadSection').show();
+            } else if (selected === 'image_url') {
+                $('#createImageUrlSection').show();
+            } else if (selected === 'video_url') {
+                $('#createVideoUrlSection').show();
             }
+        }
 
-            radioButtons.forEach(radio => {
-                radio.addEventListener('change', function () {
-                    hideAllSections();
-                    if (this.checked && sections[this.value]) {
-                        sections[this.value].style.display = 'block';
-                    }
-                });
+        $(document).ready(function () {
+            toggleCreateMediaSection();
+            $('input[name="media_type_create"]').change(function () {
+                toggleCreateMediaSection();
             });
         });
     </script>
+
 
     <script>
         function toggleEditMediaSection() {

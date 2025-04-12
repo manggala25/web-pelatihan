@@ -28,8 +28,8 @@
       <thead>
       <tr>
       <th data-breakpoints="xs">NO.</th>
-      <th data-breakpoints="xs sm">Nama Section</th>
-      <th data-breakpoints="xs">Heading</th>
+      <th data-breakpoints="sm">Nama Section</th>
+      <th data-breakpoints="all">Heading</th>
       <th data-breakpoints="xs">Jenis Layout</th>
       <th class="text-center" data-breakpoints="xs">Aksi</th>
       </tr>
