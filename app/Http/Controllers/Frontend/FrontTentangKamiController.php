@@ -14,6 +14,8 @@ use App\Models\Kontak;
 use App\Models\Testimoni;
 use App\Models\Banner;
 use App\Models\InformasiPendaftaran;
+use App\Models\TabsInformasi;
+use App\Models\BannerKontak;
 
 class FrontTentangKamiController extends Controller
 {
@@ -51,7 +53,14 @@ class FrontTentangKamiController extends Controller
 
         $informasipendaftaran = InformasiPendaftaran::orderBy('updated_at', 'desc')->first(); // hanya 1 data terbaru
 
-        return view('frontend.visi-misi', compact('visimisi', 'kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran'));
+        // Ambil 3 data terakhir dari tabel tabs_informasi
+        $tabs = TabsInformasi::orderBy('created_at', 'desc')->take(3)->get();
+
+        // Ambil satu data terbaru dari tabel banner_kontak
+        $bannerKontak = BannerKontak::orderBy('updated_at', 'desc')->first();
+
+
+        return view('frontend.visi-misi', compact('visimisi', 'kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran', 'tabs', 'bannerKontak'));
     }
 
     public function tujuanLembaga()
@@ -69,7 +78,14 @@ class FrontTentangKamiController extends Controller
 
         $informasipendaftaran = InformasiPendaftaran::orderBy('updated_at', 'desc')->first(); // hanya 1 data terbaru
 
-        return view('frontend.tujuan-lembaga', compact('tujuanlembaga', 'kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran'));
+        // Ambil 3 data terakhir dari tabel tabs_informasi
+        $tabs = TabsInformasi::orderBy('created_at', 'desc')->take(3)->get();
+
+        // Ambil satu data terbaru dari tabel banner_kontak
+        $bannerKontak = BannerKontak::orderBy('updated_at', 'desc')->first();
+
+
+        return view('frontend.tujuan-lembaga', compact('tujuanlembaga', 'kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran', 'tabs', 'bannerKontak'));
     }
 
     public function cariPelatihan(Request $request)

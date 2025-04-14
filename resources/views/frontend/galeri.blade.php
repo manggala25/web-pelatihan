@@ -2,42 +2,42 @@
 
 @section('content')
 
-  <!-- Page Header Start -->
-  <section class="page-header"
+    <!-- Page Header Start -->
+    <section class="page-header"
     style="background-image: url('{{ asset('storage/' . $latestBanner?->gambar ?? 'template/backend/package/html/main/assets/images/backgrounds/blog-page-bg.jpg') }}');">
-  <div class="page-header__vartical-line-wrap">
-  <div class="page-header__vartical-line page-header__vartical-line--one"></div>
-  <div class="page-header__vartical-line page-header__vartical-line--two"></div>
-  <div class="page-header__vartical-line page-header__vartical-line--three"></div>
-  </div><!-- /.page-header__vartical-line-wrap -->
-  <div class="container">
-  <div class="page-header__circle"></div><!-- /.page-header__circle -->
-  <div class="page-header__inner slide-title">
-  <h1 class="page-header__heading slide-title__heading">Galeri Portofolio</h1>
-  <div class="page-header__breadcrumb-wrap">
-  <span class="page-header__arrow icon-arrow-right-2"></span>
-  <ul class="noile-breadcrumb">
-  <li class="noile-breadcrumb__item"><a href="{{ route('home') }}" class="noile-breadcrumb__link">Beranda</a>
-  </li>
-  <li class="noile-breadcrumb__item noile-breadcrumb__item-divider">/</li>
-  <li class="noile-breadcrumb__item">Galeri Portofolio</li>
-  </ul>
-  </div>
-  </div><!-- /.page-header__inner -->
-  </div><!-- /.container -->
-  <div class="page-header__shape-box">
-  <svg class="page-header__shape-one" width="389" height="319" viewBox="0 0 389 319" fill="none"
-  xmlns="http://www.w3.org/2000/svg">
-  <path d="M460.4 600L0 0L162.2 20L610.5 600H460.4Z" />
-  <path d="M460.699 600H310.799L2.99936 195H152.849L460.699 600Z" />
-  </svg>
-  </div><!-- /.page-header__shape-box -->
-  </section>
-  <!-- Page Header End -->
+    <div class="page-header__vartical-line-wrap">
+    <div class="page-header__vartical-line page-header__vartical-line--one"></div>
+    <div class="page-header__vartical-line page-header__vartical-line--two"></div>
+    <div class="page-header__vartical-line page-header__vartical-line--three"></div>
+    </div><!-- /.page-header__vartical-line-wrap -->
+    <div class="container">
+    <div class="page-header__circle"></div><!-- /.page-header__circle -->
+    <div class="page-header__inner slide-title">
+    <h1 class="page-header__heading slide-title__heading">Galeri Portofolio</h1>
+    <div class="page-header__breadcrumb-wrap">
+    <span class="page-header__arrow icon-arrow-right-2"></span>
+    <ul class="noile-breadcrumb">
+    <li class="noile-breadcrumb__item"><a href="{{ route('home') }}" class="noile-breadcrumb__link">Beranda</a>
+    </li>
+    <li class="noile-breadcrumb__item noile-breadcrumb__item-divider">/</li>
+    <li class="noile-breadcrumb__item">Galeri Portofolio</li>
+    </ul>
+    </div>
+    </div><!-- /.page-header__inner -->
+    </div><!-- /.container -->
+    <div class="page-header__shape-box">
+    <svg class="page-header__shape-one" width="389" height="319" viewBox="0 0 389 319" fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <path d="M460.4 600L0 0L162.2 20L610.5 600H460.4Z" />
+    <path d="M460.699 600H310.799L2.99936 195H152.849L460.699 600Z" />
+    </svg>
+    </div><!-- /.page-header__shape-box -->
+    </section>
+    <!-- Page Header End -->
 
-  <!-- Section Start -->
-  <section class="blog-sidebar blog">
-  <div class="container">
+    <!-- Section Start -->
+    <section class="blog-sidebar blog">
+    <div class="container">
     <div class="row g-4">
     <div class="col-xl-8 col-lg-7">
     <div class="case-study-sidebar__right container-fluid">
@@ -59,12 +59,12 @@
     </a>
     </div><!-- /.case-study__item -->
     </div>
-  @endforeach
-  @else
-  <div class="col-12 text-center">
+    @endforeach
+    @else
+    <div class="col-12 text-center">
     <h4 class="text-muted">Tidak ada Portofolio ditemukan atau masih kosong.</h4>
-  </div>
-  @endif
+    </div>
+    @endif
 
     </div><!-- /.row -->
 
@@ -89,7 +89,7 @@
     <p class="pagination-box__text pagination-box__text--prev">Previous</p>
     </a>
     </div>
-  @endif
+    @endif
     </div>
 
     <div class="col-md-6">
@@ -122,17 +122,18 @@
     </svg>
     </span>
     </div>
-  @endif
+    @endif
     </div>
     </div><!-- /.row -->
     </div><!-- /.pagination-wrapper -->
     </div><!-- /.case-study-sidebar__right -->
 
-    <x-informasipenting />
+    <x-informasipenting :tabs="$tabs" />
     </div>
     <!-- Sidebar Start -->
-    <x-sidebarfront :kategoriTema="$kategori_tema" :kontak="$kontak" :informasipendaftaran="$informasipendaftaran" />
+    <x-sidebarfront :kategoriTema="$kategori_tema" :kontak="$kontak" :informasipendaftaran="$informasipendaftaran"
+        :bannerKontak="$bannerKontak" />
     </div><!-- /.container -->
-  </section>
-  <!-- Section End -->
+    </section>
+    <!-- Section End -->
 @endsection

@@ -68,11 +68,11 @@
                         </div><!-- /.blog-details__card-bottom -->
                     </div>
                     {{-- Informasi Penting --}}
-                    <x-informasipenting />
+                    <x-informasipenting :tabs="$tabs" />
                 </div>
 
                 <!-- Sidebar Start -->
-                <x-sidebarfront :kategoriTema="$kategori_tema" :kontak="$kontak" :informasipendaftaran="$informasipendaftaran" />
+                <x-sidebarfront :kategoriTema="$kategori_tema" :kontak="$kontak" :informasipendaftaran="$informasipendaftaran" :bannerKontak="$bannerKontak" />
 
             </div>
         </div>

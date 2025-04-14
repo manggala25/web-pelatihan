@@ -33,8 +33,16 @@
                                     class="ri-image-line"></i><span class="hide-menu">Banner</span></a>
                         </li>
                         <li class="sidebar-item">
+                            <a href="{{ Route('admin.bannerkontak') }}" class="sidebar-link"><i
+                                    class="ri-account-box-line"></i><span class="hide-menu">Banner Kontak</span></a>
+                        </li>
+                        <li class="sidebar-item">
                             <a href="{{ Route('admin.informasipendaftaran') }}" class="sidebar-link"><i
                                     class="ri-customer-service-2-line"></i><span class="hide-menu">Info Pendaftaran</span></a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{{ Route('admin.tabsinformasi') }}" class="sidebar-link"><i
+                                    class="ri-information-line"></i><span class="hide-menu">3 Tabs Informasi</span></a>
                         </li>
                     </ul>
                 </li>

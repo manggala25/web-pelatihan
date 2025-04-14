@@ -6,7 +6,7 @@
     <div class="card">
     <div class="card-header bg-info">
     <h4 class="card-title text-white">
-    Form Buat Informasi Pendaftaran
+    Form Buat Tabs Informasi
     </h4>
     </div>
     <div class="card-body">
@@ -21,8 +21,14 @@
     </div>
     @endif
 
-    <form action="{{ route('admin.informasipendaftaran.store') }}" method="POST">
+    <form action="{{ route('admin.tabsinformasi.store') }}" method="POST">
     @csrf
+
+    <div class="mb-3">
+      <label for="nama_tabs" class="form-label">Judul Informasi</label>
+      <input type="text" name="nama_tabs" class="form-control" required value="{{ old('nama_tabs') }}" />
+    </div>
+
     <div class="mb-3">
     <label for="content" class="form-label">Isi Informasi</label>
     <textarea name="content" id="content" class="form-control summernote" rows="10">{{ old('content') }}</textarea>

@@ -1,4 +1,4 @@
-@props(['kategoriTema', 'kontak', 'informasipendaftaran'])
+@props(['kategoriTema', 'kontak', 'informasipendaftaran', 'bannerKontak'])
 
 
 <div class="col-xl-4 col-lg-5">
@@ -73,10 +73,9 @@
             </div><!-- /.page-sidebar__social -->
             <div class="page-sidebar__contact page-sidebar__single wow animated fadeInRight" data-wow-delay="0.1s"
                 data-wow-duration="1500ms"
-                style="background-image: url('{{ asset('template/frontend/assets/images/resources/sidebar-contact-bg.jpg') }}');">
+                style="background-image: url('{{ $bannerKontak ? asset('storage/' . $bannerKontak->image) : asset('template/frontend/assets/images/resources/sidebar-contact-bg.jpg') }}');">
                 <div class="page-sidebar__contact-wrap">
-                    <h3 class="page-sidebar__contact-title mb-0">Hubung Kami:</h3>
-                    <p class="page-sidebar__contact-text mb-3">Cari tau informasi lebih lanjut!</p>
+                    <h3 class="page-sidebar__contact-title mb-0">{{ $bannerKontak ? $bannerKontak->text : 'Hubung Kami:' }}</h3>
                     @if ($kontak->isNotEmpty())
                             @foreach ($kontak as $item)
                                 @if ($item->nama_kontak === 'WhatsApp')

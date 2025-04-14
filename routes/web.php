@@ -16,8 +16,10 @@ use App\Http\Controllers\Admin\MitraController;
 use App\Http\Controllers\Admin\TargetPelatihanController;
 use App\Http\Controllers\Admin\SectionController;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\BannerKontakController;
 use App\Http\Controllers\Admin\InformasiPendaftaranController;
 use App\Http\Controllers\Admin\JadwalPelatihanController;
+use App\Http\Controllers\Admin\TabsInformasiController;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AdminLoginController;
@@ -174,6 +176,14 @@ Route::prefix($adminPrefix)->group(function () {
         Route::patch('/admin/banner/{id}/update', [BannerController::class, 'update'])->name('admin.banner.update');
         Route::delete('/admin/banner/{id}', [BannerController::class, 'destroy'])->name('admin.banner.destroy');
 
+        // Route Banner Kontak
+        Route::get('/bannerkontak', [BannerKontakController::class, 'index'])->name('admin.bannerkontak');    
+        Route::get('/bannerkontak/create', [BannerKontakController::class, 'create'])->name('admin.bannerkontak.create');
+        Route::post('/bannerkontak/store', [BannerKontakController::class, 'store'])->name('admin.bannerkontak.store');
+        Route::get('/admin/bannerkontak/{id}/edit', [BannerKontakController::class, 'edit'])->name('admin.bannerkontak.edit');
+        Route::patch('/admin/bannerkontak/{id}/update', [BannerKontakController::class, 'update'])->name('admin.bannerkontak.update');
+        Route::delete('/admin/bannerkontak/{id}', [BannerKontakController::class, 'destroy'])->name('admin.bannerkontak.destroy');
+
         // Route Informasi Pendaftaran
         Route::get('/informasipendaftaran', [InformasiPendaftaranController::class, 'index'])->name('admin.informasipendaftaran');
         Route::get('/informasipendaftaran/{id}/show', [InformasiPendaftaranController::class, 'show'])->name('admin.informasipendaftaran.show');
@@ -192,6 +202,14 @@ Route::prefix($adminPrefix)->group(function () {
         Route::patch('/admin/jadwal-pelatihan/{id}/update', [JadwalPelatihanController::class, 'update'])->name('admin.jadwal-pelatihan.update');
         Route::delete('/admin/jadwal-pelatihan/{id}', [JadwalPelatihanController::class, 'destroy'])->name('admin.jadwal-pelatihan.destroy');
 
+        // Route Tabs Informasi
+        Route::get('/tabsinformasi', [TabsInformasiController::class, 'index'])->name('admin.tabsinformasi');
+        Route::get('/tabsinformasi/{id}/show', [TabsInformasiController::class, 'show'])->name('admin.tabsinformasi.show');
+        Route::get('/tabsinformasi/create', [TabsInformasiController::class, 'create'])->name('admin.tabsinformasi.create');
+        Route::post('/tabsinformasi/store', [TabsInformasiController::class, 'store'])->name('admin.tabsinformasi.store');
+        Route::get('/admin/tabsinformasi/{id}/edit', [TabsInformasiController::class, 'edit'])->name('admin.tabsinformasi.edit');
+        Route::patch('/admin/tabsinformasi/{id}/update', [TabsInformasiController::class, 'update'])->name('admin.tabsinformasi.update');
+        Route::delete('/admin/tabsinformasi/{id}', [TabsInformasiController::class, 'destroy'])->name('admin.tabsinformasi.destroy');
     });
 });
 

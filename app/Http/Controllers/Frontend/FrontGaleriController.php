@@ -9,6 +9,8 @@ use App\Models\KategoriTema;
 use App\Models\Kontak;
 use App\Models\Banner;
 use App\Models\InformasiPendaftaran;
+use App\Models\TabsInformasi;
+use App\Models\BannerKontak;
 
 class FrontGaleriController extends Controller
 {
@@ -27,7 +29,13 @@ class FrontGaleriController extends Controller
 
     $informasipendaftaran = InformasiPendaftaran::orderBy('updated_at', 'desc')->first(); // hanya 1 data terbaru
 
-    return view('frontend.galeri', compact('portofolio' , 'kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran'));
+    // Ambil 3 data terakhir dari tabel tabs_informasi
+    $tabs = TabsInformasi::orderBy('created_at', 'desc')->take(3)->get();
+
+    // Ambil satu data terbaru dari tabel banner_kontak
+    $bannerKontak = BannerKontak::orderBy('updated_at', 'desc')->first();
+
+    return view('frontend.galeri', compact('portofolio' , 'kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran', 'bannerKontak', 'tabs'));
   }
 
   public function show($slug)
@@ -43,8 +51,11 @@ class FrontGaleriController extends Controller
 
     $latestBanner = Banner::orderBy('updated_at', 'desc')->first(); // Ambil satu yang paling baru
 
+    // Ambil 3 data terakhir dari tabel tabs_informasi
+    $tabs = TabsInformasi::orderBy('created_at', 'desc')->take(3)->get();
+
     $informasipendaftaran = InformasiPendaftaran::orderBy('updated_at', 'desc')->first(); // hanya 1 data terbaru
 
-    return view('frontend.detail-galeri', compact('portofolio', 'kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran')); // Pastikan view detail tersedia
+    return view('frontend.detail-galeri', compact('portofolio', 'kategori_tema', 'kontak', 'latestBanner', 'tabs', 'informasipendaftaran')); // Pastikan view detail tersedia
   }
 }
