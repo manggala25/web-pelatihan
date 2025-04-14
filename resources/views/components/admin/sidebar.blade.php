@@ -70,6 +70,9 @@
                                     class="ri-user-star-line"></i><span class="hide-menu">Nama Pelatihan</span></a>
                         </li>
                         <li class="sidebar-item">
+                            <a href="{{ Route('admin.jadwal-pelatihan') }}" class="sidebar-link"><i class="ri-map-pin-time-line"></i><span class="hide-menu">Jadwal Pelatihan</span></a>
+                        </li>
+                        <li class="sidebar-item">
                             <a href="{{ Route('admin.kategori-tema') }}" class="sidebar-link"><i
                                     class="ri-bubble-chart-line"></i><span class="hide-menu">Kategori Tema</span></a>
                         </li>

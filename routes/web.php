@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\TargetPelatihanController;
 use App\Http\Controllers\Admin\SectionController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\InformasiPendaftaranController;
+use App\Http\Controllers\Admin\JadwalPelatihanController;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AdminLoginController;
@@ -181,6 +182,15 @@ Route::prefix($adminPrefix)->group(function () {
         Route::get('/admin/informasipendaftaran/{id}/edit', [InformasiPendaftaranController::class, 'edit'])->name('admin.informasipendaftaran.edit');
         Route::patch('/admin/informasipendaftaran/{id}/update', [InformasiPendaftaranController::class, 'update'])->name('admin.informasipendaftaran.update');
         Route::delete('/admin/informasipendaftaran/{id}', [InformasiPendaftaranController::class, 'destroy'])->name('admin.informasipendaftaran.destroy');
+
+        // Jadwal Pelatihan
+        Route::get('/jadwal-pelatihan', [JadwalPelatihanController::class, 'index'])->name('admin.jadwal-pelatihan');
+        Route::get('/jadwal-pelatihan/{id}/show', [JadwalPelatihanController::class, 'show'])->name('admin.jadwal-pelatihan.show');
+        Route::get('/jadwal-pelatihan/create', [JadwalPelatihanController::class, 'create'])->name('admin.jadwal-pelatihan.create');
+        Route::post('/jadwal-pelatihan/store', [JadwalPelatihanController::class, 'store'])->name('admin.jadwal-pelatihan.store');
+        Route::get('/admin/jadwal-pelatihan/{id}/edit', [JadwalPelatihanController::class, 'edit'])->name('admin.jadwal-pelatihan.edit');
+        Route::patch('/admin/jadwal-pelatihan/{id}/update', [JadwalPelatihanController::class, 'update'])->name('admin.jadwal-pelatihan.update');
+        Route::delete('/admin/jadwal-pelatihan/{id}', [JadwalPelatihanController::class, 'destroy'])->name('admin.jadwal-pelatihan.destroy');
 
     });
 });

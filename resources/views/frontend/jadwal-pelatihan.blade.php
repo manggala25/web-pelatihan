@@ -55,100 +55,48 @@
     </div><!-- /.solution-one__content -->
     </div>
     <div class="col-12 wow animated fadeInUp" data-wow-delay="0.1s" data-wow-duration="1500ms">
-    <!-- Navigation Tabs -->
-    <ul class="nav nav-tabs justify-content-center border-bottom" id="jadwalTabs" role="tablist"
-    style="border-bottom: 2px dashed #ccc;">
-    <li class="nav-item" role="presentation">
-    <button class="nav-link active" id="jan-tab" data-bs-toggle="tab" data-bs-target="#januari" type="button"
-    role="tab">Januari</button>
-    </li>
-    <li class="nav-item" role="presentation">
-    <button class="nav-link" id="feb-tab" data-bs-toggle="tab" data-bs-target="#februari" type="button"
-    role="tab">Februari</button>
-    </li>
-    <li class="nav-item" role="presentation">
-    <button class="nav-link" id="mar-tab" data-bs-toggle="tab" data-bs-target="#maret" type="button"
-    role="tab">Maret</button>
-    </li>
-    </ul>
-    <!-- Tab Content -->
-    <div class="tab-content mt-4" id="jadwalTabsContent">
-    <!-- Januari -->
-    <div class="tab-pane fade show active" id="januari" role="tabpanel">
-    <table class="table table-striped table-bordered">
-    <thead class="table-dark">
-    <tr>
-    <th>No</th>
-    <th>Waktu</th>
-    <th>Lokasi</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-    <td>1</td>
-    <td>Senin, 15 Januari 2025</td>
-    <td>Jakarta</td>
-    </tr>
-    <tr>
-    <td>2</td>
-    <td>Rabu, 31 Januari 2025</td>
-    <td>Bandung</td>
-    </tr>
-    </tbody>
-    </table>
+        <!-- Navigation Tabs -->
+        <ul class="nav nav-tabs justify-content-center border-bottom" id="jadwalTabs" role="tablist"
+            style="border-bottom: 2px dashed #ccc;">
+            @foreach($grouped as $bulanTahun => $jadwals)
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link {{ $loop->first ? 'active' : '' }}"
+                        id="{{ \Illuminate\Support\Str::slug($bulanTahun) }}-tab" data-bs-toggle="tab"
+                        data-bs-target="#{{ \Illuminate\Support\Str::slug($bulanTahun) }}" type="button" role="tab">
+                        {{ $bulanTahun }}
+                    </button>
+                </li>
+            @endforeach
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content mt-4" id="jadwalTabsContent">
+            @foreach($grouped as $bulanTahun => $jadwals)
+                <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}"
+                    id="{{ \Illuminate\Support\Str::slug($bulanTahun) }}" role="tabpanel">
+                    <table class="table table-striped table-bordered">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>No</th>
+                                <th>Waktu</th>
+                                <th>Lokasi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($jadwals as $index => $jadwal)
+                                <tr>
+                                    <td>{{ $index + 1 }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($jadwal->waktu)->translatedFormat('l, d F Y') }}</td>
+                                    <td>{{ $jadwal->lokasi }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            @endforeach
+        </div>
     </div>
 
-    <!-- Februari -->
-    <div class="tab-pane fade" id="februari" role="tabpanel">
-    <table class="table table-striped table-bordered">
-    <thead class="table-dark">
-    <tr>
-    <th>No</th>
-    <th>Waktu</th>
-    <th>Lokasi</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-    <td>1</td>
-    <td>Jumat, 9 Februari 2025</td>
-    <td>Surabaya</td>
-    </tr>
-    <tr>
-    <td>2</td>
-    <td>Sabtu, 24 Februari 2025</td>
-    <td>Yogyakarta</td>
-    </tr>
-    </tbody>
-    </table>
-    </div>
-
-    <!-- Maret -->
-    <div class="tab-pane fade" id="maret" role="tabpanel">
-    <table class="table table-striped table-bordered">
-    <thead class="table-dark">
-    <tr>
-    <th>No</th>
-    <th>Waktu</th>
-    <th>Lokasi</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-    <td>1</td>
-    <td>Senin, 12 Maret 2025</td>
-    <td>Medan</td>
-    </tr>
-    <tr>
-    <td>2</td>
-    <td>Jumat, 29 Maret 2025</td>
-    <td>Bali</td>
-    </tr>
-    </tbody>
-    </table>
-    </div>
-    </div>
-    </div>
     </div>
     </div><!-- /.case-study-sidebar__right -->
 

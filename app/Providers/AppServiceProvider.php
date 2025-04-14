@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 
 use App\Models\KategoriTema;
 use Illuminate\Support\Facades\View;
+use Carbon\Carbon;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Carbon::setLocale('id');
+
         View::composer('components.sidebarfront', function ($view) {
             $kategori_tema = KategoriTema::select('id', 'nama_kategori', 'slug')
                 ->withCount(['pelatihan as jumlah'])
