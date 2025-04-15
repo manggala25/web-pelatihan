@@ -13,9 +13,9 @@
                                 class="footer-one__logo">
                         </a>
                     </div>
-                    <p class="footer-one__about-text">Mauris ut enim sit amet lacus ornare ullamcor. Praesent placerat
-                        nequ
-                        puru rhoncu tincidunt odio ultrices. Sed feugiat feugiat felis.</p>
+                    <p class="footer-one__about-text">
+                        "Memberikan pelayanan terbaik dalam pelatihan dengan profesional" atau "Terlatih, Kompeten, Siap Kerja"
+                    </p>
                     <div class="mfooter-social__social social-list">
                         @if ($kontak->isNotEmpty())
                             @foreach ($kontak as $item)

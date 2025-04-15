@@ -157,9 +157,6 @@
                     <li class="{{ request()->routeIs('home') ? 'current' : '' }}">
                         <a href="{{ route('home') }}">Beranda</a>
                     </li>
-                    <li class="{{ request()->routeIs('blog') ? 'current' : '' }}">
-                        <a href="{{ route('blog') }}">Blog</a>
-                    </li>
                     <li class="dropdown {{ request()->is('tentang-kami*') ? 'current' : '' }}">
                         <a href="#">Tentang Kami <i class="fas fa-angle-down"></i></a>
                         <ul>
@@ -185,6 +182,9 @@
                                 <a href="{{ route('program-pengalaman-kerja') }}">Program Pengalaman Kerja</a>
                             </li>
                         </ul>
+                    </li>
+                    <li class="{{ request()->routeIs('blog') ? 'current' : '' }}">
+                        <a href="{{ route('blog') }}">Blog</a>
                     </li>
                     <li class="{{ request()->routeIs('tema-pelatihan') ? 'current' : '' }}">
                         <a href="{{ route('tema-pelatihan') }}">Tema Pelatihan</a>

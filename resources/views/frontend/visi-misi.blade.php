@@ -68,7 +68,7 @@
                         </div><!-- /.blog-details__card-bottom -->
                     </div>
                     {{-- Informasi Penting --}}
-                    <x-informasipenting :tabs="$tabs" />
+                    <x-informasipenting :tabs="$tabs" :sectiontabsinformasi="$sectiontabsinformasi" />
                 </div>
 
                 <!-- Sidebar Start -->

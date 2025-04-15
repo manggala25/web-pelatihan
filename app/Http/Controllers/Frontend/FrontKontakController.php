@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Kontak;
 use App\Models\NamaPelatihan;
 use App\Models\Banner;
+use App\Models\BannerKontak;
 
 class FrontKontakController extends Controller
 {
@@ -43,6 +44,9 @@ class FrontKontakController extends Controller
 
         $latestBanner = Banner::orderBy('updated_at', 'desc')->first(); // Ambil satu yang paling baru
 
-        return view('frontend.kontak', compact('kontak', 'gmapsFrame', 'whatsapp', 'email', 'alamat', 'informasi_kontak', 'nama_pelatihan', 'latestBanner'));
+        // Ambil satu data terbaru dari tabel banner_kontak
+        $bannerKontak = BannerKontak::orderBy('updated_at', 'desc')->first();
+
+        return view('frontend.kontak', compact('kontak', 'gmapsFrame', 'whatsapp', 'email', 'alamat', 'informasi_kontak', 'nama_pelatihan', 'latestBanner', 'bannerKontak'));
     }
 }

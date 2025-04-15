@@ -53,7 +53,7 @@
     {!! nl2br(htmlspecialchars_decode(e($nama_pelatihan->content))) !!}
     </p>
     </div>
-    <x-informasipenting :tabs="$tabs" />
+    <x-informasipenting :tabs="$tabs" :sectiontabsinformasi="$sectiontabsinformasi" />
     </div>
     <x-sidebarfront :kategoriTema="$kategori_tema" :kontak="$kontak" :informasipendaftaran="$informasipendaftaran"
         :bannerKontak="$bannerKontak" />

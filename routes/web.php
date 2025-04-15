@@ -20,6 +20,7 @@ use App\Http\Controllers\Admin\BannerKontakController;
 use App\Http\Controllers\Admin\InformasiPendaftaranController;
 use App\Http\Controllers\Admin\JadwalPelatihanController;
 use App\Http\Controllers\Admin\TabsInformasiController;
+use App\Http\Controllers\Admin\SectionTabsInformasiController;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AdminLoginController;
@@ -210,6 +211,15 @@ Route::prefix($adminPrefix)->group(function () {
         Route::get('/admin/tabsinformasi/{id}/edit', [TabsInformasiController::class, 'edit'])->name('admin.tabsinformasi.edit');
         Route::patch('/admin/tabsinformasi/{id}/update', [TabsInformasiController::class, 'update'])->name('admin.tabsinformasi.update');
         Route::delete('/admin/tabsinformasi/{id}', [TabsInformasiController::class, 'destroy'])->name('admin.tabsinformasi.destroy');
+
+        // Route Section Tabs Informasi
+        Route::get('/sectiontabsinformasi', [SectionTabsInformasiController::class, 'index'])->name('admin.sectiontabsinformasi');
+        Route::get('/sectiontabsinformasi/{id}/show', [SectionTabsInformasiController::class, 'show'])->name('admin.sectiontabsinformasi.show');
+        Route::get('/sectiontabsinformasi/create', [SectionTabsInformasiController::class, 'create'])->name('admin.sectiontabsinformasi.create');
+        Route::post('/sectiontabsinformasi/store', [SectionTabsInformasiController::class, 'store'])->name('admin.sectiontabsinformasi.store');
+        Route::get('/admin/sectiontabsinformasi/{id}/edit', [SectionTabsInformasiController::class, 'edit'])->name('admin.sectiontabsinformasi.edit');
+        Route::patch('/admin/sectiontabsinformasi/{id}/update', [SectionTabsInformasiController::class, 'update'])->name('admin.sectiontabsinformasi.update');
+        Route::delete('/admin/sectiontabsinformasi/{id}', [SectionTabsInformasiController::class, 'destroy'])->name('admin.sectiontabsinformasi.destroy');
     });
 });
 

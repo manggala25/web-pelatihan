@@ -80,7 +80,7 @@
     </div><!-- /.blog-one__item -->
     </div>
     </div>
-    <x-informasipenting :tabs="$tabs" />
+    <x-informasipenting :tabs="$tabs" :sectiontabsinformasi="$sectiontabsinformasi" />
     </div>
     </div>
     <x-sidebarfront :kategoriTema="$kategori_tema" :kontak="$kontak" :informasipendaftaran="$informasipendaftaran"

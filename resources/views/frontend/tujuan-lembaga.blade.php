@@ -59,7 +59,7 @@
                         </p>
                     </div>
                     {{-- Informasi Penting --}}
-                    <x-informasipenting :tabs="$tabs" />
+                    <x-informasipenting :tabs="$tabs" :sectiontabsinformasi="$sectiontabsinformasi" />
                 </div>
 
                 <!-- Sidebar Start -->

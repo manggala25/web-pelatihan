@@ -1,4 +1,4 @@
-@props(['tabs'])
+@props(['tabs', 'sectiontabsinformasi'])
 
 <div class="row py-5">
     <div class="col-12 mt-5">
@@ -6,9 +6,9 @@
             <div class="sec-title__top-wrap d-flex">
                 <img src="{{ asset('template/frontend/assets/images/resources/top-title-logo.png') }}"
                     alt="top-title-logo">
-                <p class="sec-title__top">Informasi Penting!</p>
+                <p class="sec-title__top">{{ $sectiontabsinformasi ? $sectiontabsinformasi->top_title : 'Informasi Penting:' }}</p>
             </div>
-            <h6 class="sec-title__heading mb-0">Informasi Pendaftaran dan lainnya.</h6>
+            <h6 class="sec-title__heading mb-0">{{ $sectiontabsinformasi ? $sectiontabsinformasi->heading : 'Informasi Penting:' }}</h6>
             <div class="solution-one__main-tab-box tabs-box mt-3">
                 <ul class="tab-buttons justify-content-center">
                     @if($tabs->isEmpty())

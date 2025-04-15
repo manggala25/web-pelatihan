@@ -44,6 +44,10 @@
                             <a href="{{ Route('admin.tabsinformasi') }}" class="sidebar-link"><i
                                     class="ri-information-line"></i><span class="hide-menu">3 Tabs Informasi</span></a>
                         </li>
+                        <li class="sidebar-item">
+                            <a href="{{ Route('admin.sectiontabsinformasi') }}" class="sidebar-link"><i
+                                    class="ri-information-line"></i><span class="hide-menu">Section Tabs Informasi</span></a>
+                        </li>
                     </ul>
                 </li>
                 {{-- Blog --}}

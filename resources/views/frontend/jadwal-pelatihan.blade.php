@@ -100,7 +100,7 @@
     </div>
     </div><!-- /.case-study-sidebar__right -->
 
-    <x-informasipenting :tabs="$tabs" />
+    <x-informasipenting :tabs="$tabs" :sectiontabsinformasi="$sectiontabsinformasi" />
     </div>
     <!-- Sidebar Start -->
     <x-sidebarfront :kategoriTema="$kategori_tema" :kontak="$kontak" :informasipendaftaran="$informasipendaftaran"
