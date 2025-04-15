@@ -56,7 +56,7 @@
     <h3 class="case-study-details__md-title">
     {{ $portofolio->judul_portofolio ?? 'Judul Tidak Tersedia' }}
     </h3>
-    <p class="case-study-details__desc-one case-study-details__desc">
+    <p class="case-study-details__desc-one case-study-details__desc mt-2">
     {!! nl2br(htmlspecialchars_decode(e($portofolio->content ?? 'Konten tidak tersedia.'))) !!}
     </p>
     </div>

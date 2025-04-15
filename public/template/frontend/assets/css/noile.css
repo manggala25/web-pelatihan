@@ -8452,13 +8452,13 @@ i {
 .case-study-details__img-box {
   position: relative;
   margin-bottom: 18px;
-  background-color: var(--noile-primary, #1d1d1d);
-  background-blend-mode: luminosity;
+  /* background-color: var(--noile-primary, #1d1d1d);
+  background-blend-mode: luminosity; */
 }
 .case-study-details__img {
   width: 100%;
   display: block;
-  mix-blend-mode: luminosity;
+  /* mix-blend-mode: luminosity; */
 }
 .case-study-details__card-category {
   position: absolute;
