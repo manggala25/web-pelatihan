@@ -71,14 +71,4 @@
     </section>
     <!-- Section End -->
 
-    <!-- Tujuan Lembaga Start -->
-    <section class="tujuan-lembaga">
-    <div class="container my-5">
-    <div class="row py-5">
-
-    </div>
-    </div>
-    </section>
-    <!-- Tujuan Lembaga End -->
-
 @endsection

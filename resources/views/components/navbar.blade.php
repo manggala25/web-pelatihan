@@ -36,6 +36,10 @@
                         <i class="topbar__info-icon icofont-clock-time"></i>
                         <p class="topbar__info-text">Senin - Jumat, 10.00 - 15.00</p>
                     </li>
+                    <li class="topbar__info-item">
+                        <i class="topbar__info-icon icofont-clock-time"></i>
+                        <p class="topbar__info-text">Sabtu - Minggu, Libur</p>
+                    </li>
                     @if ($kontak->isEmpty())
                         <li>
                             <i class="topbar__info-icon icon-email"></i>

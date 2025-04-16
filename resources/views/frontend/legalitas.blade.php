@@ -34,33 +34,42 @@
     </section>
     <!-- Page Header End -->
 
-    <!-- Legalitas Start -->
-    <section class="legalitas">
-    <div class="container my-5">
-    <div class="row">
-    <div class="col-12">
-    <div class="solution-one__content sec-title">
-    <div class="sec-title__top-wrap">
-    <img src="{{ asset('template/frontend/assets/images/resources/top-title-logo.png') }}" alt="top-title-logo">
-    <p class="sec-title__top">Legalitas</p>
-    </div>
-    <h2 class="solution-one__heading sec-title__heading">Legalitas Badan Hukum
-    </h2>
-    <!-- /.olution-one__main-tab-box -->
-    </div><!-- /.solution-one__content -->
-    </div>
-    <div class="col-md-12 mb-3">
-    <div class="blog-details__card-desc-three-box">
-    <p class="blog-details__card-desc-three">Menyelenggarakan Bimtek, Diklat, Workshop dan Study Banding Bagi Aparatur Pemerintah Daerah;
-    Menyelenggarakan pelatihan, pendidikan dan peningkatan SDM dalam skala nasional berbasis kompetensi;
-    Meningkatkan kompetensi bagi para aparatur daerah legislatif maupun eksekutif untuk perbaikan pelayanan publik dasar;
-    Peningkatan Kapasitas fungsi aparatur daerah untuk perbaikan pelayanan publik dasar;
-    Untuk memberikan pengetahuan baru kepada aparatur daerah untuk perbaikan pelayanan publik dasar.</p>
-    </div><!-- /.blog-details__card-bottom -->
-    </div>
-    </div>
-    </div>
+    <!-- Section Start -->
+    <section class="blog-sidebar blog">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-xl-8 col-lg-7">
+                    <div class="col-12">
+                        <div class="solution-one__content sec-title">
+                            <div class="sec-title__top-wrap">
+                                <img src="{{ asset('template/frontend/assets/images/resources/top-title-logo.png') }}"
+                                    alt="top-title-logo">
+                                <p class="sec-title__top">
+                                    {{ $legalitas ? $legalitas->top_title : 'legalitas' }}
+                                </p>
+                            </div>
+                            <h2 class="solution-one__heading sec-title__heading">
+                                {{ $legalitas ? $legalitas->heading : 'Heading..' }}
+                            </h2>
+                            <!-- /.olution-one__main-tab-box -->
+                        </div><!-- /.solution-one__content -->
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <p class="blog-details__card-desc-three">
+                            {!! nl2br(htmlspecialchars_decode(e($legalitas->content ?? 'konten masih kosong...'))) !!}
+                        </p>
+                    </div>
+                    {{-- Informasi Penting --}}
+                    <x-informasipenting :tabs="$tabs" :sectiontabsinformasi="$sectiontabsinformasi" />
+                </div>
+
+                <!-- Sidebar Start -->
+                <x-sidebarfront :kategoriTema="$kategori_tema" :kontak="$kontak"
+                    :informasipendaftaran="$informasipendaftaran" :bannerKontak="$bannerKontak" />
+
+            </div>
+        </div>
     </section>
-    <!-- Legalitas End -->
+    <!-- Section End -->
 
 @endsection

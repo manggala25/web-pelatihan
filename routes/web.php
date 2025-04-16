@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\NamaPelatihanController;
 use App\Http\Controllers\Admin\ProfilController;
 use App\Http\Controllers\Admin\VisiMisiController;
 use App\Http\Controllers\Admin\TujuanLembagaController;
+use App\Http\Controllers\Admin\PengurusController;
 use App\Http\Controllers\Admin\InformasiKontakController;
 use App\Http\Controllers\Admin\TestimoniController;
 use App\Http\Controllers\Admin\BentukPelatihanController;
@@ -21,6 +22,7 @@ use App\Http\Controllers\Admin\InformasiPendaftaranController;
 use App\Http\Controllers\Admin\JadwalPelatihanController;
 use App\Http\Controllers\Admin\TabsInformasiController;
 use App\Http\Controllers\Admin\SectionTabsInformasiController;
+use App\Http\Controllers\Admin\LegalitasController;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AdminLoginController;
@@ -130,6 +132,24 @@ Route::prefix($adminPrefix)->group(function () {
         Route::get('/admin/tujuanlembaga/{id}/edit', [TujuanLembagaController::class, 'edit'])->name('admin.tujuanlembaga.edit');
         Route::patch('/admin/tujuanlembaga/{id}/update', [TujuanLembagaController::class, 'update'])->name('admin.tujuanlembaga.update');
         Route::delete('/admin/tujuanlembaga/{id}', [TujuanLembagaController::class, 'destroy'])->name('admin.tujuanlembaga.destroy');
+
+        // Pengurus
+        Route::get('/pengurus', [PengurusController::class, 'index'])->name('admin.pengurus');
+        Route::get('/pengurus/create', [PengurusController::class, 'create'])->name('admin.pengurus.create');
+        Route::post('/pengurus/store', [PengurusController::class, 'store'])->name('admin.pengurus.store');
+        Route::get('/admin/pengurus/{id}', [PengurusController::class, 'show'])->name('admin.pengurus.show');
+        Route::get('/admin/pengurus/{id}/edit', [PengurusController::class, 'edit'])->name('admin.pengurus.edit');
+        Route::patch('/admin/pengurus/{id}/update', [PengurusController::class, 'update'])->name('admin.pengurus.update');
+        Route::delete('/admin/pengurus/{id}', [PengurusController::class, 'destroy'])->name('admin.pengurus.destroy');
+
+        // Legalitas
+        Route::get('/legalitas', [LegalitasController::class, 'index'])->name('admin.legalitas');
+        Route::get('/legalitas/create', [LegalitasController::class, 'create'])->name('admin.legalitas.create');
+        Route::post('/legalitas/store', [LegalitasController::class, 'store'])->name('admin.legalitas.store');
+        Route::get('/admin/legalitas/{id}', [LegalitasController::class, 'show'])->name('admin.legalitas.show');
+        Route::get('/admin/legalitas/{id}/edit', [LegalitasController::class, 'edit'])->name('admin.legalitas.edit');
+        Route::patch('/admin/legalitas/{id}/update', [LegalitasController::class, 'update'])->name('admin.legalitas.update');
+        Route::delete('/admin/legalitas/{id}', [LegalitasController::class, 'destroy'])->name('admin.legalitas.destroy');
 
         // Informasi Kontak
         Route::get('/informasikontak', [InformasiKontakController::class, 'index'])->name('admin.informasikontak');

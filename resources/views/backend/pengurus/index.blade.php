@@ -7,7 +7,7 @@
     <div class="card">
     <div
     class="card-header bg-info border-bottom title-part-padding d-flex justify-content-between align-items-center">
-    <h4 class="card-title text-white mb-0">Tabel Data Tujuan Lembaga</h4>
+    <h4 class="card-title text-white mb-0">Tabel Data Pengurus</h4>
     <input id="searchInput" type="text" class="form-control w-25" placeholder="Cari judul..." />
     </div>
     <div class="card-body">
@@ -31,16 +31,16 @@
     </tr>
     </thead>
     <tbody>
-    @forelse ($tujuanlembaga as $key => $tujuanlembaga)
+    @forelse ($pengurus as $key => $pengurus)
         <tr>
         <td>{{ $key + 1 }}</td>
-        <td>{{ Str::limit($tujuanlembaga->heading, 50) }}</td>
-        <td>{{ $tujuanlembaga->title_top }}</td>
+        <td>{{ Str::limit($pengurus->heading, 50) }}</td>
+        <td>{{ $pengurus->top_title }}</td>
         <td class="d-flex gap-2 text-white">
-        <a href="{{ route('admin.tujuanlembaga.show', $tujuanlembaga->id) }}" class="btn btn-info btn-circle">
+        <a href="{{ route('admin.pengurus.show', $pengurus->id) }}" class="btn btn-info btn-circle">
         <i class="ri-eye-line"></i>
         </a>
-        <a href="{{ route('admin.tujuanlembaga.edit', $tujuanlembaga->id) }}" class="btn btn-warning btn-circle">
+        <a href="{{ route('admin.pengurus.edit', $pengurus->id) }}" class="btn btn-warning btn-circle">
         <i class="ri-edit-2-fill"></i>
         </a>
         </td>

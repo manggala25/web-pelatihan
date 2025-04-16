@@ -120,6 +120,14 @@
                                     class="hide-menu">Tujuan Lembaga</span></a>
                         </li>
                         <li class="sidebar-item">
+                            <a href="{{ Route('admin.pengurus') }}" class="sidebar-link"><i class="ri-team-line"></i><span
+                                    class="hide-menu">Pengurus</span></a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{{ Route('admin.legalitas') }}" class="sidebar-link"><i class="ri-shield-star-line"></i><span
+                                    class="hide-menu">Legalitas</span></a>
+                        </li>
+                        <li class="sidebar-item">
                             <a href="{{ Route('admin.testimoni') }}" class="sidebar-link"><i class="ri-chat-quote-line"></i><span
                                     class="hide-menu">Testimoni</span></a>
                         </li>
