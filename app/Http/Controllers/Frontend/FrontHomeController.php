@@ -24,7 +24,7 @@ class FrontHomeController extends Controller
         $profil = Profil::latest('updated_at')->first();
 
         // Ambil blog terbaru
-        $blog = Blog::latest('created_at')->take(3)->get();
+        $blog = Blog::latest('created_at')->take(6)->get();
 
         // Kontak
         $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat'])->get();
