@@ -31,7 +31,7 @@ class FrontTentangKamiController extends Controller
         $visimisi = VisiMisi::latest('updated_at')->first();
 
         // Kontak
-        $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat'])->get();
+        $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat', 'jam operasional'])->get();
 
         // Ambil Testimoni dari yg baru diupdate dan akif
         $testimoni = Testimoni::latest('updated_at', 'aktif')->get();
@@ -51,7 +51,7 @@ class FrontTentangKamiController extends Controller
             ->paginate(10); // Pastikan pakai get() kalau tidak butuh pagination
 
         // Kontak
-        $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat'])->get();
+        $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat', 'jam operasional'])->get();
 
         $latestBanner = Banner::orderBy('updated_at', 'desc')->first(); // Ambil satu yang paling baru
 
@@ -78,7 +78,7 @@ class FrontTentangKamiController extends Controller
             ->paginate(10); // Pastikan pakai get() kalau tidak butuh pagination
 
         // Kontak
-        $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat'])->get();
+        $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat', 'jam operasional'])->get();
 
         $latestBanner = Banner::orderBy('updated_at', 'desc')->first(); // Ambil satu yang paling baru
 
@@ -105,7 +105,7 @@ class FrontTentangKamiController extends Controller
             ->paginate(10); // Pastikan pakai get() kalau tidak butuh pagination
 
         // Kontak
-        $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat'])->get();
+        $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat', 'jam operasional'])->get();
 
         $latestBanner = Banner::orderBy('updated_at', 'desc')->first(); // Ambil satu yang paling baru
 
@@ -132,7 +132,7 @@ class FrontTentangKamiController extends Controller
             ->paginate(10); // Pastikan pakai get() kalau tidak butuh pagination
 
         // Kontak
-        $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat'])->get();
+        $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat', 'jam operasional'])->get();
 
         $latestBanner = Banner::orderBy('updated_at', 'desc')->first(); // Ambil satu yang paling baru
 

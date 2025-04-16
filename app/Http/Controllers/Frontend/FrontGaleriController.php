@@ -24,7 +24,7 @@ class FrontGaleriController extends Controller
     $portofolio = Portofolio::latest()->paginate(6);
 
     // Kontak
-    $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat'])->get();
+    $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat', 'jam operasional'])->get();
 
     $latestBanner = Banner::orderBy('updated_at', 'desc')->first(); // Ambil satu yang paling baru
 
@@ -50,7 +50,7 @@ class FrontGaleriController extends Controller
     $portofolio = Portofolio::where('slug', $slug)->firstOrFail(); // Ambil data berdasarkan slug
 
     // Kontak
-    $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat'])->get();
+    $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat', 'jam operasional'])->get();
 
     $latestBanner = Banner::orderBy('updated_at', 'desc')->first(); // Ambil satu yang paling baru
 

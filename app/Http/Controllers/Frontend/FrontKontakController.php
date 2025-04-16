@@ -37,7 +37,7 @@ class FrontKontakController extends Controller
         $informasi_kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram'])->get();
 
         // Kontak
-        $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat'])->get();
+        $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat', 'jam operasional'])->get();
 
         // Mengambil nama Pelatihan
         $nama_pelatihan = NamaPelatihan::all();

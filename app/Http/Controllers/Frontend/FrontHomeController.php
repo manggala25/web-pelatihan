@@ -27,7 +27,7 @@ class FrontHomeController extends Controller
         $blog = Blog::latest('created_at')->take(6)->get();
 
         // Kontak
-        $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat'])->get();
+        $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat', 'jam operasional'])->get();
 
         // Ambil semua bentuk pelatihan dari terlama dan status aktf
         $bentuk_pelatihan = BentukPelatihan::where('status', 'aktif')->latest('updated_at')->get();

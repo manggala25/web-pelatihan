@@ -32,13 +32,26 @@
             </div><!-- /.topbar__left -->
             <div class="topbar__right">
                 <ul class="topbar__info topbar__right-item">
+                    @if ($kontak->isEmpty())
+                        <li>
+                            <i class="topbar__info-icon icofont-clock-time"></i>
+                            <p class="topbar__info-text">tidak ada data "Jam Operasional"</p>
+                        </li>
+                    @else
+                        @foreach ($kontak as $item)
+                            @if ($item->nama_kontak === 'Jam Operasional')
+                                <li class="topbar__info-item">
+                                    <i class="topbar__info-icon icofont-clock-time"></i>
+                                    <p class="topbar__info-text">
+                                        {{ $item->deskripsi }}
+                                    </p>
+                                </li>
+                            @endif
+                        @endforeach
+                    @endif
                     <li class="topbar__info-item">
                         <i class="topbar__info-icon icofont-clock-time"></i>
-                        <p class="topbar__info-text">Senin - Jumat, 10.00 - 15.00</p>
-                    </li>
-                    <li class="topbar__info-item">
-                        <i class="topbar__info-icon icofont-clock-time"></i>
-                        <p class="topbar__info-text">Sabtu - Minggu, Libur</p>
+                        <p class="topbar__info-text"></p>
                     </li>
                     @if ($kontak->isEmpty())
                         <li>
