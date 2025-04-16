@@ -1125,7 +1125,7 @@ i {
   padding: 11px 7px 10px 20px;
   position: absolute;
   left: 0;
-  bottom: 107px;
+  bottom: 120px;
   background-color: var(--noile-base, #D94645);
   z-index: 11;
   margin-bottom: 0;
@@ -1141,22 +1141,22 @@ i {
 }
 @media (max-width: 1199px) {
   .case-study__item-desc {
-    bottom: 76px;
+    bottom: 85px;
   }
 }
 @media (max-width: 991px) {
   .case-study__item-desc {
-    bottom: 81px;
+    bottom: 95px;
   }
 }
 @media (max-width: 767px) {
   .case-study__item-desc {
-    bottom: 91px;
+    bottom: 105px;
   }
 }
 @media (max-width: 425px) {
   .case-study__item-desc {
-    bottom: 81px;
+    bottom: 95px;
   }
 }
 .case-study__item-title {

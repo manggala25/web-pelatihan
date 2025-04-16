@@ -52,8 +52,67 @@
         </section>
         <!-- Main Slider End -->
 
+        <!-- Tentang Kami Start -->
+        <section class="solution-one">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xxl-6 col-xl-7">
+                        <div class="solution-one__content sec-title">
+                            <div class="sec-title__top-wrap">
+                                <img src="{{ asset('template/frontend/assets/images/resources/top-title-logo.png') }}"
+                                    alt="top-title-logo">
+                                <p class="sec-title__top">{{ $profil ? $profil->title_top : 'Profil Kami' }}</p>
+                            </div>
+                            <h2 class="solution-one__heading sec-title__heading">
+                                {{ $profil ? $profil->heading : 'Kenal Kami Lebih Dalam' }}
+                            </h2>
+                            <p class="solution-one__service-desc">
+                                {!! nl2br(Str::limit(strip_tags($profil->deskripsi), 450)) !!}
+                            </p>
+                            <a href="{{ route('tentang-kami') }}" class="service-one__btn noile-btn">Baca Selengkapnya +</a>
+                            <!-- /.olution-one__main-tab-box -->
+                        </div><!-- /.solution-one__content -->
+                    </div>
+                    <div class="col-xxl-6 col-xl-5 wow animated fadeInRight" data-wow-delay="0.1s" data-wow-duration="1500ms">
+                        <div class="solution-one__img-col">
+                            <div class="solution-one__img-wrap">
+                                <img src="{{ $profil && $profil->img_profil ? asset('storage/' . $profil->img_profil) : asset('template/frontend/assets/images/solution/solution-1-1.jpg') }}"
+                                    alt="solution" class="solution-one__img">
+                                <div class="solution-one__icon-wrap">
+                                    <img src="{{ asset('template/frontend/assets/images/solution/solution-icon-1-1.png') }}"
+                                        alt="solution-icon" class="solution-one__icon">
+                                </div>
+                                <div class="solution-one__border-box">
+                                    <div class="solution-one__border solution-one__border--one"></div>
+                                    <div class="solution-one__border solution-one__border--two"></div>
+                                    <div class="solution-one__border solution-one__border--three"></div>
+                                    <div class="solution-one__border solution-one__border--four"></div>
+                                    <div class="solution-one__border solution-one__border--five"></div>
+                                    <div class="solution-one__border solution-one__border--six"></div>
+                                    <div class="solution-one__border solution-one__border--seven"></div>
+                                    <div class="solution-one__border solution-one__border--eight"></div>
+                                    <div class="solution-one__border solution-one__border--nine"></div>
+                                    <div class="solution-one__border solution-one__border--ten"></div>
+                                </div><!-- /.solution-one__border-box -->
+                                <div class="solution-one__shape-box">
+                                    <div class="solution-one__shape solution-one__shape-one"></div>
+                                    <div class="solution-one__shape solution-one__shape-two"></div>
+                                    <div class="solution-one__shape solution-one__shape-three"></div>
+                                    <div class="solution-one__shape solution-one__shape-four"></div>
+                                    <div class="solution-one__shape solution-one__shape-five"></div>
+                                    <div class="solution-one__shape solution-one__shape-six"></div>
+                                    <div class="solution-one__shape solution-one__shape-seven"></div>
+                                </div><!-- /.solution-one__shape-box -->
+                            </div>
+                        </div><!-- /.solution-one__img-wrap -->
+                    </div>
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </section>
+        <!-- Tentang Kami End -->
+
         <!-- Bentuk Pelatihan Start -->
-        <section class="bentuk-pelatihan py-5 my-5">
+        <section class="bentuk-pelatihan py-5">
             <div class="container">
                 <div class="row mb-3 text-center justify-content-md-center">
                     <div class="col-lg-8">
@@ -234,62 +293,6 @@
             </div><!-- /.container -->
         </section>
         <!-- Portfolio Kegiatan End -->
-
-        <!-- Tentang Kami Start -->
-        <section class="solution-one">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xxl-6 col-xl-7">
-                        <div class="solution-one__content sec-title">
-                            <div class="sec-title__top-wrap">
-                                <img src="{{ asset('template/frontend/assets/images/resources/top-title-logo.png') }}" alt="top-title-logo">
-                                <p class="sec-title__top">{{ $profil ? $profil->title_top : 'Profil Kami' }}</p>
-                            </div>
-                            <h2 class="solution-one__heading sec-title__heading">{{ $profil ? $profil->heading : 'Kenal Kami Lebih Dalam' }}
-                            </h2>
-                            <p class="solution-one__service-desc">
-                                {!! nl2br(Str::limit(strip_tags($profil->deskripsi), 450)) !!}
-                            </p>
-                            <a href="{{ route('tentang-kami') }}" class="service-one__btn noile-btn">Baca Selengkapnya +</a>
-                            <!-- /.olution-one__main-tab-box -->
-                        </div><!-- /.solution-one__content -->
-                    </div>
-                    <div class="col-xxl-6 col-xl-5 wow animated fadeInRight" data-wow-delay="0.1s" data-wow-duration="1500ms">
-                        <div class="solution-one__img-col">
-                            <div class="solution-one__img-wrap">
-                                <img src="{{ $profil && $profil->img_profil ? asset('storage/' . $profil->img_profil) : asset('template/frontend/assets/images/solution/solution-1-1.jpg') }}" alt="solution" class="solution-one__img">
-                                <div class="solution-one__icon-wrap">
-                                    <img src="{{ asset('template/frontend/assets/images/solution/solution-icon-1-1.png') }}" alt="solution-icon"
-                                        class="solution-one__icon">
-                                </div>
-                                <div class="solution-one__border-box">
-                                    <div class="solution-one__border solution-one__border--one"></div>
-                                    <div class="solution-one__border solution-one__border--two"></div>
-                                    <div class="solution-one__border solution-one__border--three"></div>
-                                    <div class="solution-one__border solution-one__border--four"></div>
-                                    <div class="solution-one__border solution-one__border--five"></div>
-                                    <div class="solution-one__border solution-one__border--six"></div>
-                                    <div class="solution-one__border solution-one__border--seven"></div>
-                                    <div class="solution-one__border solution-one__border--eight"></div>
-                                    <div class="solution-one__border solution-one__border--nine"></div>
-                                    <div class="solution-one__border solution-one__border--ten"></div>
-                                </div><!-- /.solution-one__border-box -->
-                                <div class="solution-one__shape-box">
-                                    <div class="solution-one__shape solution-one__shape-one"></div>
-                                    <div class="solution-one__shape solution-one__shape-two"></div>
-                                    <div class="solution-one__shape solution-one__shape-three"></div>
-                                    <div class="solution-one__shape solution-one__shape-four"></div>
-                                    <div class="solution-one__shape solution-one__shape-five"></div>
-                                    <div class="solution-one__shape solution-one__shape-six"></div>
-                                    <div class="solution-one__shape solution-one__shape-seven"></div>
-                                </div><!-- /.solution-one__shape-box -->
-                            </div>
-                        </div><!-- /.solution-one__img-wrap -->
-                    </div>
-                </div><!-- /.row -->
-            </div><!-- /.container -->
-        </section>
-        <!-- Tentang Kami End -->
 
         <!-- Section Tambahan Homepage Start -->
         @foreach ($section as $data)
