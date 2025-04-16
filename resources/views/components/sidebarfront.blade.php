@@ -75,12 +75,12 @@
                 data-wow-duration="1500ms"
                 style="background-image: url('{{ $bannerKontak ? asset('storage/' . $bannerKontak->image) : asset('template/frontend/assets/images/resources/sidebar-contact-bg.jpg') }}');">
                 <div class="page-sidebar__contact-wrap">
-                    <h3 class="page-sidebar__contact-title mb-0">{{ $bannerKontak ? $bannerKontak->text : 'Hubung Kami:' }}</h3>
+                    <h3 class="page-sidebar__contact-title">{{ $bannerKontak ? $bannerKontak->text : 'Hubung Kami:' }}</h3>
                     @if ($kontak->isNotEmpty())
                             @foreach ($kontak as $item)
                                 @if ($item->nama_kontak === 'WhatsApp')
                                     <a href="{{ ltrim($item->link, '0') }}" class="page-sidebar__contact-btn" target="_blank">
-                                        <span class="page-sidebar__contact-icon icon-whatsapp"></span>
+                                        <span class="page-sidebar__contact-icon icon-phone"></span>
                                         <h4 class="page-sidebar__contact-text">{{ $item->deskripsi }}</h4>
                                     </a>
                                 @endif
