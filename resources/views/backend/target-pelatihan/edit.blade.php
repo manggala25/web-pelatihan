@@ -41,7 +41,7 @@
 
                         {{-- Upload Gambar Depan --}}
                         <div class="mb-3">
-                            <label for="image_front">Upload Gambar Depan (416x416)</label>
+                            <label for="image_front">Upload Gambar Depan (416x410)</label>
                             <input type="file" name="image_front" class="form-control" id="image_front" accept="image/*">
                             <div class="mt-2">
                                 @if ($targetpelatihan->image_front)

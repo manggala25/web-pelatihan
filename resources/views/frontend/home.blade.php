@@ -185,7 +185,7 @@
                                     @if ($target_pelatihan) <!-- Memeriksa apakah ada data -->
                                         <img src="{{ asset('storage/' . $target_pelatihan->image_front) }}" alt="about image" class="about-two__img-two">
                                     @else
-                                        <p>Konten target peserta pelatihan belum dibuat.</p>
+                                        
                                     @endif
                                     <img src="{{ asset('template/frontend/assets/images/resources/top-title-logo.png') }}" alt="about image" class="about-two__img-three">
                                 </div>
@@ -213,7 +213,7 @@
                                     <p class="sec-title__top">{{ $target_pelatihan->top_title }}</p>
                                 </div>
                                 <h2 class="about-two__heading sec-title__heading">{{ $target_pelatihan->heading }}</h2>
-                                <div class="text-white mt-3">
+                                <div class="mt-3">
                                     {!! nl2br($target_pelatihan->content ?? 'Konten belum dibuat.') !!}
                                 </div>
                             @else

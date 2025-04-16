@@ -243,23 +243,11 @@ Route::get('/kontak', [FrontkontakController::class, 'index'])->name('kontak');
 Route::get('/tentang-kami', [FrontTentangKamiController::class, 'index'])->name('tentang-kami');
 Route::get('/visi-misi', [FrontTentangKamiController::class, 'visiMisi'])->name('visi-misi');
 Route::get('/tujuan-lembaga', [FrontTentangKamiController::class, 'tujuanLembaga'])->name('tujuan-lembaga');
+Route::get('/legalitas', [FrontTentangKamiController::class, 'legalitas'])->name('legalitas');
+Route::get('/agenda-rutin', [FrontTentangKamiController::class, 'agendaRutin'])->name('agenda-rutin');
+Route::get('/pengurus', [FrontTentangKamiController::class, 'pengurus'])->name('pengurus');
+Route::get('/program-pengalaman-kerja', [FrontTentangKamiController::class, 'programPengalamanKerja'])->name('program-pengalaman-kerja');
 
-
-Route::get('/legalitas', function () {
-    return view('frontend.legalitas');
-})->name('legalitas');
-
-Route::get('/agenda-rutin', function () {
-    return view('frontend.agenda-rutin');
-})->name('agenda-rutin');
-
-Route::get('/pengurus', function () {
-    return view('frontend.pengurus');
-})->name('pengurus');
-
-Route::get('/program-pengalaman-kerja', function () {
-    return view('frontend.program-pengalaman-kerja');
-})->name('program-pengalaman-kerja');
 
 // Tema Pelatihan
 Route::get('/tema-pelatihan', [FrontTemaPelatihanController::class, 'index'])->name('tema-pelatihan');

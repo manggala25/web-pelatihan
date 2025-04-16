@@ -94,6 +94,33 @@ class FrontTentangKamiController extends Controller
         return view('frontend.tujuan-lembaga', compact('tujuanlembaga', 'kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran', 'tabs', 'bannerKontak', 'sectiontabsinformasi'));
     }
 
+    public function pengurus()
+    {
+        // $pengurus = Pengurus::latest('updated_at')->first();
+
+        $kategori_tema = KategoriTema::select('id', 'nama_kategori', 'slug')
+            ->withCount(['pelatihan as jumlah'])
+            ->paginate(10); // Pastikan pakai get() kalau tidak butuh pagination
+
+        // Kontak
+        $kontak = Kontak::whereIn('nama_kontak', ['facebook', 'twitter', 'instagram', 'whatsapp', 'email', 'alamat'])->get();
+
+        $latestBanner = Banner::orderBy('updated_at', 'desc')->first(); // Ambil satu yang paling baru
+
+        $informasipendaftaran = InformasiPendaftaran::orderBy('updated_at', 'desc')->first(); // hanya 1 data terbaru
+
+        // Ambil 3 data terakhir dari tabel tabs_informasi
+        $tabs = TabsInformasi::orderBy('created_at', 'desc')->take(3)->get();
+
+        // Ambil satu data terbaru dari tabel banner_kontak
+        $bannerKontak = BannerKontak::orderBy('updated_at', 'desc')->first();
+
+        $sectiontabsinformasi = SectionTabsInformasi::orderBy('updated_at', 'desc')->first();
+
+
+        return view('frontend.pengurus', compact( 'kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran', 'tabs', 'bannerKontak', 'sectiontabsinformasi'));
+    }
+
     public function cariPelatihan(Request $request)
     {
         $query = $request->input('query');
