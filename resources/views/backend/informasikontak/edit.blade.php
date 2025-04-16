@@ -37,10 +37,10 @@
                         </div>
 
                         <!-- Icon -->
-                        <div class="mb-3">
+                        <div class="mb-3" hidden>
                             <label for="icon">Script Icon</label>
                             <input type="text" name="icon" class="form-control" required
-                            value="{{ old('icon', $informasi_kontak->icon) }}">
+                            value="-">
                         </div>
 
                         <!--deskripsi -->

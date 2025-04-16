@@ -8,7 +8,7 @@
 
                 
                 
-                <div class="mb-3">
+                <div class="mb-3" hidden>
                     <strong>Icon:</strong> {!! nl2br(htmlspecialchars_decode(e($informasi_kontak->icon))) !!}
                 </div>
                 
