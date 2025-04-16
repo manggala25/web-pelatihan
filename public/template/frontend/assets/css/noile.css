@@ -8114,13 +8114,13 @@ i {
 # About Two One
 -------------------------------------*/
 .about-two-one {
-  background-color: #f7f7f7;
+  background-color: var(--noile-primary, #1d1d1d);
 }
 .about-two-one .about-two__consulting-title {
   color: var(--noile-white, #ffffff);
 }
 .about-two-one .about-two__heading {
-  color: RGBA(var(--noile-black, #222222), 0.1);
+  color: var(--noile-white, #ffffff);
 }
 .about-two-one .about-two__img-one-box-inner::after {
   border-color: var(--noile-white, #ffffff);
