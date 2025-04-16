@@ -2,7 +2,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Puspekom</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Ambil path dari URL
+            var path = window.location.pathname;
+            // Ambil nama file dari path
+            var pageName = path.split('/').pop().split('.')[0]; // Mengambil nama file tanpa ekstensi
 
+            // Mengganti simbol '-' dengan spasi dan mengkapitalisasi setiap kata
+            var title = pageName.replace(/-/g, ' ') // Mengganti '-' dengan spasi
+                .split(' ') // Memisahkan kata
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Mengkapitalisasi setiap kata
+                .join(' '); // Menggabungkan kembali menjadi string
+
+            // Tambahkan awalan "PUSPEKOM ||" pada judul
+            document.title = "PUSPEKOM || " + title;
+        });
+    </script>
     <!-- favicons Icons -->
     <link rel="apple-touch-icon" sizes="180x180"
         href="{{ asset('template/frontend/assets/images/favicons/apple-touch-icon.png') }}">
