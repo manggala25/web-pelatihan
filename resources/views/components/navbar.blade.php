@@ -176,15 +176,15 @@
                             <li class="{{ request()->routeIs('legalitas') ? 'current' : '' }}">
                                 <a href="{{ route('legalitas') }}">Legalitas Badan Hukum</a>
                             </li>
-                            <li class="{{ request()->routeIs('agenda-rutin') ? 'current' : '' }}">
-                                <a href="{{ route('agenda-rutin') }}">Agenda Rutin</a>
-                            </li>
                             <li class="{{ request()->routeIs('pengurus') ? 'current' : '' }}">
                                 <a href="{{ route('pengurus') }}">Pengurus</a>
                             </li>
+                            {{-- <li class="{{ request()->routeIs('agenda-rutin') ? 'current' : '' }}">
+                                <a href="{{ route('agenda-rutin') }}">Agenda Rutin</a>
+                            </li>
                             <li class="{{ request()->routeIs('program-pengalaman-kerja') ? 'current' : '' }}">
                                 <a href="{{ route('program-pengalaman-kerja') }}">Program Pengalaman Kerja</a>
-                            </li>
+                            </li> --}}
                         </ul>
                     </li>
                     <li class="{{ request()->routeIs('blog') ? 'current' : '' }}">
