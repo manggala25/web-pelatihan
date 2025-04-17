@@ -59,8 +59,9 @@
                     <div class="col-xxl-6 col-xl-7">
                         <div class="solution-one__content sec-title">
                             <div class="sec-title__top-wrap">
-                                <img src="{{ asset('template/frontend/assets/images/resources/top-title-logo.png') }}"
-                                    alt="top-title-logo">
+                                @if(!empty($asset->logo_reguler))
+                                    <img src="{{ asset('storage/' . $asset->logo_reguler) }}" alt="top-title-logo">
+                                @endif
                                 <p class="sec-title__top">{{ $profil ? $profil->title_top : 'Profil Kami' }}</p>
                             </div>
                             <h2 class="solution-one__heading sec-title__heading">
@@ -117,7 +118,9 @@
                 <div class="row mb-3 text-center justify-content-md-center">
                     <div class="col-lg-8">
                         <div class="sec-title__top-wrap justify-content-md-center">
-                            <img src="{{ asset('template/frontend/assets/images/resources/top-title-logo.png') }}" alt="top-title-logo">
+                            @if(!empty($asset->logo_reguler))
+                        <img src="{{ asset('storage/' . $asset->logo_reguler) }}" alt="top-title-logo">
+                        @endif
                             @if ($section_bentuk_pelatihan) <!-- Memeriksa apakah ada data -->
                                 <p class="sec-title__top">{{ $section_bentuk_pelatihan->top_title }}</p>
                                 </div>
@@ -186,8 +189,10 @@
                                         <img src="{{ asset('storage/' . $target_pelatihan->image_front) }}" alt="about image" class="about-two__img-two">
                                     @else
                                         <p>Konten target peserta pelatihan belum dibuat.</p>
+                                    @endif>
+                                    @if(!empty($asset->logo_reguler))
+                                        <img src="{{ asset('storage/' . $asset->logo_reguler) }}" alt="about image" class="about-two__img-three">
                                     @endif
-                                    <img src="{{ asset('template/frontend/assets/images/resources/top-title-logo.png') }}" alt="about image" class="about-two__img-three">
                                 </div>
                                 <div class="about-two__shape-box about-two__shape-box-two"></div>
                                 <div class="about-two__shape-box about-two__shape-box-three"></div>
@@ -209,7 +214,9 @@
                         <div class="about-two__content sec-title">
                             @if ($target_pelatihan) <!-- Memeriksa apakah ada data -->
                                 <div class="sec-title__top-wrap">
-                                    <img src="{{ asset('template/frontend/assets/images/resources/top-title-logo.png') }}" alt="top-title-logo">
+                                    @if(!empty($asset->logo_reguler))
+                        <img src="{{ asset('storage/' . $asset->logo_reguler) }}" alt="top-title-logo">
+                        @endif
                                     <p class="sec-title__top">{{ $target_pelatihan->top_title }}</p>
                                 </div>
                                 <h2 class="about-two__heading sec-title__heading">{{ $target_pelatihan->heading }}</h2>
@@ -231,7 +238,9 @@
             <div class="container">
                 <div class="case-study-one__sec-title sec-title">
                     <div class="case-study-one__top-wrap sec-title__top-wrap">
-                        <img src="{{ asset('template/frontend/assets/images/resources/top-title-logo.png') }}" alt="top-title-logo">
+                        @if(!empty($asset->logo_reguler))
+                        <img src="{{ asset('storage/' . $asset->logo_reguler) }}" alt="top-title-logo">
+                        @endif
                         <p class="sec-title__top">Portofolio Kegiatan</p>
                     </div>
                     <h2 class="case-study-one__heading sec-title__heading">Kegiatan Pelatihan Terbaru</h2>
@@ -306,7 +315,9 @@
             <div class="container">
                 <div class="blog-one__sec-title sec-title">
                     <div class="blog-one__top-wrap sec-title__top-wrap">
-                        <img src="{{ asset('template/frontend/assets/images/resources/top-title-logo.png') }}" alt="top-title-logo">
+                        @if(!empty($asset->logo_reguler))
+                        <img src="{{ asset('storage/' . $asset->logo_reguler) }}" alt="top-title-logo">
+                        @endif
                         <p class="sec-title__top">Blog</p>
                     </div>
                     <h2 class="blog-one__heading sec-title__heading">Artikel Terbaru</h2>

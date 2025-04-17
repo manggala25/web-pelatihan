@@ -45,7 +45,9 @@
     <div class="col-xl-8 col-lg-7">
     <div class="solution-one__content sec-title wow animated fadeInUp" data-wow-delay="0.1s" data-wow-duration="1500ms">
     <div class="sec-title__top-wrap">
-    <img src="{{ asset('template/frontend/assets/images/resources/top-title-logo.png') }}" alt="top-title-logo">
+    @if(!empty($asset->logo_reguler))
+        <img src="{{ asset('storage/' . $asset->logo_reguler) }}" alt="top-title-logo">
+    @endif
     <p class="sec-title__top">Materi Pelatihan</p>
     </div>
     <h2 class="solution-one__heading sec-title__heading">{{ $nama_pelatihan->nama_pelatihan }}</h2>

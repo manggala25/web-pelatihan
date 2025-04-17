@@ -1,4 +1,4 @@
-@props(['kontak'])
+@props(['kontak', 'asset'])
 
 <!-- Footer One Start -->
 <footer class="footer-one @@extraClassName">
@@ -8,9 +8,16 @@
                 data-wow-duration="1500ms">
                 <div class="footer-one__about">
                     <div class="footer-one__logo-box">
-                        <a href="index.html">
-                            <img src="{{ asset('template/frontend/assets/images/logo-dark.png') }}" alt="logo-dark"
-                                class="footer-one__logo">
+                        <a href="#">
+                            @if(!empty($asset->logo_dark) && file_exists(public_path('storage/' . $asset->logo_dark)))
+                                <img src="{{ asset('storage/' . $asset->logo_dark) }}" class="footer-one__logo" alt="Logo Dark">
+                            @elseif(!empty($asset->logo_light) && file_exists(public_path('storage/' . $asset->logo_light)))
+                                <img src="{{ asset('storage/' . $asset->logo_light) }}" class="footer-one__logo" alt="Logo Light">
+                            @elseif(!empty($asset->logo_reguler) && file_exists(public_path('storage/' . $asset->logo_reguler)))
+                                <img src="{{ asset('storage/' . $asset->logo_reguler) }}" class="footer-one__logo" alt="Logo Reguler">
+                            @else
+                                <p class="text-danger">Logo belum dimasukkan</p>
+                            @endif
                         </a>
                     </div>
                     <p class="footer-one__about-text">

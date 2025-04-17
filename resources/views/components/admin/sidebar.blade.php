@@ -135,6 +135,10 @@
                             <a href="{{ Route('admin.mitra') }}" class="sidebar-link"><i class="ri-service-line"></i><span
                                     class="hide-menu">Mitra</span></a>
                         </li>
+                        <li class="sidebar-item">
+                            <a href="{{ Route('admin.asset') }}" class="sidebar-link"><i class="ri-flag-line"></i><span
+                                    class="hide-menu">Asset Logo</span></a>
+                        </li>
                     </ul>
                 </li>
                 {{-- Kontak --}}

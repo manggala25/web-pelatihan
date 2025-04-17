@@ -23,6 +23,7 @@ use App\Http\Controllers\Admin\JadwalPelatihanController;
 use App\Http\Controllers\Admin\TabsInformasiController;
 use App\Http\Controllers\Admin\SectionTabsInformasiController;
 use App\Http\Controllers\Admin\LegalitasController;
+use App\Http\Controllers\Admin\AssetController;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AdminLoginController;
@@ -240,6 +241,15 @@ Route::prefix($adminPrefix)->group(function () {
         Route::get('/admin/sectiontabsinformasi/{id}/edit', [SectionTabsInformasiController::class, 'edit'])->name('admin.sectiontabsinformasi.edit');
         Route::patch('/admin/sectiontabsinformasi/{id}/update', [SectionTabsInformasiController::class, 'update'])->name('admin.sectiontabsinformasi.update');
         Route::delete('/admin/sectiontabsinformasi/{id}', [SectionTabsInformasiController::class, 'destroy'])->name('admin.sectiontabsinformasi.destroy');
+
+        // Route Asset Logo
+        Route::get('/asset', [AssetController::class, 'index'])->name('admin.asset');
+        Route::get('/asset/{id}/show', [AssetController::class, 'show'])->name('admin.asset.show');
+        Route::get('/asset/create', [AssetController::class, 'create'])->name('admin.asset.create');
+        Route::post('/asset/store', [AssetController::class, 'store'])->name('admin.asset.store');
+        Route::get('/admin/asset/{id}/edit', [AssetController::class, 'edit'])->name('admin.asset.edit');
+        Route::patch('/admin/asset/{id}/update', [AssetController::class, 'update'])->name('admin.asset.update');
+        Route::delete('/admin/asset/{id}', [AssetController::class, 'destroy'])->name('admin.asset.destroy');
     });
 });
 

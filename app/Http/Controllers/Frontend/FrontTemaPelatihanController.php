@@ -12,6 +12,7 @@ use App\Models\InformasiPendaftaran;
 use App\Models\TabsInformasi;
 use App\Models\SectionTabsInformasi;
 use App\Models\BannerKontak;
+use App\Models\Asset;
 
 
 class FrontTemaPelatihanController extends Controller
@@ -37,7 +38,9 @@ class FrontTemaPelatihanController extends Controller
 
         $sectiontabsinformasi = SectionTabsInformasi::orderBy('updated_at', 'desc')->first();
 
-        return view('frontend.tema-pelatihan', compact('kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran', 'tabs', 'bannerKontak', 'sectiontabsinformasi'));
+        $asset = Asset::latest('updated_at')->first();
+
+        return view('frontend.tema-pelatihan', compact('kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran', 'tabs', 'bannerKontak', 'sectiontabsinformasi', 'asset'));
     }
 
 
@@ -67,7 +70,9 @@ class FrontTemaPelatihanController extends Controller
 
         $sectiontabsinformasi = SectionTabsInformasi::orderBy('updated_at', 'desc')->first();
 
-        return view('frontend.kategori-tema-pelatihan', compact('kategori', 'pelatihan', 'kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran', 'tabs', 'bannerKontak', 'sectiontabsinformasi'));
+        $asset = Asset::latest('updated_at')->first();
+
+        return view('frontend.kategori-tema-pelatihan', compact('kategori', 'pelatihan', 'kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran', 'tabs', 'bannerKontak', 'sectiontabsinformasi', 'asset'));
     }
 
 
@@ -94,7 +99,9 @@ class FrontTemaPelatihanController extends Controller
 
         $sectiontabsinformasi = SectionTabsInformasi::orderBy('updated_at', 'desc')->first();
 
-        return view('frontend.detail-pelatihan', compact('nama_pelatihan', 'kategori_list', 'kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran', 'tabs', 'bannerKontak', 'sectiontabsinformasi'));
+        $asset = Asset::latest('updated_at')->first();
+
+        return view('frontend.detail-pelatihan', compact('nama_pelatihan', 'kategori_list', 'kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran', 'tabs', 'bannerKontak', 'sectiontabsinformasi', 'asset'));
     }
 
     public function cariPelatihan(Request $request)

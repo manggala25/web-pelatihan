@@ -19,6 +19,7 @@ use App\Models\SectionTabsInformasi;
 use App\Models\BannerKontak;
 use App\Models\Pengurus;
 use App\Models\Legalitas;
+use App\Models\Asset;
 
 class FrontTentangKamiController extends Controller
 {
@@ -37,9 +38,10 @@ class FrontTentangKamiController extends Controller
         $testimoni = Testimoni::latest('updated_at', 'aktif')->get();
 
         $latestBanner = Banner::orderBy('updated_at', 'desc')->first(); // Ambil satu yang paling baru
-        
 
-        return view('frontend.tentang-kami', compact('profil', 'visimisi', 'kontak', 'testimoni', 'latestBanner'));
+        $asset = Asset::latest('updated_at')->first();
+
+        return view('frontend.tentang-kami', compact('profil', 'visimisi', 'kontak', 'testimoni', 'latestBanner', 'asset'));
     }
 
     public function visiMisi() // Ubah dari visi-misi ke visiMisi
@@ -65,8 +67,10 @@ class FrontTentangKamiController extends Controller
 
         $sectiontabsinformasi = SectionTabsInformasi::orderBy('updated_at', 'desc')->first();
 
+        $asset = Asset::latest('updated_at')->first();
 
-        return view('frontend.visi-misi', compact('visimisi', 'kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran', 'tabs', 'bannerKontak', 'sectiontabsinformasi'));
+
+        return view('frontend.visi-misi', compact('visimisi', 'kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran', 'tabs', 'bannerKontak', 'sectiontabsinformasi', 'asset'));
     }
 
     public function tujuanLembaga()
@@ -92,8 +96,10 @@ class FrontTentangKamiController extends Controller
 
         $sectiontabsinformasi = SectionTabsInformasi::orderBy('updated_at', 'desc')->first();
 
+        $asset = Asset::latest('updated_at')->first();
 
-        return view('frontend.tujuan-lembaga', compact('tujuanlembaga', 'kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran', 'tabs', 'bannerKontak', 'sectiontabsinformasi'));
+
+        return view('frontend.tujuan-lembaga', compact('tujuanlembaga', 'kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran', 'tabs', 'bannerKontak', 'sectiontabsinformasi', 'asset'));
     }
 
     public function pengurus()
@@ -119,8 +125,10 @@ class FrontTentangKamiController extends Controller
 
         $sectiontabsinformasi = SectionTabsInformasi::orderBy('updated_at', 'desc')->first();
 
+        $asset = Asset::latest('updated_at')->first();
 
-        return view('frontend.pengurus', compact( 'pengurus', 'kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran', 'tabs', 'bannerKontak', 'sectiontabsinformasi'));
+
+        return view('frontend.pengurus', compact( 'pengurus', 'kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran', 'tabs', 'bannerKontak', 'sectiontabsinformasi', 'asset'));
     }
 
     public function legalitas()
@@ -146,8 +154,10 @@ class FrontTentangKamiController extends Controller
 
         $sectiontabsinformasi = SectionTabsInformasi::orderBy('updated_at', 'desc')->first();
 
+        $asset = Asset::latest('updated_at')->first();
 
-        return view('frontend.legalitas', compact( 'legalitas', 'kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran', 'tabs', 'bannerKontak', 'sectiontabsinformasi'));
+
+        return view('frontend.legalitas', compact( 'legalitas', 'kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran', 'tabs', 'bannerKontak', 'sectiontabsinformasi', 'asset'));
     }
 
     public function cariPelatihan(Request $request)

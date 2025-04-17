@@ -41,7 +41,9 @@
         <div class="col-xxl-6 col-xl-7">
         <div class="solution-one__content sec-title">
         <div class="sec-title__top-wrap">
-        <img src="{{ asset('template/frontend/assets/images/resources/top-title-logo.png') }}" alt="top-title-logo">
+        @if(!empty($asset->logo_reguler))
+            <img src="{{ asset('storage/' . $asset->logo_reguler) }}" alt="top-title-logo">
+        @endif
         <p class="sec-title__top">
             {{ $profil ? $profil->title_top : 'Profil Kami' }}
         </p>
@@ -101,7 +103,9 @@
         <div class="col-md-10">
         <div class="solution-one__content sec-title">
         <div class="sec-title__top-wrap">
-        <img src="{{ asset('template/frontend/assets/images/resources/top-title-logo.png') }}" alt="top-title-logo">
+        @if(!empty($asset->logo_reguler))
+            <img src="{{ asset('storage/' . $asset->logo_reguler) }}" alt="top-title-logo">
+        @endif
         <p class="sec-title__top">
             {{ $visimisi ? $visimisi->title_top : 'Visi & Misi Kami' }}
         </p>
@@ -139,7 +143,9 @@
         <div class="row mb-5">
         <div class="col-12">
         <div class="sec-title__top-wrap justify-content-md-center">
-        <img src="{{ asset('template/frontend/assets/images/resources/top-title-logo.png') }}" alt="top-title-logo">
+        @if(!empty($asset->logo_reguler))
+            <img src="{{ asset('storage/' . $asset->logo_reguler) }}" alt="top-title-logo">
+        @endif
         <p class="sec-title__top">Testimoni</p>
         </div>
         <h2 class="about-one__heading sec-title__heading text-center">Apa Kata Mereka Tentang Kami.</h2>

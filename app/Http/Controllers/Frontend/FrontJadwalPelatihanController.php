@@ -15,6 +15,7 @@ use App\Models\JadwalPelatihan;
 use App\Models\TabsInformasi;
 use App\Models\SectionTabsInformasi;
 use App\Models\BannerKontak;
+use App\Models\Asset;
 
 class FrontJadwalPelatihanController extends Controller
 {
@@ -55,6 +56,8 @@ class FrontJadwalPelatihanController extends Controller
 
         $sectiontabsinformasi = SectionTabsInformasi::orderBy('updated_at', 'desc')->first();
 
-        return view('frontend.jadwal-pelatihan', compact('kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran', 'grouped', 'tabs', 'bannerKontak', 'sectiontabsinformasi'));    
+        $asset = Asset::latest('updated_at')->first();
+
+        return view('frontend.jadwal-pelatihan', compact('kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran', 'grouped', 'tabs', 'bannerKontak', 'sectiontabsinformasi', 'asset'));    
     }
 }

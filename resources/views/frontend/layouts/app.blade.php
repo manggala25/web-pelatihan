@@ -8,13 +8,13 @@
 
   <div class="page-wrapper">
     {{-- Navbar --}}
-    <x-navbar :kontak="$kontak" />
+    <x-navbar :kontak="$kontak" :asset="$asset" />
 
     {{-- Content --}}
     @yield('content')
 
     {{-- Footer --}}
-    <x-footer :kontak="$kontak" />
+    <x-footer :kontak="$kontak" :asset="$asset" />
   </div><!-- /.page-wrapper -->
 
   {{-- sidebar --}}

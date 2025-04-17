@@ -11,8 +11,8 @@
             {{-- Embed YouTube --}}
             <div class="ratio ratio-16x9">
               <iframe src="{{ Str::contains($section->video_url, 'watch?v=')
-        ? str_replace('watch?v=', 'embed/', $section->video_url)
-        : str_replace('youtu.be/', 'www.youtube.com/embed/', $section->video_url) }}" frameborder="0"
+    ? str_replace('watch?v=', 'embed/', $section->video_url)
+    : str_replace('youtu.be/', 'www.youtube.com/embed/', $section->video_url) }}" frameborder="0"
               allowfullscreen></iframe>
             </div>
       @elseif (!empty($section->image) && filter_var($section->image, FILTER_VALIDATE_URL))
@@ -35,7 +35,9 @@
       <div class="col-xxl-6 col-xl-7 wow animated fadeInLeft" data-wow-delay="0.1s" data-wow-duration="1500ms">
         <div class="solution-one__content sec-title ms-xl-5">
           <div class="sec-title__top-wrap">
-            <img src="{{ asset('template/frontend/assets/images/resources/top-title-logo.png') }}" alt="top-title-logo">
+            @if(!empty($asset->logo_reguler))
+        <img src="{{ asset('storage/' . $asset->logo_reguler) }}" alt="top-title-logo">
+      @endif
             <p class="sec-title__top">{{ $section->title ?? 'Nama Section' }}</p>
           </div>
           <h2 class="solution-one__heading sec-title__heading">

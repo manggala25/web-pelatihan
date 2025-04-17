@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Blog; // Pastikan modelnya ada
 use App\Models\Kontak;
 use App\Models\Banner;
+use App\Models\Asset;
 
 class FrontBlogController extends Controller
 {
@@ -21,7 +22,9 @@ class FrontBlogController extends Controller
 
     $latestBanner = Banner::orderBy('updated_at', 'desc')->first(); // Ambil satu yang paling baru
 
-    return view('frontend.blog', compact('blogs', 'kontak', 'latestBanner'));
+    $asset = Asset::latest('updated_at')->first();
+
+    return view('frontend.blog', compact('blogs', 'kontak', 'latestBanner', 'asset'));
   }
 
   public function show($slug)
@@ -33,6 +36,8 @@ class FrontBlogController extends Controller
 
     $latestBanner = Banner::orderBy('updated_at', 'desc')->first(); // Ambil satu yang paling baru
 
-    return view('frontend.detail-blog', compact('blog', 'kontak', 'latestBanner')); // Pastikan view detail tersedia
+    $asset = Asset::latest('updated_at')->first();
+
+    return view('frontend.detail-blog', compact('blog', 'kontak', 'latestBanner', 'asset')); // Pastikan view detail tersedia
   }
 }

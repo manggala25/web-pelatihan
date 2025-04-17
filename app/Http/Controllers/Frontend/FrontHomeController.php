@@ -15,6 +15,7 @@ use App\Models\Mitra;
 use App\Models\TargetPelatihan;
 use App\Models\SectionBentukPelatihan;
 use App\Models\Section;
+use App\Models\Asset;
 
 class FrontHomeController extends Controller
 {
@@ -44,7 +45,9 @@ class FrontHomeController extends Controller
         // Menampilkan Section Homepage
         $section = Section::orderBy('order')->get();
 
+        $asset = Asset::latest('updated_at')->first();
+
         $portofolio = Portofolio::latest('updated_at')->get();
-        return view('frontend.home', compact('portofolio', 'profil', 'blog', 'kontak', 'bentuk_pelatihan', 'mitra', 'target_pelatihan', 'section_bentuk_pelatihan', 'section'));
+        return view('frontend.home', compact('portofolio', 'profil', 'blog', 'kontak', 'bentuk_pelatihan', 'mitra', 'target_pelatihan', 'section_bentuk_pelatihan', 'section', 'asset'));
     }
 }

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\NamaPelatihan;
 use App\Models\Kontak;
 use App\Models\Banner;
+use App\Models\Asset;
 
 class FrontFormulirPendaftaranController extends Controller
 {
@@ -20,6 +21,8 @@ class FrontFormulirPendaftaranController extends Controller
 
         $latestBanner = Banner::orderBy('updated_at', 'desc')->first(); // Ambil satu yang paling baru
 
-        return view('frontend.formulir-pendaftaran', compact('nama_pelatihan', 'kontak', 'latestBanner'));
+        $asset = Asset::latest('updated_at')->first();
+
+        return view('frontend.formulir-pendaftaran', compact('nama_pelatihan', 'kontak', 'latestBanner'. 'asset'));
     }
 }

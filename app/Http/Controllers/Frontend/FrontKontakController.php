@@ -9,6 +9,7 @@ use App\Models\Kontak;
 use App\Models\NamaPelatihan;
 use App\Models\Banner;
 use App\Models\BannerKontak;
+use App\Models\Asset;
 
 class FrontKontakController extends Controller
 {
@@ -47,6 +48,8 @@ class FrontKontakController extends Controller
         // Ambil satu data terbaru dari tabel banner_kontak
         $bannerKontak = BannerKontak::orderBy('updated_at', 'desc')->first();
 
-        return view('frontend.kontak', compact('kontak', 'gmapsFrame', 'whatsapp', 'email', 'alamat', 'informasi_kontak', 'nama_pelatihan', 'latestBanner', 'bannerKontak'));
+        $asset = Asset::latest('updated_at')->first();
+
+        return view('frontend.kontak', compact('kontak', 'gmapsFrame', 'whatsapp', 'email', 'alamat', 'informasi_kontak', 'nama_pelatihan', 'latestBanner', 'bannerKontak', 'asset'));
     }
 }

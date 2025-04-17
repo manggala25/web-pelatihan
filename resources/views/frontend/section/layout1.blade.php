@@ -6,7 +6,9 @@
         data-wow-duration="1500ms">
         <div class="solution-one__content sec-title me-xl-5">
           <div class="sec-title__top-wrap">
-            <img src="{{ asset('template/frontend/assets/images/resources/top-title-logo.png') }}" alt="top-title-logo">
+            @if(!empty($asset->logo_reguler))
+        <img src="{{ asset('storage/' . $asset->logo_reguler) }}" alt="top-title-logo">
+      @endif
             <p class="sec-title__top">{{ $section->title ?? 'Nama Section' }}</p>
           </div>
           <h2 class="solution-one__heading sec-title__heading">

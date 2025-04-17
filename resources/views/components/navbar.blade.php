@@ -1,4 +1,4 @@
-@props(['kontak'])
+@props(['kontak', 'asset'])
 
 <header class="main-header">
     <div class="topbar">
@@ -20,7 +20,7 @@
                 <path d="M29 0H19.5L0.5 25H9.75L29 0Z" />
             </svg>
         </div><!-- /.topbar-shape-box -->
-        <div class="container">
+        <div class="container py-2">
             <div class="topbar__left">
                 <div class="topbar__page-list">
                     <a href="#" class="topbar__page-link">Terms & Condition</a>
@@ -76,7 +76,15 @@
             <div class="header__left">
                 <div class="header__logo">
                     <a href="{{ route('home') }}">
-                        <img src="{{  asset('template/frontend/assets/images/logo-light.png') }}" alt="logo-light">
+                        @if(!empty($asset->logo_light) && file_exists(public_path('storage/' . $asset->logo_light)))
+                            <img src="{{ asset('storage/' . $asset->logo_light) }}" alt="Logo Light">
+                        @elseif(!empty($asset->logo_dark) && file_exists(public_path('storage/' . $asset->logo_dark)))
+                            <img src="{{ asset('storage/' . $asset->logo_dark) }}" alt="Logo Dark">
+                        @elseif(!empty($asset->logo_reguler) && file_exists(public_path('storage/' . $asset->logo_reguler)))
+                            <img src="{{ asset('storage/' . $asset->logo_reguler) }}" alt="Logo Reguler">
+                        @else
+                            <p class="text-danger">Logo belum dimasukkan</p>
+                        @endif
                     </a>
                 </div><!-- /.header-one__logo -->
                 <div class="header__info">
@@ -141,7 +149,8 @@
     </div><!-- /.header -->
     <nav class="main-menu-one main-menu">
         <div class="container">
-            <div class="main-menu-one__left">
+            <div class="main-menu-one__left w-100">
+
                 <div class="main-menu-one__social social-list">
                     @if ($kontak->isNotEmpty())
                         @foreach ($kontak as $item)
@@ -163,7 +172,15 @@
                 </div><!-- /.main-menu-one__social -->
                 <div class="main-menu-one__logo me-4">
                     <a href="{{ route('home') }}">
-                        <img src="{{  asset('template/frontend/assets/images/logo-dark.png') }}" alt="logo-dark">
+                        @if(!empty($asset->logo_dark) && file_exists(public_path('storage/' . $asset->logo_dark)))
+                            <img src="{{ asset('storage/' . $asset->logo_dark) }}" alt="Logo Light">
+                        @elseif(!empty($asset->logo_light) && file_exists(public_path('storage/' . $asset->logo_light)))
+                            <img src="{{ asset('storage/' . $asset->logo_light) }}" alt="Logo Dark">
+                        @elseif(!empty($asset->logo_reguler) && file_exists(public_path('storage/' . $asset->logo_reguler)))
+                            <img src="{{ asset('storage/' . $asset->logo_reguler) }}" alt="Logo Reguler">
+                        @else
+                            <p class="text-danger">Logo belum dimasukkan</p>
+                        @endif
                     </a>
                 </div><!-- /.main-menu-one__logo -->
                 <ul class="main-menu__list">
@@ -255,8 +272,17 @@
         <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
 
         <div class="logo-box">
-            <a href="{{ route('home') }}" aria-label="logo image"><img src="assets/images/logo-dark.png" width="155"
-                    alt="logo-dark"></a>
+            <a href="{{ route('home') }}" aria-label="logo image">
+                @if(!empty($asset->logo_dark) && file_exists(public_path('storage/' . $asset->logo_dark)))
+                    <img src="{{ asset('storage/' . $asset->logo_dark) }}" width="155" alt="Logo Light">
+                @elseif(!empty($asset->logo_light) && file_exists(public_path('storage/' . $asset->logo_light)))
+                    <img src="{{ asset('storage/' . $asset->logo_light) }}" width="155" alt="Logo Dark">
+                @elseif(!empty($asset->logo_reguler) && file_exists(public_path('storage/' . $asset->logo_reguler)))
+                    <img src="{{ asset('storage/' . $asset->logo_reguler) }}" width="155" alt="Logo Reguler">
+                @else
+                    <p class="text-danger">Logo belum dimasukkan</p>
+                @endif
+            </a>
         </div>
         <!-- /.logo-box -->
         <div class="mobile-nav__container"></div>

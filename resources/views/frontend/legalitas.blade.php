@@ -42,8 +42,9 @@
                     <div class="col-12">
                         <div class="solution-one__content sec-title">
                             <div class="sec-title__top-wrap">
-                                <img src="{{ asset('template/frontend/assets/images/resources/top-title-logo.png') }}"
-                                    alt="top-title-logo">
+                                @if(!empty($asset->logo_reguler))
+                                    <img src="{{ asset('storage/' . $asset->logo_reguler) }}" alt="top-title-logo">
+                                @endif
                                 <p class="sec-title__top">
                                     {{ $legalitas ? $legalitas->top_title : 'legalitas' }}
                                 </p>

@@ -8,7 +8,9 @@
         data-wow-duration="1500ms">
         <div class="solution-one__content sec-title">
           <div class="sec-title__top-wrap justify-content-xl-center">
-            <img src="{{ asset('template/frontend/assets/images/resources/top-title-logo.png') }}" alt="top-title-logo">
+            @if(!empty($asset->logo_reguler))
+        <img src="{{ asset('storage/' . $asset->logo_reguler) }}" alt="top-title-logo">
+      @endif
             <p class="sec-title__top">{{ $section->title ?? 'Nama Section' }}</p>
           </div>
           <h2 class="solution-one__heading sec-title__heading">
@@ -27,8 +29,8 @@
             @if (!empty($section->video_url) && (Str::contains($section->video_url, 'youtube.com') || Str::contains($section->video_url, 'youtu.be')))
             {{-- YouTube Video --}}
             <iframe width="100%" height="500" src="{{ Str::contains($section->video_url, 'watch?v=')
-        ? str_replace('watch?v=', 'embed/', $section->video_url)
-        : str_replace('youtu.be/', 'www.youtube.com/embed/', $section->video_url) }}"
+    ? str_replace('watch?v=', 'embed/', $section->video_url)
+    : str_replace('youtu.be/', 'www.youtube.com/embed/', $section->video_url) }}"
               title="YouTube video player" frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

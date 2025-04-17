@@ -12,6 +12,7 @@ use App\Models\InformasiPendaftaran;
 use App\Models\TabsInformasi;
 use App\Models\SectionTabsInformasi;
 use App\Models\BannerKontak;
+use App\Models\Asset;
 
 class FrontGaleriController extends Controller
 {
@@ -38,7 +39,9 @@ class FrontGaleriController extends Controller
 
     $sectiontabsinformasi = SectionTabsInformasi::orderBy('updated_at', 'desc')->first();
 
-    return view('frontend.galeri', compact('portofolio' , 'kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran', 'bannerKontak', 'tabs', 'sectiontabsinformasi'));
+    $asset = Asset::latest('updated_at')->first();
+
+    return view('frontend.galeri', compact('portofolio' , 'kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran', 'bannerKontak', 'tabs', 'sectiontabsinformasi', 'asset'));
   }
 
   public function show($slug)
@@ -61,6 +64,8 @@ class FrontGaleriController extends Controller
 
     $sectiontabsinformasi = SectionTabsInformasi::orderBy('updated_at', 'desc')->first();
 
-    return view('frontend.detail-galeri', compact('portofolio', 'kategori_tema', 'kontak', 'latestBanner', 'tabs', 'informasipendaftaran', 'sectiontabsinformasi')); // Pastikan view detail tersedia
+    $asset = Asset::latest('updated_at')->first();
+
+    return view('frontend.detail-galeri', compact('portofolio', 'kategori_tema', 'kontak', 'latestBanner', 'tabs', 'informasipendaftaran', 'sectiontabsinformasi', 'asset')); // Pastikan view detail tersedia
   }
 }
