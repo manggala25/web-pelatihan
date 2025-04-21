@@ -38,14 +38,14 @@
                 <strong>Perhatian!</strong> Data pelatihan tidak tersedia.
             </div>
         @else
-    <select name="kategori_nama_pelatihan" class="form-select" required>
-      <option value="">-- Pilih Kategori & Nama Pelatihan --</option>
-      @foreach ($pelatihanOptions as $option)
-      <option value="{{ $option['value'] }}">{{ $option['label'] }}</option>
-    @endforeach
-    </select>
-    </div>
-    @endif
+            <select name="kategori_nama_pelatihan" class=" select2 form-control custom-select" style="width: 100%; height: 40px" required>
+              <option value="">-- Pilih Kategori & Nama Pelatihan --</option>
+              @foreach ($pelatihanOptions as $option)
+              <option value="{{ $option['value'] }}">{{ $option['label'] }}</option>
+            @endforeach
+            </select>
+            </div>
+        @endif
 
     <div class="col-md-6">
     <div class="mb-3">

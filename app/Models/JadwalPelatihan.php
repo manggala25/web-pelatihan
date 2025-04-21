@@ -10,7 +10,8 @@ class JadwalPelatihan extends Model
 
     protected $fillable = [
         'waktu',
-        'lokasi',
-        // atau tambahkan 'hari', 'tanggal', 'bulan', 'tahun' jika kamu pecah fieldnya
+        'lokasi',// atau tambahkan 'hari', 'tanggal', 'bulan', 'tahun' jika kamu pecah fieldnya
+        'nama_tempat',
+        'link_gmaps'
     ];
 }

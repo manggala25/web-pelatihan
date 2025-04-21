@@ -34,4 +34,6 @@
     <link href="{{ asset('template/backend/package/html/main/../../assets/libs/jquery-steps/jquery.steps.css') }}" rel="stylesheet" />
     <link href="{{ asset('template/backend/package/html/main/../../assets/libs/jquery-steps/steps.css') }}" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="{{ asset('template/backend/package/html/main/../../assets/libs/select2/dist/css/select2.min.css') }}" />
+
 </head>

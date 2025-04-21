@@ -36,8 +36,8 @@
     <div class="mb-3">
     <label for="status">Status</label>
     <select name="status" class="form-select" required>
-    <option value="draft">Draft</option>
     <option value="publish">Publish</option>
+    <option value="draft">Draft</option>
     <option value="archive">Archive</option>
     </select>
     </div>

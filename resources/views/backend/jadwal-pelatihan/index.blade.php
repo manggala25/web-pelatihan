@@ -8,7 +8,7 @@
                 <div
                     class="card-header bg-info border-bottom title-part-padding d-flex justify-content-between align-items-center">
                     <h4 class="card-title text-white mb-0">Tabel Data Jadwal Pelatihan</h4>
-                    <input id="searchInput" type="text" class="form-control w-25" placeholder="Cari nama Jadwal Pelatihan..." />
+                    <input id="searchInput" type="text" class="form-control w-25" placeholder="Cari Waktu Jadwal Pelatihan..." />
                 </div>
                 <div class="card-body">
                     @if (session('success'))
@@ -24,6 +24,8 @@
                                     <th data-breakpoints="xs">NO.</th>
                                     <th data-breakpoints="xs sm">Waktu</th>
                                     <th data-breakpoints="xs">Lokasi</th>
+                                    <th data-breakpoints="all">Nama Tempat Pelatihan</th>
+                                    <th data-breakpoints="all">Link Google Maps</th>
                                     <th class="text-center" data-breakpoints="xs">Aksi</th>
                                 </tr>
                             </thead>
@@ -33,6 +35,8 @@
                                         <td>{{ $key + 1 }}</td>
                                         <td>{{ \Carbon\Carbon::parse($data->waktu)->translatedFormat('l, d F Y') }}</td>
                                         <td>{{ $data->lokasi }}</td>
+                                        <td>{{ $data->nama_tempat }}</td>
+                                        <td><a href="{{ $data->link_gmaps }}" target="_blank">{{ $data->link_gmaps }}</a></td>
                                         <td class="d-flex gap-2 text-white">
                                             <a href="{{ route('admin.jadwal-pelatihan.edit', $data->id) }}"
                                                 class="btn btn-warning btn-circle">

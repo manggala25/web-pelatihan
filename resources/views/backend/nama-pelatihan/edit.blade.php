@@ -33,7 +33,7 @@
                         <!-- Kategori Tema -->
                         <div class="mb-3">
                             <label for="nama_kategori">Kategori Tema</label>
-                            <select name="nama_kategori" class="form-select" required>
+                            <select name="nama_kategori" class=" select2 form-control custom-select" style="width: 100%; height: 40px" required>
                                 <option value="" disabled>Pilih Kategori Tema</option>
                                 @foreach ($kategori_tema as $kategori)
                                     <option value="{{ $kategori->id }}" 

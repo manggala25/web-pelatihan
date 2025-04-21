@@ -58,6 +58,8 @@ class FrontJadwalPelatihanController extends Controller
 
         $asset = Asset::latest('updated_at')->first();
 
-        return view('frontend.jadwal-pelatihan', compact('kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran', 'grouped', 'tabs', 'bannerKontak', 'sectiontabsinformasi', 'asset'));    
+        $showNamaTempat = $jadwals->contains(fn($j) => !empty($j->nama_tempat));
+
+        return view('frontend.jadwal-pelatihan', compact('kategori_tema', 'kontak', 'latestBanner', 'informasipendaftaran', 'grouped', 'tabs', 'bannerKontak', 'sectiontabsinformasi', 'asset', 'showNamaTempat'));    
     }
 }

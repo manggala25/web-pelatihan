@@ -39,8 +39,8 @@
     <div class="mb-3">
     <label for="status">Status</label>
     <select name="status" class="form-select" required id="status">
+      <option value="publish" {{ $blog->status == 'publish' ? 'selected' : '' }}>Publish</option>
     <option value="draft" {{ $blog->status == 'draft' ? 'selected' : '' }}>Draft</option>
-    <option value="publish" {{ $blog->status == 'publish' ? 'selected' : '' }}>Publish</option>
     <option value="archive" {{ $blog->status == 'archive' ? 'selected' : '' }}>Archive</option>
     </select>
     </div>

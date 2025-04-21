@@ -9,6 +9,7 @@ use App\Models\Blog;
 use App\Models\Portofolio;
 use App\Models\NamaPelatihan;
 use App\Models\BentukPelatihan;
+use App\Models\JadwalPelatihan;
 
 class dashboardController extends Controller
 {
@@ -19,6 +20,11 @@ class dashboardController extends Controller
         $jumlahPelatihan = NamaPelatihan::count();
         $jumlahBentukPelatihan = BentukPelatihan::count();
 
+        // Urutkan Jadwal Pelatihan Paling Dekat Dengan Hari ini
+        $jadwalpelatihan = JadwalPelatihan::whereDate('waktu', '>=', now()) // hanya yang akan datang
+            ->orderBy('waktu', 'asc') // paling dekat dulu
+            ->get();
+
         return view('backend.dashboard.index', [
             'showTambah' => false,
             'page_title' => 'Dashboard',
@@ -26,6 +32,7 @@ class dashboardController extends Controller
             'jumlahPortofolio' => $jumlahPortofolio,
             'jumlahPelatihan' => $jumlahPelatihan,
             'jumlahBentukPelatihan' => $jumlahBentukPelatihan,
+            'jadwalpelatihan' => $jadwalpelatihan,
         ]);
     }
 }

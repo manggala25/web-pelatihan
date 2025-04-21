@@ -36,6 +36,18 @@
                                 value="{{ old('lokasi', $jadwalpelatihan->lokasi) }}">
                         </div>
 
+                        <div class="mb-3">
+                            <label for="nama_tempat">Nama Tempat</label>
+                            <input type="text" name="nama_tempat" class="form-control"
+                                value="{{ old('nama_tempat', $jadwalpelatihan->nama_tempat) }}">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="link_gmaps">Link Google Maps</label>
+                            <input type="text" name="link_gmaps" class="form-control"
+                                value="{{ old('link_gmaps', $jadwalpelatihan->link_gmaps) }}">
+                        </div>
+
                         <div class="col-12 d-flex justify-content-md-end">
                             <button type="submit" class="btn btn-warning font-weight-medium rounded-pill px-4">
                                 <div class="d-flex align-items-center">

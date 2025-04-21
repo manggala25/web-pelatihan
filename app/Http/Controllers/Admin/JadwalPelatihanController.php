@@ -43,6 +43,8 @@ class JadwalPelatihanController extends Controller
         $request->validate([
             'waktu' => 'required|date',
             'lokasi' => 'required|string|max:255',
+            'nama_tempat' => 'nullable|string|max:255',
+            'link_gmaps' => 'nullable|string',
         ]);
 
         try {
@@ -50,6 +52,8 @@ class JadwalPelatihanController extends Controller
             JadwalPelatihan::create([
                 'waktu' => $request->waktu,
                 'lokasi' => $request->lokasi,
+                'nama_tempat' => $request->nama_tempat,
+                'link_gmaps' => $request->link_gmaps
             ]);
 
             return redirect()->route('admin.jadwal-pelatihan')
@@ -81,6 +85,8 @@ class JadwalPelatihanController extends Controller
         $request->validate([
             'waktu' => 'required|date',
             'lokasi' => 'required|string|max:255',
+            'nama_tempat' => 'nullable|string|max:255',
+            'link_gmaps' => 'nullable|string',
         ]);
 
         // Cari data berdasarkan ID
@@ -90,6 +96,8 @@ class JadwalPelatihanController extends Controller
         $jadwalpelatihan->update([
             'waktu' => $request->waktu,
             'lokasi' => $request->lokasi,
+            'nama_tempat' => $request->nama_tempat,
+            'link_gmaps' => $request->link_gmaps
         ]);
 
         // Redirect dengan pesan sukses

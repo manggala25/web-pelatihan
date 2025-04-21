@@ -1,11 +1,21 @@
 <script src="{{  asset('template/backend/package/html/main/../../assets/libs/jquery/dist/jquery.min.js') }}"></script>
 <!-- Bootstrap tether Core JavaScript -->
+<!-- This Page JS -->
+<script
+    src="{{ asset('template/backend/package/html/main/../../assets/libs/select2/dist/js/select2.full.min.js') }}"></script>
+<script
+    src="{{ asset('template/backend/package/html/main/../../assets/libs/select2/dist/js/select2.min.js') }}"></script>
+<script
+    src="{{ asset('template/backend/package/html/main/../../dist/js/pages/forms/select2/select2.init.js') }}"></script>
 <script
     src="{{  asset('template/backend/package/html/main/../../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
-<!-- apps -->
-<script src="{{  asset('template/backend/package/html/main/../../dist/js/app.min.js') }}"></script>
-<script src="{{  asset('template/backend/package/html/main/../../dist/js/app.init.js') }}"></script>
-<script src="{{  asset('template/backend/package/html/main/../../dist/js/app-style-switcher.js') }}"></script>
+    
+    <!-- apps -->
+    <script src="{{  asset('template/backend/package/html/main/../../dist/js/app.min.js') }}"></script>
+    <script src="{{  asset('template/backend/package/html/main/../../dist/js/app.init.js') }}"></script>
+    <script src="{{  asset('template/backend/package/html/main/../../dist/js/app-style-switcher.js') }}"></script>
+
+    
 <!-- slimscrollbar scrollbar JavaScript -->
 <script
     src="{{  asset('template/backend/package/html/main/../../assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js') }}"></script>
@@ -22,6 +32,7 @@
 {{-- <script src="{{  asset('template/backend/package/html/main/../../assets/libs/apexcharts/dist/apexcharts.min.js') }}"></script> --}}
 <!-- Chart JS -->
 <script src="{{  asset('template/backend/package/html/main/../../dist/js/pages/dashboards/dashboard1.js') }}"></script>
+
 
 <!-- Bootstrap tether Core JavaScript -->
 <script src="{{  asset('template/backend/package/html/main/../../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
@@ -42,7 +53,7 @@
 <script src="{{ asset('template/backend/package/html/main/../../assets/libs/jquery-steps/build/jquery.steps.min.js') }}"></script>
 <script src="{{ asset('template/backend/package/html/main/../../assets/libs/jquery-validation/dist/jquery.validate.min.js') }}"></script>
 
-<!-- This Page JS -->
+
 <!-- codemirror -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.41.0/codemirror.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.41.0/mode/xml/xml.min.js"></script>

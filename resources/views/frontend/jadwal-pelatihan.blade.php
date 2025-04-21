@@ -81,6 +81,9 @@
                                 <th>No</th>
                                 <th>Waktu</th>
                                 <th>Lokasi</th>
+                                @if($showNamaTempat)
+                                    <th>Nama Tempat</th>
+                                @endif
                             </tr>
                         </thead>
                         <tbody>
@@ -89,10 +92,20 @@
                                     <td>{{ $index + 1 }}</td>
                                     <td>{{ \Carbon\Carbon::parse($jadwal->waktu)->translatedFormat('l, d F Y') }}</td>
                                     <td>{{ $jadwal->lokasi }}</td>
+                                    @if($showNamaTempat)
+                                        <td>
+                                            @if($jadwal->nama_tempat)
+                                                <a href="{{ $jadwal->link_gmaps }}" target="_blank">
+                                                    {{ $jadwal->nama_tempat }}
+                                                </a>
+                                            @endif
+                                        </td>
+                                    @endif
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
+
                 </div>
             @endforeach
         </div>
