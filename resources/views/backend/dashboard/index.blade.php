@@ -68,46 +68,46 @@
     <div class="card-body">
       <div class="table-responsive">
       <table id="demo-foo-row-toggler" class="table table-bordered toggle-arrow-tiny text-nowrap"
-        data-bs-toggle-column="first" data-sorting="true" data-paging="true" data-paging-size="10">
-        <thead>
-        <tr>
-          <th data-breakpoints="xs">NO.</th>
-          <th data-breakpoints="xs sm">Waktu</th>
-          <th data-breakpoints="xs">Lokasi</th>
-          <th data-breakpoints="xs">Nama Tempat Pelatihan</th>
-          <th data-breakpoints="all">Link Google Maps</th>
-        </tr>
-        </thead>
-        <tbody>
-        @forelse ($jadwalpelatihan as $key => $data)
+      data-bs-toggle-column="first" data-sorting="true" data-paging="true" data-paging-size="10">
+      <thead>
       <tr>
-        <td>{{ $key + 1 }}</td>
-        <td>{{ \Carbon\Carbon::parse($data->waktu)->translatedFormat('l, d F Y') }}</td>
-        <td>{{ $data->lokasi }}</td>
-        <td>
-          {{-- Jika Kosong --}}
-          @if ($data->nama_tempat_pelatihan == null)
-           <p class="text-muted mb-0" style="font-style: italic">Data Kosong</p>
-          @else
-          {{ $data->nama_tempat_pelatihan }}
-          @endif
-        </td>
-        <td>
-          {{-- Jika Kosong --}}
-          @if ($data->link_gmaps == null)
-           <p class="text-muted mb-0" style="font-style: italic">Data Kosong</p>
-          @else
-          <a href="{{ $data->link_gmaps }}" target="_blank">{{ $data->link_gmaps }}</a>
-          @endif
-        </td>
+        <th data-breakpoints="xs">NO.</th>
+        <th data-breakpoints="xs sm">Waktu</th>
+        <th data-breakpoints="xs">Lokasi</th>
+        <th data-breakpoints="xs">Nama Tempat Pelatihan</th>
+        <th data-breakpoints="all">Link Google Maps</th>
+      </tr>
+      </thead>
+      <tbody>
+      @forelse ($jadwalpelatihan as $key => $data)
+      <tr>
+      <td>{{ $key + 1 }}</td>
+      <td>{{ \Carbon\Carbon::parse($data->waktu)->translatedFormat('l, d F Y') }}</td>
+      <td>{{ $data->lokasi }}</td>
+      <td>
+        {{-- Jika Kosong --}}
+        @if ($data->nama_tempat_pelatihan == null)
+         <p class="text-muted mb-0" style="font-style: italic">Data Kosong</p>
+        @else
+        {{ $data->nama_tempat_pelatihan }}
+        @endif
+      </td>
+      <td>
+        {{-- Jika Kosong --}}
+        @if ($data->link_gmaps == null)
+         <p class="text-muted mb-0" style="font-style: italic">Data Kosong</p>
+        @else
+        <a href="{{ $data->link_gmaps }}" target="_blank">{{ $data->link_gmaps }}</a>
+        @endif
+      </td>
     </form>
       </tr>
     @empty
     <tr>
       <td colspan="5" class="text-center text-muted">Data Kosong</td>
     </tr>
-  @endforelse
-        </tbody>
+    @endforelse
+      </tbody>
       </table>
       </div>
     </div>
@@ -117,5 +117,24 @@
     </div>
     </div>
     {{-- Tabel end --}}
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+      const searchInput = document.getElementById("searchInput");
+      const tableRows = document.querySelectorAll("#demo-foo-row-toggler tbody tr");
+
+      searchInput.addEventListener("input", function () {
+        const filter = searchInput.value.toLowerCase();
+
+        tableRows.forEach(row => {
+        const titleCell = row.cells[1]; // Kolom judul ada di indeks 1
+        if (titleCell) {
+          const titleText = titleCell.textContent.toLowerCase();
+          row.style.display = titleText.includes(filter) ? "" : "none";
+        }
+        });
+      });
+      });
+    </script>
 
 @endsection

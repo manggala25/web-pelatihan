@@ -62,7 +62,7 @@
     </ul><!-- /.blog-one__comment -->
     <h3 class="blog-details__card-title blog-details__md-title">{{ $blog->judul }}</h3>
     <div class="blog-details__card-desc-one-box">
-    <p class="blog-details__card-desc-one">{!! $blog->content !!}</p>
+    <p class="blog-details__card-desc-one">{!! nl2br(htmlspecialchars_decode(e($blog->content ?? 'Konten tidak tersedia.'))) !!}</p>
     </div><!-- /.blog-details__desc-one-box -->
     </div><!-- /.blog-details__blog-card -->
     </div><!-- /.blog-details__left -->

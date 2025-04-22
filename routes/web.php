@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\blogController;
+use App\Http\Controllers\Admin\KategoriBlogController;
 use App\Http\Controllers\Admin\PortofolioController;
 use App\Http\Controllers\Admin\dashboardController;
 use App\Http\Controllers\Admin\KategoriTemaController;
@@ -69,6 +70,15 @@ Route::prefix($adminPrefix)->group(function () {
         Route::get('/admin/blog/{slug}/edit', [blogController::class, 'edit'])->name('admin.blog.edit');
         Route::patch('/admin/blog/{id}/update', [blogController::class, 'update'])->name('admin.blog.update');
         Route::delete('/admin/blog/{id}', [blogController::class, 'destroy'])->name('admin.blog.destroy');
+
+        // Kategori Blog Routes
+        Route::get('/kategoriblog', [KategoriBlogController::class, 'index'])->name('admin.kategoriblog');
+        Route::get('/kategoriblog/create', [KategoriBlogController::class, 'create'])->name('admin.kategoriblog.create');
+        Route::post('/kategoriblog/store', [KategoriBlogController::class, 'store'])->name('admin.kategoriblog.store');
+        Route::post('/upload-image', [KategoriBlogController::class, 'uploadImage'])->name('upload.image');
+        Route::get('/admin/kategoriblog/{id}/edit', [KategoriBlogController::class, 'edit'])->name('admin.kategoriblog.edit');
+        Route::patch('/admin/kategoriblog/{id}/update', [KategoriBlogController::class, 'update'])->name('admin.kategoriblog.update');
+        Route::delete('/admin/kategoriblog/{id}', [KategoriBlogController::class, 'destroy'])->name('admin.kategoriblog.destroy');
 
         // Portofolio Routes
         Route::get('/portofolio', [PortofolioController::class, 'index'])->name('admin.portofolio');

@@ -31,10 +31,17 @@
     </div>
 
     <div class="mb-3">
-    <label for="kategori">Kategori</label>
-    <input type="text" name="kategori" class="form-control" required
-    value="{{ old('kategori', $blog->kategori) }}" />
+      <label for="kategori">Kategori</label>
+      <select name="kategori" class="form-control" required>
+      <option value="">-- Pilih Kategori --</option>
+      @foreach($kategoriblog as $kategori)
+      <option value="{{ $kategori->nama_kategori }}" {{ old('kategori', $blog->kategori) == $kategori->nama_kategori ? 'selected' : '' }}>
+      {{ $kategori->nama_kategori }}
+      </option>
+    @endforeach
+      </select>
     </div>
+
 
     <div class="mb-3">
     <label for="status">Status</label>
@@ -117,7 +124,7 @@
       timer: 3000
     });
     </script>
-  @endif
+    @endif
 
     @if(session('error'))
     <script>
@@ -127,7 +134,7 @@
       text: '{{ session("error") }}',
     });
     </script>
-  @endif
+    @endif
 
 
 @endsection

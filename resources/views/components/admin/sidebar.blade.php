@@ -227,7 +227,11 @@
                     <ul aria-expanded="false" class="collapse first-level">
                         <li class="sidebar-item">
                             <a href="{{ Route('admin.blog') }}" class="sidebar-link"><i class="ri-article-line"></i><span
-                                    class="hide-menu"> Blog</span></a>
+                                    class="hide-menu">Blog</span></a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{{ Route('admin.kategoriblog') }}" class="sidebar-link"><i class="ri-newspaper-line"></i><span
+                                    class="hide-menu">Kategori Blog</span></a>
                         </li>
                         <li class="sidebar-item">
                             <a href="{{ Route('admin.banner') }}" class="sidebar-link"><i class="ri-image-line"></i><span

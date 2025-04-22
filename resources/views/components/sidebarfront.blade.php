@@ -7,11 +7,7 @@
             data-wow-duration="1500ms">
             <h3 class="page-sidebar__title">Informasi Pendaftaran</h3>
             <p class="page-sidebar__text text-center">
-                @if ($informasipendaftaran)
-                    {!! $informasipendaftaran->content !!}
-                @else
-                    <p>Belum ada informasi!</p>
-                @endif
+                {!! nl2br(htmlspecialchars_decode(e($informasipendaftaran->content ?? 'Konten tidak tersedia.'))) !!}
             </p>
         </div><!-- /.page-sidebar__social -->
         <div class="blog-sidebar__left page-sidebar">

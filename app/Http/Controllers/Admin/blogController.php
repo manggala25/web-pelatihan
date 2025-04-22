@@ -4,7 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
 use App\Models\Blog;
+use App\Models\KategoriBlog;
+
+
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -35,9 +39,12 @@ class blogController extends Controller
 
     public function create()
     {
+        $kategoriblog = KategoriBlog::all();
+
         return view('backend.blog.create', [
             'page_title' => 'Tambah Blog',
             'showTambah' => false,
+            'kategoriblog' => $kategoriblog
         ]);
     }
 
@@ -134,11 +141,13 @@ class blogController extends Controller
     public function edit($slug)
     {
         $blog = Blog::where('slug', $slug)->firstOrFail();
+        $kategoriblog = KategoriBlog::all();
 
         return view('backend.blog.edit', [
             'page_title' => 'Edit Blog',
             'showTambah' => false, // Tambahkan ini
-            'blog' => $blog
+            'blog' => $blog,
+            'kategoriblog' => $kategoriblog
         ]);
     }
 

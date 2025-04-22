@@ -30,7 +30,7 @@
                         @foreach($tabs as $tab)
                             <div class="tab {{ $loop->first ? 'active-tab' : '' }} fadeInUp animated" data-wow-delay="200ms"
                                 id="tab{{ $tab->id }}" style="{{ $loop->first ? 'display: block;' : 'display: none;' }}">
-                                <p class="solution-one__service-desc">{!! $tab->content !!}</p>
+                                <p class="solution-one__service-desc">{!! nl2br(htmlspecialchars_decode(e($tab->content ?? 'Konten tidak tersedia.'))) !!}</p>
                             </div>
                         @endforeach
                     @endif
