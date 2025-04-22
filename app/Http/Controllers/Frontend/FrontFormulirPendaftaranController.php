@@ -23,6 +23,6 @@ class FrontFormulirPendaftaranController extends Controller
 
         $asset = Asset::latest('updated_at')->first();
 
-        return view('frontend.formulir-pendaftaran', compact('nama_pelatihan', 'kontak', 'latestBanner'. 'asset'));
+        return view('frontend.formulir-pendaftaran', compact('nama_pelatihan', 'kontak', 'latestBanner', 'asset'));
     }
 }

@@ -93,8 +93,9 @@
     </li>
     <li class="case-study-details__info-item">
     <p class="case-study-details__info-top">Kabupaten/Kota:</p>
-    <p class="case-study-details__info-title">
-    {{ $portofolio->kota_kabupaten ?? '-' }}, {{ $portofolio->provinsi ?? '-' }}
+    <p class="case-study-details__info-title" style="text-transform: uppercase">
+    {{ $portofolio->kotaData->nama_kabkota ?? 'Kota tidak ditemukan' }},
+    {{ $portofolio->provinsiData->nama_provinsi ?? 'Provinsi tidak ditemukan' }}
     </p>
     </li>
     @if(!empty($portofolio->link_klien))

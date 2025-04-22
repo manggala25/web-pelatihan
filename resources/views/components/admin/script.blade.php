@@ -58,6 +58,63 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.41.0/codemirror.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.41.0/mode/xml/xml.min.js"></script>
 <script src="{{ asset('template/backend/package/html/main/../../assets/extra-libs/summernote/summernote-lite.min.js') }}"></script>
+
+
+{{-- Provinsi & Kota/Kabupaten --}}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let kotaList = [];
+
+        // Ambil data provinsi
+        fetch('/json/provinsi.json')
+            .then(res => res.json())
+            .then(data => {
+                const provinsiSelect = document.getElementById('provinsi');
+                data.data.forEach(item => {
+                    const option = document.createElement('option');
+                    option.value = item.kode_provinsi; // Simpan kode provinsi, bukan nama
+                    option.textContent = item.nama_provinsi;
+                    provinsiSelect.appendChild(option);
+                });
+            });
+
+        // Ambil data kota
+        fetch('/json/kota.json')
+            .then(res => res.json())
+            .then(data => {
+                kotaList = data.data;
+            });
+
+        // Saat provinsi berubah
+        document.getElementById('provinsi').addEventListener('change', function () {
+            const selectedProvinsiKode = this.value; // Ambil kode provinsi yang dipilih
+
+            const kotaSelect = document.getElementById('kota_kabupaten');
+            kotaSelect.innerHTML = '<option value="">Pilih Kota/Kabupaten</option>';
+
+            // Filter kota berdasarkan kode provinsi yang dipilih
+            const filteredKota = kotaList.filter(item => item.kode_provinsi === selectedProvinsiKode);
+
+            if (filteredKota.length === 0) {
+                // Jika tidak ada kota untuk provinsi tersebut, tambahkan pesan atau opsi kosong
+                kotaSelect.innerHTML = '<option value="">Tidak ada kota</option>';
+            } else {
+                // Tambahkan opsi kota yang sesuai dengan provinsi
+                filteredKota.forEach(item => {
+                    const option = document.createElement('option');
+                    option.value = item.kode_kabkota; // Simpan kode kota (kode_kabkota)
+                    option.textContent = item.nama_kabkota;
+                    kotaSelect.appendChild(option);
+                });
+            }
+        });
+    });
+</script>
+
+
+
+
+
 <script>
     /************************************/
     //default editor

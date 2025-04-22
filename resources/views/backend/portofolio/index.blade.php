@@ -26,7 +26,7 @@
     <tr>
     <th data-breakpoints="xs">NO.</th>
     <th data-breakpoints="xs sm">Judul Portofolio</th>
-    <th>Nama Klien</th>
+    <th data-breakpoints="all">Nama Klien</th>
     <th data-breakpoints="all">Kategori Tema</th>
     <th data-breakpoints="all">Nama Pelatihan</th>
     <th class="text-center" data-breakpoints="xs">Aksi</th>
@@ -36,7 +36,7 @@
     @forelse ($portofolio as $key => $portofolio)
         <tr>
         <td>{{ $key + 1 }}</td>
-        <td>{{ Str::limit($portofolio->judul_portofolio, 50) }}</td>
+        <td>{{ Str::limit($portofolio->judul_portofolio, 5000) }}</td>
         <td>{{ $portofolio->nama_klien }}</td>
         <td>{{ $portofolio->kategori_tema }}</td>
         <td>{{ $portofolio->nama_pelatihan }}</td>

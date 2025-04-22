@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Portofolio;
 use App\Models\NamaPelatihan;
+use App\Models\Provinsi;
+use App\Models\KotaKabupaten;
+
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -112,10 +115,15 @@ class PortofolioController extends Controller
         // Cari portofolio berdasarkan judul_portofolio
         $portofolio = Portofolio::where('judul_portofolio', $judul_portofolio)->firstOrFail();
 
+        // Ambil data nama provinsi dan kota
+        $nama_provinsi = $portofolio->load('provinsiData', 'kotaData'); // Memuat relasi provinsi dan kota
+
+
         return view('backend.portofolio.show', [
             'page_title' => 'Detail Portofolio',
             'showTambah' => false,
-            'portofolio' => $portofolio
+            'portofolio' => $portofolio,
+            'nama_provinsi' => $nama_provinsi
         ]);
     }
 
@@ -136,11 +144,19 @@ class PortofolioController extends Controller
 
         $portofolio = Portofolio::findOrFail($id);
 
+        // Ambil data provinsi
+        $provinsiList = Provinsi::all();  // Ambil semua data provinsi
+
+        // Ambil data kota berdasarkan provinsi yang dipilih
+        $kotaList = KotaKabupaten::where('kode_provinsi', $portofolio->provinsi)->get();
+
         return view('backend.portofolio.edit', [
             'page_title' => 'Edit Portofolio',
             'showTambah' => false,
             'portofolio' => $portofolio,
-            'pelatihanOptions' => $pelatihanOptions
+            'pelatihanOptions' => $pelatihanOptions,
+            'provinsiList' => $provinsiList,
+            'kotaList' => $kotaList
         ]);
     }
 

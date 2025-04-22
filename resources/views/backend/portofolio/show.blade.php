@@ -33,7 +33,9 @@
 
                 <div class="mb-3">
                     <strong>Lokasi:</strong>
-                    {{ $portofolio->nama_tempat }}, {{ $portofolio->kota_kabupaten }}, {{ $portofolio->provinsi }}
+                    {{ $portofolio->nama_tempat }},
+                    {{ $portofolio->kotaData->nama_kabkota ?? 'Kota tidak ditemukan' }},
+                    {{ $portofolio->provinsiData->nama_provinsi ?? 'Provinsi tidak ditemukan' }}
                 </div>
 
                 <div class="mb-3">

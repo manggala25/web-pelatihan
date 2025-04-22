@@ -94,3 +94,14 @@
         });
     });
 </script>
+
+<script>
+    new TomSelect("#select-pelatihan", {
+        create: false,
+        sortField: {
+            field: "text",
+            direction: "asc"
+        },
+        placeholder: "--Cari Nama Pelatihan--"
+    });
+</script>

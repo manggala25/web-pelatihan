@@ -82,16 +82,30 @@
     </div>
 
     <div class="mb-3">
-    <label for="kota_kabupaten">Kota/Kabupaten</label>
-    <input type="text" name="kota_kabupaten" class="form-control" required
-    value="{{ old('kota_kabupaten', $portofolio->kota_kabupaten) }}" />
+        <label for="provinsi">Provinsi</label>
+        <select name="provinsi" id="provinsi" class="form-control" required>
+            <option value="">Pilih Provinsi</option>
+            @foreach ($provinsiList as $provinsi)
+                <option value="{{ $provinsi->kode_provinsi }}" @if(old('provinsi', $portofolio->provinsi) == $provinsi->kode_provinsi) selected @endif>
+                    {{ $provinsi->nama_provinsi }}
+                </option>
+            @endforeach
+        </select>
     </div>
 
     <div class="mb-3">
-    <label for="provinsi">Provinsi</label>
-    <input type="text" name="provinsi" class="form-control" required
-    value="{{ old('provinsi', $portofolio->provinsi) }}" />
+        <label for="kota_kabupaten">Kota/Kabupaten</label>
+        <select name="kota_kabupaten" id="kota_kabupaten" class="form-control" required>
+            <option value="">Pilih Kota/Kabupaten</option>
+            @foreach ($kotaList as $kota)
+                <option value="{{ $kota->kode_kabkota }}" @if(old('kota_kabupaten', $portofolio->kota_kabupaten) == $kota->kode_kabkota) selected @endif>
+                    {{ $kota->nama_kabkota }}
+                </option>
+            @endforeach
+        </select>
     </div>
+
+
 
     <div class="mb-3">
     <label for="thumbnail">Upload Thumbnail (416x450)</label>
@@ -109,7 +123,7 @@
 
     <div class="mb-3">
     <label for="link_klien">Link Klien</label>
-    <input type="url" name="link_klien" class="form-control"
+    <input type="text" name="link_klien" class="form-control"
     value="{{ old('link_klien', $portofolio->link_klien) }}" />
     </div>
 

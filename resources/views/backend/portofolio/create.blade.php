@@ -66,14 +66,20 @@
     <input type="text" name="nama_tempat" class="form-control" required value="{{ old('nama_tempat') }}" />
     </div>
 
-    <div class="mb-3">
-    <label for="kota_kabupaten">Kota/Kabupaten</label>
-    <input type="text" name="kota_kabupaten" class="form-control" required value="{{ old('kota_kabupaten') }}" />
+    <div class="form-group mb-3">
+        <label for="provinsi">Provinsi</label>
+        <select id="provinsi" name="provinsi" class="form-control">
+            <option value="">Pilih Provinsi</option>
+            <!-- Provinsi akan dimuat disini -->
+        </select>
     </div>
 
-    <div class="mb-3">
-    <label for="provinsi">Provinsi</label>
-    <input type="text" name="provinsi" class="form-control" required value="{{ old('provinsi') }}" />
+    <div class="form-group mb-3">
+        <label for="kota_kabupaten">Kota/Kabupaten</label>
+        <select id="kota_kabupaten" name="kota_kabupaten" class="form-control">
+            <option value="">Pilih Kota/Kabupaten</option>
+            <!-- Kota akan dimuat disini berdasarkan Provinsi -->
+        </select>
     </div>
 
     <div class="mb-3">
@@ -88,7 +94,7 @@
 
     <div class="mb-3">
     <label for="link_klien">Link Website Klien</label>
-    <input type="url" name="link_klien" class="form-control" value="{{ old('link_klien') }}" />
+    <input type="text" name="link_klien" class="form-control" value="{{ old('link_klien') }}" />
     </div>
 
     <div class="mb-3">
