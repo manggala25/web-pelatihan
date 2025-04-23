@@ -72,11 +72,7 @@
     </div>
     <div class="contact-one__info-item">
     <div class="contact-one__info-icon contact-one__info-icon--two">
-    @if ($alamat)
-    {!! nl2br(htmlspecialchars_decode(e($alamat->icon))) !!}
-    @else
-    <p>Tidak ada data untuk "Alamat".</p>
-    @endif
+    <i class="icofont-ui-pointer"></i>
     </div>
     @if ($alamat)
     <a href="{!! nl2br(htmlspecialchars_decode(e($alamat->link))) !!}"
@@ -89,7 +85,14 @@
     <div class="contact-one__social social-list">
     @foreach($informasi_kontak as $d)
     <a href="{!! nl2br(htmlspecialchars_decode(e($d->link))) !!}" class="contact-one__social-link social-link" target="_blank">
-    {!! nl2br(htmlspecialchars_decode(e($d->icon))) !!}
+    {{-- buat kondisi icon tiap nama_kontak --}}
+    @if ($d->nama_kontak === 'Facebook')
+    <i class="icofont-facebook"></i>
+    @elseif ($d->nama_kontak === 'Twitter')
+    <i class="icofont-twitter"></i>
+    @elseif ($d->nama_kontak === 'Instagram')
+    <i class="icofont-instagram"></i>
+    @endif
     </a>
     @endforeach
     </div><!-- /.contact-one__social -->
@@ -164,10 +167,10 @@
     @if ($nama_pelatihan && count($nama_pelatihan) > 0)
     @foreach ($nama_pelatihan as $pelatihan)
     <option value="{{ $pelatihan->nama_pelatihan }}">{{ $pelatihan->nama_pelatihan }}</option>
-  @endforeach
-  @else
-  <option value="" disabled>Tidak ada data untuk "Nama Pelatihan".</option>
-@endif
+    @endforeach
+    @else
+    <option value="" disabled>Tidak ada data untuk "Nama Pelatihan".</option>
+  @endif
     </select>
 
     </div><!-- /.contact__form-input-box -->

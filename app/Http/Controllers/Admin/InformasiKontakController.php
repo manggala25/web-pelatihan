@@ -47,7 +47,7 @@ class InformasiKontakController extends Controller
         $request->validate([
             'nama_kontak' => 'required|string|max:255',
             'link' => 'required',
-            'icon' => 'required|string',
+            'icon' => 'nullable|string',
             'deskripsi' => 'required|string',
         ]);
 
@@ -101,7 +101,7 @@ class InformasiKontakController extends Controller
         $request->validate([
             'nama_kontak' => 'required|string|max:255',
             'link' => 'required',
-            'icon' => 'required|string',
+            'icon' => 'nullable|string',
             'deskripsi' => 'required|string',
         ]);
 
