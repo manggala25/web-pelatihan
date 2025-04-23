@@ -44,8 +44,8 @@
               <option value="{{ $option['value'] }}">{{ $option['label'] }}</option>
             @endforeach
             </select>
-            </div>
-        @endif
+            @endif
+        </div>
 
     <div class="col-md-6">
     <div class="mb-3">

@@ -37,7 +37,6 @@
 
     <div class="mb-3">
         <label for="kategori_tema_nama_pelatihan" class="form-label">Kategori Tema & Nama Pelatihan</label>
-
         @if ($pelatihanOptions->isEmpty())
             <div class="alert alert-warning">
                 <strong>Perhatian!</strong> Data pelatihan tidak tersedia.
@@ -53,10 +52,6 @@
                 @endforeach
             </select>
         @endif
-
-        @error('kategori_tema_nama_pelatihan')
-            <div class="text-danger">{{ $message }}</div>
-        @enderror
     </div>
 
 
