@@ -312,7 +312,7 @@
         <!-- Section Tambahan Homepage End -->
 
         <!-- Blog One Start -->
-        <section class="blog-one blog @@extraClassName">
+        <section class="blog-one blog @@extraClassName pt-4">
             <div class="container">
                 <div class="blog-one__sec-title sec-title">
                     <div class="blog-one__top-wrap sec-title__top-wrap">
