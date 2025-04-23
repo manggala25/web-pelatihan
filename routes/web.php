@@ -305,3 +305,7 @@ Route::get('/formulir-pendaftaran', [FrontFormulirPendaftaranController::class, 
 
 
 require __DIR__ . '/auth.php';
+
+Route::get('/login', function () {
+    abort(404);
+});
