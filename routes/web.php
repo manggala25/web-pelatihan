@@ -311,5 +311,5 @@ Route::fallback(function () {
 require __DIR__ . '/auth.php';
 
 Route::get('/login', function () {
-    abort(404);
+    return view('home');
 });
