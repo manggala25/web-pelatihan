@@ -21,7 +21,7 @@
                         </a>
                     </div>
                     <p class="footer-one__about-text">
-                        "Memberikan pelayanan terbaik dalam pelatihan dengan profesional" atau "Terlatih, Kompeten, Siap Kerja"
+                        {!! $asset->motto ?? '...' !!}
                     </p>
                     <div class="mfooter-social__social social-list">
                         @if ($kontak->isNotEmpty())
