@@ -43,7 +43,8 @@
                 <strong>Perhatian!</strong> Data pelatihan tidak tersedia.
             </div>
         @else
-            <select name="kategori_tema_nama_pelatihan" class="form-select" required>
+            <select name="kategori_nama_pelatihan" class=" select2 form-control custom-select" style="width: 100%; height: 40px"
+                required>
                 <option value="">-- Pilih Kategori Tema & Nama Pelatihan --</option>
                 @foreach ($pelatihanOptions as $option)
                     <option value="{{ $option['value'] }}" {{ old('kategori_tema_nama_pelatihan', ($portofolio->kategori_tema ?? '') . '|' . ($portofolio->nama_pelatihan ?? '')) == $option['value'] ? 'selected' : '' }}>
