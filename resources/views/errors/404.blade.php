@@ -22,7 +22,7 @@
         </div><!-- /.error-page__sec-title -->
         <div class="error-page__link-wrap">
           <span class="error-page__arrow icon-arrow-right-2"></span>
-          <a href="{{ route('beranda') }}" class="error-page__text-link">Kembali Ke Beranda</a>
+          <a href="{{ route('home') }}" class="error-page__text-link">Kembali Ke Beranda</a>
         </div><!-- /.error-page__link-wrap -->
         <h3 class="error-page__desc">Maaf, halaman yang Anda cari tidak ditemukan.</h3>
       </div><!-- /.error-page__content -->
