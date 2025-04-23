@@ -421,7 +421,9 @@
                 <div class="row g-4">
                     <div class="col-lg-8">
                         <div class="mini-banner-one__content sec-title">
-                            <h2 class="mini-banner-one__heading sec-title__heading">Daftar sekarang untuk raih keterampilan terbaik Anda</h2>
+                            <h2 class="mini-banner-one__heading sec-title__heading">
+                                Hubungi Kami Untuk Informasi Lebih Lanjut
+                            </h2>
                         </div><!-- /.mini-banner-one__content -->
                     </div>
                     <div class="col-lg-4">
