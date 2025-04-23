@@ -88,10 +88,10 @@
     {{-- buat kondisi icon tiap nama_kontak --}}
     @if ($d->nama_kontak === 'Facebook')
     <i class="icofont-facebook"></i>
-    @elseif ($d->nama_kontak === 'Twitter')
-    <i class="icofont-twitter"></i>
     @elseif ($d->nama_kontak === 'Instagram')
     <i class="icofont-instagram"></i>
+    @elseif ($d->nama_kontak === 'Twitter')
+    <i class="icofont-twitter"></i>
     @endif
     </a>
     @endforeach
