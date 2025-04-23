@@ -302,6 +302,10 @@ Route::get('/jadwal-pelatihan', [FrontJadwalPelatihanController::class, 'index']
 Route::get('/formulir-pendaftaran', [FrontFormulirPendaftaranController::class, 'index'])->name('formulir-pendaftaran');
 
 
+// routes/web.php
+Route::fallback(function () {
+    return response()->view('errors.404', [], 404);
+});
 
 
 require __DIR__ . '/auth.php';
