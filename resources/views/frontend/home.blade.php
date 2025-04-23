@@ -68,7 +68,8 @@
                                 {{ $profil ? $profil->heading : 'Kenal Kami Lebih Dalam' }}
                             </h2>
                             <p class="solution-one__service-desc">
-                                {!! nl2br(Str::limit(strip_tags($profil->deskripsi), 450)) !!}
+                                {{-- Buat kondisi deskripsi --}}
+                                {!! nl2br(htmlspecialchars_decode(e($profil->deskripsi ?? 'Deskripsi tidak tersedia.'))) !!}
                             </p>
                             <a href="{{ route('tentang-kami') }}" class="service-one__btn noile-btn">Baca Selengkapnya +</a>
                             <!-- /.olution-one__main-tab-box -->
