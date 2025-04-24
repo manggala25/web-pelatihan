@@ -28,8 +28,6 @@
 <!--Custom JavaScript -->
 <script src="{{  asset('template/backend/package/html/main/../../dist/js/feather.min.js') }}"></script>
 <script src="{{  asset('template/backend/package/html/main/../../dist/js/custom.min.js') }}"></script>
-<!--This page JavaScript -->
-{{-- <script src="{{  asset('template/backend/package/html/main/../../assets/libs/apexcharts/dist/apexcharts.min.js') }}"></script> --}}
 <!-- Chart JS -->
 <script src="{{  asset('template/backend/package/html/main/../../dist/js/pages/dashboards/dashboard1.js') }}"></script>
 
