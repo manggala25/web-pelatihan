@@ -234,7 +234,7 @@
         <!-- Target Peserta Pelatihan End -->
 
         <!-- Portfolio Kegiatan Start -->
-        <section class="case-study-one case-study">
+        <section class="case-study-one case-study pb-5">
             <div class="container">
                 <div class="case-study-one__sec-title sec-title">
                     <div class="case-study-one__top-wrap sec-title__top-wrap">
