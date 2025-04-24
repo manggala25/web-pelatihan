@@ -311,5 +311,5 @@ Route::fallback(function () {
 require __DIR__ . '/auth.php';
 
 Route::get('/login', function () {
-    return view('frontend.home');
+    return view('errors.404');
 });
