@@ -18,7 +18,7 @@
                 .join(' '); // Menggabungkan kembali menjadi string
 
             // Tambahkan awalan "PUSPEKOM ||" pada judul
-            document.title = "PUSPEKOM || " + title;
+            document.title = "PUSPEKOM | " + title;
         });
     </script>
     <!-- favicons Icons -->
