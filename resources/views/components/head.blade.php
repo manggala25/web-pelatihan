@@ -1,3 +1,5 @@
+@props(['asset'])
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,14 +22,13 @@
         });
     </script>
     <!-- favicons Icons -->
-    <link rel="apple-touch-icon" sizes="180x180"
-        href="{{ asset('template/frontend/assets/images/favicons/apple-touch-icon.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32"
-        href="{{ asset('template/frontend/assets/images/favicons/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16"
-        href="{{ asset('template/frontend/assets/images/favicons/favicon-16x16.png') }}">
-    <link rel="manifest" href="{{ asset('template/frontend/assets/images/favicons/site.webmanifest') }}">
-    <meta name="description" content="Business HTML Template For Business Agency">
+    {{-- Ambil dari logo database --}}
+    @if(!empty($asset->logo_reguler))
+        <link rel="shortcut icon" href="{{ asset('storage/' . $asset->logo_reguler) }}" type="image/x-icon">
+    @endif
+
+
+    <meta name="description" content="Puspekom">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
