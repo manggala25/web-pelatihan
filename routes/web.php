@@ -313,3 +313,7 @@ require __DIR__ . '/auth.php';
 Route::get('/login', function () {
     return view('errors.404');
 });
+
+Route::get('/login', function () {
+    return redirect()->route('admin.login');
+})->name('login');
