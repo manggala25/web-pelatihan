@@ -310,6 +310,20 @@
   transform: rotate(0deg);
 }
 
+.hubungi{
+  color: var(--noile-base, #D94645);
+  text-decoration: none;
+}
+
+.hubungi:hover{
+  color: var(--noile-primary, #1d1d1d);
+  text-decoration:none;
+}
+
+.hubungi .icon-arrow-right-2{
+  transform: rotate(40deg);
+}
+
 .slide-title__heading {
   font-size: var(--noile-size-7xl);
   color: var(--noile-white, #ffffff);

@@ -1,55 +1,55 @@
 @extends('frontend.layouts.app') <!-- Memanggil layout utama -->
 @section('content')
+
         <!-- Main Slider Start -->
-        <section class="main-slider">
-        <div class="main-slider__carousel noile-owl__carousel owl-carousel owl-theme"
-        data-owl-options='{"loop": true, "items": 1, "navText": ["<span class=\"icon-arrow-left\"></span>","<span class=\"icon-arrow-right\"></span>"], "margin": 0, "dots": true, "nav": false, "animateOut": "slideOutDown", "animateIn": "fadeIn", "active": true, "smartSpeed": 1000, "autoplay": true, "autoplayTimeout": 7000, "autoplayHoverPause": false, "navSpeed": 3000}'>
-
-        @if($portofolio->count())
-            @foreach($portofolio as $item)
-                {{-- Slide One --}}
-                <div class="main-slider__slide main-slider__slide-one item">
-                    <div class="main-slider__bg" style="background-image: url('{{ asset('storage/' . $item->cover) }}')">
-                        <div class="main-slider__vartical-line-wrap slide-title">
-                            <div class="main-slider__vartical-line main-slider__vartical-line--one"></div>
-                            <div class="main-slider__vartical-line main-slider__vartical-line--two"></div>
-                            <div class="main-slider__vartical-line main-slider__vartical-line--three"></div>
+        <section class="hero-section position-relative text-dark" style="height: 100vh; position: relative; overflow: hidden;">
+            <div class="container-fluid p-0">
+                <div class="row g-0">
+                    <div class="col-12 p-0" style="
+                        z-index: 2;
+                        min-height: 130vh;
+                        background: linear-gradient(88deg, #FFF 36%, rgba(255, 255, 255, 0.00) 92.63%);
+                        ">
+                        <div>
+                        <div class="col-lg-7 col-md-12 p-5 ms-4 my-5">
+                            <div class="sec-title__top-wrap mb-4">
+                                @if(!empty($asset->logo_reguler))
+                                    <img src="{{ asset('storage/' . $asset->logo_reguler) }}" alt="top-title-logo">
+                                @endif
+                                <p class="sec-title__top">Selamat Datang di</p>
+                            </div>
+                            <h1 class="display-4 fw-bold">Pusat Studi Pengembangan Kompetensi
+                            </h1>
+                            <p class="mt-4 text-muted">
+                                Kami hadir untuk membantu pemerintah dan instansi terkait dalam mensosialisasikan regulasi,
+                                serta memperbaiki sistem pelayanan publik.
+                            </p>
+                            <div class="mt-4 d-flex flex-wrap gap-4">
+                                <a href="{{ route('kontak') }}" class="noile-btn" target="_blank">
+                                    Program Kami
+                                </a>
+                                <a href="{{ route('kontak') }}" class="d-flex align-items-center btn btn-link hubungi fw-semibold gap-2">Hubungi Kami <i class="icon-arrow-right-2"></i> </a>
+                            </div>
                         </div>
-                    </div> <!-- /.Slide One BG -->
-                    <div class="main-slider__container container">
-                        <div class="main-slider__circle"></div>
-                        <div class="main-slider__content slide-title">
-                            <p class="main-slider__desc">◎ Portofolio Kegiatan</p>
-                            <h1 class="main-slider__title slide-title__heading">{{ Str::limit($item->judul_portofolio, 50, '...') }}</h1>
-                            <div class="main-slider__desc-wrap slide-title__desc-wrap">
-                                <span class="main-slider__arrow icon-arrow-right-2"></span>
-                                <p class="main-slider__desc">{{ $item->kategori_tema }}</p>
-                            </div>
-                            <div class="main-slider__btn-box slide-title__btn-box">
-                                <a href="{{ route('detail-galeri', $item->slug) }}" class="main-slider__btn noile-btn">Lihat Detail
-                                    +</a>
-                            </div>
-                        </div>
-                        <a href="#" class="main-slider__circle-text">
-                            <div class="main-slider__curved-circle curved-circle">
-                                <div class="main-slider__curved-circle--item curved-circle--item" data-circle-text-options='{
-                                            "radius": 92,
-                                            "forceWidth": true,
-                                            "forceHeight": true}'>
-                                </div>
-                            </div>
-                        </a>
                     </div>
+                    <div class="col-lg-6 d-none d-lg-block"></div>
                 </div>
-            @endforeach
-        @else
-            <div class="text-center py-5">
-                <h2>Data portofolio belum dibuat.</h2>
             </div>
-        @endif
 
-        </div>
+            <!-- Background image -->
+            <div class="position-absolute top-0 start-0 w-100 h-100 bg-cover bg-center"
+                style="background-image: url('https://aspi.or.id/wp-content/uploads/2018/11/Acara-Semnas-ASPI-2018.jpg'); z-index: 1; bacskground-size: cover; background-position: center;">
+            </div>
+
+            <!-- WhatsApp Button -->
+            <a href="https://wa.me/6281234567890" target="_blank"
+                class="position-fixed bottom-0 end-0 m-4 d-flex align-items-center bg-white border rounded-pill shadow px-3 py-2 text-decoration-none"
+                style="z-index: 1050;">
+                <img src="https://img.icons8.com/ios-filled/24/25D366/whatsapp.png" alt="WA" class="me-2" />
+                <span class="fw-semibold text-dark">Hubungi Kami</span>
+            </a>
         </section>
+
         <!-- Main Slider End -->
 
         <!-- Tentang Kami Start -->
