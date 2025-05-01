@@ -25,7 +25,7 @@
                                 serta memperbaiki sistem pelayanan publik.
                             </p>
                             <div class="mt-4 d-flex flex-wrap gap-4">
-                                <a href="{{ route('kontak') }}" class="noile-btn" target="_blank">
+                                <a href="{{ route('tema-pelatihan') }}" class="noile-btn" target="_blank">
                                     Program Kami
                                 </a>
                                 <a href="{{ route('kontak') }}" class="d-flex align-items-center btn btn-link hubungi fw-semibold gap-2">Hubungi Kami <i class="icon-arrow-right-2"></i> </a>
