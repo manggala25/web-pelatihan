@@ -324,6 +324,34 @@
   transform: rotate(40deg);
 }
 
+.wa-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 70px;
+    height: 70px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 9999;
+    animation: float 2s ease-in-out infinite;
+}
+.wa-btn.show {
+    opacity: 1;
+    visibility: visible;
+}
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+
 .slide-title__heading {
   font-size: var(--noile-size-7xl);
   color: var(--noile-white, #ffffff);

@@ -21,6 +21,12 @@
   {{-- sidebar --}}
   {{-- <x-sidebar /> --}}
 
+  <!-- WhatsApp Button -->
+  <a id="wa-button" href="https://wa.me/6281234567890" target="_blank" class="wa-btn" data-bs-toggle="tooltip"
+    data-bs-placement="left" title="Hubungi Kami">
+    <img src="https://img.icons8.com/?size=60&id=16466&format=png&color=ffffff" alt="WhatsApp" />
+  </a>
+
   <x-script />
 </body>
 

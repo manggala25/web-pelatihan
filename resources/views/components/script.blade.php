@@ -105,3 +105,23 @@
         placeholder: "--Cari Nama Pelatihan--"
     });
 </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const waButton = document.getElementById('wa-button');
+
+        // Inisialisasi tooltip Bootstrap
+        new bootstrap.Tooltip(waButton);
+
+        window.addEventListener('scroll', function () {
+            const scrollTop = window.scrollY;
+            const scrollBottom = document.body.scrollHeight - window.innerHeight - scrollTop;
+
+            if (scrollTop > 100 && scrollBottom > 200) {
+                waButton.classList.add('show');
+            } else {
+                waButton.classList.remove('show');
+            }
+        });
+    });
+</script>

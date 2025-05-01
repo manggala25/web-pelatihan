@@ -2,13 +2,13 @@
 @section('content')
 
         <!-- Main Slider Start -->
-        <section class="hero-section position-relative text-dark" style="height: 100vh; position: relative; overflow: hidden;">
-            <div class="container-fluid p-0">
-                <div class="row g-0">
+        <section class="hero-section position-relative text-dark" style="height: 100vh; position: relative; overflow: hidden; background-image: url('https://aspi.or.id/wp-content/uploads/2018/11/Acara-Semnas-ASPI-2018.jpg'); z-index: 1; background-size: cover; background-position: center; min-height: 110vh;">
+            <div class="container-fluid p-0 h-100">
+                <div class="row g-0 h-100">
                     <div class="col-12 p-0" style="
                         z-index: 2;
-                        min-height: 130vh;
-                        background: linear-gradient(88deg, #FFF 36%, rgba(255, 255, 255, 0.00) 92.63%);
+                        min-height: 100%;
+                        background: linear-gradient(88deg, #FFF 40%, rgba(255, 255, 255, 0.00) 92.63%);
                         ">
                         <div>
                         <div class="col-lg-7 col-md-12 p-5 ms-4 my-5">
@@ -35,19 +35,6 @@
                     <div class="col-lg-6 d-none d-lg-block"></div>
                 </div>
             </div>
-
-            <!-- Background image -->
-            <div class="position-absolute top-0 start-0 w-100 h-100 bg-cover bg-center"
-                style="background-image: url('https://aspi.or.id/wp-content/uploads/2018/11/Acara-Semnas-ASPI-2018.jpg'); z-index: 1; bacskground-size: cover; background-position: center;">
-            </div>
-
-            <!-- WhatsApp Button -->
-            <a href="https://wa.me/6281234567890" target="_blank"
-                class="position-fixed bottom-0 end-0 m-4 d-flex align-items-center bg-white border rounded-pill shadow px-3 py-2 text-decoration-none"
-                style="z-index: 1050;">
-                <img src="https://img.icons8.com/ios-filled/24/25D366/whatsapp.png" alt="WA" class="me-2" />
-                <span class="fw-semibold text-dark">Hubungi Kami</span>
-            </a>
         </section>
 
         <!-- Main Slider End -->
