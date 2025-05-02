@@ -2,7 +2,7 @@
 @section('content')
 
         <!-- Main Slider Start -->
-        <section class="hero-section position-relative text-dark" style="height: 100vh; position: relative; overflow: hidden; background-image: url('https://aspi.or.id/wp-content/uploads/2018/11/Acara-Semnas-ASPI-2018.jpg'); z-index: 1; background-size: cover; background-position: center; min-height: 110vh;">
+        <section class="hero-section position-relative text-dark" style="height: 100vh; position: relative; overflow: hidden; background-image: url('{{ asset('storage/' . $hero->background) }}'); z-index: 1; background-size: cover; background-position: center; min-height: 110vh;">
             <div class="container-fluid p-0 h-100">
                 <div class="row g-0 h-100">
                     <div class="col-12 p-0" style="
@@ -16,13 +16,15 @@
                                 @if(!empty($asset->logo_reguler))
                                     <img src="{{ asset('storage/' . $asset->logo_reguler) }}" alt="top-title-logo">
                                 @endif
-                                <p class="sec-title__top">Selamat Datang di</p>
+                                <p class="sec-title__top">
+                                    {{ $hero ? $hero->top_title : 'Selamat Datang di' }}
+                                </p>
                             </div>
-                            <h1 class="display-4 fw-bold">Pusat Studi Pengembangan Kompetensi
+                            <h1 class="display-4 fw-bold">
+                                {{ $hero ? $hero->heading : 'Pusat Studi Pengembangan Kompetensi' }}
                             </h1>
                             <p class="mt-4 text-muted">
-                                Kami hadir untuk membantu pemerintah dan instansi terkait dalam mensosialisasikan regulasi,
-                                serta memperbaiki sistem pelayanan publik.
+                                {{ $hero ? $hero->paragraf : 'Kami hadir untuk membantu pemerintah dan instansi terkait dalam mensosialisasikan regulasi, serta memperbaiki sistem pelayanan publik.' }}
                             </p>
                             <div class="mt-4 d-flex flex-wrap gap-4">
                                 <a href="{{ route('tema-pelatihan') }}" class="noile-btn">

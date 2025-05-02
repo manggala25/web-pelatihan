@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\blogController;
 use App\Http\Controllers\Admin\KategoriBlogController;
 use App\Http\Controllers\Admin\PortofolioController;
@@ -60,6 +61,15 @@ Route::prefix($adminPrefix)->group(function () {
         Route::get('/admin/section/{id}/edit', [SectionController::class, 'edit'])->name('admin.section.edit');
         Route::patch('/admin/section/{id}/update', [SectionController::class, 'update'])->name('admin.section.update');
         Route::delete('/admin/section/{id}', [SectionController::class, 'destroy'])->name('admin.section.destroy');
+
+        // Hero Routes
+        Route::get('/hero', [HeroController::class, 'index'])->name('admin.hero');
+        Route::get('/hero/create', [HeroController::class, 'create'])->name('admin.hero.create');
+        Route::post('/hero/store', [HeroController::class, 'store'])->name('admin.hero.store');
+        Route::get('/admin/hero/{id}', [HeroController::class, 'show'])->name('admin.hero.show');
+        Route::get('/admin/hero/{id}/edit', [HeroController::class, 'edit'])->name('admin.hero.edit');
+        Route::patch('/admin/hero/{id}/update', [HeroController::class, 'update'])->name('admin.hero.update');
+        Route::delete('/admin/hero/{id}', [HeroController::class, 'destroy'])->name('admin.hero.destroy');
 
         // Blog Routes
         Route::get('/blog', [blogController::class, 'index'])->name('admin.blog');

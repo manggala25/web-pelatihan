@@ -29,6 +29,10 @@
                             data-feather="home"></i><span class="hide-menu">Beranda</span></a>
                     <ul aria-expanded="false" class="collapse first-level">
                         <li class="sidebar-item">
+                            <a href="{{ Route('admin.hero') }}" class="sidebar-link"><i class="ri-home-4-line"></i><span
+                                    class="hide-menu">Hero Section</span></a>
+                        </li>
+                        <li class="sidebar-item">
                             <a href="{{ Route('admin.portofolio') }}" class="sidebar-link"><i class="ri-award-line"></i><span
                                     class="hide-menu">Portofolio</span></a>
                         </li>

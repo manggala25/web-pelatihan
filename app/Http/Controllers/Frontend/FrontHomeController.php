@@ -16,6 +16,7 @@ use App\Models\TargetPelatihan;
 use App\Models\SectionBentukPelatihan;
 use App\Models\Section;
 use App\Models\Asset;
+use App\Models\Hero;
 
 class FrontHomeController extends Controller
 {
@@ -47,7 +48,11 @@ class FrontHomeController extends Controller
 
         $asset = Asset::latest('updated_at')->first();
 
+        // Ambil 1 Hero yang baru diupdate
+        $hero = Hero::latest('updated_at')->first();
+        
+
         $portofolio = Portofolio::latest('updated_at')->get();
-        return view('frontend.home', compact('portofolio', 'profil', 'blog', 'kontak', 'bentuk_pelatihan', 'mitra', 'target_pelatihan', 'section_bentuk_pelatihan', 'section', 'asset'));
+        return view('frontend.home', compact('portofolio', 'profil', 'blog', 'kontak', 'bentuk_pelatihan', 'mitra', 'target_pelatihan', 'section_bentuk_pelatihan', 'section', 'asset', 'hero'));
     }
 }
