@@ -12,7 +12,7 @@
                         ">
                         <div>
                         <div class="col-lg-7 col-md-12 p-5 ms-4 my-5">
-                            <div class="sec-title__top-wrap mb-4">
+                            <div class="sec-title__top-wrap mb-4 justify-content-md-center">
                                 @if(!empty($asset->logo_reguler))
                                     <img src="{{ asset('storage/' . $asset->logo_reguler) }}" alt="top-title-logo">
                                 @endif
@@ -20,13 +20,13 @@
                                     {{ $hero ? $hero->top_title : 'Selamat Datang di' }}
                                 </p>
                             </div>
-                            <h1 class="display-4 fw-bold">
+                            <h1 class="display-4 fw-bold text-md-center">
                                 {{ $hero ? $hero->heading : 'Pusat Studi Pengembangan Kompetensi' }}
                             </h1>
-                            <p class="mt-4 text-muted">
+                            <p class="mt-4 text-muted text-md-center">
                                 {{ $hero ? $hero->paragraf : 'Kami hadir untuk membantu pemerintah dan instansi terkait dalam mensosialisasikan regulasi, serta memperbaiki sistem pelayanan publik.' }}
                             </p>
-                            <div class="mt-4 d-flex flex-wrap gap-4">
+                            <div class="mt-4 d-flex flex-wrap gap-4 justify-content-md-center">
                                 <a href="{{ route('tema-pelatihan') }}" class="noile-btn">
                                     Program Kami
                                 </a>
