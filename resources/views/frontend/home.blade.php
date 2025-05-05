@@ -26,7 +26,7 @@
                             <p class="mt-4 text-muted text-lg-start text-center">
                                 {{ $hero ? $hero->paragraf : 'Kami hadir untuk membantu pemerintah dan instansi terkait dalam mensosialisasikan regulasi, serta memperbaiki sistem pelayanan publik.' }}
                             </p>
-                            <div class="mt-4 d-flex flex-wrap gap-md-4 gap-1 justify-content-lg-start justify-content-center">
+                            <div class="mt-4 d-flex flex-wrap gap-4 justify-content-lg-start justify-content-center">
                                 <a href="{{ route('tema-pelatihan') }}" class="noile-btn">
                                     Program Kami
                                 </a>
