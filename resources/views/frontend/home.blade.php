@@ -11,8 +11,8 @@
                         background: linear-gradient(88deg, #FFF 40%, rgba(255, 255, 255, 0.00) 92.63%);
                         ">
                         <div>
-                        <div class="col-lg-7 col-md-12 p-5 ms-4 my-5">
-                            <div class="sec-title__top-wrap mb-4 justify-content-lg-start justify-content-center">
+                        <div class="col-lg-7 col-12 p-5 ms-md-4 ms-1 my-md-5 my-2">
+                            <div class="sec-title__top-wrap mb-md-4 mb-1 justify-content-lg-start justify-content-center">
                                 @if(!empty($asset->logo_reguler))
                                     <img src="{{ asset('storage/' . $asset->logo_reguler) }}" alt="top-title-logo">
                                 @endif
@@ -26,7 +26,7 @@
                             <p class="mt-4 text-muted text-lg-start text-center">
                                 {{ $hero ? $hero->paragraf : 'Kami hadir untuk membantu pemerintah dan instansi terkait dalam mensosialisasikan regulasi, serta memperbaiki sistem pelayanan publik.' }}
                             </p>
-                            <div class="mt-4 d-flex flex-wrap gap-4 justify-content-lg-start justify-content-center">
+                            <div class="mt-4 d-flex flex-wrap gap-md-4 gap-1 justify-content-lg-start justify-content-center">
                                 <a href="{{ route('tema-pelatihan') }}" class="noile-btn">
                                     Program Kami
                                 </a>
